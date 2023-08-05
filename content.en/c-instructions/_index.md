@@ -37,8 +37,6 @@ There are several subtle variations of the type declaration instruction. These a
   float a = 1.5, b = 1.99 + 2.4 \* 1.44 ;
   {{< / highlight >}}
 
-A
-
 - The order in which we define the variables is sometimes important sometimes not.
   For example,
   {{< highlight c >}}
