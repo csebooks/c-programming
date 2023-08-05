@@ -3,25 +3,30 @@ title: 'C Instructions'
 weight: 2
 ---
 
-   
-
-program is nothing but a set of instructions. The program behaves as per the instructions that we give in it. Different instructions help
+A program is nothing but a set of instructions. The program behaves as per the instructions that we give in it. Different instructions help
 
 us achieve different tasks in a program. In the last chapter we saw how to write simple C programs. In these programs knowingly or unknowingly we have used instructions to achieve the intended purpose of the program. In this chapter we would explore the instructions that we have used in these programs.
 
-**Types of Instructions** There are basically three types of instructions in C:
+# Types of Instructions
+
+There are basically three types of instructions in C:
 
 - Type Declaration Instruction – This instruction is used to declare the type of variables used in a C program.
-
 - Arithmetic Instruction – This instruction is used to perform arithmetic operations on constants and variables.
-
 - Control Instruction – This instruction is used to control the sequence of execution of various statements in a C program.
 
 Since, the elementary C programs would usually contain only the type declaration and the arithmetic instructions; we would discuss only these two instructions at this stage. The control instruction would be discussed in detail in the subsequent chapters.
 
-**Type Declaration Instruction** This instruction is used to declare the type of variables being used in the program. Any variable used in the program must be declared before using it in any statement. The type declaration statement is written at the beginning of **main( )** function.
+## Type Declaration Instruction
 
-Ex.: int bas ; float rs, grosssal ; char name, code ;
+This instruction is used to declare the type of variables being used in the program. Any variable used in the program must be declared before using it in any statement. The type declaration statement is written at the beginning of **main( )** function.
+
+Ex.: 
+{{< highlight c >}}
+int bas ; 
+float rs, grosssal ; 
+char name, code ;
+{{< / highlight >}}
 
 There are several subtle variations of the type declaration instruction. These are discussed below:
 
@@ -59,9 +64,13 @@ int a = b = c = d = 10 ;
 
 Once again we are trying to use **b** (to assign to **a**) before defining it.
 
-**Arithmetic Instruction** A C arithmetic instruction consists of a variable name on the left hand side of = and variable names and constants on the right hand side of =. The variables and constants appearing on the right hand side of = are connected by arithmetic operators like **+, -, \*,** and **/**.
+## Arithmetic Instruction
 
-Ex.: int ad ; float kot, deta, alpha, beta, gamma ; ad = 3200 ; kot = 0.0056 ; deta = alpha \* beta / gamma + 3.2 \* 2 / 5 ;
+A C arithmetic instruction consists of a variable name on the left hand side of = and variable names and constants on the right hand side of =. The variables and constants appearing on the right hand side of = are connected by arithmetic operators like **+, -, \*,** and **/**.
+
+Ex.: 
+int ad ; 
+float kot, deta, alpha, beta, gamma ; ad = 3200 ; kot = 0.0056 ; deta = alpha \* beta / gamma + 3.2 \* 2 / 5 ;
 
 Here,
 
