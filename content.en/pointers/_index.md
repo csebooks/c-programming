@@ -5,7 +5,8 @@ weight: 9
 
 which feature of C do beginners find most difficult to understand? The answer is easy: pointers. Other languages have pointers but few use them so frequently as C does. And why not? It is C’s clever use of pointers that makes it the excellent language it is. This chapter is devoted to pointers and their usage in function calls. Let us begin with the function calls.
 
-**Call by Value and Call by Reference** By now, we are well familiar with how to call functions. But, if you observe carefully, whenever we called a function and passed something to it we have always passed the ‘values’ of variables to the called function. Such function calls are called ‘calls by value’. By this what we mean is, on calling a function, we are passing values of variables to it. The examples of call by value are shown below:
+#Call by Value and Call by Reference#
+ By now, we are well familiar with how to call functions. But, if you observe carefully, whenever we called a function and passed something to it we have always passed the ‘values’ of variables to the called function. Such function calls are called ‘calls by value’. By this what we mean is, on calling a function, we are passing values of variables to it. The examples of call by value are shown below:
 
 ```
 sum = calsum ( *a, b, c ) ; 
