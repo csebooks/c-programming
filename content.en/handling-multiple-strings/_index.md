@@ -7,7 +7,8 @@ In the last chapter, you learnt how to deal with individual strings. But often w
 
 string. This chapter discusses how such situations can be handled effectively.
 
-**Two-Dimensional Array of Characters** In Chapter 14 we saw several examples of two-dimensional integer arrays. Let’s now look at a similar entity, but one dealing with characters. Our example program asks you to type your name. When you do so, it checks your name against a master list to see if you are worthy of entry to the palace. Here’s the program...
+# Two-Dimensional Array of Characters # 
+In Chapter 14 we saw several examples of two-dimensional integer arrays. Let’s now look at a similar entity, but one dealing with characters. Our example program asks you to type your name. When you do so, it checks your name against a master list to see if you are worthy of entry to the palace. Here’s the program...
 
 \# include <stdio.h> # include <string.h> # define FOUND 1 # define NOTFOUND 0 int main( ) { char masterlist\[ 6 \]\[ 10 \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; int i, flag, a ; char yourname\[ 10 \] ; printf ( "Enter your name " ) ; scanf ( "%s", yourname ) ; flag = NOTFOUND ; for ( i = 0 ; i <= 5 ; i++ ) { a = strcmp ( &masterlist\[ i \]\[ 0 \], yourname ) ; if ( a == 0 ) { printf ( "Welcome, you can enter the palace\\n" ) ; flag = FOUND ;
 
