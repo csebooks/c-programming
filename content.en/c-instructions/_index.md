@@ -1,5 +1,5 @@
 ---
-title: 'C Instructions'
+title: "C Instructions"
 weight: 2
 ---
 
@@ -21,56 +21,52 @@ Since, the elementary C programs would usually contain only the type declaration
 
 This instruction is used to declare the type of variables being used in the program. Any variable used in the program must be declared before using it in any statement. The type declaration statement is written at the beginning of **main( )** function.
 
-Ex.: 
+Ex.:
 {{< highlight c >}}
-int bas ; 
-float rs, grosssal ; 
+int bas ;
+float rs, grosssal ;
 char name, code ;
 {{< / highlight >}}
 
 There are several subtle variations of the type declaration instruction. These are discussed below:
 
 - While declaring the type of variable we can also initialize it as shown below.
-
-int i = 10, j = 25 ; float a = 1.5, b = 1.99 + 2.4 \* 1.44 ;
+  Ex.:
+  {{< highlight c >}}
+  int i = 10, j = 25 ;
+  float a = 1.5, b = 1.99 + 2.4 \* 1.44 ;
+  {{< / highlight >}}
 
 A
 
-- The order in which we define the variables is sometimes important sometimes not. For example,
-
-int i = 10, j = 25 ;
-
-is same as
-
-int j = 25, i = 10 ;
-
-However,
-
-float a = 1.5, b = a + 3.1 ;
-
-is alright, but
-
-float b = a + 3.1, a = 1.5 ;
-
-is not. This is because here we are trying to use **a** before defining it.
-
-- The following statements would work
-
-int a, b, c, d ; a = b = c = 10 ;
-
-However, the following statement would not work
-
-int a = b = c = d = 10 ;
-
-Once again we are trying to use **b** (to assign to **a**) before defining it.
+- The order in which we define the variables is sometimes important sometimes not.
+  For example,
+  {{< highlight c >}}
+  int i = 10, j = 25 ;
+  //is same as
+  int j = 25, i = 10 ;
+  //However,
+  float a = 1.5, b = a + 3.1 ;
+  //is alright, but
+  float b = a + 3.1, a = 1.5 ;
+  //is not. This is because here we are trying to use **a** before defining it.
+  //- The following statements would work
+  int a, b, c, d ; a = b = c = 10 ;
+  //However, the following statement would not work
+  int a = b = c = d = 10 ;
+  //Once again we are trying to use **b** (to assign to **a**) before defining it.
+  {{< / highlight >}}
 
 ## Arithmetic Instruction
 
 A C arithmetic instruction consists of a variable name on the left hand side of = and variable names and constants on the right hand side of =. The variables and constants appearing on the right hand side of = are connected by arithmetic operators like **+, -, \*,** and **/**.
 
-Ex.: 
-int ad ; 
-float kot, deta, alpha, beta, gamma ; ad = 3200 ; kot = 0.0056 ; deta = alpha \* beta / gamma + 3.2 \* 2 / 5 ;
+Ex.:
+{{< highlight c >}}
+int ad ;
+float kot, deta, alpha, beta, gamma ; ad = 3200 ; kot = 0.0056 ;
+deta = alpha \* beta / gamma + 3.2 \* 2 / 5 ;
+{{< / highlight >}}
 
 Here,
 
@@ -92,15 +88,31 @@ A C arithmetic statement could be of three types. These are as follows:
 
 - Integer mode arithmetic statement – In this statement all operands are either integer variables or integer constants.
 
-Ex.: int i, king, issac, noteit ; i = i + 1 ; king = issac \* 234 + noteit - 7689 ;
+Ex.:
+{{< highlight c >}}
+int i, king, issac, noteit ;
+i = i + 1 ;
+king = issac \* 234 + noteit - 7689 ;
+{{< / highlight >}}
 
 - Real mode arithmetic statement – In this statement all operands are either real constants or real variables.
 
-Ex.: float qbee, antink, si, prin, anoy, roi ; qbee = antink + 23.123 / 4.5 \* 0.3442 ; si = prin \* anoy \* roi / 100.0 ;
+Ex.:
+{{< highlight c >}}
+float qbee, antink, si, prin, anoy, roi ;
+qbee = antink + 23.123 / 4.5 \* 0.3442 ;
+si = prin \* anoy \* roi / 100.0 ;
+{{< / highlight >}}
 
 - Mixed mode arithmetic statement – In this statement some operands are integers and some operands are real.
 
-Ex.: float si, prin, anoy, roi, avg ; int a, b, c, num ; si = prin \* anoy \* roi / 100.0 ; avg = ( a + b + c + num ) / 4 ;
+Ex.:
+{{< highlight c >}}
+float si, prin, anoy, roi, avg ;
+int a, b, c, num ;
+si = prin _ anoy _ roi / 100.0 ;
+avg = ( a + b + c + num ) / 4 ;
+{{< / highlight >}}
 
 Though Arithmetic instructions look simple to use, one often commits mistakes in writing them. Let us take a closer look at these statements. Note the following points carefully:
 
@@ -110,7 +122,10 @@ Though Arithmetic instructions look simple to use, one often commits mistakes in
 
 - An arithmetic instruction is at times used for storing character constants in character variables.
 
+Ex:
+{{< highlight c >}}
 char a, b, d ; a = 'F' ; b = 'G' ; d = '+' ;
+{{< / highlight >}}
 
 When we do this, the ASCII values of the characters are stored in the variables. ASCII codes are used to represent any character in memory. For example, ASCII codes of ‘F’ and ‘G’ are 01000110 and 01000111. ASCII values are nothing but the decimal equivalent of ASCII codes. Thus ASCII values of ‘F’ and ‘G’ are 70 and 71.
 
@@ -118,17 +133,35 @@ When we do this, the ASCII values of the characters are stored in the variables.
 
 Thus the statements,
 
-char x, y ; int z ; x = 'a' ; y = 'b' ; z = x + y ;
+{{< highlight c >}}
+char x, y ;
+int z ;
+x = 'a' ;
+y = 'b' ;
+z = x + y ;
+{{< / highlight >}}
 
 are perfectly valid, since the addition is performed on the ASCII values of the characters and not on characters themselves. The ASCII values of ‘a’ and ‘b’ are 97 and 98, and hence can definitely be added.
 
 - No operator is assumed to be present. It must be written explicitly. In the following example, the multiplication operator after b must be explicitly written.
 
-a = c.d.b(xy) usual arithmetic statement a = c \* d \* b \* ( x \* y ) C statement
+{{< highlight c >}}
+a = c.d.b(xy)
+//usual arithmetic statement
+a = c \* d \* b \* ( x \* y ) //C statement
+{{< / highlight >}}
 
 - There is no operator in C to perform exponentiation operation. Exponentiation has to be carried out as shown below:
-
-\# include <math.h> # include <stdio.h> int main( ) { float a ; a = pow ( 3.0, 2.0 ) ; printf ( "%f", a ) ; }
+  {{< highlight c >}}
+  # include <math.h>
+  # include <stdio.h>
+  int main( )
+  {
+  float a ;
+  a = pow ( 3.0, 2.0 ) ;
+  printf ( "%f", a ) ;
+  }
+  {{< / highlight >}}
 
 Here **pow( )** function is a standard library function. It is being used to raise 3.0 to the power of 2.0. The **pow( )** function works only with real numbers, hence we have used 3.0 and 2.0 instead of 3 and 2.
 
@@ -162,15 +195,22 @@ Figure 2.1
 
 For example, consider the following assignment statements.
 
-int i ; float b ; i = 3.5 ; b = 30 ;
+{{< highlight c >}}
+int i ;
+float b ;
+i = 3.5 ;
+b = 30 ;
+{{< / highlight >}}
 
 Here in the first assignment statement, though the expression’s value is a **float** (3.5), it cannot be stored in **i** since it is an **int**. In such a case, the **float** is demoted to an **int** and then its value is stored. Hence what gets stored in **i** is 3. Exactly opposite happens in the next statement. Here, 30 is promoted to 30.0 and then stored in **b**, since **b** being a **float** variable cannot hold anything except a **float** value.
 
 Instead of a simple expression used in the above examples, if a complex expression occurs, still the same rules apply. For example, consider the following program fragment.
 
-float a, b, c ; int s ;
-
+{{< highlight c >}}
+float a, b, c ;
+int s ;
 s = a \* b \* c / 100 + 32 / 4 - 3 \* 1.1 ;
+{{< / highlight >}}
 
 Here, in the assignment statement, some operands are **int**s whereas others are **float**s. As we know, during evaluation of the expression, the **int**s would be promoted to **float**s and the result of the expression would be a **float**. But when this **float** value is assigned to **s** it is again demoted to an **int** and then stored in **s**.
 
@@ -218,23 +258,33 @@ A few examples would clarify the issue further.
 
 **Example 2.1:** Determine the hierarchy of operations and evaluate the following expression, assuming that **i** is an integer variable:
 
-i = 2 \* 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8
+{{< highlight c >}}
+i = 2 \* 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8;
+{{< / highlight >}}
 
 Stepwise evaluation of this expression is shown below:
 
 i = 2 \* 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8 i = 6 / 4 + 4 / 4 + 8 - 2 + 5 / 8 operation: \* i = 1 + 4 / 4 + 8 - 2 + 5 / 8 operation: / i = 1 + 1+ 8 - 2 + 5 / 8 operation: / i = 1 + 1 + 8 - 2 + 0 operation: / i = 2 + 8 - 2 + 0 operation: + i = 10 - 2 + 0 operation: + i = 8 + 0 operation : - i = 8 operation: +
 
-Note that 6 / 4 gives 1 and not 1.5. This so happens because 6 and 4 both are integers and therefore 6 / 4 must evaluate to an integer. Similarly 5 / 8 evaluates to zero, since 5 and 8 are integers and hence 5 / 8 must return an integer value.
+Note:-
 
-**Example 2.2:** Determine the hierarchy of operations and evaluate the following expression, assuming that **kk** is a float variable:
+> that 6 / 4 gives 1 and not 1.5. This so happens because 6 and 4 both are integers and therefore 6 / 4 must evaluate to an integer. Similarly 5 / 8 evaluates to zero, since 5 and 8 are integers and hence 5 / 8 must return an integer value.
 
-kk = 3 / 2 \* 4 + 3 / 8
+**Example 2.2:**
+
+> Determine the hierarchy of operations and evaluate the following expression, assuming that **kk** is a float variable:
+
+{{< highlight c >}}
+kk = 3 / 2 \* 4 + 3 / 8;
+{{< / highlight >}}
 
 Stepwise evaluation of this expression is shown below:
 
 kk = 3 / 2 \* 4 + 3 / 8 kk = 1 \* 4 + 3 / 8 operation: / kk = 4 + 3 / 8 operation: \* kk = 4 + 0 operation: / kk = 4 operation: +
 
-Note that 3 / 8 gives zero, again for the same reason mentioned in the previous example.
+Note:-
+
+> that 3 / 8 gives zero, again for the same reason mentioned in the previous example.
 
 All operators in C are ranked according to their precedence. And mind you, there are as many as 45 odd operators in C, and these can affect the evaluation of an expression in subtle and unexpected ways if we aren't careful. Unfortunately, there are no simple rules that one can follow, such as “BODMAS” that tells algebra students in which order does an expression evaluate. We have not encountered many out of these 45 operators, so we won’t pursue the subject of precedence any further here. However, it can be realized at this stage that it would be almost impossible to remember the precedence of all these operators. So a full-fledged list of all operators and their precedence is given in Appendix A. This may sound daunting, but when its contents are absorbed in small bites, it becomes more palatable.
 
@@ -284,13 +334,17 @@ Here there is a tie between operators of same priority, that is between / and \*
 
 Consider one more expression.
 
+{{< highlight c >}}
 a = b = 3 ;
+{{< / highlight >}}
 
 Here both assignment operators have the same priority. So order of operations is decided using associativity of = operator. = associates from Right to Left. Therefore, second = is performed earlier than first =.
 
 Consider yet another expression.
 
+{{< highlight c >}}
 z = a \* b + c / d ;
+{{< / highlight >}}
 
 Here **\*** and **/** enjoys same priority and same associativity (Left to Right). Compiler is free to perform **\*** or **/** operation as per its convenience, since no matter which is performed earlier, the result would be same.
 
@@ -332,7 +386,7 @@ The Sequence control instruction ensures that the instructions are executed in t
 
 - char = ‘3’ ;
 
-- 4 / 3 \* 3.14 \* r \* r \* r = vol\_of\_sphere ;
+- 4 / 3 \* 3.14 \* r \* r \* r = vol_of_sphere ;
 
 - volume = a3 ;
 
@@ -342,7 +396,7 @@ The Sequence control instruction ensures that the instructions are executed in t
 
 - area of circle = 3.14 \* r \* r ;
 
-- peri\_of\_tri = a + b + c ;
+- peri_of_tri = a + b + c ;
 
 - slope = ( y2 – y1 ) ÷ ( x2 – x1 ) ;
 
@@ -511,4 +565,3 @@ where t is the temperature and v is the wind velocity. Write a program to receiv
 - Two numbers are input through the keyboard into two locations C and D. Write a program to interchange the contents of C and D.
 
 - Consider a currency system in which there are notes of seven denominations, namely, Re. 1, Rs. 2, Rs. 5, Rs. 10, Rs. 50, Rs. 100. If a sum of Rs. N is entered through the keyboard, write a program to compute the smallest number of notes that will combine to give Rs. N.
-
