@@ -57,7 +57,7 @@ There are several subtle variations of the type declaration instruction. These a
 
 ## Arithmetic Instruction
 
-A C arithmetic instruction consists of a variable name on the left hand side of = and variable names and constants on the right hand side of =. The variables and constants appearing on the right hand side of = are connected by arithmetic operators like **+, -, \*,** and **/**.
+An arithmetic instruction consists of a variable name on the left hand side of = and variable names and constants on the right hand side of =. The variables and constants appearing on the right hand side of = are connected by arithmetic operators like **+, -, \*,** and **/**.
 
 Ex.:
 {{< highlight c >}}
@@ -82,7 +82,7 @@ Here,
 
 The variables and constants together are called ‘operands’. While executing an arithmetic statement the operands on right hand side are operated upon by the ‘arithmetic operators’ and the result is then assigned, using the assignment operator, to the variable on left-hand side.
 
-A C arithmetic statement could be of three types. These are as follows:
+An arithmetic statement could be of three types. These are as follows:
 
 - Integer mode arithmetic statement – In this statement all operands are either integer variables or integer constants.
 
@@ -167,7 +167,9 @@ Here **pow( )** function is a standard library function. It is being used to rai
 
 You can explore other mathematical functions like **abs( )**, **sqrt( )**, **sin( )**, **cos( )**, **tan( )**, etc., declared in **math.h** on your own.
 
-**Integer and Float Conversions** In order to effectively develop C programs, it will be necessary to understand the rules that are used for the implicit conversion of floating point and integer values in C. These are mentioned below. Note them carefully.
+## Integer and Float Conversions
+
+> In order to effectively develop C programs, it will be necessary to understand the rules that are used for the implicit conversion of floating point and integer values in C. These are mentioned below. Note them carefully.
 
 - An arithmetic operation between an integer and integer always yields an integer result.
 
@@ -176,20 +178,18 @@ You can explore other mathematical functions like **abs( )**, **sqrt( )**, **sin
 - An operation between an integer and real always yields a real result. In this operation the integer is first promoted to a real and then the operation is performed. Hence the result is real.
 
 I think a few practical examples shown in Figure 2.1 would put the issue beyond doubt.
-
-### Operation Result Operation Result
-
-5 / 2 5.0 / 2 5 / 2.0 5.0 / 2.0
-
-2 2.5 2.5 2.5
-
-2 / 5 2.0 / 5 2 / 5.0 2.0 / 5.0
-
-0 0.4 0.4 0.4
+| Operation | Result | Operation | Result |
+| :--- | :----: | :---: | ---: |
+| 5 / 2 | 2 | 2 / 5 | 0 |
+| 5.0 / 2 | 2.5 | 2.0 / 5 | 0.4 |
+| 5 / 2.0 | 2.5 | 2 / 5.0 | 0.4 |
+| 5.0 / 2.0 | 2.5 | 2.0 / 5.0 | 0.4 |
 
 Figure 2.1
 
-**Type Conversion in Assignments** It may so happen that the type of the expression on right hand side and the type of the variable on the left-hand side of an assignment operator may not be same. In such a case, the value of the expression is promoted or demoted depending on the type of the variable on left- hand side of =.
+## Type Conversion in Assignments
+
+> It may so happen that the type of the expression on right hand side and the type of the variable on the left-hand side of an assignment operator may not be same. In such a case, the value of the expression is promoted or demoted depending on the type of the variable on left- hand side of =.
 
 For example, consider the following assignment statements.
 
@@ -213,36 +213,38 @@ s = a \* b \* c / 100 + 32 / 4 - 3 \* 1.1 ;
 Here, in the assignment statement, some operands are **int**s whereas others are **float**s. As we know, during evaluation of the expression, the **int**s would be promoted to **float**s and the result of the expression would be a **float**. But when this **float** value is assigned to **s** it is again demoted to an **int** and then stored in **s**.
 
 Observe the results of the arithmetic statements shown in Figure 2.2. It has been assumed that **k** is an integer variable and **a** is a real variable.
-
-### Arithmetic Instruction Result Arithmetic Instruction Result
-
-k = 2 / 9 k = 2.0 / 9 k = 2 / 9.0 k = 2.0 / 9.0 k = 9 / 2 k = 9.0 / 2 k = 9 / 2.0 k = 9.0 / 2.0
-
-0 0 0 0 4 4 4 4
-
-a = 2 / 9 a = 2.0 / 9 a = 2 / 9.0 a = 2.0 / 9.0 a = 9 / 2 a = 9.0 / 2 a = 9 / 2.0 a = 9.0 / 2.0
-
-0.0 0.222222 0.222222 0.222222 4.0 4.5 4.5 4.5
+| Arithmetic | Result | Arithmetic | Result |
+| :--- | :----: | :--- | :---: |
+| k = 2 / 9 | 0 | a = 2 / 9 | 0.0 |
+| k = 2.0 / 9 | 0 | a = 2.0 / 9 | 0.222222 |
+| k = 2 / 9.0 | 0 | a = 2 / 9.0 | 0.222222 |
+| k = 2.0 / 9.0 | 0 | a = 2.0 / 9.0 | 0.222222 |
+| k = 9 / 2 | 4 | a = 9 / 2 | 4.0 |
+| k = 9.0 / 2 | 4 | a = 9.0 / 2 | 4.5 |
+| k = 9 / 2.0 | 4 | a = 9 / 2.0 | 4.5 |
+| k = 9.0 / 2.0 | 4 | a = 9.0 / 2.0 | 4.5 |
 
 Figure 2.2
 
-Note that though the following statements give the same result, 0, the results are obtained differently.
+> Note that though the following statements give the same result, 0, the results are obtained differently.
 
+{{< highlight c >}}
 k = 2 / 9 ; k = 2.0 / 9 ;
+{{< / highlight  >}}
 
 In the first statement, since both 2 and 9 are integers, the result is an integer, i.e. 0. This 0 is then assigned to **k**. In the second statement 9 is promoted to 9.0 and then the division is performed. Division yields 0.222222. However, this cannot be stored in **k**, **k** being an **int**. Hence it gets demoted to 0 and then stored in **k**.
 
-**Hierarchy of Operations** While executing an arithmetic statement that has multiple operators, there might be some issues about their evaluation. For example, does the expression 2 \* x - 3 \* y correspond to (2x)-(3y) or to 2(x-3y)? Similarly, does A / B \* C correspond to A / (B \* C) or to (A / B) \* C? To answer these questions satisfactorily, one has to understand the ‘hierarchy’ of operations. The priority or precedence in which the
+## Hierarchy of Operations
+
+> While executing an arithmetic statement that has multiple operators, there might be some issues about their evaluation. For example, does the expression 2 \* x - 3 \* y correspond to (2x)-(3y) or to 2(x-3y)? Similarly, does A / B \* C correspond to A / (B \* C) or to (A / B) \* C? To answer these questions satisfactorily, one has to understand the ‘hierarchy’ of operations. The priority or precedence in which the
 
 operations in an arithmetic statement are performed is called the hierarchy of operations. The hierarchy of commonly used operators is shown in Figure 2.3.
 
-### Priority Operators Description
-
-1st 2nd 3rd
-
-\* / % + - =
-
-Multiplication, Division, Modular division Addition, Subtraction Assignment
+| Priority | Operators | Description                                |
+| :------- | :-------: | :----------------------------------------- |
+| 1st      |  \* / %   | Multiplication, Division, Modular division |
+| 2nd      |    + -    | Addition, Subtraction                      |
+| 3rd      |     =     | Assignment                                 |
 
 Figure 2.3
 
@@ -254,7 +256,9 @@ Now a few tips about usage of operators in general.
 
 A few examples would clarify the issue further.
 
-**Example 2.1:** Determine the hierarchy of operations and evaluate the following expression, assuming that **i** is an integer variable:
+**Example 2.1:**
+
+> Determine the hierarchy of operations and evaluate the following expression, assuming that **i** is an integer variable:
 
 {{< highlight c >}}
 i = 2 \* 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8;
@@ -262,11 +266,19 @@ i = 2 \* 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8;
 
 Stepwise evaluation of this expression is shown below:
 
-i = 2 \* 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8 i = 6 / 4 + 4 / 4 + 8 - 2 + 5 / 8 operation: \* i = 1 + 4 / 4 + 8 - 2 + 5 / 8 operation: / i = 1 + 1+ 8 - 2 + 5 / 8 operation: / i = 1 + 1 + 8 - 2 + 0 operation: / i = 2 + 8 - 2 + 0 operation: + i = 10 - 2 + 0 operation: + i = 8 + 0 operation : - i = 8 operation: +
+|                                        |               |
+| :------------------------------------- | :-----------: |
+| i = 2 \* 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8 |               |
+| i = 6 / 4 + 4 / 4 + 8 - 2 + 5 / 8      | operation: \* |
+| i = 1 + 4 / 4 + 8 - 2 + 5 / 8          | operation: /  |
+| i = 1 + 1+ 8 - 2 + 5 / 8               | operation: /  |
+| i = 1 + 1 + 8 - 2 + 0                  | operation: /  |
+| i = 2 + 8 - 2 + 0                      | operation: +  |
+| i = 10 - 2 + 0                         | operation: +  |
+| i = 8 + 0                              | operation: -  |
+| i = 8                                  | operation: +  |
 
-Note:-
-
-> that 6 / 4 gives 1 and not 1.5. This so happens because 6 and 4 both are integers and therefore 6 / 4 must evaluate to an integer. Similarly 5 / 8 evaluates to zero, since 5 and 8 are integers and hence 5 / 8 must return an integer value.
+> Notethat 6 / 4 gives 1 and not 1.5. This so happens because 6 and 4 both are integers and therefore 6 / 4 must evaluate to an integer. Similarly 5 / 8 evaluates to zero, since 5 and 8 are integers and hence 5 / 8 must return an integer value.
 
 **Example 2.2:**
 
@@ -278,11 +290,15 @@ kk = 3 / 2 \* 4 + 3 / 8;
 
 Stepwise evaluation of this expression is shown below:
 
-kk = 3 / 2 \* 4 + 3 / 8 kk = 1 \* 4 + 3 / 8 operation: / kk = 4 + 3 / 8 operation: \* kk = 4 + 0 operation: / kk = 4 operation: +
+|                         |               |
+| :---------------------- | :-----------: |
+| kk = 3 / 2 \* 4 + 3 / 8 |               |
+| kk = 1 \* 4 + 3 / 8     | operation: /  |
+| kk = 4 + 3 / 8          | operation: \* |
+| kk = 4 + 0              | operation: /  |
+| kk = 4                  | operation: +  |
 
-Note:-
-
-> that 3 / 8 gives zero, again for the same reason mentioned in the previous example.
+> Notethat 3 / 8 gives zero, again for the same reason mentioned in the previous example.
 
 All operators in C are ranked according to their precedence. And mind you, there are as many as 45 odd operators in C, and these can affect the evaluation of an expression in subtle and unexpected ways if we aren't careful. Unfortunately, there are no simple rules that one can follow, such as “BODMAS” that tells algebra students in which order does an expression evaluate. We have not encountered many out of these 45 operators, so we won’t pursue the subject of precedence any further here. However, it can be realized at this stage that it would be almost impossible to remember the precedence of all these operators. So a full-fledged list of all operators and their precedence is given in Appendix A. This may sound daunting, but when its contents are absorbed in small bites, it becomes more palatable.
 
@@ -324,9 +340,15 @@ _BY_
 
 Figure 2.4
 
-**Associativity of Operators** When an expression contains two operators of equal priority the tie between them is settled using the associativity of the operators. All operators in C have either Left to Right associativity or Right to Left associativity. Let us understand this with the help of a few examples.
+## Associativity of Operators
 
-Consider the expression a = 3 / 2 \* 5 ;
+When an expression contains two operators of equal priority the tie between them is settled using the associativity of the operators. All operators in C have either Left to Right associativity or Right to Left associativity. Let us understand this with the help of a few examples.
+
+Consider the expression
+
+{{< highlight c >}}
+a = 3 / 2 \* 5 ;
+{{< / highlight >}}
 
 Here there is a tie between operators of same priority, that is between / and \*. This tie is settled using the associativity of / and \*. Both enjoy Left to Right associativity. Therefore firstly / operation is done followed by \*.
 
@@ -348,7 +370,9 @@ Here **\*** and **/** enjoys same priority and same associativity (Left to Right
 
 Appendix B gives the associativity of all the operators available in C. Note that the precedence and associativity of all operators is predetermined and we cannot change it.
 
-**Control Instructions** As the name suggests, the ‘Control Instructions’ enable us to specify the order in which the various instructions in a program are to be executed by the computer. In other words, the control instructions determine the ‘flow of control’ in a program. There are four types of control instructions in C. They are:
+## Control Instructions
+
+As the name suggests, the ‘Control Instructions’ enable us to specify the order in which the various instructions in a program are to be executed by the computer. In other words, the control instructions determine the ‘flow of control’ in a program. There are four types of control instructions in C. They are:
 
 - Sequence Control Instruction
 
@@ -402,25 +426,27 @@ The Sequence control instruction ensures that the instructions are executed in t
 
 - count = count + 1 ;
 
-(m) char ch = '25 Apr 12' ;
+- char ch = '25 Apr 12' ;
 
 **\[B\]** Evaluate the following expressions and show their hierarchy.
 
-- ans = 5 \* b \* b \* x - 3 \* a \* y \* y - 8 \* b \* b \* x + 10 \* a \* y ;
+(a) ans = 5 \* b \* b \* x - 3 \* a \* y \* y - 8 \* b \* b \* x + 10 \* a \* y ;
 
 (a = 3, b = 2, x = 5, y = 4 assume **ans** to be an int)
 
-- res = 4 \* a \* y / c - a \* y / c ;
+(b) res = 4 \* a \* y / c - a \* y / c ;
 
 (a = 4, y = 1, c = 3, assume **res** to be an int)
 
-- s = c + a \* y \* y / b ;
+(c) s = c + a \* y \* y / b ;
 
 (a = 2.2, b = 0.0, c = 4.1, y = 3.0, assume **s** to be an float)
 
-- R = x \* x + 2 \* x + 1 / 2 \* x \* x + x + 1 ;
+(d) R = x \* x + 2 \* x + 1 / 2 \* x \* x + x + 1 ;
 
-(x = 3.5, assume **R** to be an float) **\[C\]** Indicate the order in which the following expressions would be
+(x = 3.5, assume **R** to be an float)
+
+**\[C\]** Indicate the order in which the following expressions would be
 
 evaluated:
 
@@ -436,81 +462,83 @@ evaluated:
 
 - y = z = -3 % -8 / 2 + 7 ;
 
-**\[D\]** Convert the following algebraic expressions into equivalent C statements:
+**\[D\]** What will be the output of the following programs:
 
-(a)
+-(a)
 
-(b)
+```js
+ # include <stdio.h>
+  int main( )
+   {
+     int i = 2, j = 3, k, l ;
+     float a, b ;
+     k = i / j \* j ;
+     l = j / i \* i ;
+     a = i / j \* j ;
+     b = j / i \* i ;
+     printf ( "%d %d %f %f\\n", k, l, a, b ) ;
+     return 0 ;
+   }
+```
 
-(c)
+-(b)
 
-(d)
+```js
+ # include <stdio.h>
+  int main( )
+  {
+    int a, b, c, d ;
+    a = 2 % 5 ;
+    b = -2 % 5 ;
+    c = 2 % -5 ;
+    d = -2 % -5 ;
+    printf ( "a = %d b = %d c = %d d = %d\\n", a, b, c, d );
+    return 0;
+  }
+```
 
-**\[E\]** What will be the output of the following programs:
+-(c)
 
-- # include <stdio.h> int main( ) { int i = 2, j = 3, k, l ; float a, b ; k = i / j \* j ; l = j / i \* i ; a = i / j \* j ; b = j / i \* i ; printf ( "%d %d %f %f\\n", k, l, a, b ) ; return 0 ; }
+```js
+# include <stdio.h>
+ int main( )
+ {
+   float a = 5, b = 2 ;
+   int c, d ;
+   c = a % b ;
+   d = a / 2 ;
+   printf ( "%d\\n", d ) ;
+   return 0 ;
+ }
+```
 
-- # include <stdio.h> int main( ) { int a, b, c, d ; a = 2 % 5 ; b = -2 % 5 ; c = 2 % -5 ; d = -2 % -5 ; printf ( "a = %d b = %d c = %d d = %d\\n", a, b, c, d ) ;
+-(d)
 
-) 5 y ( ) 4 y (
+```js
+# include <stdio.h>
+ int main( )
+  {
+     printf ( "nn \\n\\n nn\\n" ) ;
+     printf ( "nn /n/n nn/n" ) ;
+     return 0 ;
+  }
+```
 
-x) 3 x( Z
+-(e)
 
-3
+```js
+# include <stdio.h>
+ int main( )
+  {
+     int a, b ;
+     printf ( "Enter values of a and b" ) ;
+     scanf ( " %d %d ", &a, &b ) ;
+     printf ( "a = %d b = %d", a, b ) ;
+     return 0 ;
+  }
+```
 
-
-
- 
-
-v g
-
-) d c ( 6.22 2v R
-
-
-
- 
-
-7.7b ( xy + a ) / c - 0.8 + 2b A =
-
-( x + a ) (1 / y )
-
-_xx_
-
-_x_
-
-_x_
-
-_x_
-
-_x_
-
-_x_
-
-8
-
-8
-
-84
-
-8
-
-4
-
-12 X
-
-23
-
-
-
-return 0 ; }
-
-- # include <stdio.h> int main( ) { float a = 5, b = 2 ; int c, d ; c = a % b ; d = a / 2 ; printf ( "%d\\n", d ) ; return 0 ; }
-
-- # include <stdio.h> int main( ) { printf ( "nn \\n\\n nn\\n" ) ; printf ( "nn /n/n nn/n" ) ; return 0 ; }
-
-- # include <stdio.h> int main( ) { int a, b ; printf ( "Enter values of a and b" ) ; scanf ( " %d %d ", &a, &b ) ; printf ( "a = %d b = %d", a, b ) ; return 0 ; }
-
-**\[F\]** State whether the following statements are True or False:
+**\[E\]** State whether the following statements are True or False:
 
 - \* or /, + or – represents the correct hierarchy of arithmetic operators in C.
 
@@ -524,7 +552,7 @@ return 0 ; }
 
 - % operator cannot be used with floats.
 
-**\[G\]** Fill in the blanks:
+**\[F\]** Fill in the blanks:
 
 - In y = 10 \* x / 2 + z ; operation will be performed first.
 
@@ -536,7 +564,7 @@ return 0 ; }
 
 - If **d** is a **float** the operation d = 2 / 7.0 would store in **d**.
 
-**\[H\]** Attempt the following:
+**\[G\]** Attempt the following:
 
 - If a five-digit number is input through the keyboard, write a program to calculate the sum of its digits. (Hint: Use the modulus operator ‘%’)
 
