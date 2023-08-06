@@ -10,21 +10,50 @@ string. This chapter discusses how such situations can be handled effectively.
 # Two-Dimensional Array of Characters # 
 In Chapter 14 we saw several examples of two-dimensional integer arrays. Let’s now look at a similar entity, but one dealing with characters. Our example program asks you to type your name. When you do so, it checks your name against a master list to see if you are worthy of entry to the palace. Here’s the program...
 
-\# include <stdio.h> # include <string.h> # define FOUND 1 # define NOTFOUND 0 int main( ) { char masterlist\[ 6 \]\[ 10 \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; int i, flag, a ; char yourname\[ 10 \] ; printf ( "Enter your name " ) ; scanf ( "%s", yourname ) ; flag = NOTFOUND ; for ( i = 0 ; i <= 5 ; i++ ) { a = strcmp ( &masterlist\[ i \]\[ 0 \], yourname ) ; if ( a == 0 ) { printf ( "Welcome, you can enter the palace\\n" ) ; flag = FOUND ;
-
-I
-
-break ; } } if ( flag == NOTFOUND ) printf ( "Sorry, you are a trespasser\\n" ) ; return 0 ; }
+{{< highlight c >}}
+\#include <stdio.h> 
+#include <string.h> 
+# define FOUND 1 
+# define NOTFOUND 0 
+int main( ) 
+{ 
+    char masterlist\[ 6 \]\[ 10 \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ;
+     int i, flag, a ; 
+     char yourname\[ 10 \] ; 
+     printf ( "Enter your name " ) ; 
+     scanf ( "%s", yourname ) ; 
+     flag = NOTFOUND ; 
+     for ( i = 0 ; i <= 5 ; i++ ) 
+     { 
+        a = strcmp ( &masterlist\[ i \]\[ 0 \], yourname ) ; 
+        if ( a == 0 ) 
+        { 
+            printf ( "Welcome, you can enter the palace\\n" ) ; 
+            flag = FOUND ;
+            break ;
+        } 
+      } 
+      if ( flag == NOTFOUND ) 
+      printf ( "Sorry, you are a trespasser\\n" ) ; 
+       return 0 ; 
+}
 
 And here is the output for two sample runs of this program...
 
-Enter your name dinesh Sorry, you are a trespasser Enter your name raman Welcome, you can enter the palace
+{{< highlight c >}}
+Enter your name dinesh Sorry, 
+you are a trespasser Enter your name raman Welcome, 
+you can enter the palace
+{{< / highlight >}}
 
 Notice how the two-dimensional character array has been initialized. The order of the subscripts in the array declaration is important. The first subscript gives the number of names in the array, while the second subscript gives the length of each item in the array.
 
 Instead of initializing names, had these names been supplied from the keyboard, the program segment would have looked like this...
 
-for ( i = 0 ; i <= 5 ; i++ ) scanf ( "%s", &masterlist\[ i \]\[ 0 \] ) ;
+{{< highlight c >}}
+for ( i = 0 ; i <= 5 ; i++ ) 
+scanf ( "%s", &masterlist\[ i \]\[ 0 \] ) ;
+{{< / highlight >}}
 
 While comparing the strings through **strcmp( )**, note that the addresses of the strings are being passed to **strcmp( )**. As seen in the last section, if the two strings match, **strcmp( )** would return a value 0, otherwise it would return a non-zero value.
 
@@ -56,13 +85,16 @@ r a j e s h \\0
 
 65504 65513 (last location)
 
-Figure 16.1
+Figure 16.1 :
 
 Here, 65454, 65464, 65474, etc., are the base addresses of successive names. As seen from the above pattern, some of the names do not occupy all the bytes reserved for them. For example, even though 10 bytes are reserved for storing the name “akshay”, it occupies only 7 bytes. Thus, 3 bytes go waste. Similarly, for each name, there is some amount of wastage. In fact, more the number of names, more would be the wastage. Can this not be avoided? Yes, it can be... by using what is called an ‘array of pointers’, which is our next topic of discussion.
 
-**Array of Pointers to Strings** As we know, a pointer variable always contains an address. Therefore, if we construct an array of pointers, it would contain a number of addresses. Let us see how the names in the earlier example can be stored in the array of pointers.
+## Array of Pointers to Strings
+ As we know, a pointer variable always contains an address. Therefore, if we construct an array of pointers, it would contain a number of addresses. Let us see how the names in the earlier example can be stored in the array of pointers.
 
+{{< highlight c >}}
 char \*names\[ \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ;
+{{< / highlight >}}
 
 In this declaration, **names\[ \]** is an array of pointers. It contains base addresses of respective names. That is, base address of “akshay” is stored in **names\[ 0 \]**, base address of “parag” is stored in **names\[ 1 \]** and so on. This is depicted in Figure 16.2.
 
@@ -80,45 +112,113 @@ gopal\\0 rajesh\\0 parag\\0
 
 names\[ \]
 
-Figure 16.2
+Figure 16.2 :
 
 In the two-dimensional array of characters, the strings occupied 60 bytes. As against this, in array of pointers, the strings occupy only 41 bytes—a net saving of 19 bytes. A substantial saving, you would agree. Thus, one reason for storing strings in an array of pointers is to make a more efficient use of available memory.
 
 Another reason to use an array of pointers to store strings is to obtain greater ease in manipulation of the strings. This is shown by the following programs. The first one uses a two-dimensional array of characters to store the names, whereas the second uses an array of pointers to strings. The purpose of both the programs is very simple. We want to exchange the position of the names “raman” and “srinivas”.
 
-/\* Exchange names using 2-D array of characters \*/ # include <stdio.h> int main( ) { char names\[ \]\[ 10 \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; int i ; char t ;
+/\* Exchange names using 2-D array of characters \*/ 
 
-printf ( "Original: %s %s\\n", &names\[ 2 \]\[ 0 \], &names\[ 3 \]\[ 0 \] ) ; for ( i = 0 ; i <= 9 ; i++ ) { t = names\[ 2 \]\[ i \] ; names\[ 2 \]\[ i \] = names\[ 3 \]\[ i \] ; names\[ 3 \]\[ i \] = t ; } printf ( "New: %s %s\\n", &names\[ 2 \]\[ 0 \], &names\[ 3 \]\[ 0 \] ) ; return 0 ; }
+{{< highlight c >}}
+#include <stdio.h> 
+int main( ) 
+{ 
+    char names\[ \]\[ 10 \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; 
+    int i ; 
+    char t ;
+    printf ( "Original: %s %s\\n", &names\[ 2 \]\[ 0 \], &names\[ 3 \]\[ 0 \] ) ; 
+    for ( i = 0 ; i <= 9 ; i++ ) 
+    { 
+        t = names\[ 2 \]\[ i \] ; 
+        names\[ 2 \]\[ i \] = names\[ 3 \]\[ i \] ;
+        names\[ 3 \]\[ i \] = t ; 
+    } 
+    printf ( "New: %s %s\\n", &names\[ 2 \]\[ 0 \], &names\[ 3 \]\[ 0 \] ) ;
+     return 0 ; 
+}
+{{< / highlight >}}
 
 And here is the output...
 
-Original: raman srinivas New: srinivas raman
+{{< highlight c >}}
+Original: raman srinivas 
+New: srinivas raman
+{{< / highlight >}}
 
 Note that in this program to exchange the names, we are required to exchange corresponding characters of the two names. In effect, 10 exchanges are needed to interchange two names.
 
 Let us see, if the number of exchanges can be reduced by using an array of pointers to strings. Here is the program...
 
-\# include <stdio.h> int main( ) { char \*names\[ \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; char \*temp ; printf ( "Original: %s %s\\n", names\[ 2 \], names\[ 3 \] ) ; temp = names\[ 2 \] ; names\[ 2 \] = names\[ 3 \] ; names\[ 3 \] = temp ; printf ( "New: %s %s\\n", names\[ 2 \], names\[ 3 \] ) ; return 0 ;
-
+{{< highlight c >}}
+\#include <stdio.h> 
+int main( ) 
+{ 
+    char \*names\[ \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; 
+    char \*temp ; printf ( "Original: %s %s\\n", names\[ 2 \], names\[ 3 \] ) ; 
+    temp = names\[ 2 \] ; 
+    names\[ 2 \] = names\[ 3 \] ; 
+    names\[ 3 \] = temp ; 
+    printf ( "New: %s %s\\n", names\[ 2 \], names\[ 3 \] ) ; 
+    return 0 ;
 }
+{{< / highlight >}}
 
 And here is the output...
 
+{{< highlight c >}}
 Original: raman srinivas New: srinivas raman
+{{< / highlight >}}
 
 The output is same as the earlier program. In this program, all that we are required to do is to exchange the addresses (of the names) stored in the array of pointers, rather than the names themselves. Thus, by effecting just one exchange, we are able to interchange names. This makes handling strings very convenient.
 
 Thus, from the point of view of efficient memory usage and ease of programming, an array of pointers to strings definitely scores over a two-dimensional character array. That is why, even though, in principle, strings can be stored and handled through a two-dimensional array of characters, in actual practice, it is the array of pointers to strings, which is more commonly used.
 
-**Limitation of Array of Pointers to Strings** When we are using a two-dimensional array of characters, we are at liberty to either initialize the strings where we are declaring the array, or receive the strings using **scanf( )** function. However, when we are using an array of pointers to strings, we can initialize the strings at the place where we are declaring the array, but we cannot receive the strings from keyboard using **scanf( )**. Thus, the following program would never work out:
+## Limitation of Array of Pointers to Strings 
+When we are using a two-dimensional array of characters, we are at liberty to either initialize the strings where we are declaring the array, or receive the strings using **scanf( )** function. However, when we are using an array of pointers to strings, we can initialize the strings at the place where we are declaring the array, but we cannot receive the strings from keyboard using **scanf( )**. Thus, the following program would never work out:
 
-\# include <stdio.h> int main( ) { char \*names\[ 6 \] ; int i ; for ( i = 0 ; i <= 5 ; i++ ) { printf ( "Enter name " ) ; scanf ( "%s", names\[ i \] ) ; } return 0 ; }
+{{< highlight c >}}
+\# include <stdio.h>
+int main( ) 
+{ 
+    char \*names\[ 6 \] ; 
+    int i ; 
+    for ( i = 0 ; i <= 5 ; i++ ) 
+    {
+         printf ( "Enter name " ) ; 
+         scanf ( "%s", names\[ i \] ) ; 
+    } return 0 ; 
+}
+{{< / highlight >}}
 
 The program doesn’t work because; when we are declaring the array, it is containing garbage values. And it would be definitely wrong to send these garbage values to **scanf( )** as the addresses where it should keep the strings received from the keyboard.
 
 **Solution** If we are bent upon receiving the strings from keyboard using **scanf( )** function and then storing their addresses in an array of pointers to strings, we can do it in a slightly roundabout manner as shown below.
 
-\# include <stdio.h> # include <stdlib.h> # include <string.h> int main( ) { char \*names\[ 6 \] ; char n\[ 50 \] ; int len, i ; char \*p ; for ( i = 0 ; i <= 5 ; i++ ) { printf ( "Enter name " ) ; scanf ( "%s", n ) ; len = strlen ( n ) ; p = ( char \* ) malloc ( len + 1 ) ; /\* +1 for accommodating \\0 \*/ strcpy ( p, n ) ; names\[ i \] = p ; } for ( i = 0 ; i <= 5 ; i++ ) printf ( "%s\\n", names\[ i \] ) ; return 0 ; }
+{{< highlight c >}}
+\#include <stdio.h> 
+#include <stdlib.h> 
+#include <string.h> 
+int main( ) 
+{
+     char \*names\[ 6 \] ; 
+     char n\[ 50 \] ; 
+     int len, i ; 
+     char \*p ; 
+     for ( i = 0 ; i <= 5 ; i++ ) 
+     { 
+        printf ( "Enter name " ) ; 
+        scanf ( "%s", n ) ; 
+        len = strlen ( n ) ; 
+        p = ( char \* ) malloc ( len + 1 ) ; /\* +1 for accommodating \\0 \*/ 
+        strcpy ( p, n ) ; 
+        names\[ i \] = p ;
+     }
+          for ( i = 0 ; i <= 5 ; i++ ) 
+          printf ( "%s\\n", names\[ i \] ) ;
+        return 0 ; 
+}
+{{< / highlight >}}
 
 Here we have first received a name using **scanf( )** in a string **n\[ \]**. Then we have found out its length using **strlen( )** and allocated space for making a copy of this name. This memory allocation has been done using a standard library function called **malloc( )**. This function requires the number of bytes to be allocated and returns the base address of the chunk of memory that it allocates. The address returned by this function is always of the type **void \***. This is because **malloc( )** doesn’t know what for did we allocate the memory. A **void \*** means a pointer which is a
 
@@ -142,7 +242,9 @@ This solution suffers in performance because we need to allocate memory and then
 
 - How many bytes in memory would be occupied by the following array of pointers to strings? How many bytes would be required to store the same strings, if they are stored in a two-dimensional character array?
 
-char \*mess\[ \] = { "Hammer and tongs", "Tooth and nail", "Spit and polish", "You and C" } ;
+{{< highlight c >}}
+char \*mess\[ \] = { "Hammer and tongs", "Tooth and nail", "Spit and polish", "You and C" } ;\
+{{< / highlight >}}
 
 - Can an array of pointers to strings be used to collect strings from the keyboard? If yes, how? If not, why not?
 
@@ -150,15 +252,19 @@ char \*mess\[ \] = { "Hammer and tongs", "Tooth and nail", "Spit and polish", "Y
 
 - Write a program that uses an array of pointers to strings **str\[ \]**. Receive two strings **str1** and **str2** and check if **str1** is embedded in any of the strings in **str\[ \]**. If **str1** is found, then replace it with **str2**.
 
+{{< highlight c >}}
 char \*str\[ \] = { "We will teach you how to...", "Move a mountain", "Level a building", "Erase the past", "Make a million", "...all through C!" } ;
+{{< / highlight >}}
 
-For example if **str1** contains "mountain" and **str2** contains "car", then the second string in **str** should get changed to "Move a car".
+For *example* if **str1** contains "mountain" and **str2** contains "car", then the second string in **str** should get changed to "Move a car".
 
 - Write a program to sort a set of names stored in an array in alphabetical order.
 
 - Write a program to reverse the strings stored in the following array of pointers to strings:
 
+{{< highlight c >}}
 char \*s\[ \] = { "To err is human...", "But to really mess things up...", "One needs to know C!!" } ;
+{{< / highlight >}}
 
 - Develop a program that receives the month and year from the keyboard as integers and prints the calendar in the following format.
 
@@ -180,7 +286,9 @@ Note that according to the Gregorian calendar 01/01/01 was Monday. With this as 
 
 - A factory has 3 divisions and stocks 4 categories of products. An inventory table is updated for each division and for each product as they are received. There are three independent suppliers of products to the factory.
 
-1\. Design a data format to represent each transaction. 2. Write a program to take a transaction and update the inventory. 3. If the cost per item is also given write a program to calculate the
+1. Design a data format to represent each transaction. 
+2. Write a program to take a transaction and update the inventory. 
+3. If the cost per item is also given write a program to calculate the
 
 total inventory values.
 
