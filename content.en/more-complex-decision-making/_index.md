@@ -7,7 +7,7 @@ We all face situations in real-life where the action that we carry out is based 
 
 company if the company allocates a metro location, gives me a good pay package and permits a joining period of 4 weeks. In programming too action performed may be based on result of multiple conditions. Such programming situations can be handled elegantly using Logical Operators. This chapter also explores the use of another type of operators called Conditional Operators.
 
-## Use of Logical Operators
+# Use of Logical Operators
 
 C allows usage of three logical operators, namely, &&, || and !. These are to be read as ‘AND’, ‘OR’ and ‘NOT’, respectively.
 
@@ -104,7 +104,7 @@ There is a negative side to the program too. Even if the first condition turns o
 
 increase the time of execution of the program. This can be avoided using the **else if** clause discussed in the next section.
 
-### The _else if_ Clause
+## The _else if_ Clause
 
 There is one more way in which we can write program for Example 4.1. This involves usage of **else if** blocks as shown below.
 
@@ -130,13 +130,7 @@ return 0 ;
 
 You can note that this program reduces the indentation of the statements. In this case, every **else** is associated with its previous **if**. The last **else** goes to work only if all the conditions fail. Also, if a condition is satisfied, other conditions below it are not checked. Even in **else if** ladder, the last **else** is optional.
 
-Note that the **else if** clause is nothing different. It is just a way of rearranging the **else** with the **if** that follows it. This would be evident if you look at the following code:
-
-/\* code using ifs \*/ if ( i == 2 ) printf ( "With you…" ) ; else {
-
-if ( j == 2 ) printf ( "…All the time" ) ; }
-
-/\* code using if - else if - else \*/ if ( i == 2 ) printf ( "With you…" ) ; else if ( j == 2 ) printf ( "…All the time " ) ;
+## Using of Logical Operation -Yes / No Problem
 
 Another place where logical operators are useful is when we want to write programs for complicated logics that ultimately boil down to only two answers. For example, consider the following example:
 
@@ -258,27 +252,40 @@ int main( )
     sal = 7000 ;
     else if ( g == 'f' && yos >= 10 && qual == 1 )
     sal = 12000 ;
-    else if ( g == 'f' && yos >= 10 && qual == 0 ) sal = 9000  ; else if ( g == 'f' && yos < 10 && qual == 1 ) sal = 10000 ; else if ( g == 'f' && yos < 10 && qual == 0 ) sal = 6000 ;
-
-printf ( "\\nSalary of Employee = %d\\n", sal ) ; return 0 ; }
+    else if ( g == 'f' && yos >= 10 && qual == 0 )
+    sal = 9000  ;
+    else if ( g == 'f' && yos < 10 && qual == 1 )
+    sal = 10000 ;
+    else if ( g == 'f' && yos < 10 && qual == 0 )
+    sal = 6000 ;
+    printf ( "\\nSalary of Employee = %d\\n", sal ) ;
+    return 0 ;
+ }
+```
 
 I hope you can follow the implementation of this program on your own.
 
-### The ! Operator
+## The ! Operator
 
 So far we have used only the logical operators **&&** and **||**. The third logical operator is the NOT operator, written as **!**. This operator reverses the result of the expression it operates on. For example, if the expression evaluates to a non-zero value, then applying **!** operator to it results into a 0. Vice versa, if the expression evaluates to zero then on applying **!** operator to it makes it 1, a non-zero value. The final result (after applying **!**) 0 or 1 is considered to be false or true, respectively. Here is an example of the NOT operator applied to a relational expression.
 
-! ( y < 10 )
+```js
+!(y < 10);
+```
 
 This means ‘not **y** less than 10’. In other words, if **y** is less than 10, the expression will be false, since **(** **y < 10 )** is true. We can express the same condition as **(** **y >= 10 )**.
 
 The NOT operator is often used to reverse the logical value of a single variable, as in the expression
 
+```js
 if ( ! flag )
+```
 
 This is another way of saying:
 
+```js
 if ( flag == 0 )
+```
 
 Does the NOT operator sound confusing? Avoid it if you want, as the same thing can be achieved without using the NOT operator.
 
@@ -286,39 +293,7 @@ Does the NOT operator sound confusing? Avoid it if you want, as the same thing c
 
 Since we have now added the logical operators to the list of operators we know, it is time to review these operators and their priorities. Figure 4.2 summarizes the operators we have seen so far. The higher the position of an operator is in the table, higher is its priority. (A full- fledged precedence table of operators is given in Appendix B.)
 
-### Operators
-
-! \* / % + - < > <= >= == != && || =
-
-### Type
-
-Logical NOT Arithmetic and modulus Arithmetic Relational Relational Logical AND Logical OR Assignment
-
-Figure 4.2
-
-**A Word of Caution** Can you guess what will be the output of the following program?
-
-\# include <stdio.h> int main( ) { int i ; printf ( "Enter value of i " ) ; scanf ( "%d", &i ) ; if ( i = 5 ) printf ( "You entered 5\\n" ) ; else printf ( "You entered something other than 5\\n" ) ; return 0 ; }
-
-Well, here is the output of two runs of this program...
-
-Enter value of i 200 You entered 5 Enter value of i 9999 You entered 5
-
-Surprised? You have entered 200 and 9999, and still you find in either case the output is ‘You entered 5’. This is because we have written the condition wrongly. We have used the assignment operator **\=** instead of the relational operator **==**. As a result, the condition gets reduced to **if (**
-
-**5 )**, irrespective of what you supply as the value of **i**. And remember that in C, ‘truth’ is always non-zero, whereas, ‘falsity’ is always zero. Therefore, **if ( 5 )** always evaluates to true and hence the result.
-
-Another common mistake while using the **if** statement is to write a semicolon (**;**) after the condition, as shown below.
-
-\# include <stdio.h> int main( ) { int i ; printf ( "Enter value of i " ) ; scanf ( "%d", &i ) ; if ( i == 5 ) ; printf ( "You entered 5\\n" ) ; return 0 ; }
-
-The ; makes the compiler to interpret the statement as if you have written it in following manner:
-
-if ( i == 5 ) ; printf ( "You entered 5\\n" ) ;
-
-Here, if the condition evaluates to true, the ; (null statement, which does nothing on execution) gets executed, following which the **printf( )** gets executed. If the condition fails, then straightaway the **printf( )** gets executed. So, irrespective of whether the condition evaluates to true or false, **printf( )** is bound to get executed. Remember that compiler would not point out this as an error, since as far as the syntax is concerned, nothing has gone wrong, but the logic has certainly gone awry. Moral is, beware of such pitfalls.
-
-The following figure summarizes the working of all the three logical operators.
+|
 
 ### Operands Results
 
@@ -332,9 +307,74 @@ non-zero 0 0 1 0 1
 
 non-zero non-zero 0 0 1 1
 
+Figure 4.2
+
+**A Word of Caution** Can you guess what will be the output of the following program?
+
+```js
+# include <stdio.h>
+int main( )
+{
+    int i ;
+     printf ( "Enter value of i " ) ;
+     scanf ( "%d", &i ) ;
+     if ( i = 5 )
+      printf ( "You entered 5\\n" ) ;
+     else
+      printf ( "You entered something other than 5\\n" ) ;
+     return 0 ;
+}
+```
+
+Well, here is the output of two runs of this program...
+
+Enter value of i 200 You entered 5 Enter value of i 9999 You entered 5
+
+Surprised? You have entered 200 and 9999, and still you find in either case the output is ‘You entered 5’. This is because we have written the condition wrongly. We have used the assignment operator **\=** instead of the relational operator **==**. As a result, the condition gets reduced to **if (**
+
+**5 )**, irrespective of what you supply as the value of **i**. And remember that in C, ‘truth’ is always non-zero, whereas, ‘falsity’ is always zero. Therefore, **if ( 5 )** always evaluates to true and hence the result.
+
+Another common mistake while using the **if** statement is to write a semicolon (**;**) after the condition, as shown below.
+
+```js
+# include <stdio.h>
+int main( )
+{
+    int i ;
+    printf ( "Enter value of i " ) ;
+    scanf ( "%d", &i ) ;
+    if ( i == 5 ) ;
+    printf ( "You entered 5\\n" ) ;
+    return 0 ;
+}
+```
+
+The ; makes the compiler to interpret the statement as if you have written it in following manner:
+
+```js
+if (i == 5);
+printf("You entered 5\\n");
+```
+
+Here, if the condition evaluates to true, the ; (null statement, which does nothing on execution) gets executed, following which the **printf( )** gets executed. If the condition fails, then straightaway the **printf( )** gets executed. So, irrespective of whether the condition evaluates to true or false, **printf( )** is bound to get executed. Remember that compiler would not point out this as an error, since as far as the syntax is concerned, nothing has gone wrong, but the logic has certainly gone awry. Moral is, beware of such pitfalls.
+
+The following figure summarizes the working of all the three logical operators.
+| Operators | Type |
+| :-------: | :--------------------: |
+| ! | Logical NOT |
+| \* / % | Arithmetic and modulus |
+| + - | Arithmetic |
+| <> <= >= | Relational |
+| == != | Relational |
+| && | Logical AND |
+| | logical OR |
+| = | Assignment |
+
 Figure 4.3
 
-**The Conditional Operators** The conditional operators **?** and **:** are sometimes called ternary operators since they take three arguments. In fact, they form a kind of foreshortened if-then-else. Their general form is,
+## The Conditional Operators
+
+The conditional operators **?** and **:** are sometimes called ternary operators since they take three arguments. In fact, they form a kind of foreshortened if-then-else. Their general form is,
 
 expression 1 ? expression 2 : expression 3
 
@@ -346,9 +386,15 @@ This statement will store 3 in **y** if **x** is greater than 5, otherwise it wi
 
 The equivalent **if-else** form would be,
 
-if ( x > 5 ) y = 3 ; else y = 4 ;
-
-- char a ; int y ; scanf ( "%c", &a ) ; y = ( a >= 65 && a <= 90 ? 1 : 0 ) ;
+```js
+if ( x > 5 )
+ y = 3 ;
+else y = 4 ;
+char a ;
+int y ;
+scanf ( "%c", &a ) ;
+y = ( a >= 65 && a <= 90 ? 1 : 0 ) ;
+```
 
 Here 1 would be assigned to **y** if **a >=65 && a <=90** evaluates to true, otherwise 0 would be assigned.
 
@@ -356,7 +402,19 @@ The following points may be noted about the conditional operators:
 
 - It’s not necessary that the conditional operators should be used only in arithmetic statements. This is illustrated in the following examples:
 
-Ex.: int i ; scanf ( "%d", &i ) ; ( i == 1 ? printf ( "Amit" ) : printf ( "All and sundry" ) ) ; Ex.: char a = 'z' ; printf ( "%c", ( a >= 'a' ? a : '!' ) ) ;
+Ex.:
+
+```js
+int i ;
+scanf ( "%d", &i ) ;
+( i == 1 ? printf ( "Amit" ) : printf ( "All and sundry" ) ) ;
+```
+
+```js
+ Ex.:
+char a = 'z' ;
+printf ( "%c", ( a >= 'a' ? a : '!' ) ) ;
+```
 
 - The conditional operators can be nested as shown below.
 
@@ -386,61 +444,230 @@ The limitation of the conditional operators is that after the **?** or after the
 
 - Assignment statements used with conditional operators must be enclosed within a pair of parentheses.
 
-### Exe**r**cise
+### Exercise
 
 **\[A\]** If a = 10, b = 12, c = 0, find the values of the expressions in the following table:
 
 ### Expression
 
+```js
 a != 6 && b > 5 a == 9 || b < 3 ! ( a < 10 ) ! ( a > 5 && c ) 5 && c != 8 || !c
-
-### Value
-
-1
+```
 
 **\[B\]** What will be the output of the following programs:
+-(1)
 
-- # include <stdio.h> int main( ) { int i = 4, z = 12 ; if ( i = 5 || z > 50 ) printf ( "Dean of students affairs\\n" ) ; else printf ( "Dosa\\n" ) ;
+```js
+# include <stdio.h>
+int main( )
+{
+     int i = 4, z = 12 ;
+     if ( i = 5 || z > 50 )
+     printf ( "Dean of students affairs\\n" ) ;
+     else
+     printf ( "Dosa\\n" ) ;
+     return 0 ;
+}
+```
 
-return 0 ; }
+-(2)
 
-- #include <stdio.h> int main( ) { int i = 4, j = -1, k = 0, w, x, y, z ; w = i || j || k ; x = i && j && k ; y = i || j && k ; z = i && j || k ; printf ( "w = %d x = %d y = %d z = %d\\n", w, x, y, z ) ; return 0 ; }
+```js
+#include <stdio.h>
+int main( )
+{
+    int i = 4, j = -1, k = 0, w, x, y, z ;
+    w = i || j || k ; x = i && j && k ; y = i || j && k ; z = i && j || k ;
+    printf ( "w = %d x = %d y = %d z = %d\\n", w, x, y, z ) ;
+    return 0 ;
+ }
+```
 
-- # include <stdio.h> int main( ) { int x = 20, y = 40, z = 45 ; if ( x > y && x > z ) printf ( "biggest = %d\\n", x ) ; else if ( y > x && y > z ) printf ( "biggest = %d\\n", y ) ; else if ( z > x && z > y ) printf ( "biggest = %d\\n", z ) ; return 0 ; }
+-(3)
 
-- # include <stdio.h> int main( ) { int i = -1, j = 1, k, l ; k = !i && j ; l = !i || j ; printf ( "%d %d\\n", i, j ) ; return 0 ; }
+```js
+# include <stdio.h>
+int main( )
+{
+    int x = 20, y = 40, z = 45 ;
+    if ( x > y && x > z )
+    printf ( "biggest = %d\\n", x ) ;
+    else if ( y > x && y > z )
+    printf ( "biggest = %d\\n", y ) ;
+    else if ( z > x && z > y )
+    printf ( "biggest = %d\\n", z ) ;
+    return 0 ;
+}
+```
 
-- # include <stdio.h> int main( ) { int i = -4, j, num ; j = ( num < 0 ? 0 : num \* num ) ;
+-(4)
 
-printf ( "%d\\n", j ) ; return 0 ; }
+```js
+# include <stdio.h>
+int main( )
+{
+     int i = -1, j = 1, k, l ;
+     k = !i && j ; l = !i || j ;
+     printf ( "%d %d\\n", i, j ) ;
+     return 0 ;
+}
+```
 
-- # include <stdio.h> int main( ) { int k, num = 30 ; k = ( num > 5 ? ( num <= 10 ? 100 : 200 ) : 500 ) ; printf ( "%d\\n", num ) ; return 0 ; }
+-(5)
+
+```js
+# include <stdio.h>
+int main( )
+{
+     int i = -4, j, num ;
+      j = ( num < 0 ? 0 : num \* num ) ;
+      printf ( "%d\\n", j ) ;
+      return 0 ;
+}
+```
+
+-(6)
+
+```js
+# include <stdio.h>
+int main( )
+{
+     int k, num = 30 ;
+     k = ( num > 5 ? ( num <= 10 ? 100 : 200 ) : 500 ) ;
+     printf ( "%d\\n", num ) ;
+     return 0 ;
+}
+```
 
 **\[C\]** Point out the errors, if any, in the following programs:
 
-- # include <stdio.h> int main( ) { int code, flag ; if ( code == 1 & flag == 0 ) printf ( "The eagle has landed\\n" ) ; return 0 ; }
+-(1)
 
-- # include <stdio.h> int main( ) { char spy = 'a', password = 'z' ; if ( spy == 'a' or password == 'z' ) printf ( "All the birds are safe in the nest\\n" ) ; return 0 ; }
-
-- # include <stdio.h> int main( ) { int i = 10, j = 20 ; if ( i = 5 ) && if ( j = 10 ) printf ( "Have a nice day\\n" ) ; return 0 ; }
-
-- # include <stdio.h> int main( )
-
-{ int x = 10, y = 20 ; if ( x >= 2 and y <= 50 ) printf ( "%d\\n", x ) ; return 0 ; }
-
-- # include <stdio.h> int main( ) { int x = 2 ; if ( x == 2 && x != 0 ) ; printf ( "Hello\\n" ) ; else printf ( "Bye\\n" ) ; return 0 ; }
-
-- # include <stdio.h> int main( ) { int i = 10, j = 10 ; if ( i && j == 10 ) printf ( "Have a nice day\\n" ) ; return 0 ;
-
+```js
+# include <stdio.h>
+int main( )
+{
+     int code, flag ;
+     if ( code == 1 & flag == 0 )
+     printf ( "The eagle has landed\\n" ) ;
+     return 0 ;
 }
+```
 
-- # include <stdio.h> int main( ) { int j = 65 ; printf ( "j >= 65 ? %d : %c\\n", j ) ; return 0 ; }
+-(2)
 
-- # include <stdio.h> int main( ) { int i = 10, j ; i >= 5 ? j = 10 : j = 15 ; printf ( "%d %d\\n", i, j ) ; return 0 ; }
+```js
+# include <stdio.h>
+int main( )
+{
+    char spy = 'a', password = 'z' ;
+    if ( spy == 'a' or password == 'z' )
+    printf ( "All the birds are safe in the nest\\n" ) ;
+    return 0 ;
+ }
+```
 
-- # include <stdio.h> int main( ) { int a = 5, b = 6 ; ( a == b ? printf ( "%d\\n", a ) ) ; return 0 ; }
+-(3)
 
-- # include <stdio.h> int main( ) { int n = 9 ; ( n == 9 ? printf ( "Correct\\n" ) ; : printf ( "Wrong\\n" ) ; ) ; return 0 ; }
+```js
+# include <stdio.h>
+int main( )
+{
+    int i = 10, j = 20 ;
+    if ( i = 5 ) && if ( j = 10 )
+    printf ( "Have a nice day\\n" ) ;
+    return 0 ;
+ }
+```
+
+-(4)
+
+```js
+# include <stdio.h>
+int main( )
+{
+    int x = 10, y = 20 ;
+    if ( x >= 2 and y <= 50 )
+    printf ( "%d\\n", x ) ;
+    return 0 ;
+ }
+```
+
+-(5)
+
+```js
+# include <stdio.h>
+int main( )
+{
+     int x = 2 ;
+     if ( x == 2 && x != 0 ) ;
+     printf ( "Hello\\n" ) ;
+     else printf ( "Bye\\n" ) ;
+     return 0 ;
+}
+```
+
+-(6)
+
+```js
+# include <stdio.h>
+int main( )
+{
+     int i = 10, j = 10 ;
+     if ( i && j == 10 )
+     printf ( "Have a nice day\\n" ) ;
+     return 0 ;
+}
+```
+
+-(7)
+
+```js
+# include <stdio.h>
+int main( )
+{
+     int j = 65 ;
+     printf ( "j >= 65 ? %d : %c\\n", j ) ;
+     return 0 ;
+}
+```
+
+-(8)
+
+```js
+# include <stdio.h>
+int main( )
+{
+     int i = 10, j ;
+     i >= 5 ? j = 10 : j = 15 ;
+     printf ( "%d %d\\n", i, j ) ;
+     return 0 ;
+}
+```
+
+-(9)
+
+```js
+# include <stdio.h>
+int main( )
+{
+     int a = 5, b = 6 ;
+     ( a == b ? printf ( "%d\\n", a ) ) ;
+      return 0 ;
+}
+```
+
+-(10)
+
+```js
+# include <stdio.h>
+int main( )
+{
+     int n = 9 ;
+     ( n == 9 ? printf ( "Correct\\n" ) ; : printf ( "Wrong\\n" ) ; ) ;
+      return 0 ;
+}
+```
 
 **\[D\]** Attempt the following:
 
@@ -562,16 +789,19 @@ Starvation Anorexic Underweight Ideal Overweight Obese Morbidly Obese
 
 - Rewrite the following program using conditional operators.
 
-\# include <stdio.h> int main( ) { float sal ; printf ( "Enter the salary" ) ; scanf ( "%f", &sal ) ; if ( sal >= 25000 && sal <= 40000 ) printf ( "Manager\\n" ) ; else if ( sal >= 15000 && sal < 25000 ) printf ( "Accountant\\n" ) ;
-
-else printf ( "Clerk\\n" ) ; return 0 ; }
-
-```
-
-```
-
-```
-
-```
-
+```js
+# include <stdio.h>
+int main( )
+{
+     float sal ;
+     printf ( "Enter the salary" ) ;
+     scanf ( "%f", &sal ) ;
+     if ( sal >= 25000 && sal <= 40000 )
+      printf ( "Manager\\n" ) ;
+     else if ( sal >= 15000 && sal < 25000 )
+      printf ( "Accountant\\n" ) ;
+     else
+     printf ( "Clerk\\n" ) ;
+    return 0 ;
+}
 ```
