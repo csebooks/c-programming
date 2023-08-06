@@ -11,15 +11,20 @@ were carried out in a fixed order; while in the second, an appropriate set of in
 
 These programs were of limited nature, because when executed, they always performed the same series of actions, in the same way, exactly once. Almost always, if something is worth doing, it’s worth doing more than once. You can probably think of several examples of this from real life, such as eating a good dinner or going for a movie. Programming is the same; we frequently need to perform an action over and over, often with variations in the details each time. The mechanism, which meets this need, is the ‘Loop Control Instruction’, and loops are the subject of this chapter.
 
-**Loops** The versatility of the computer lies in its ability to perform a set of instructions repeatedly. This involves repeating some portion of the program either a specified number of times or until a particular condition is being satisfied. This repetitive operation is done through a loop control instruction.
+# Loops 
+The versatility of the computer lies in its ability to perform a set of instructions repeatedly. This involves repeating some portion of the program either a specified number of times or until a particular condition is being satisfied. This repetitive operation is done through a loop control instruction.
 
-There are three methods by way of which we can repeat a part of a program. They are:
+There are **three methods** by way of which we can repeat a part of a program. 
+They are:
 
-- Using a **for** statement (b) Using a **while** statement (c) Using a **do-while** statement
+1. Using a **for** statement
+2. Using a **while** statement  
+3. Using a **do-while** statement
 
 Each of these methods is discussed in the following pages.
 
-**The _while_ Loop** It is often the case in programming that you want to repeat something a fixed number of times. Perhaps you want to calculate gross salaries of ten different persons, or you want to convert temperatures from Centigrade to Fahrenheit for 15 different cities. The **while** loop is ideally suited for this.
+## The _while_ Loop 
+It is often the case in programming that you want to repeat something a fixed number of times. Perhaps you want to calculate gross salaries of ten different persons, or you want to convert temperatures from Centigrade to Fahrenheit for 15 different cities. The **while** loop is ideally suited for this.
 
 Let us look at a simple example that uses a **while** loop to calculate simple interest for 3 sets of values of principal, number of years and rate of interest. The flowchart shown in Figure 5.1 would help you to understand the operation of the **while** loop.
 
@@ -45,13 +50,17 @@ count = 1
 
 count = count + 1
 
-Figure 5.1
+
+Figure 5.1 
 
 Let us now write a program that implements the logic of this flowchart.
 
-/\* Calculation of simple interest for 3 sets of p, n and r \*/ # include <stdio.h> int main( ) { int p, n, count ; float r, si ; count = 1 ; while ( count <= 3 ) { printf ( "\\nEnter values of p, n and r " ) ; scanf ( "%d %d %f", &p, &n, &r ) ; si = p \* n \* r / 100 ; printf ( "Simple interest = Rs. %\\nf", si ) ; count = count + 1 ;
+/\* Calculation of simple interest for 3 sets of p, n and r \*/ 
+{{< highlight c >}}
+#include <stdio.h> int main( ) { int p, n, count ; float r, si ; count = 1 ; while ( count <= 3 ) { printf ( "\\nEnter values of p, n and r " ) ; scanf ( "%d %d %f", &p, &n, &r ) ; si = p \* n \* r / 100 ; printf ( "Simple interest = Rs. %\\nf", si ) ; count = count + 1 ;
 
 } return 0 ; }
+{{< / highlight >}}
 
 And here are a few sample runs of the program...
 
