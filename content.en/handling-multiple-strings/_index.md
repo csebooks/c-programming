@@ -11,7 +11,7 @@ string. This chapter discusses how such situations can be handled effectively.
 In Chapter 14 we saw several examples of two-dimensional integer arrays. Let’s now look at a similar entity, but one dealing with characters. Our example program asks you to type your name. When you do so, it checks your name against a master list to see if you are worthy of entry to the palace. Here’s the program...
 
 {{< highlight c >}}
-\#include <stdio.h> 
+#include <stdio.h> 
 #include <string.h> 
 # define FOUND 1 
 # define NOTFOUND 0 
@@ -37,7 +37,7 @@ int main( )
       printf ( "Sorry, you are a trespasser\\n" ) ; 
        return 0 ; 
 }
-
+{{< / highlight >}}
 And here is the output for two sample runs of this program...
 
 {{< highlight c >}}
