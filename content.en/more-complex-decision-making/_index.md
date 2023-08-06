@@ -1,20 +1,23 @@
 ---
-title: 'More Complex Decision Making'
+title: "More Complex Decision Making"
 weight: 4
 ---
 
-   
 We all face situations in real-life where the action that we carry out is based on multiple conditions. For example, I will join a
 
 company if the company allocates a metro location, gives me a good pay package and permits a joining period of 4 weeks. In programming too action performed may be based on result of multiple conditions. Such programming situations can be handled elegantly using Logical Operators. This chapter also explores the use of another type of operators called Conditional Operators.
 
-**Use of Logical Operators** C allows usage of three logical operators, namely, &&, || and !. These are to be read as ‘AND’, ‘OR’ and ‘NOT’, respectively.
+## Use of Logical Operators
+
+C allows usage of three logical operators, namely, &&, || and !. These are to be read as ‘AND’, ‘OR’ and ‘NOT’, respectively.
 
 There are several things to note about these logical operators. Most obviously, two of them are composed of double symbols: **||** and **&&**. Don’t use the single symbol **|** and **&**. These single symbols also have a meaning. They are bitwise operators, which we would examine in Chapter 21.
 
 The first two operators, **&&** and **||**, allow two or more conditions to be combined in an **if** statement. Let us see how they are used in a program. Consider the following example:
 
-**Example 4.1:** The marks obtained by a student in 5 different subjects are input through the keyboard. The student gets a division as per the following rules:
+**Example 4.1:**
+
+> The marks obtained by a student in 5 different subjects are input through the keyboard. The student gets a division as per the following rules:
 
 Percentage above or equal to 60 - First division Percentage between 50 and 59 - Second division Percentage between 40 and 49 - Third division Percentage less than 40 - Fail
 
@@ -22,11 +25,32 @@ Write a program to calculate the division obtained by the student.
 
 There are two ways in which we can write a program for this example. These methods are given below.
 
-/\* Method – I \*/ # include <stdio.h> int main( ) { int m1, m2, m3, m4, m5, per ; printf ( "Enter marks in five subjects " ) ;
+/\* Method – I \*/
 
-### W
-
-scanf ( "%d %d %d %d %d", &m1, &m2, &m3, &m4, &m5 ) ; per = ( m1 + m2 + m3 + m4 + m5 ) \* 100 / 500 ; if ( per >= 60 ) printf ( "First division\\n" ) ; else { if ( per >= 50 ) printf ( "Second division\\n" ) ; else { if ( per >= 40 ) printf ( "Third division\\n" ) ; else printf ( "Fail\\n" ) ; } } return 0 ; }
+```js
+ # include <stdio.h>
+  int main( )
+   {
+     int m1, m2, m3, m4, m5, per ;
+     printf ( "Enter marks in five subjects " ) ;
+     scanf ( "%d %d %d %d %d", &m1, &m2, &m3, &m4, &m5 ) ;
+     per = ( m1 + m2 + m3 + m4 + m5 ) \* 100 / 500 ;
+      if ( per >= 60 )
+       printf ( "First division\\n" ) ;
+      else
+       {
+        if ( per >= 50 )
+        printf ( "Second division\\n" ) ;
+        else
+        {
+            if ( per >= 40 )
+            printf ( "Third division\\n" ) ;
+            else printf ( "Fail\\n" ) ;
+        }
+       }
+       return 0 ;
+    }
+```
 
 This is a straight-forward program. Observe that the program uses nested **if-else**s. Though the program works fine, it has three disadvantages:
 
@@ -38,9 +62,35 @@ This is a straight-forward program. Observe that the program uses nested **if-el
 
 All these three problems can be eliminated by usage of ‘Logical Operators’. The following program illustrates this:
 
-/\* Method – II \*/ # include <stdio.h> int main( ) {
+/\* Method – II \*/
 
-int m1, m2, m3, m4, m5, per ; printf ( "Enter marks in five subjects " ) ; scanf ( "%d %d %d %d %d", &m1, &m2, &m3, &m4, &m5 ) ; per = ( m1 + m2 + m3 + m4 + m5 ) / 500 \* 100 ; if ( per >= 60 ) printf ( "First division\\n" ) ; if ( ( per >= 50 ) && ( per < 60 ) ) printf ( "Second division\\n" ) ; if ( ( per >= 40 ) && ( per < 50 ) ) printf ( "Third division\\n" ) ; if ( per < 40 ) printf ( "Fail\\n" ) ; return 0 ; }
+```js
+ # include <stdio.h>
+  int main( )
+  {
+    int m1, m2, m3, m4, m5, per ;
+    printf ( "Enter marks in five subjects " ) ;
+    scanf ( "%d %d %d %d %d", &m1, &m2, &m3, &m4, &m5 ) ;
+    per = ( m1 + m2 + m3 + m4 + m5 ) / 500 \* 100 ;
+     if ( per >= 60 )
+     {
+      printf ( "First division\\n" ) ;
+     }
+     if ( ( per >= 50 ) && ( per < 60 ) )
+     {
+      printf ( "Second division\\n" ) ;
+     }
+     if ( ( per >= 40 ) && ( per < 50 ) )
+     {
+      printf ( "Third division\\n" ) ;
+     }
+     if ( per < 40 )
+     {
+      printf ( "Fail\\n" ) ;
+     }
+     return 0 ;
+  }
+```
 
 As can be seen from the second **if** statement, the **&&** operator is used to combine two conditions. ‘Second division’ gets printed if both the conditions evaluate to true. If one of the conditions evaluate to false then the whole thing is treated as false.
 
@@ -58,7 +108,25 @@ increase the time of execution of the program. This can be avoided using the **e
 
 There is one more way in which we can write program for Example 4.1. This involves usage of **else if** blocks as shown below.
 
-/\* else if ladder demo \*/ # include <stdio.h> int main( ) { int m1, m2, m3, m4, m5, per ; per = ( m1+ m2 + m3 + m4+ m5 ) / 500 \* 100 ; if ( per >= 60 ) printf ( "First division\\n" ) ; else if ( per >= 50 ) printf ( "Second division\\n" ) ; else if ( per >= 40 ) printf ( "Third division\\n" ) ; else printf ( "fail\\n" ) ; return 0 ; }
+/\* else if ladder demo \*/
+{{< highlight c >}}
+
+# include <stdio.h>
+
+int main( )
+{
+int m1, m2, m3, m4, m5, per ;
+per = ( m1+ m2 + m3 + m4+ m5 ) / 500 \* 100 ;
+if ( per >= 60 )
+printf ( "First division\\n" ) ;
+else if ( per >= 50 )
+printf ( "Second division\\n" ) ;
+else if ( per >= 40 )
+printf ( "Third division\\n" ) ;
+else printf ( "fail\\n" ) ;
+return 0 ;
+}
+{{< / highlight  >}}
 
 You can note that this program reduces the indentation of the statements. In this case, every **else** is associated with its previous **if**. The last **else** goes to work only if all the conditions fail. Also, if a condition is satisfied, other conditions below it are not checked. Even in **else if** ladder, the last **else** is optional.
 
@@ -74,19 +142,46 @@ Another place where logical operators are useful is when we want to write progra
 
 **Example 4.2:** A company insures its drivers in the following cases:
 
- If the driver is married.
-
- If the driver is unmarried, male & above 30 years of age.
-
- If the driver is unmarried, female & above 25 years of age.
+- If the driver is married.
+- If the driver is unmarried, male & above 30 years of age.
+- If the driver is unmarried, female & above 25 years of age.
 
 In all other cases, the driver is not insured. If the marital status, sex and age of the driver are the inputs, write a program to determine whether the driver should be insured or not.
 
 Here after checking a complicated set of instructions the final output of the program would be one of the two—either the driver should be insured or the driver should not be insured. As mentioned above, since these are the only two outcomes this problem can be solved using logical operators. But before we do that, let us write a program that does not make use of logical operators.
 
-/\* Insurance of driver - without using logical operators \*/ # include <stdio.h> int main( ) { char sex, ms ; int age ; printf ( "Enter age, sex, marital status " ) ; scanf ( "%d %c %c", &age, &sex, &ms ) ; if ( ms == 'M' ) printf ( "Driver should be insured\\n" ) ;
+/\* Insurance of driver - without using logical operators \*/
 
-else { if ( sex == 'M' ) { if ( age > 30 ) printf ( "Driver should be insured\\n" ) ; else printf ( "Driver should not be insured\\n" ) ; } else { if ( age > 25 ) printf ( "Driver should be insured\\n" ) ; else printf ( "Driver should not be insured\\n" ) ; } } return 0 ; }
+```js
+ # include <stdio.h>
+ int main( )
+ {
+     char sex, ms ;
+     int age ;
+     printf ( "Enter age, sex, marital status " ) ;
+     scanf ( "%d %c %c", &age, &sex, &ms ) ;
+     if ( ms == 'M' )
+     printf ( "Driver should be insured\\n" ) ;
+     else
+     {
+         if ( sex == 'M' )
+         {
+             if ( age > 30 )
+              printf ( "Driver should be insured\\n" ) ;
+            else
+             printf ( "Driver should not be insured\\n" ) ;
+         }
+         else
+         {
+             if ( age > 25 )
+              printf ( "Driver should be insured\\n" ) ;
+             else
+              printf ( "Driver should not be insured\\n" ) ;
+         }
+     }
+  return 0 ;
+}
+```
 
 From the program it is evident that we are required to match several **if**s and **else**s and several pairs of braces. In a more real-life situation there would be more conditions to check leading to the program creeping to the right. Let us now see how to avoid these problems by using logical operators.
 
@@ -100,19 +195,30 @@ As mentioned above, in this example, we expect the answer to be either ‘Driver
 
 Since all these cases lead to the driver being insured, they can be combined together using **&&** and **||** as shown in the program below.
 
-/\* Insurance of driver - using logical operators \*/ # include <stdio.h> int main( ) { char sex, ms ;
+/\* Insurance of driver - using logical operators \*/
 
-int age ; printf ( "Enter age, sex, marital status " ) ; scanf ( "%d %c %c", &age, &sex, &ms ) ; if ( ( ms == 'M') || ( ms == 'U' && sex == 'M' && age > 30 ) || ( ms == 'U' && sex == 'F' && age > 25 ) ) printf ( "Driver should be insured\\n" ) ; else printf ( "Driver should not be insured\\n" ) ; return 0 ; }
+```js
+# include <stdio.h>
+int main( )
+{
+   char sex, ms ;
+   int age ;
+   printf ( "Enter age, sex, marital status " ) ;
+   scanf ( "%d %c %c", &age, &sex, &ms ) ;
+   if ( ( ms == 'M') || ( ms == 'U' && sex == 'M' && age > 30 ) || ( ms == 'U' && sex == 'F' && age > 25 ) )
+   printf ( "Driver should be insured\\n" ) ;
+   else
+    printf ( "Driver should not be insured\\n" ) ;
+   return 0 ;
+ }
+```
 
 In this program, it is important to note that:
 
- The driver will be insured only if one of the conditions enclosed in parentheses evaluates to true.
-
- For the second pair of parentheses to evaluate to true, each condition in the parentheses separated by && must evaluate to true.
-
- Even if one of the conditions in the second parentheses evaluates to false, then the whole of the second parentheses evaluates to false.
-
- The last two of the above arguments apply to third pair of parentheses as well.
+- The driver will be insured only if one of the conditions enclosed in parentheses evaluates to true.
+- For the second pair of parentheses to evaluate to true, each condition in the parentheses separated by && must evaluate to true.
+- Even if one of the conditions in the second parentheses evaluates to false, then the whole of the second parentheses evaluates to false.
+- The last two of the above arguments apply to third pair of parentheses as well.
 
 Thus, we can conclude that the **&&** and **||** are useful in the following programming situations:
 
@@ -123,28 +229,36 @@ Thus, we can conclude that the **&&** and **||** are useful in the following pro
 In some programming situations we may combine the usage of **if— else if—else** and logical operators. This is demonstrated in the following program.
 
 **Example 4.3:** Write a program to calculate the salary as per the following table:
-
-### Gender Years of Service Qualifications Salary
-
-Male >= 10 Post-Graduate 15000
-
-\>= 10 Graduate 10000
-
-< 10 Post-Graduate 10000
-
-< 10 Graduate 7000
-
-Female >= 10 Post-Graduate 12000
-
-\>= 10 Graduate 9000
-
-< 10 Post-Graduate 10000
-
-< 10 Graduate 6000
+| Gender | Years of Service | Qualifications | Salary |
+| :----: | :--------------- | :------------: | :----: |
+| Male | >=10 | Post-Graduate | 15000 |
+| | >=10 | Graduate | 10000 |
+| | <10 | Post-Graduate | 10000 |
+| | <10 | Graduate | 7000 |
+| Female | >=10 | Post-Graduate | 12000 |
+| | >=10 | Graduate | 9000 |
+| | <10 | Post-Graduate | 10000 |
+| | <10 | Graduate | 6000 |
 
 Figure 4.1
 
-\# include <stdio.h> int main( ) { char g ; int yos, qual, sal = 0 ; printf ( "Enter Gender, Years of Service and Qualifications ( 0 = G, 1 = PG ):" ) ; scanf ( "%c%d%d", &g, &yos, &qual ) ; if ( g == 'm' && yos >= 10 && qual == 1 ) sal = 15000 ; else if ( ( g == 'm' && yos >= 10 && qual == 0 ) || ( g == 'm' && yos < 10 && qual == 1 ) ) sal = 10000 ; else if ( g == 'm' && yos < 10 && qual == 0 ) sal = 7000 ; else if ( g == 'f' && yos >= 10 && qual == 1 ) sal = 12000 ; else if ( g == 'f' && yos >= 10 && qual == 0 ) sal = 9000 ; else if ( g == 'f' && yos < 10 && qual == 1 ) sal = 10000 ; else if ( g == 'f' && yos < 10 && qual == 0 ) sal = 6000 ;
+```js
+# include <stdio.h>
+int main( )
+{
+    char g ;
+    int yos, qual, sal = 0 ;
+    printf ( "Enter Gender, Years of Service and Qualifications ( 0 = G, 1 = PG ):" ) ;
+    scanf ( "%c%d%d", &g, &yos, &qual ) ;
+    if ( g == 'm' && yos >= 10 && qual == 1 )
+     sal = 15000 ;
+    else if ( ( g == 'm' && yos >= 10 && qual == 0 ) || ( g == 'm' && yos < 10 && qual == 1 ) )
+     sal = 10000 ;
+    else if ( g == 'm' && yos < 10 && qual == 0 )
+    sal = 7000 ;
+    else if ( g == 'f' && yos >= 10 && qual == 1 )
+    sal = 12000 ;
+    else if ( g == 'f' && yos >= 10 && qual == 0 ) sal = 9000  ; else if ( g == 'f' && yos < 10 && qual == 1 ) sal = 10000 ; else if ( g == 'f' && yos < 10 && qual == 0 ) sal = 6000 ;
 
 printf ( "\\nSalary of Employee = %d\\n", sal ) ; return 0 ; }
 
@@ -452,3 +566,12 @@ Starvation Anorexic Underweight Ideal Overweight Obese Morbidly Obese
 
 else printf ( "Clerk\\n" ) ; return 0 ; }
 
+```
+
+```
+
+```
+
+```
+
+```
