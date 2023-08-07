@@ -3,13 +3,11 @@ title: 'Structures'
 weight: 17
 ---
 
-   
+which mechanic is good enough who knows how to repair only one type of vehicle? None. Same thing is true about C language. It wouldn’t have been so popular had it been able to handle only all **int**s, or all **float**s or all **char**s at a time. In fact, when we handle real world data, we don’t usually deal with little atoms of information by themselves—things like integers, characters and such. Instead, we deal with entities that are collections of things, each thing having its own attributes, just as the entity we call a ‘book’ is a collection of things, such as title, author, call number, publisher, number of pages, date of publication, etc. As you can see, all this data is dissimilar, like author is a string, whereas number of pages is an integer. For dealing with such collections, C provides a data type called ‘structure’. A structure gathers together, different atoms of information that comprise a given entity. And structure is the topic of this chapter.
 
-hich mechanic is good enough who knows how to repair only one type of vehicle? None. Same thing is true about C language. It
+# Why use Structures?
 
-wouldn’t have been so popular had it been able to handle only all **int**s, or all **float**s or all **char**s at a time. In fact, when we handle real world data, we don’t usually deal with little atoms of information by themselves—things like integers, characters and such. Instead, we deal with entities that are collections of things, each thing having its own attributes, just as the entity we call a ‘book’ is a collection of things, such as title, author, call number, publisher, number of pages, date of publication, etc. As you can see, all this data is dissimilar, like author is a string, whereas number of pages is an integer. For dealing with such collections, C provides a data type called ‘structure’. A structure gathers together, different atoms of information that comprise a given entity. And structure is the topic of this chapter.
-
-**Why use Structures?** We have seen earlier how ordinary variables can hold one piece of information and how arrays can hold a number of pieces of information of the same data type. These two data types can handle a great variety of situations. But quite often we deal with entities that are collection of dissimilar data types.
+We have seen earlier how ordinary variables can hold one piece of information and how arrays can hold a number of pieces of information of the same data type. These two data types can handle a great variety of situations. But quite often we deal with entities that are collection of dissimilar data types.
 
 For example, suppose you want to store data about a book. You might want to store its name (a string), its price (a float) and number of pages in it (an int). If data about say 3 such books is to be stored, then we can follow two approaches:
 
@@ -19,11 +17,14 @@ For example, suppose you want to store data about a book. You might want to stor
 
 Let us examine these two approaches one-by-one. For the sake of programming convenience, assume that the names of books would be single character long. Let us begin with a program that uses arrays.
 
-\# include <stdio.h> int main( ) { char name\[ 3 \] ; float price\[ 3 \] ; int pages\[ 3 \], i ;
-
-W
-
-printf ( "Enter names, prices and no. of pages of 3 books\\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) scanf ( "%c %f %d", &name\[ i \], &price\[ i \], &pages\[ i \] ) ; printf ( "\\nAnd this is what you entered\\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) printf ( "%c %f %d\\n", name\[ i \], price\[ i \], pages\[ i \] ) ; return 0 ; }
+```c
+#include <stdio.h> 
+int main( ) { 
+char name[3] ; 
+float price[3];
+int pages[3], i ;
+printf ( "Enter names, prices and no. of pages of 3 books\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) scanf ( "%c %f %d", &name\[ i \], &price\[ i \], &pages\[ i \] ) ; printf ( "\\nAnd this is what you entered\\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) printf ( "%c %f %d\\n", name\[ i \], price\[ i \], pages\[ i \] ) ; return 0 ; }
+```
 
 And here is the sample run...
 
@@ -35,9 +36,18 @@ The program becomes more difficult to handle as the number of items relating to 
 
 A structure contains a number of data types grouped together. These data types may or may not be of the same type. The following example illustrates the use of this data type:
 
-\# include <stdio.h> int main( ) { struct book {
+```c
+#include <stdio.h> 
 
-char name ; float price ; int pages ; } ; struct book b1, b2, b3 ; printf ( "Enter names, prices & no. of pages of 3 books\\n" ) ; scanf ( "%c %f %d", &b1.name, &b1.price, &b1.pages ) ; scanf ( "%c %f %d", &b2.name, &b2.price, &b2.pages ) ; scanf ( "%c %f %d", &b3.name, &b3.price, &b3.pages ) ; printf ( "And this is what you entered\\n" ) ; printf ( "%c %f %d\\n", b1.name, b1.price, b1.pages ) ; printf ( "%c %f %d\\n", b2.name, b2.price, b2.pages ) ; printf ( "%c %f %d\\n", b3.name, b3.price, b3.pages ) ; return 0 ; }
+int main( ) { 
+    struct book {
+        char name ; 
+        float price ; 
+        int pages ; 
+    }; 
+
+struct book b1, b2, b3 ; printf ( "Enter names, prices & no. of pages of 3 books\\n" ) ; scanf ( "%c %f %d", &b1.name, &b1.price, &b1.pages ) ; scanf ( "%c %f %d", &b2.name, &b2.price, &b2.pages ) ; scanf ( "%c %f %d", &b3.name, &b3.price, &b3.pages ) ; printf ( "And this is what you entered\\n" ) ; printf ( "%c %f %d\\n", b1.name, b1.price, b1.pages ) ; printf ( "%c %f %d\\n", b2.name, b2.price, b2.pages ) ; printf ( "%c %f %d\\n", b3.name, b3.price, b3.pages ) ; return 0 ; }
+```
 
 And here is the output...
 
@@ -49,7 +59,7 @@ This program demonstrates two fundamental aspects of structures:
 
 Let us now look at these concepts one-by-one.
 
-### Declaring a Structure
+## Declaring a Structure
 
 In our example program, the following statement declares the structure type:
 
@@ -97,7 +107,7 @@ is included (using the preprocessor directive **#include**) in whichever program
 
 - If a structure variable is initiated to a value { 0 }, then all its elements are set to value 0, as in **b3** above. This is a handy way of initializing structure variables. In absence of this, we would have been required to initialize each individual element to a value 0.
 
-### Accessing Structure Elements
+## Accessing Structure Elements
 
 Having declared the structure type and the structure variables, let us see how the elements of the structure can be accessed.
 
