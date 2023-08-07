@@ -17,7 +17,7 @@ In Chapter 14 we saw several examples of two-dimensional integer arrays. Let’s
 # define NOTFOUND 0 
 int main( ) 
 { 
-    char masterlist\[ 6 \]\[ 10 \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ;
+     char masterlist\[ 6 \]\[ 10 \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ;
      int i, flag, a ; 
      char yourname\[ 10 \] ; 
      printf ( "Enter your name " ) ; 
@@ -35,16 +35,16 @@ int main( )
       } 
       if ( flag == NOTFOUND ) 
       printf ( "Sorry, you are a trespasser\\n" ) ; 
-       return 0 ; 
+      return 0 ; 
 }
 {{< / highlight >}}
-And here is the output for two sample runs of this program...
+And here is the **output** for two sample runs of this program...
 
-{{< highlight c >}}
+```js
 Enter your name dinesh Sorry, 
 you are a trespasser Enter your name raman Welcome, 
 you can enter the palace
-{{< / highlight >}}
+```
 
 Notice how the two-dimensional character array has been initialized. The order of the subscripts in the array declaration is important. The first subscript gives the number of names in the array, while the second subscript gives the length of each item in the array.
 
@@ -61,31 +61,15 @@ The variable **flag** is used to keep a record of whether the control did reach 
 
 The names would be stored in the memory as shown in Figure 16.1. Note that each string ends with a ’\\0’. The arrangement, as you can appreciate, is similar to that of a two-dimensional numeric array.
 
-a k s h a y \\0
+65454 | a | k | s | h | a | y | \\0 |    |    |    | \
+65464 | p | a | r | a | g | \\0 |    |    |    |    |\
+65474 | r | a | m | a | n | \\0 |    |    |    |    |\
+65484 | s | r | i | n | i | v | a |  s | \\0  |    |\
+65494 | g | o | p | a | l | \\0 |   |    |    |    |\
+65504 | r | a | j | e | s | h | \\0  |     |    |    | 65513 (last location)
 
-p a r a g \\0
-
-r a m a n \\0
-
-s r i n i v a s \\0
-
-g o p a l \\0
-
-r a j e s h \\0
-
-65454
-
-65464
-
-65474
-
-65484
-
-65494
-
-65504 65513 (last location)
-
-Figure 16.1 :
+ 
+**Figure 16.1** :
 
 Here, 65454, 65464, 65474, etc., are the base addresses of successive names. As seen from the above pattern, some of the names do not occupy all the bytes reserved for them. For example, even though 10 bytes are reserved for storing the name “akshay”, it occupies only 7 bytes. Thus, 3 bytes go waste. Similarly, for each name, there is some amount of wastage. In fact, more the number of names, more would be the wastage. Can this not be avoided? Yes, it can be... by using what is called an ‘array of pointers’, which is our next topic of discussion.
 
@@ -112,13 +96,13 @@ gopal\\0 rajesh\\0 parag\\0
 
 names\[ \]
 
-Figure 16.2 :
+**Figure 16.2** :
 
 In the two-dimensional array of characters, the strings occupied 60 bytes. As against this, in array of pointers, the strings occupy only 41 bytes—a net saving of 19 bytes. A substantial saving, you would agree. Thus, one reason for storing strings in an array of pointers is to make a more efficient use of available memory.
 
 Another reason to use an array of pointers to store strings is to obtain greater ease in manipulation of the strings. This is shown by the following programs. The first one uses a two-dimensional array of characters to store the names, whereas the second uses an array of pointers to strings. The purpose of both the programs is very simple. We want to exchange the position of the names “raman” and “srinivas”.
 
-/\* Exchange names using 2-D array of characters \*/ 
+/\* **Exchange names using 2-D array of characters** \*/ 
 
 {{< highlight c >}}
 #include <stdio.h> 
@@ -139,7 +123,7 @@ int main( )
 }
 {{< / highlight >}}
 
-And here is the output...
+And here is the **output**...
 
 {{< highlight c >}}
 Original: raman srinivas 
@@ -151,7 +135,7 @@ Note that in this program to exchange the names, we are required to exchange cor
 Let us see, if the number of exchanges can be reduced by using an array of pointers to strings. Here is the program...
 
 {{< highlight c >}}
-\#include <stdio.h> 
+#include <stdio.h> 
 int main( ) 
 { 
     char \*names\[ \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; 
@@ -164,7 +148,7 @@ int main( )
 }
 {{< / highlight >}}
 
-And here is the output...
+And here is the **output**...
 
 {{< highlight c >}}
 Original: raman srinivas New: srinivas raman
@@ -178,7 +162,7 @@ Thus, from the point of view of efficient memory usage and ease of programming, 
 When we are using a two-dimensional array of characters, we are at liberty to either initialize the strings where we are declaring the array, or receive the strings using **scanf( )** function. However, when we are using an array of pointers to strings, we can initialize the strings at the place where we are declaring the array, but we cannot receive the strings from keyboard using **scanf( )**. Thus, the following program would never work out:
 
 {{< highlight c >}}
-\# include <stdio.h>
+#include <stdio.h>
 int main( ) 
 { 
     char \*names\[ 6 \] ; 
@@ -196,7 +180,7 @@ The program doesn’t work because; when we are declaring the array, it is conta
 **Solution** If we are bent upon receiving the strings from keyboard using **scanf( )** function and then storing their addresses in an array of pointers to strings, we can do it in a slightly roundabout manner as shown below.
 
 {{< highlight c >}}
-\#include <stdio.h> 
+#include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
 int main( ) 
@@ -216,7 +200,7 @@ int main( )
      }
           for ( i = 0 ; i <= 5 ; i++ ) 
           printf ( "%s\\n", names\[ i \] ) ;
-        return 0 ; 
+          return 0 ; 
 }
 {{< / highlight >}}
 
@@ -256,7 +240,7 @@ char \*mess\[ \] = { "Hammer and tongs", "Tooth and nail", "Spit and polish", "Y
 char \*str\[ \] = { "We will teach you how to...", "Move a mountain", "Level a building", "Erase the past", "Make a million", "...all through C!" } ;
 {{< / highlight >}}
 
-For *example* if **str1** contains "mountain" and **str2** contains "car", then the second string in **str** should get changed to "Move a car".
+For **example** if **str1** contains "mountain" and **str2** contains "car", then the second string in **str** should get changed to "Move a car".
 
 - Write a program to sort a set of names stored in an array in alphabetical order.
 
