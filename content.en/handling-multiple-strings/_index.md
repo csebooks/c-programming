@@ -10,7 +10,7 @@ string. This chapter discusses how such situations can be handled effectively.
 # Two-Dimensional Array of Characters # 
 In Chapter 14 we saw several examples of two-dimensional integer arrays. Let’s now look at a similar entity, but one dealing with characters. Our example program asks you to type your name. When you do so, it checks your name against a master list to see if you are worthy of entry to the palace. Here’s the program...
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 #include <string.h> 
 # define FOUND 1 
@@ -37,7 +37,7 @@ int main( )
       printf ( "Sorry, you are a trespasser\\n" ) ; 
       return 0 ; 
 }
-{{< / highlight >}}
+```
 And here is the **output** for two sample runs of this program...
 
 ```js
@@ -50,10 +50,10 @@ Notice how the two-dimensional character array has been initialized. The order o
 
 Instead of initializing names, had these names been supplied from the keyboard, the program segment would have looked like this...
 
-{{< highlight c >}}
+```c
 for ( i = 0 ; i <= 5 ; i++ ) 
 scanf ( "%s", &masterlist\[ i \]\[ 0 \] ) ;
-{{< / highlight >}}
+```
 
 While comparing the strings through **strcmp( )**, note that the addresses of the strings are being passed to **strcmp( )**. As seen in the last section, if the two strings match, **strcmp( )** would return a value 0, otherwise it would return a non-zero value.
 
@@ -76,9 +76,9 @@ Here, 65454, 65464, 65474, etc., are the base addresses of successive names. As 
 ## Array of Pointers to Strings
  As we know, a pointer variable always contains an address. Therefore, if we construct an array of pointers, it would contain a number of addresses. Let us see how the names in the earlier example can be stored in the array of pointers.
 
-{{< highlight c >}}
+```c
 char \*names\[ \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ;
-{{< / highlight >}}
+```
 
 In this declaration, **names\[ \]** is an array of pointers. It contains base addresses of respective names. That is, base address of “akshay” is stored in **names\[ 0 \]**, base address of “parag” is stored in **names\[ 1 \]** and so on. This is depicted in Figure 16.2.
 
@@ -104,7 +104,7 @@ Another reason to use an array of pointers to store strings is to obtain greater
 
 /\* **Exchange names using 2-D array of characters** \*/ 
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -121,20 +121,20 @@ int main( )
     printf ( "New: %s %s\\n", &names\[ 2 \]\[ 0 \], &names\[ 3 \]\[ 0 \] ) ;
      return 0 ; 
 }
-{{< / highlight >}}
+```
 
 And here is the **output**...
 
-{{< highlight c >}}
+```c
 Original: raman srinivas 
 New: srinivas raman
-{{< / highlight >}}
+```
 
 Note that in this program to exchange the names, we are required to exchange corresponding characters of the two names. In effect, 10 exchanges are needed to interchange two names.
 
 Let us see, if the number of exchanges can be reduced by using an array of pointers to strings. Here is the program...
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -146,13 +146,13 @@ int main( )
     printf ( "New: %s %s\\n", names\[ 2 \], names\[ 3 \] ) ; 
     return 0 ;
 }
-{{< / highlight >}}
+```
 
 And here is the **output**...
 
-{{< highlight c >}}
+```c
 Original: raman srinivas New: srinivas raman
-{{< / highlight >}}
+```
 
 The output is same as the earlier program. In this program, all that we are required to do is to exchange the addresses (of the names) stored in the array of pointers, rather than the names themselves. Thus, by effecting just one exchange, we are able to interchange names. This makes handling strings very convenient.
 
@@ -161,7 +161,7 @@ Thus, from the point of view of efficient memory usage and ease of programming, 
 ## Limitation of Array of Pointers to Strings 
 When we are using a two-dimensional array of characters, we are at liberty to either initialize the strings where we are declaring the array, or receive the strings using **scanf( )** function. However, when we are using an array of pointers to strings, we can initialize the strings at the place where we are declaring the array, but we cannot receive the strings from keyboard using **scanf( )**. Thus, the following program would never work out:
 
-{{< highlight c >}}
+```c
 #include <stdio.h>
 int main( ) 
 { 
@@ -173,13 +173,13 @@ int main( )
          scanf ( "%s", names\[ i \] ) ; 
     } return 0 ; 
 }
-{{< / highlight >}}
+```
 
 The program doesn’t work because; when we are declaring the array, it is containing garbage values. And it would be definitely wrong to send these garbage values to **scanf( )** as the addresses where it should keep the strings received from the keyboard.
 
 **Solution** If we are bent upon receiving the strings from keyboard using **scanf( )** function and then storing their addresses in an array of pointers to strings, we can do it in a slightly roundabout manner as shown below.
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
@@ -202,7 +202,7 @@ int main( )
           printf ( "%s\\n", names\[ i \] ) ;
           return 0 ; 
 }
-{{< / highlight >}}
+```
 
 Here we have first received a name using **scanf( )** in a string **n\[ \]**. Then we have found out its length using **strlen( )** and allocated space for making a copy of this name. This memory allocation has been done using a standard library function called **malloc( )**. This function requires the number of bytes to be allocated and returns the base address of the chunk of memory that it allocates. The address returned by this function is always of the type **void \***. This is because **malloc( )** doesn’t know what for did we allocate the memory. A **void \*** means a pointer which is a
 
@@ -226,9 +226,9 @@ This solution suffers in performance because we need to allocate memory and then
 
 - How many bytes in memory would be occupied by the following array of pointers to strings? How many bytes would be required to store the same strings, if they are stored in a two-dimensional character array?
 
-{{< highlight c >}}
+```c
 char \*mess\[ \] = { "Hammer and tongs", "Tooth and nail", "Spit and polish", "You and C" } ;\
-{{< / highlight >}}
+```
 
 - Can an array of pointers to strings be used to collect strings from the keyboard? If yes, how? If not, why not?
 
@@ -236,9 +236,9 @@ char \*mess\[ \] = { "Hammer and tongs", "Tooth and nail", "Spit and polish", "Y
 
 - Write a program that uses an array of pointers to strings **str\[ \]**. Receive two strings **str1** and **str2** and check if **str1** is embedded in any of the strings in **str\[ \]**. If **str1** is found, then replace it with **str2**.
 
-{{< highlight c >}}
+```c
 char \*str\[ \] = { "We will teach you how to...", "Move a mountain", "Level a building", "Erase the past", "Make a million", "...all through C!" } ;
-{{< / highlight >}}
+```
 
 For **example** if **str1** contains "mountain" and **str2** contains "car", then the second string in **str** should get changed to "Move a car".
 
@@ -246,9 +246,9 @@ For **example** if **str1** contains "mountain" and **str2** contains "car", the
 
 - Write a program to reverse the strings stored in the following array of pointers to strings:
 
-{{< highlight c >}}
+```c
 char \*s\[ \] = { "To err is human...", "But to really mess things up...", "One needs to know C!!" } ;
-{{< / highlight >}}
+```
 
 - Develop a program that receives the month and year from the keyboard as integers and prints the calendar in the following format.
 

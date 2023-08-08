@@ -167,8 +167,9 @@ printf ( "\\nEnter a few lines of text:\\n" ) ; while ( strlen ( gets ( s ) ) > 
 
 And here is a sample run of the program...
 
-Enter a few lines of text: Shining and bright, they are forever, so true about diamonds, more so of memories, especially yours!
-
+Enter a few lines of t```
+Ex.:  Shining and bright, they are forever, so true about diamonds, more so of memories, especially yours!
+```
 Note that each string is terminated by hitting Enter. To terminate the execution of the program, hit Enter at the beginning of a line. This creates a string of zero length, which the program recognizes as the signal to close the file and exit.
 
 We have set up a character array to receive the string; the **fputs( )** function then writes the contents of the array to the disk. Since **fputs( )** does not automatically add a newline character to the end of the string, we must do this explicitly to make it easier to read the string back from the file.

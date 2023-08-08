@@ -109,7 +109,7 @@ increase the time of execution of the program. This can be avoided using the **e
 There is one more way in which we can write program for Example 4.1. This involves usage of **else if** blocks as shown below.
 
 /\* else if ladder demo \*/
-{{< highlight c >}}
+```c
 
 # include <stdio.h>
 

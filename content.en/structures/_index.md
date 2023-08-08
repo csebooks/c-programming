@@ -24,7 +24,7 @@ For **example**, suppose you want to store data about a book. You might want to 
 Let us examine these two approaches one-by-one. For the sake of programming convenience, assume that the names of books would be single character long. Let us begin with a program that uses arrays.
 
 <<<<<<< HEAD
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -39,7 +39,7 @@ int main( )
     printf ( "%c %f %d\\n", name\[ i \], price\[ i \], pages\[ i \] ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 =======
 ```c
 #include <stdio.h> 
@@ -69,7 +69,7 @@ The program becomes more difficult to handle as the number of items relating to 
 <<<<<<< HEAD
 A structure contains a number of data types grouped together. These data types may or may not be of the same type. \
 The following example illustrates the use of this data type:
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -90,7 +90,7 @@ int main( )
     printf ( "%c %f %d\\n", b3.name, b3.price, b3.pages ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 And here is the **output**...
 ```js
 Enter names, prices and no. of pages of 3 books 
@@ -168,7 +168,7 @@ This statement sets aside space in memory. It makes available space to hold all 
 If we so desire, we can combine the declaration of the structure type and the structure variables in one statement.
 
 For **example**,
-{{< highlight c >}}
+```c
 struct book 
 { 
     char name ; 
@@ -176,10 +176,10 @@ struct book
     int pages ; 
 } ;
 struct book b1, b2, b3 ;
-{{< / highlight >}}
+```
 is same as...
 
-{{< highlight c >}}
+```c
 struct book 
 { 
     char name ; 
@@ -187,10 +187,10 @@ struct book
     int pages ;  
 } 
 b1, b2, b3 ;
-{{< / highlight >}}
+```
 or even...
 
-{{< highlight c >}}
+```c
 struct 
 { 
     char name ; 
@@ -198,10 +198,10 @@ struct
     int pages ; 
 } 
 b1, b2, b3 ;
-{{< / highlight >}}
+```
 Like primary variables and arrays, structure variables can also be initialized where they are declared. The format used is quite similar to that used to initialize arrays.
 
-{{< highlight c >}}
+```c
 struct book 
 { 
     char name\[ 10 \] ; 
@@ -211,7 +211,7 @@ struct book
 struct book b1 = { "Basic", 130.00, 550 } ; 
 struct book b2 = { "Physics", 150.80, 800 } ; 
 struct book b3 = { 0 } ;
-{{< / highlight >}}
+```
 
 Note the following points while declaring a structure type:
 
@@ -244,7 +244,7 @@ Note that before the dot, there must always be a structure variable and after th
 Whatever be the elements of a structure, they are always stored in contiguous memory locations. The following program would illustrate this:
 
 /\* **Memory map of structure elements** \*/
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -260,7 +260,7 @@ int main( )
     printf ( "Address of pages = %u\\n", &b1.pages ) ; 
     return 0 ; 
 }
-{{< / highlight >}} 
+``` 
 
 Here is the **output** of the program...
 ```js
@@ -286,7 +286,7 @@ In our sample program, to store data of 100 books, we would be required to use 1
 
 /\* **Usage of an array of structures** \*/
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 void linkfloat( ) ; 
 int main( ) 
@@ -314,7 +314,7 @@ void linkfloat( )
     float a = 0, \*b ; b = &a ; /\* **cause emulator to be linked** \*/ 
     a = \*b ; /\* **suppress the warning - variable not used** \*/ 
 }
-{{< / highlight >}}
+```
 
 Now a few comments about the program:
 
@@ -341,7 +341,7 @@ Let us now explore the intricacies of structures with a view of programming conv
 
 It is not necessary to copy the structure elements piece-meal. Obviously, programmers prefer assignment to piece-meal copying. This is shown in the following **example**:
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 #include <string.h> 
 int main( ) 
@@ -363,7 +363,7 @@ int main( )
     printf ( "%s %d %f\\n", e3.name, e3.age, e3.salary ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 The **output** of the program would be...
 ```js
@@ -378,7 +378,7 @@ for copying arrays, we have to copy the contents of the array element-by-element
 This copying of all structure elements at one go has been possible only because the structure elements are stored in contiguous memory locations. Had this not been so, we would have been required to copy structure variables element by element. And who knows, had this been so, structures would not have become popular at all.
 
 - One structure can be nested within another structure. Using this facility, complex data types can be created. The following program shows nested structures at work:
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -398,7 +398,7 @@ int main( )
     printf ( "city = %s pin = %d\\n", e.a.city, e.a.pin ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 And here is the **output**...
 ```js
 name = jeru phone = 531046 
@@ -418,7 +418,7 @@ This clearly signifies that we are referring to the quantity of large sized bolt
 
 /\* **Passing individual structure elements** \*/ 
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 void display ( char \*, char \*, int ) ; 
 int main( ) 
@@ -437,7 +437,7 @@ void display ( char \*s, char \*t, int n )
 {
     printf ( "%s %s %d\\n", s, t, n ) ; 
 }
-{{< / highlight >}}
+```
 
 And here is the **output**...
 ```js
@@ -450,7 +450,7 @@ display ( b1.name, b1.author, b1.callno ) ;
 we are passing the base addresses of the arrays **name** and **author**, but the value stored in **callno**. Thus, this is a mixed call—a call by reference as well as a call by value.
 
 It can be immediately realized that to pass individual elements would become more tedious as the number of structure elements goes on increasing. A better way would be to pass the entire structure variable at a time. This method is shown in the following program:
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 struct book 
 { 
@@ -469,7 +469,7 @@ void display ( struct book b )
 { 
     printf ( "%s %s %d\\n", b.name, b.author, b.callno ) ; 
 }
-{{< / highlight >}}
+```
 
 And here is the **output**...
 ```js
@@ -489,7 +489,7 @@ because the data type **struct** **book** is not known to the function **display
 
 Let us look at a program that demonstrates the usage of a structure pointer.
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -506,7 +506,7 @@ int main( )
     printf ( "%s %s %d\\n", ptr->name, ptr->author, ptr->callno ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 The first **printf( )** is as usual. The second **printf( )** however is peculiar. We can’t use **ptr.name** or **ptr.callno** because **ptr** is not a structure variable but a pointer to a structure, and the dot operator requires a structure variable on its left. In such cases C provides an operator **\->**, called an arrow operator to refer to the structure elements. Remember that on the left hand side of the **‘**.**’** structure operator, there must always be a structure variable, whereas on the left hand side of the ‘**\->’** operator, there must always be a pointer to a structure. The arrangement of the structure variable and pointer to structure in memory is shown in the Figure 17.2.
 
@@ -527,7 +527,7 @@ ptr
 Can we not pass the address of a structure variable to a function? We can. The following program demonstrates this:
 
 /\* **Passing address of a structure variable** \*/ 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 struct book 
 { 
@@ -546,7 +546,7 @@ void display ( struct book \*b )
 { 
     printf ( "%s %s %d\\n", b->name, b->author, b->callno ) ; 
 }
-{{< / highlight >}}
+```
 And here is the **output**...
 ```js
 Let us C YPK 101
@@ -556,7 +556,7 @@ Again note that, to access the structure elements using pointer to a structure, 
 Also, the structure **struct** **book** should be declared outside **main( )** such that this data type is available to **display( )** while declaring pointer to the structure.
 
 - Consider the following code snippet:
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 struct emp 
 { 
@@ -570,7 +570,7 @@ int main( )
     printf ( "%u %u %u\\n", &e.a, &e.ch, &e.s ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 If we execute this program using TC/TC++ Compiler we get the addresses as:
 ```js
 65518 65520 65521
@@ -586,7 +586,7 @@ It can be observed from this output that the **float** doesn’t get stored imme
 However, some programs need to exercise precise control over the memory areas where data is placed. For example, suppose we wish to read the contents of the boot sector (first sector on the hard disk) into a structure. For this the byte arrangement of the structure elements must match the arrangement of various fields in the boot sector of the disk. The **#pragma** **pack** directive offers a way to fulfil this requirement. This directive specifies packing alignment for structure members. The pragma takes effect at the first structure declaration after the pragma is seen.
 
 Visual Studio compiler supports this feature, whereas Turbo C/C++ doesn’t. The following code shows how to use this directive:
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 #pragma pack(1) 
 struct emp 
@@ -602,7 +602,7 @@ int main( )
     printf ( "%u %u %u\\n", &e.a, &e.ch, &e.s ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 Here, **#pragma pack ( 1 )** lets each structure element to begin on a 1-byte boundary as justified by the **output** of the program given below.
 ```js
 1245044 1245048 1245049
@@ -634,7 +634,7 @@ And that is certainly a very impressive list! At least impressive enough to make
 
 **\[A\]** What will be the output of the following programs:
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 #include <string.h> 
 int main( ) 
@@ -651,9 +651,9 @@ int main( )
     printf ( "%u %u %u\\n", &m.num, m.mess1, m.mess2 ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 #include <string.h> 
 int main( ) 
@@ -672,9 +672,9 @@ int main( )
         printf ( "%s %d\\n", ptrp->partname, ptrp->partnumber ) ; 
         return 0 ; 
 }
-{{< / highlight >}}
+```
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 struct gospel 
 { 
@@ -689,10 +689,10 @@ int main( )
     printf ( "%d %s %s\\n", m1.num, m2.mess1, m3.mess2 ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 **\[B\]** Point out the errors, if any, in the following programs:
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 #include <string.h> 
 int main( ) 
@@ -710,9 +710,9 @@ int main( )
     printf ( "%s %d %f\\n", e.name, age, salary ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -725,9 +725,9 @@ int main( )
         printf ( "%s %f\\n", b.bookname, b.price ) ; 
         return 0 ; 
     }
-{{< / highlight >}}
+```
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 struct virus 
 { 
@@ -743,9 +743,9 @@ int main( )
     printf ( "%s %s\\n", v.signature, v.status ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 struct s 
 {
@@ -770,9 +770,9 @@ void g ( struct s \*v )
 { 
     printf ( "%c %d %f\\n", v.ch, v.i, v.a ) ; 
 }
-{{< / highlight >}}
+```
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 struct s 
 { 
@@ -785,7 +785,7 @@ int main( )
     printf ( "%d %d\\n", var1.p -> i, var2.p -> i ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 **\[C\]** Answer the following:
 

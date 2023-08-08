@@ -51,7 +51,7 @@ PRINT si
 **Figure 6.1**
 
 /\* **Calculation of simple interest for 3 sets of p, n and r** \*/ 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -67,7 +67,7 @@ int main( )
     } 
         return 0 ; 
 }
-{{< / highlight >}}
+```
 If you compare this program with the one written using **while**, you can observe that the three steps—initialization, testing and incrementation—required for the loop construct have now been incorporated in the **for** statement.
 
 Let us now examine how the **for** statement gets executed:
@@ -118,7 +118,7 @@ for ( scanf ( "%d", &i ) ; i <= 10 ; i++ ) printf ( "%d", i ) ;
 Let us now write down the program to **print numbers from 1 to 10 in different ways.** This time we would use a **for** loop instead of a **while** loop.
 
 **1.** 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -127,13 +127,13 @@ int main( )
     printf ( "%d\\n", i ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 Note that the initialization, testing and incrementation of loop counter is done in the **for** statement itself. Instead of **i = i + 1**, the statements **i++** or **i += 1** can also be used.
 
 Since there is only one statement in the body of the **for** loop, the pair of braces have been dropped. As with the **while**, the default scope of **for** is the immediately next statement after **for**.
 
 **2.**
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -144,11 +144,11 @@ int main( )
     }
     return 0 ; 
 }
-{{< / highlight >}}
+```
 Here, the incrementation is done within the body of the **for** loop and not in the **for** statement. Note that, in spite of this, the semicolon **( ; )** after the condition is necessary.
 
 **3.**
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -157,11 +157,11 @@ int main( )
     printf ( "%d\\n", i ) ;
     return 0 ; 
 }
-{{< / highlight >}}
+```
 Here the initialization is done in the declaration statement itself, but still the semicolon before the condition is necessary.
 
 **4.**
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -173,11 +173,11 @@ int main( )
     }
         return 0 ; 
 }
-{{< / highlight >}}
+```
 Here, neither the initialization, nor the incrementation is done in the **for** statement, but still the two semicolons are necessary.
 
 **5.** 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -186,11 +186,11 @@ int main( )
     printf ( "%d\\n", i ) ; 
     return 0 ;
 }
-{{< / highlight >}}
+```
 Here, the comparison as well as the incrementation is done through the same expression, **i++ < 10**. Since the **++** operator comes after **i**, first comparison is done, followed by incrementation. Note that it is necessary to initialize **i** to 0.
 
 **6.**
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -199,7 +199,7 @@ int main( )
     printf ( "%d\\n", i ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 Here again, both, the comparison and the incrementation are done through the same expression, **++i <= 10**. Since **++** precedes **i** firstly incrementation is done, followed by comparison. Note that it is necessary to initialize **i** to 0.
 
 ### Nesting of Loops
@@ -207,7 +207,7 @@ Here again, both, the comparison and the incrementation are done through the sam
 The way **if** statements can be nested, similarly **while**s and **for**s can also be nested. To understand how nested loops work, look at the program given below.
 
 /\* **Demonstration of nested loops** \*/ 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -221,7 +221,7 @@ int main( )
         } 
     } return 0 ; 
 }
-{{< / highlight >}}
+```
 
 When you run this program, you will get the following **output**:
 ```js
@@ -261,7 +261,7 @@ Write a program to determine whether a number is prime or not. A prime number is
 
 All we have to do to test whether a number is prime or not, is to divide it successively by all numbers from 2 to one less than itself. If remainder of any of these divisions is zero, the number is not a prime. If no division yields a zero then the number is a prime number. Following program implements this logic:
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -280,7 +280,7 @@ int main( )
     if ( i == num ) 
     printf ( "Prime number\\n" ) ; 
 }
-{{< / highlight >}}
+```
 
 In this program, the moment **num % i** turns out to be zero, (i.e., **num** is exactly divisible by **i**), the message “Not a prime number” is printed and the control breaks out of the **while** loop. Why does the program require the **if** statement after the **while** loop at all? Well, there are two possibilities the control could have reached outside the **while** loop:
 
@@ -291,7 +291,7 @@ In this program, the moment **num % i** turns out to be zero, (i.e., **num** is 
 When the loop terminates in the second case, it means that there was no number between 2 to **num - 1** that could exactly divide **num**. That is, **num** is indeed a prime. If this is true, the program should print out the message “Prime number”.
 
 The keyword **break**, breaks the control only from the **while** in which it is placed. Consider the following program, which illustrates this fact:
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 {
@@ -308,7 +308,7 @@ int main( )
     } 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 In this program when **j** equals 150, **break** takes the control outside the inner **while** only, since it is placed inside the inner **while**.
 
@@ -316,7 +316,7 @@ In this program when **j** equals 150, **break** takes the control outside the i
 In some programming situations, we want to take the control to the beginning of the loop, bypassing the statements inside the loop, which have not yet been executed. The keyword **continue** allows us to do this. When **continue** is encountered inside any loop, control automatically passes to the beginning of the loop.
 
 A **continue** is usually associated with an **if**. As an example, let's consider the following program:
-{{< highlight c >}}
+```c
 #include <stdio.h>
 int main( ) 
 { 
@@ -331,7 +331,7 @@ int main( )
         } 
     } return 0 ; 
 }
-{{< / highlight >}}
+```
 
 The **output** of the above program would be...
 ```js
@@ -371,7 +371,7 @@ increment
 **Figure 6.3**
 
 This means that **do-while** would execute its statements at least once, even if the condition fails for the first time. The **while**, on the other hand will not execute its statements if the condition fails for the first time. This difference is brought about more clearly by the following program:
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -379,9 +379,9 @@ int main( )
     printf ( "Hello there \\n" ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 Here, since the condition fails the first time itself, the **printf( )** will not get executed at all. Let's now write the same program using a **do-while** loop.
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 {
@@ -392,14 +392,14 @@ int main( )
     while ( 4 < 1 ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 In this program, the **printf( )** would be executed once, since first the body of the loop is executed and then the condition is tested.
 
 ### The Odd Loop 
 The loops that we have used so far executed the statements within them a finite number of times. However, in real life programming, one comes across a situation when it is not known beforehand how many times the statements in the loop are to be executed. This situation can be programmed as shown below.
 
 /\* **Execution of a loop an unknown number of times** \*/ 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -417,7 +417,7 @@ int main( )
     while ( another == 'y' ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 And here is the sample **output**...
 ```js
 Enter a number 5 square of 5 is 25 Want to enter another number y/n y
@@ -431,7 +431,7 @@ Perhaps you are wondering what for have we used the function **fflush( )**. The 
 Though it is simpler to program such a requirement using a **do-while** loop, the same functionality if required, can also be accomplished using **for** and **while** loops as shown below.
 
 /\* **odd loop using a for loop** \*/ 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -448,10 +448,10 @@ int main( )
     } 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 /\* **odd loop using a while loop** \*/
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -468,7 +468,7 @@ int main( )
     } 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 **break** and **continue** are used with **do-while** just as they would be in a **while** or a **for** loop. A **break** takes you out of the **do-while** bypassing the conditional test. A **continue** sends you straight to the test at the end of the loop.
 
@@ -489,7 +489,7 @@ int main( )
 **\[A\]** What will be the output of the following programs:
 
 **1.** 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -498,10 +498,10 @@ int main( )
     printf ( "Here is some mail for you\\n" ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 **2.** 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -510,10 +510,10 @@ int main( )
     i++ ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 **3.**
-{{< highlight c >}} 
+```c 
 #include <stdio.h> 
 int main( ) 
 { 
@@ -528,7 +528,7 @@ int main( )
         return 0 ; 
     } 
 }
-{{< / highlight >}}
+```
 **\[B\]** Answer the following:
 
 - The three parts of the loop expression in the **for** loop are:
@@ -564,7 +564,7 @@ the i\_\_\_\_\_\_\_\_\_\_\_\_ expression
 4. int y, x = 0 ; do { y = x ; } while ( x == 0 ) ;
 ```
 
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -576,10 +576,10 @@ int main( )
     } 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 - Which of the following statements is true for the following program?
-{{< highlight c >}}
+```c
 #include <stdio.h> 
 int main( ) 
 { 
@@ -589,7 +589,7 @@ int main( )
     printf ( "x = %d y = %d\\n", x, y ) ; 
     return 0 ; 
 }
-{{< / highlight >}}
+```
 
 1. The **printf( )** function is called 10 times. 
 2. The program will produce the output x=10 y=10. 
