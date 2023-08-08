@@ -231,6 +231,7 @@ Figure 2.2
 ```c
 k = 2 / 9 ; k = 2.0 / 9 ;
 {{< / highlight  >}}
+```
 
 In the first statement, since both 2 and 9 are integers, the result is an integer, i.e. 0. This 0 is then assigned to **k**. In the second statement 9 is promoted to 9.0 and then the division is performed. Division yields 0.222222. However, this cannot be stored in **k**, **k** being an **int**. Hence it gets demoted to 0 and then stored in **k**.
 
