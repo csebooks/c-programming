@@ -80,9 +80,9 @@ Here, **main( )** calls other functions, which in turn call still other function
 Let us now summarize what we have learnt so far.
 
 - A function gets called when the function name is followed by a semicolon ( ; ). For example,
-
-argentina( ) ;
-
+```
+argentina();
+```
 - A function is defined when function name is followed by a pair of braces ( { } ) in which one or more statements may be present. For example,
 
 void argentina( ) { statement 1 ; statement 2 ; statement 3 ; }

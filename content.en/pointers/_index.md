@@ -36,24 +36,20 @@ This declaration tells the C compiler to:
 
 We may represent **i**’s location in memory by the memory map shown in Figure 9.1.
 
-3
-
-65524
-
-i location name
-
-value at location
-
-location number
-
 Figure 9.1
 
 We see that the computer has selected memory location 65524 as the place to store the value 3. The location number 65524 is not a number to be relied upon, because some other time the computer may choose a different location for storing the value 3. The important point is, **i**’s address in memory is a number.
 
 We can print this address number through the following program:
 
-\# include <stdio.h> int main( ) { int i = 3 ; printf ( "Address of i = %u\\n", &i ) ; printf ( "Value of i = %d\\n", i ) ; return 0 ; }
-
+```
+#includ<stdio.h>
+int main()
+{
+     int i = 3 ;
+    printf ( "Address of i = %u\\n", &i ) ; printf ( "Value of i = %d\\n", i ) ; return 0 ;
+}
+```
 The output of the above program would be:
 
 Address of i = 65524 Value of i = 3
