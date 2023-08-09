@@ -40,7 +40,7 @@ int main( )
 ```
 And here is the **output** for two sample runs of this program...
 
-```js
+```c
 Enter your name dinesh Sorry, 
 you are a trespasser Enter your name raman Welcome, 
 you can enter the palace

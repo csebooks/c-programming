@@ -52,7 +52,7 @@ printf ( "Enter names, prices and no. of pages of 3 books\n" ) ; for ( i = 0 ; i
 
 >>>>>>> df8f6b455a97f3ec6259a2812573c6a0b4154256
 And here is the sample run...
-```js
+```c
 Enter names, prices and no. of pages of 3 books 
 A 100.00 354 
 C 256.50 682 
@@ -92,7 +92,7 @@ int main( )
 }
 ```
 And here is the **output**...
-```js
+```c
 Enter names, prices and no. of pages of 3 books 
 A 100.00 354 
 C 256.50 682 
@@ -141,7 +141,7 @@ char name ; float price ; int pages ; } ;
 >>>>>>> df8f6b455a97f3ec6259a2812573c6a0b4154256
 
 In our **example** program, the following statement declares the structure type:
-```js
+```c
 struct book 
 {
     char name ; 
@@ -150,7 +150,7 @@ struct book
 } ;
 ```
 This statement defines a new data type called **struct** **book**. Each variable of this data type will consist of a character variable called **name**, a float variable called **price** and an integer variable called **pages**. The general form of a structure declaration statement is given below.
-```js
+```c
 struct <structure name> 
 { 
     structure element 1 ; 
@@ -160,7 +160,7 @@ struct <structure name>
 } ;
 ```
 Once the new structure data type has been defined, one or more variables can be declared to be of that type. For example, the variables **b1**, **b2**, **b3** can be declared to be of the type **struct** **book**, as,
-```js
+```c
 struct book b1, b2, b3 ;
 ```
 This statement sets aside space in memory. It makes available space to hold all the elements in the structure—in this case, 7 bytes—one for **name**, four for **price** and two for **pages**. These bytes are always in adjacent memory locations.
@@ -263,7 +263,7 @@ int main( )
 ``` 
 
 Here is the **output** of the program...
-```js
+```c
 Address of name = 65518 
 Address of price = 65519 
 Address of pages = 65523
@@ -366,7 +366,7 @@ int main( )
 ```
 
 The **output** of the program would be...
-```js
+```c
 Sanjay 30 5500.500000 
 Sanjay 30 5500.500000 
 Sanjay 30 5500.500000
@@ -400,7 +400,7 @@ int main( )
 }
 ```
 And here is the **output**...
-```js
+```c
 name = jeru phone = 531046 
 city = nagpur pin = 10
 ```
@@ -440,11 +440,11 @@ void display ( char \*s, char \*t, int n )
 ```
 
 And here is the **output**...
-```js
+```c
 Let us C YPK 101
 ```
 Observe that in the declaration of the structure, **name** and **author** have been declared as arrays. Therefore, when we call the function **display( )** using,
-```js
+```c
 display ( b1.name, b1.author, b1.callno ) ;
 ```
 we are passing the base addresses of the arrays **name** and **author**, but the value stored in **callno**. Thus, this is a mixed call—a call by reference as well as a call by value.
@@ -472,7 +472,7 @@ void display ( struct book b )
 ```
 
 And here is the **output**...
-```js
+```c
 Let us C YPK 101
 ```
 Note that here the calling of function **display( )** becomes quite compact,
@@ -548,7 +548,7 @@ void display ( struct book \*b )
 }
 ```
 And here is the **output**...
-```js
+```c
 Let us C YPK 101
 ```
 Again note that, to access the structure elements using pointer to a structure, we have to use the ‘**\->’** operator.
@@ -572,13 +572,13 @@ int main( )
 }
 ```
 If we execute this program using TC/TC++ Compiler we get the addresses as:
-```js
+```c
 65518 65520 65521
 ```
 As expected, in memory the **char** begins immediately after the **int** and **float** begins immediately after the **char**.
 
 However, if we run the same program using Visual Studio compiler then the **outpu**t turns out to be:
-```js
+```c
 1245044 1245048 1245052
 ```
 It can be observed from this output that the **float** doesn’t get stored immediately after the **char**. In fact there is a hole of three bytes after the **char**. Let us understand the reason for this. Visual Studio is a 32-bit compiler targeted to generate code for a 32-bit microprocessor. The architecture of this microprocessor is such that it is able to fetch the data that is present at an address, which is a multiple of four much faster than the data present at any other address. Hence the Visual Studio compiler aligns every element of a structure at an address that is multiple of four. That’s the reason why there were three holes created between the **char** and the **float**.
@@ -604,7 +604,7 @@ int main( )
 }
 ```
 Here, **#pragma pack ( 1 )** lets each structure element to begin on a 1-byte boundary as justified by the **output** of the program given below.
-```js
+```c
 1245044 1245048 1245049
 ```
 # Uses of Structures 
@@ -819,7 +819,7 @@ With reference to the above declarations which of the following refers to **seco
 - Match the following with reference to the program segment given below.
 
 struct
-```js
+```c
 { int x, y ; } 
 s\[ \] = { 10, 20, 15, 25, 8, 75, 6, 2 } ; 
 int \*i ; i = s ;

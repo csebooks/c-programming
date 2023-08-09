@@ -19,7 +19,7 @@ Perhaps one reason why few programmers use **while** is that they are too busy u
 
 The general form of **for** statement is as under:
 
-```js
+```c
 for ( initialize counter ; test counter ; increment counter )
  { 
     do this ; and this ; and this ;
@@ -108,7 +108,7 @@ increment
 **Figure 6.2**
 
 It is important to note that the initialization, testing and incrementation part of a **for** loop can be replaced by any valid expression. Thus the following **for** loops are perfectly ok.
-```js
+```c
 for ( i = 10 ; i ; i -- ) printf ( "%d ", i ) ; 
 for ( i < 4 ; j = 5 ; j = 0 ) printf ( "%d ", i ) ; 
 for ( i = 1; i <=10 ; printf ( "%d ", i++ ) ) ; 
@@ -224,7 +224,7 @@ int main( )
 ```
 
 When you run this program, you will get the following **output**:
-```js
+```c
 r = 1 c = 1 sum = 2 
 r = 1 c = 2 sum = 3 
 r = 2 c = 1 sum = 3 
@@ -237,7 +237,7 @@ Here, for each value of **r**, the inner loop is cycled through twice, with the 
 As you can see, the body of the outer **for** loop is indented, and the body of the inner **for** loop is further indented. These multiple indentations make the program easier to understand.
 
 Instead of using two statements, one to calculate **sum** and another to print it out, we can compact them into one single statement by saying:
-```js
+```c
 printf ( "r = %d c = %d sum = %d\\n", r, c, r + c ) ;
 ```
 The way **for** loops have been nested here, similarly, two **while** loops can also be nested. Not only this, a **for** loop can occur within a **while** loop, or a **while** within a **for**.
@@ -246,7 +246,7 @@ The way **for** loops have been nested here, similarly, two **while** loops can 
 
 The initialization expression in the **for** loop can contain more than one statement separated by a comma. 
 For **example**,
-```js
+```c
 for ( i = 1, j = 2 ; j <= 10 ; j++ )
 ```
 Multiple statements can also be used in the incrementation expression of **for** loop; i.e., you can increment (or decrement) two or more variables at the same time. Similarly multiple conditions are allowed in the test expression. These conditions must be linked together using logical operators && and/or ||.
@@ -334,13 +334,13 @@ int main( )
 ```
 
 The **output** of the above program would be...
-```js
+```c
 1 2 2 1
 ```
 Note that when the value of **i** equals that of **j**, the **continue** statement takes the control to the **for** loop (inner) bypassing the rest of the statements pending execution in the **for** loop (inner).
 
 **The _do_\-_while_ Loop** The **do-while** loop looks like this:
-```js
+```c
 do 
 { 
     this ; 
@@ -419,7 +419,7 @@ int main( )
 }
 ```
 And here is the sample **output**...
-```js
+```c
 Enter a number 5 square of 5 is 25 Want to enter another number y/n y
 
 Enter a number 7 square of 7 is 49 Want to enter another number y/n n
@@ -554,7 +554,7 @@ the i\_\_\_\_\_\_\_\_\_\_\_\_ expression
 - Which keyword is used to take the control to the beginning of the loop?
 
 - How many times the **while** loop in the following C code will get executed?
-```js
+```c
 1. int i = 1 ; while ( 1 ) { i++ ; }
 
 2. for ( ; ; ) ;
@@ -624,19 +624,19 @@ using a **for** loop:
 - A machine is purchased which will produce earning of Rs. 1000 per year while it lasts. The machine costs Rs. 6000 and will have a salvage value of Rs. 2000 when it is condemned. If 9 percent per annum can be earned on alternate investments, write a program to determine what will be the minimum life of the machine to make it a more attractive investment compared to alternative investment?
 
 - Write a program to print the multiplication table of the number entered by the user. The table should get displayed in the following form:
-```js
+```c
 29 \* 1 = 29 29 \* 2 = 58
 ```
 …
 
 - According to a study, the approximate level of intelligence of a person can be calculated using the following formula:
-```js
+```c
 i = 2 + ( y + 0.5 x )
 ```
 Write a program that will produce a table of values of **i**, **y** and **x**, where **y** varies from 1 to 6, and, for each value of **y**, **x** varies from 5.5 to 12.5 in steps of 0.5.
 
 - When interest compounds **q** times per year at an annual rate of **r** % for **n** years, the principal **p** compounds to an amount **a** as per the following formula
-```js
+```c
 a = p ( 1 + r / q ) nq
 ```
 Write a program to read 10 sets of **p, r, n** & **q** and calculate the corresponding **a**s.

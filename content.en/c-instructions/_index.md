@@ -3,17 +3,15 @@ title: "C Instructions"
 weight: 2
 ---
 
-A program is nothing but a set of instructions. The program behaves as per the instructions that we give in it. Different instructions help
-
-us achieve different tasks in a program. In the last chapter we saw how to write simple C programs. In these programs knowingly or unknowingly we have used instructions to achieve the intended purpose of the program. In this chapter we would explore the instructions that we have used in these programs.
+A program is nothing but a set of instructions. The program behaves as per the instructions that we give in it. Different instructions help us achieve different tasks in a program. In the last chapter we saw how to write simple C programs. In these programs knowingly or unknowingly we have used instructions to achieve the intended purpose of the program. In this chapter we would explore the instructions that we have used in these programs.
 
 # Types of Instructions
 
 There are basically three types of instructions in C:
 
-- Type Declaration Instruction – This instruction is used to declare the type of variables used in a C program.
-- Arithmetic Instruction – This instruction is used to perform arithmetic operations on constants and variables.
-- Control Instruction – This instruction is used to control the sequence of execution of various statements in a C program.
+- **Type Declaration Instruction** This instruction is used to declare the type of variables used in a C program.
+- **Arithmetic Instruction** This instruction is used to perform arithmetic operations on constants and variables.
+- **Control Instruction** This instruction is used to control the sequence of execution of various statements in a C program.
 
 Since, the elementary C programs would usually contain only the type declaration and the arithmetic instructions; we would discuss only these two instructions at this stage. The control instruction would be discussed in detail in the subsequent chapters.
 
@@ -31,12 +29,10 @@ char name, code ;
 There are several subtle variations of the type declaration instruction. These are discussed below:
 
 - While declaring the type of variable we can also initialize it as shown below.
-  Ex.:
   ```c
   int i = 10, j = 25 ;
   float a = 1.5, b = 1.99 + 2.4 \* 1.44 ;
   ```
-
 - The order in which we define the variables is sometimes important sometimes not.
   For example,
   ```c
@@ -98,8 +94,8 @@ king = issac \* 234 + noteit - 7689 ;
 Ex.:
 ```c
 float qbee, antink, si, prin, anoy, roi ;
-qbee = antink + 23.123 / 4.5 \* 0.3442 ;
-si = prin \* anoy \* roi / 100.0 ;
+qbee = antink + 23.123 / 4.5 * 0.3442 ;
+si = prin * anoy * roi / 100.0 ;
 ```
 
 - Mixed mode arithmetic statement – In this statement some operands are integers and some operands are real.
@@ -133,7 +129,6 @@ Thus the statements,
 
 ```c
 char x, y ;
-int z ;
 x = 'a' ;
 y = 'b' ;
 z = x + y ;
@@ -207,7 +202,7 @@ Instead of a simple expression used in the above examples, if a complex expressi
 ```c
 float a, b, c ;
 int s ;
-s = a \* b \* c / 100 + 32 / 4 - 3 \* 1.1 ;
+s = a * b * c / 100 + 32 / 4 - 3 * 1.1 ;
 ```
 
 Here, in the assignment statement, some operands are **int**s whereas others are **float**s. As we know, during evaluation of the expression, the **int**s would be promoted to **float**s and the result of the expression would be a **float**. But when this **float** value is assigned to **s** it is again demoted to an **int** and then stored in **s**.
@@ -230,7 +225,6 @@ Figure 2.2
 
 ```c
 k = 2 / 9 ; k = 2.0 / 9 ;
-{{< / highlight  >}}
 ```
 
 In the first statement, since both 2 and 9 are integers, the result is an integer, i.e. 0. This 0 is then assigned to **k**. In the second statement 9 is promoted to 9.0 and then the division is performed. Division yields 0.222222. However, this cannot be stored in **k**, **k** being an **int**. Hence it gets demoted to 0 and then stored in **k**.
@@ -467,7 +461,7 @@ evaluated:
 
 -(a)
 
-```js
+```c
  # include <stdio.h>
   int main( )
    {
@@ -484,7 +478,7 @@ evaluated:
 
 -(b)
 
-```js
+```c
  # include <stdio.h>
   int main( )
   {
@@ -500,7 +494,7 @@ evaluated:
 
 -(c)
 
-```js
+```c
 # include <stdio.h>
  int main( )
  {
@@ -515,7 +509,7 @@ evaluated:
 
 -(d)
 
-```js
+```c
 # include <stdio.h>
  int main( )
   {
@@ -527,7 +521,7 @@ evaluated:
 
 -(e)
 
-```js
+```c
 # include <stdio.h>
  int main( )
   {

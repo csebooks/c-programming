@@ -27,7 +27,7 @@ There are two ways in which we can write a program for this example. These metho
 
 /\* Method – I \*/
 
-```js
+```c
  # include <stdio.h>
   int main( )
    {
@@ -64,7 +64,7 @@ All these three problems can be eliminated by usage of ‘Logical Operators’. 
 
 /\* Method – II \*/
 
-```js
+```c
  # include <stdio.h>
   int main( )
   {
@@ -126,7 +126,7 @@ printf ( "Third division\\n" ) ;
 else printf ( "fail\\n" ) ;
 return 0 ;
 }
-{{< / highlight  >}}
+
 
 You can note that this program reduces the indentation of the statements. In this case, every **else** is associated with its previous **if**. The last **else** goes to work only if all the conditions fail. Also, if a condition is satisfied, other conditions below it are not checked. Even in **else if** ladder, the last **else** is optional.
 
@@ -146,7 +146,7 @@ Here after checking a complicated set of instructions the final output of the pr
 
 /\* Insurance of driver - without using logical operators \*/
 
-```js
+```c
  # include <stdio.h>
  int main( )
  {
@@ -191,7 +191,7 @@ Since all these cases lead to the driver being insured, they can be combined tog
 
 /\* Insurance of driver - using logical operators \*/
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -236,7 +236,7 @@ In some programming situations we may combine the usage of **if— else if—els
 
 Figure 4.1
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -269,7 +269,7 @@ I hope you can follow the implementation of this program on your own.
 
 So far we have used only the logical operators **&&** and **||**. The third logical operator is the NOT operator, written as **!**. This operator reverses the result of the expression it operates on. For example, if the expression evaluates to a non-zero value, then applying **!** operator to it results into a 0. Vice versa, if the expression evaluates to zero then on applying **!** operator to it makes it 1, a non-zero value. The final result (after applying **!**) 0 or 1 is considered to be false or true, respectively. Here is an example of the NOT operator applied to a relational expression.
 
-```js
+```c
 !(y < 10);
 ```
 
@@ -277,13 +277,13 @@ This means ‘not **y** less than 10’. In other words, if **y** is less than 1
 
 The NOT operator is often used to reverse the logical value of a single variable, as in the expression
 
-```js
+```c
 if ( ! flag )
 ```
 
 This is another way of saying:
 
-```js
+```c
 if ( flag == 0 )
 ```
 
@@ -311,7 +311,7 @@ Figure 4.2
 
 **A Word of Caution** Can you guess what will be the output of the following program?
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -336,7 +336,7 @@ Surprised? You have entered 200 and 9999, and still you find in either case the 
 
 Another common mistake while using the **if** statement is to write a semicolon (**;**) after the condition, as shown below.
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -351,7 +351,7 @@ int main( )
 
 The ; makes the compiler to interpret the statement as if you have written it in following manner:
 
-```js
+```c
 if (i == 5);
 printf("You entered 5\\n");
 ```
@@ -386,7 +386,7 @@ This statement will store 3 in **y** if **x** is greater than 5, otherwise it wi
 
 The equivalent **if-else** form would be,
 
-```js
+```c
 if ( x > 5 )
  y = 3 ;
 else y = 4 ;
@@ -404,13 +404,13 @@ The following points may be noted about the conditional operators:
 
 Ex.:
 
-```js
+```c
 int i ;
 scanf ( "%d", &i ) ;
 ( i == 1 ? printf ( "Amit" ) : printf ( "All and sundry" ) ) ;
 ```
 
-```js
+```c
  Ex.:
 char a = 'z' ;
 printf ( "%c", ( a >= 'a' ? a : '!' ) ) ;
@@ -450,14 +450,14 @@ The limitation of the conditional operators is that after the **?** or after the
 
 ### Expression
 
-```js
+```c
 a != 6 && b > 5 a == 9 || b < 3 ! ( a < 10 ) ! ( a > 5 && c ) 5 && c != 8 || !c
 ```
 
 **\[B\]** What will be the output of the following programs:
 -(1)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -472,7 +472,7 @@ int main( )
 
 -(2)
 
-```js
+```c
 #include <stdio.h>
 int main( )
 {
@@ -485,7 +485,7 @@ int main( )
 
 -(3)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -502,7 +502,7 @@ int main( )
 
 -(4)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -515,7 +515,7 @@ int main( )
 
 -(5)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -528,7 +528,7 @@ int main( )
 
 -(6)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -543,7 +543,7 @@ int main( )
 
 -(1)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -556,7 +556,7 @@ int main( )
 
 -(2)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -569,7 +569,7 @@ int main( )
 
 -(3)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -582,7 +582,7 @@ int main( )
 
 -(4)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -595,7 +595,7 @@ int main( )
 
 -(5)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -609,7 +609,7 @@ int main( )
 
 -(6)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -622,7 +622,7 @@ int main( )
 
 -(7)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -634,7 +634,7 @@ int main( )
 
 -(8)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -647,7 +647,7 @@ int main( )
 
 -(9)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -659,7 +659,7 @@ int main( )
 
 -(10)
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
@@ -789,7 +789,7 @@ Starvation Anorexic Underweight Ideal Overweight Obese Morbidly Obese
 
 - Rewrite the following program using conditional operators.
 
-```js
+```c
 # include <stdio.h>
 int main( )
 {
