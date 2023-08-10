@@ -1,5 +1,5 @@
 ---
-title: 'More Issues In'
+title: 'More Issues In Input/Output'
 weight: 20
 ---
 
@@ -22,13 +22,47 @@ where, PR1.C is the source filename and PR2.C is the target filename.
 The first improvement is simple. In Visual Studio the executable file (the one which can be executed at command prompt and has an extension .EXE) can be created by using F7 to compile the program. In Turbo C/C++ the same can be done using F9. In UNIX this is not required since in UNIX, every time we compile a program, we always get an executable file.
 
 The second improvement is possible by passing the source filename and target filename to the function **main( )**. This is illustrated in the program given below.
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-\# include <stdio.h> # include <stdlib.h> int main ( int argc, char \*argv\[ \] ) { FILE \*fs, \*ft ; char ch ;
+int main(int argc,char *argv)
+{
+    FILE *fs,*ft;
+    char ch ;
+    if(argc != 3)
+    { 
+        puts("Improper number of arguments\n");
+        exit(1);
+    }
+    fs=fopen(argv1,"r");
+    if(fs==NULL)
+    {
+        puts("Cannot open source file\n");
+        exit(2);
+    } 
+    ft = fopen(argv2,"w");
+    if(ft == NULL)
+    { 
+        puts("Cannot open target file\n");
+        fclose(fs);
+        exit(3);
+    } 
+    while(1)
+    {
+        ch=fgetc(fs);
+        if(ch==EOF)
+        break;
+        
+        else
+        fputc(ch,ft);
+    }
+    fclose(fs);
+    fclose(ft);
+    return0;
+}
 
-I
-
-if ( argc != 3 ) { puts ( "Improper number of arguments\\n" ) ; exit ( 1 ) ; } fs = fopen ( argv\[ 1 \], "r" ) ; if ( fs == NULL ) { puts ( "Cannot open source file\\n" ) ; exit ( 2 ) ; } ft = fopen ( argv\[ 2 \], "w" ) ; if ( ft == NULL ) { puts ( "Cannot open target file\\n" ) ; fclose ( fs ) ; exit ( 3 ) ; } while ( 1 ) { ch = fgetc ( fs ) ; if ( ch == EOF ) break ; else fputc ( ch, ft ) ; } fclose ( fs ) ; fclose ( ft ) ; return 0 ; }
-
+```
 The arguments that we pass on to **main( )** at the command prompt are called command-line arguments. The function **main( )** can have two arguments, traditionally named as **argc** and **argv**. Out of these, **argv** is an array of pointers to strings and **argc** is an **int** whose value is equal to the number of strings to which **argv** points. When the program is executed, the strings on the command line are passed to **main( )**. More precisely,
 
 the strings at the command line are stored in memory and address of the first string is stored in **argv\[ 0 \]**, address of the second string is stored in **argv\[ 1 \]** and so on. The argument **argc** is set to the number of strings given on the command line. For example, in our sample program, if at the command prompt we give,
