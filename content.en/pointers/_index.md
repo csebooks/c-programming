@@ -52,16 +52,18 @@ int main()
 ```
 The output of the above program would be:
 
+```
 Address of i = 65524 Value of i = 3
+```
 
 Look at the first **printf( )** statement carefully. ‘&’ used in this statement is C’s ‘address of’ operator. The expression **&i** returns the address of the variable **i**, which in this case happens to be 65524. Since 65524 represents an address, there is no question of a sign being associated with it. Hence it is printed out using **%u**, which is a format specifier for printing an unsigned integer. We have been using the ‘&’ operator all the time in the **scanf( )** statement.
 
 The other pointer operator available in C is ‘**\*’**, called ‘value at address’ operator. It gives the value stored at a particular address. The ‘value at address’ operator is also called ‘indirection’ operator.
 
 Observe carefully the output of the following program:
-
+```
 \# include <stdio.h> int main( ) { int i = 3 ; printf ( "Address of i = %u\\n", &i ) ; printf ( "Value of i = %d\\n", i ) ; printf ( "Value of i = %d\\n", \*( &i ) ) ; return 0 ; }
-
+```
 The output of the above program would be:
 
 Address of i = 65524 Value of i = 3 Value of i = 3
