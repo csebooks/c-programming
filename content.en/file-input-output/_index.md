@@ -321,13 +321,13 @@ We had earlier written a program that counts the total number of characters pres
 This discrepancy occurs because when we attempt to write a “\n” to the file using **fputs()**, **fputs()** converts the **\n** to **\r\n** combination. Here **\r** stands for carriage return and **\n** for linefeed. If we read the same line back using **fgets()** the reverse conversion happens. Thus when we write
 
 the first line of the poem and a “\n” using two calls to **fputs()**, what gets written to the file is
-
+```
 Shining and bright, they are forever,\r\n
-
+```
 When the same line is read back into the array **s[ ]** using **fgets()**, the array contains
-
+```
 Shining and bright, they are forever,\n\0
-
+```
 Thus conversion of **\n** to **\r\n** during writing and **\r\n** conversion to **\n** during reading is a feature of the standard library functions and not that of the OS. Hence the OS counts **\r** and **\n** as separate characters. In our poem there are four lines, therefore there is a discrepancy of four characters (105 - 101).
 
 **Record I/O in Files** So far, we have dealt with reading and writing only characters and strings. What if we want to read or write numbers from/to file? Furthermore, what if we desire to read/write a combination of characters, strings and numbers? For this first we would organize this dissimilar data together in a structure and then use **fprintf()** and **fscanf()** library functions to read/write data from/to file. Following program illustrates the use of structures for writing records of employees:
@@ -597,15 +597,141 @@ in any database management. Following comments would help you in understanding t
 
 Given below is the complete listing of the program.
 ```
-/* A menu-driven program for elementary database management */ # include <stdio.h> # include <stdlib.h> # include <conio.h> # include <string.h> # include <system.h> void gotoxy (short int col, short int row ) ;
+/* A menu-driven program for elementary database management */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main() { FILE *fp, *ft ; char another, choice ; struct emp { char name[ 40 ] ; int age ; float bs ; } ; struct emp e ; char empname[ 40 ] ; long int recsize ; fp = fopen ("EMP.DAT", "rb+" ) ; if (fp == NULL ) { fp = fopen ("EMP.DAT", "wb+" ) ; if (fp == NULL ) { puts ("Cannot open file" ) ; exit (1 ) ; } } recsize = sizeof (e ) ; while (1 ) { system ("cls" ) ; /* This will work in Visual Studio. In Turbo C / C++ use function clrscr() */ gotoxy (30, 10 ) ; printf ("1. Add Records" ) ; gotoxy (30, 12 ) ; printf ("2. List Records" ) ; gotoxy (30, 14 ) ; printf ("3. Modify Records" ) ;
+void gotoxy(short int col, short int row);
 
-gotoxy (30, 16 ) ; printf ("4. Delete Records" ) ; gotoxy (30, 18 ) ; printf ("0. Exit" ) ; gotoxy (30, 20 ) ; printf ("Your choice" ) ; fflush (stdin ) ; choice = getche() ; switch (choice ) { case '1' : fseek (fp, 0 , SEEK_END ) ; another = 'Y' ; while (another == 'Y' ) { printf ("\nEnter name, age and basic salary " ) ; scanf ("%s %d %f", e.name, &e.age, &e.bs ) ; fwrite (&e, recsize, 1, fp ) ; printf ("\nAdd another Record (Y/N) " ) ; fflush (stdin ) ; another = getche() ; } break ; case '2' : rewind (fp ) ; while (fread (&e, recsize, 1, fp ) == 1 ) printf ("\n%s %d %f", e.name, e.age, e.bs ) ; break ; case '3' : another = 'Y' ; while (another == 'Y' )
+int main() {
+FILE *fp, *ft;
+char another, choice;
 
-{ printf ("\nEnter name of employee to modify " ) ; scanf ("%s", empname ) ; rewind (fp ) ; while (fread (&e, recsize, 1, fp ) == 1 ) { if (strcmp (e.name, empname ) == 0 ) { printf ("\nEnter new name, age & bs " ) ; scanf ("%s %d %f", e.name, &e.age, &e.bs ) ; fseek (fp, - recsize, SEEK_CUR ) ; fwrite (&e, recsize, 1, fp ) ; break ; } } printf ("\nModify another Record (Y/N) " ) ; fflush (stdin ) ; another = getche() ; } break ; case '4' : another = 'Y' ; while (another == 'Y' ) { printf ("\nEnter name of employee to delete " ) ; scanf ("%s", empname ) ; ft = fopen ("TEMP.DAT", "wb" ) ; rewind (fp ) ; while (fread (&e, recsize, 1, fp ) == 1 ) { if (strcmp (e.name, empname ) != 0 ) fwrite (&e, recsize, 1, ft ) ; }
+struct emp{
+    char name[40];
+    int age;
+    float bs;
+};
 
-fclose (fp ) ; fclose (ft ) ; remove ("EMP.DAT" ) ; rename ("TEMP.DAT", "EMP.DAT" ) ; fp = fopen ("EMP.DAT", "rb+" ) ; printf ("Delete another Record (Y/N) " ) ; fflush (stdin ) ; another = getche() ; } break ; case '0' : fclose (fp ) ; exit (0 ) ; } } return 0 ; } / * Use this function in Visual Studio */ / * In TC/TC++ use the library function gotoxy() declared in "conio.h" */ void gotoxy (short int col, short int row ) { HANDLE h Stdout = GetStdHandle (STD_OUTPUT_HANDLE ) ; COORD position = { col, row } ; SetConsoleCursorPosition (hStdout, position ) ; }
+struct emp e;
+char empname[40];
+long int recsize;
+
+fp = fopen("EMP.DAT", "rb+");
+if (fp == NULL) 
+{
+    fp = fopen("EMP.DAT", "wb+");
+    if (fp == NULL)
+    {
+        puts("Cannot open file");
+        exit(1);
+    }
+}
+recsize = sizeof(e);
+
+while (1) 
+{
+    system("cls");
+    gotoxy(30, 10);
+    printf("1. Add Records");
+    gotoxy(30, 12);
+    printf("2. List Records");
+    gotoxy(30, 14);
+    printf("3. Modify Records");
+    gotoxy(30, 16);
+    printf("4. Delete Records");
+    gotoxy(30, 18);
+    printf("0. Exit");
+    gotoxy(30, 20);
+    printf("Your choice: ");
+    fflush(stdin);
+    choice = getchar();
+
+    switch (choice)
+    {
+        case '1':
+        fseek(fp, 0, SEEK_END);
+        another = 'Y';
+        while (another == 'Y')
+        {
+            printf("\nEnter name, age, and basic salary: ");
+            scanf("%s %d %f", e.name, &e.age, &e.bs);
+            fwrite(&e, recsize, 1, fp);
+            printf("\nAdd another Record (Y/N): ");
+            fflush(stdin);
+            another = getchar();
+        }
+        break;
+        case '2':
+        rewind(fp);
+        while (fread(&e, recsize, 1, fp) == 1)
+        {
+            printf("\n%s %d %f", e.name, e.age, e.bs);
+        }
+        break;
+        case '3':
+        another = 'Y';
+        while (another == 'Y')
+        {
+            printf("\nEnter name of employee to modify: ");
+            scanf("%s", empname);
+            rewind(fp);
+            while (fread(&e, recsize, 1, fp) == 1)
+            {
+                if (strcmp(e.name, empname) == 0)
+                {
+                    printf("\nEnter new name, age, and bs: ");
+                    scanf("%s %d %f", e.name, &e.age, &e.bs);
+                    fseek(fp, -recsize, SEEK_CUR);
+                    fwrite(&e, recsize, 1, fp);
+                    break;
+                }
+            }
+            printf("\nModify another Record (Y/N): ");
+            fflush(stdin);
+            another = getchar();
+        }
+        break;
+        case '4':
+        another = 'Y';
+        while (another == 'Y')
+        {
+            printf("\nEnter name of employee to delete: ");
+            scanf("%s", empname);
+            ft = fopen("TEMP.DAT", "wb");
+            rewind(fp);
+            while (fread(&e, recsize, 1, fp) == 1)
+            {
+                if (strcmp(e.name, empname) != 0)
+                {
+                    fwrite(&e, recsize, 1, ft);
+                }
+            }
+            fclose(fp);
+            fclose(ft);
+            remove("EMP.DAT");
+            rename("TEMP.DAT", "EMP.DAT");
+            fp = fopen("EMP.DAT", "rb+");
+            printf("\nDelete another Record (Y/N): ");
+            fflush(stdin);
+            another = getchar();
+        }
+        break;
+        case '0':
+        fclose(fp);
+        exit(0);
+    }
+}
+    return 0;
+}
+
+/* Use this function in Visual Studio or find a suitable alternative for your environment */
+void gotoxy(short int col, short int row) {
+    COORD position = { col, row };
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);
+}
+
 ```
 
 To understand how this program works, you need to be familiar with the concept of pointers. A pointer is initiated whenever we open a file. On opening a file, a pointer is set up which points to the first record in the file. To be precise this pointer is present in the structure to which the file pointer returned by **fopen()** points to. On using the function either **fread()** or **fwrite()**, the pointer moves to the beginning of the next record. On closing a file the pointer is deactivated. Note that the pointer movement is of utmost importance since **fread()** always reads that record where the pointer is currently placed. Similarly, **fwrite()** always writes the record where the pointer is currently placed.
@@ -613,21 +739,21 @@ To understand how this program works, you need to be familiar with the concept o
 The **rewind()** function places the pointer to the beginning of the file, irrespective of where it is present right now.
 
 The **fseek()** function lets us move the pointer from one record to another. In the program above, to move the pointer to the previous record from its current position, we used the function,
-
-fseek (fp, -recsize, SEEK_CUR ) ;
-
+```
+fseek (fp, -recsize, SEEK_CUR);
+```
 Here, -**recsize** moves the pointer back by **recsize** bytes from the current position. **SEEK**_**CUR** is a macro defined in “stdio.h”.
 
 Similarly, the following **fseek()** would place the pointer beyond the last record in the file.
-
-fseek (fp, 0, SEEK_END ) ;
-
+```
+fseek(fp, 0, SEEK_END);
+```
 In fact, -**recsize** or **0** are just the offsets that tell the compiler by how many bytes should the pointer be moved from a particular position. The third argument could be **SEEK**_**END**, **SEEK**_**CUR** or **SEEK**_**SET**. All these act as a reference from which the pointer should be offset. **SEEK**_**END** means move the pointer from the end of the file, **SEEK**_**CUR** means move the pointer with reference to its current position and **SEEK**_**SET** means move the pointer with reference to the beginning of the file.
 
 If we wish to know where the pointer is positioned right now, we can use the function **ftell()**. It returns this position as a **long** **int** which is an offset from the beginning of the file. The value returned by **ftell()** can be used in subsequent calls to **fseek()**. A sample call to **ftell()** is shown below.
-
+```
 position = ftell (fp ) ;
-
+```
 where **position** is a **long** **int**.
 
 **Low-Level File I/O** In low-level File I/O, data cannot be written as individual characters, or as strings or as formatted data. There is only one way data can be written or read in low-level file I/O functions—as a buffer full of bytes.
@@ -647,17 +773,59 @@ Let us now write a program that uses low-level file input/output functions.
 ### A Low-Level File-Copy Program
 
 Earlier we had written a program to copy the contents of one file to another. In that program we had read the file character-by-character using **fgetc()**. Each character that was read was written into the target file using **fputc()**. Instead of performing the I/O on a character-by- character basis we can read a chunk of bytes from the source file and then write this chunk into the target file. While doing so the chunk would be read into the buffer and would be written to the file from the buffer. While doing so we would manage the buffer ourselves, rather than relying on the library functions to do so. This is what is low-level about this program. Here is a program which shows how this can be done.
+```
+/* File-copy program which copies text, .com and .exe files */
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <io.h> // Use this for file functions on Windows
 
-/* File-copy program which copies text, .com and .exe files */ # include <fcntl.h> # include <types.h> /* if present in sys directory use "sys\types.h" */ # include <stat.h> /* if present in sys directory use "sys\stat.h" */ # include <stdlib.h> # include <stdio.h> int main() { char buffer[ 512 ], source [ 128 ], target [ 128 ] ; int inhandle, outhandle, bytes ; printf ("\nEnter source file name" ) ; gets (source ) ; inhandle = open (source, O_RDONLY | O_BINARY ) ;
+int main() {
+    char buffer[512], source[128], target[128];
+    int inhandle, outhandle, bytes;
 
-if (inhandle == -1 ) { puts ("Cannot open file" ) ; exit (1 ) ; } printf ("\nEnter target file name" ) ; gets (target ) ; outhandle = open (target, O_CREAT | O_BINARY | O_WRONLY, S_IWRITE ) ; if (outhandle == -1 ) { puts ("Cannot open file" ) ; close (inhandle ) ; exit (2 ) ; } while (1 ) { bytes = read (inhandle, buffer, 512 ) ; if (bytes > 0 ) write (outhandle, buffer, bytes ) ; else break ; } close (inhandle ) ; close (outhandle ) ; return 0 ; }
+    printf("Enter source file name: ");
+    gets(source);
+    inhandle = open(source, O_RDONLY | O_BINARY); // Use O_BINARY for Windows
+
+    if (inhandle == -1) {
+        puts("Cannot open source file");
+        exit(1);
+    }
+
+    printf("Enter target file name: ");
+    gets(target);
+    outhandle = open(target, O_CREAT | O_BINARY | O_WRONLY, S_IWRITE); // Use O_BINARY for Windows
+
+    if (outhandle == -1) {
+        puts("Cannot open target file");
+        close(inhandle);
+        exit(2);
+    }
+
+    while (1) {
+        bytes = read(inhandle, buffer, 512);
+        if (bytes > 0)
+            write(outhandle, buffer, bytes);
+        else
+            break;
+    }
+
+    close(inhandle);
+    close(outhandle);
+
+    return 0;
+}
+```
 
 ### Declaring the Buffer
 
 The first difference that you will notice in this program is that we declare a character buffer,
-
-char buffer[ 512 ] ;
-
+```
+char buffer[512];
+```
 This is the buffer in which the data read from the file will be placed. The size of this buffer is important for efficient operation. Depending on the
 
 operating system, buffers of certain sizes are handled more efficiently than others.
@@ -672,33 +840,33 @@ inhandle = open (source, O_RDONLY | O_BINARY ) ;
 
 We open the file for the same reason as we did earlier—to establish communication with operating system about the file. As usual, we have to supply to **open()**, the filename and the mode in which we want to open the file. The possible file opening modes are given below.
 
-O_APPEND - Opens a file for appending
+- O_APPEND - Opens a file for appending
 
-O_CREAT - Creates a new file for writing (has no effect if file already exists)
+- O_CREAT - Creates a new file for writing (has no effect if file already exists)
 
-O_RDONLY - Opens a new file for reading only
+- O_RDONLY - Opens a new file for reading only
 
-O_RDWR - Creates a file for both reading and writing
+- O_RDWR - Creates a file for both reading and writing
 
-O_WRONLY - Creates a file for writing only
+- O_WRONLY - Creates a file for writing only
 
-O_BINARY - Opens a file in binary mode
+- O_BINARY - Opens a file in binary mode
 
-O_TEXT - Opens a file in text mode
+- O_TEXT - Opens a file in text mode
 
 These ‘O-flags’ are defined in the file “fcntl.h”. So this file must be included in the program while using low-level file I/O. Note that the file “stdio.h” is not necessary for low-level file I/O. When two or more O- flags are used together, they are combined using the bitwise OR operator (| ). Chapter 21 discusses bitwise operators in detail.
 
 The other statement used in our program to open the file is,
-
-outhandle = open (target, O_CREAT | O_BINARY | O_WRONLY, S_IWRITE ) ;
-
+```
+outhandle = open (target, O_CREAT | O_BINARY | O_WRONLY, S_IWRITE);
+```
 Note that since the target file doesn’t exist when it is being opened, we have used the O_CREAT flag, and since we want to write to the file and not read from it, therefore we have used O_WRONLY. And finally, since we want to open the file in binary mode we have used O_BINARY.
 
 Whenever O_CREAT flag is used, another argument must be added to **open()** function to indicate the read/write status of the file to be created. This argument is called ‘permission argument’. Permission arguments could be any of the following:
 
 S_IWRITE - Writing to the file permitted S_IREAD - Reading from the file permitted
 
-To use these permissions, both the files “types.h” and “stat.h” must be **#include**d in the program alongwith “fcntl.h”.
+To use these permissions, both the files “types.h” and “stat.h” must be **#include** in the program alongwith “fcntl.h”.
 
 ### File Handles
 
@@ -707,9 +875,9 @@ Instead of returning a FILE pointer as **fopen()** did, in low-level file I/O, *
 ### Interaction between Buffer and File
 
 The following statement reads the file or as much of it as will fit into the buffer:
-
-bytes = read (inhandle, buffer, 512 ) ;
-
+```
+bytes = read(inhandle, buffer, 512);
+```
 The **read()** function takes three arguments. The first argument is the file handle, the second is the address of the buffer and the third is the maximum number of bytes we want to read.
 
 The **read()** function returns the number of bytes actually read. This is an important number, since it may very well be less than the buffer size (512 bytes), and we will need to know just how full the buffer is before we can do anything with its contents. In our program we have assigned this number to the variable **bytes**.
@@ -741,69 +909,217 @@ Though under Windows, console I/O functions are not used, still functions like *
 ### Exercise
 
 **[A]** Point out the errors, if any, in the following programs:
+```
+#include <stdio.h>
+void openfile(char *, FILE **);
 
-- # include <stdio.h> void openfile (char *, FILE ** ) ; int main() { FILE *fp ; openfile ("Myfile.txt", fp ) ; if (fp == NULL ) printf ("Unable to open file…\n" ) ; return 0 ; } void openfile (char *fn, FILE **f ) { *f = fopen (fn, "r" ) ; }
+int main()
+{ 
+    FILE *fp;
+    openfile("Myfile.txt", fp);
+    if(fp == NULL)
+    printf ("Unable to open file…\n");
+    return 0;
+}
+void openfile(char *fn, FILE **f)
+{
+    *f = fopen (fn, "r");
+}
+```
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-- # include <stdio.h> # include <stdlib.h> int main() { FILE *fp ; char c ; fp = fopen ("TRY.C" ,"r" ) ; if (fp == null ) { puts ("Cannot open file\n" ) ; exit() ; } while ((c = getc (fp ) ) != EOF ) putch (c ) ; fclose (fp ) ; return 0 ; }
+int main()
+{
+    FILE *fp;
+    char c;
+    fp = fopen("TRY.C" ,"r");
+    if(fp == null)
+    {
+        puts("Cannot open file\n");
+        exit();
+    }
+    while((c = getc (fp )) != EOF )
+    putch(c);
+    fclose(fp);
+    return 0;
+}
+```
+```
+#include <stdio.h>
 
-- # include <stdio.h> int main()
+int main() {
+    char fname[] = "c:\students.dat";
+    FILE *fp;
 
-{ char fname[] = "c:\students.dat" ; FILE *fp ;
+    fp = fopen(fname, "tr");
+    if (fp == NULL)
+        printf("Unable to open file...\n");
+    else
+        printf("File opened successfully!\n");
 
-fp = fopen (fname, "tr" ) ; if (fp == NULL ) printf ("Unable to open file...\n" ) ; return 0 ; }
+    return 0;
+}
+```
+```
+#include <stdio.h>
 
-- # include <stdio.h> int main()
+int main() {
+    FILE *fp;
+    char str[80];
+    
+    fp = fopen("TRY.C", "r");
+    while (fgets(str, 80, fp) != EOF) {
+        fputs(str);
+    }
+    
+    fclose(fp);
+    return 0;
+}
+```
+```
+#include <stdio.h>
 
-{ FILE *fp ; char str[ 80 ] ; fp = fopen ("TRY.C", "r" ) ; while (fgets (str, 80, fp ) != EOF ) fputs (str ) ; fclose (fp ) ; return 0 ; }
+int main() {
+    unsigned char ch;
+    FILE *fp;
+    
+    fp = fopen("trial", 'r');
+    while ((ch = getc(fp)) != EOF) {
+        printf("%c", ch);
+    }
+    
+    fclose(*fp);
+    return 0;
+}
 
-- # include <stdio.h> int main() { unsigned char ; FILE *fp ; fp = fopen ("trial", ‘r’ ) ; while ((ch = getc (fp ) ) != EOF ) printf ("%c", ch ) ; fclose (*fp ) ; return 0 ; }
+```
+```
+#include <stdio.h>
 
-- # include <stdio.h> int main()
+int main() {
+    FILE *fp;
+    char names[20];
+    int i;
+    
+    fp = fopen("students.dat", "wb");
+    for (i = 0; i <= 10; i++) {
+        printf("\nEnter name: ");
+        gets(name);
+        
+        fwrite(name, sizeof(name), 1, fp);
+    }
+    
+    close(fp);
+    return 0;
+}
 
-{ FILE *fp ; char names[ 20 ] ; int i ; fp = fopen ("students.dat", "wb" ) ; for (i = 0 ; i <= 10 ; i++ ) { puts ("\nEnter name: " ) ; gets (name ) ;
+```
+```
+#include <stdio.h>
 
-fwrite (name, size of (name ), 1, fp ) ; } close (fp ) ; return 0 ; }
+int main()
+{
+    FILE *fp;
+    char name[20] = "Ajay";
+    int i;
 
-- # include <stdio.h> int main()
+    fp = fopen("students.dat", 'r');
 
-{ FILE *fp ; char name[ 20 ] = "Ajay" ; int i ; fp = fopen ("students.dat", "r" ) ; for (i = 0 ; i <= 10 ; i++ ) fwrite (name, sizeof (name ), 1, fp ) ; close (fp ) ; return 0 ; }
+    for (i = 0; i <= 10; i++)
+    {
+        fwrite(name, sizeof(name), 1, fp);
+    }
 
-- # include <fcntl.h> # include <stdio.h> int main() { int fp ; fp = open ("pr22.c" , "r" ) ; if (fp == -1 ) puts ("cannot open file\n" ) ; else close (fp ) ; return 0 ; }
+    close(fp);
 
-- # include <stdio.h>
+    return 0;
+}
+```
+```
+#include <fcntl.h>
+#include <stdio.h>
 
-int main() { int fp ; fp = fopen ("students.dat", READ | BINARY ) ; if (fp == -1 ) puts ("cannot open file\n" ) ; else close (fp ) ; return 0 ; }
+int main()
+{
+    int fp;
 
+    fp = open("pr22.c", "r");
+
+    if (fp == -1)
+    {
+        puts("cannot open file\n");
+    }
+    else
+    {
+        close(fp);
+    }
+
+    return 0;
+}
+
+```
+```
+#include <stdio.h>
+
+int main()
+{
+    int fp;
+
+    fp = fopen("students.dat", READ | BINARY );
+
+    if(fp == -1)
+    puts("Cannot open file\n");
+    
+    else
+    close(fp);
+
+    return 0;
+}
+
+```
 **[B]** Answer the following:
 
 - The FILE structure is defined in which of the following files:
 
-1\. stdlib.h 2. stdio.c 3. io.h 4. stdio.h
-
+```
+1. stdlib.h 
+2. stdio.c
+3. io.h
+4. stdio.h
+```
 - If a file contains the line “I am a boy\r\n” then on reading this line into the array **str[ ]** using **fgets()** what would **str[ ]** contain?
 
-1\. I am a boy\r\n\0 2. I am a boy\r\0 3. I am a boy\n\0 4. I am a boy
+```
+1. I am a boy\r\n\0
+2. I am a boy\r\0
+3. I am a boy\n\0
+4. I am a boy
+```
+State True or False:
 
-- State True or False:
+1. The disadvantage of high-level file I/O functions is that the programmer has to manage the file buffers.
 
-1\. The disadvantage of high-level file I/O functions is that the programmer has to manage the file buffers.
+2. If a file is opened for reading, it is necessary that the file must exist.
 
-2\. If a file is opened for reading, it is necessary that the file must exist.
+3. If a file opened for writing already exists, its contents would be overwritten.
 
-3\. If a file opened for writing already exists, its contents would be overwritten.
+4. For opening a file in append mode it is necessary that the file should exist.
 
-4\. For opening a file in append mode it is necessary that the file should exist.
+On opening a file for reading which of the following activities are performed:
 
-- On opening a file for reading which of the following activities are performed:
+1. The disk is searched for existence of the file.
+2. The file is brought into memory.
+3. A pointer is set up which points to the first character in the file.
+4. All the above.
 
-1\. The disk is searched for existence of the file. 2. The file is brought into memory. 3. A pointer is set up which points to the first character in the file. 4. All the above.
+Is it necessary that a file created in text mode must always be opened in text mode for subsequent operations?
 
-- Is it necessary that a file created in text mode must always be opened in text mode for subsequent operations?
-
-- While using the statement,
-
+While using the statement,
+```
 fp = fopen ("myfile.c", "r" ) ;
-
+```
 what happens if,
 
 - ‘myfile.c’ does not exist on the disk
@@ -813,9 +1129,9 @@ what happens if,
 - What is the purpose of the library function **fflush()**?
 
 - While using the statement,
-
+```
 fp = fopen ("myfile.c", "wb" ) ;
-
+```
 what happens if,
 
 - ‘myfile.c’ does not exist on the disk
@@ -852,28 +1168,48 @@ For example, if character ‘A’ is read from the source file, and if we have d
 
 - In the file ‘CUSTOMER.DAT’ there are 100 records with the following structure:
 
-struct customer { int accno ; char name[ 30 ] ; float balance ; } ;
-
+```
+struct customer {
+    int accno;
+    char name[30];
+    float balance;
+};
+```
 In another file ‘TRANSACTIONS.DAT’ there are several records with the following structure:
-
-struct trans { int accno ; char trans_type ; float amount ; } ;
-
+```
+struct trans{
+    int accno;
+    char trans_type;
+    float amount;
+};
+```
 The element **trans_type** contains D/W indicating deposit or withdrawal of amount. Write a program to update ‘CUSTOMER.DAT’ file, i.e., if the **trans_type** is ‘D’ then update the **balance** of ‘CUSTOMER.DAT’ by adding **amount** to balance for the corresponding **accno**. Similarly, if **trans_type** is ‘W’ then subtract the **amount** from **balance**. However, while subtracting the amount
 
 ensure that the amount should not get overdrawn, i.e., at least 100 Rs. Should remain in the account.
 
 - There are 100 records present in a file with the following structure:
+```
+struct date{
+    int d, m, y ;
+};
 
-struct date { int d, m, y ; } ;
-
-struct employee { int empcode[ 6 ] ; char empname[ 20 ] ; struct date join_date ; float salary ; } ;
-
+struct employee{
+    int empcode[6];
+    char empname[20];
+    struct date join_date;
+    float salary;
+};
+```
 Write a program to read these records, arrange them in ascending order by **join_date** and write them to a target file.
 
 - A hospital keeps a file of blood donors in which each record has the format:
-
-Name: 20 Columns Address: 40 Columns Age: 2 Columns Blood Type: 1 Column (Type 1, 2, 3 or 4)
-
+```
+Name: 20 Columns
+Address: 40 Columns
+Age: 2 Columns
+Blood Type: 1 Column
+(Type 1, 2, 3 or 4)
+```
 Write a program to read the file and print a list of all blood donors whose age is below 25 and whose blood type is 2.
 
 - Given a list of names of students in a class, write a program to store the names in a file on disk. Make a provision to display the **n**th name in the list (**n** is data to be read) and to display all names starting with S.
@@ -899,9 +1235,13 @@ Write a program to implement the above operations.
 (n) Given a text file, write a program to create another text file deleting the words “a”, “the”, “an” and replacing each one of them with a blank space.
 
 (o) You are given a data file EMPLOYEE.DAT with the following record structure:
-
-struct employee { int empno ; char name[ 30 ] ; int basic, grade ; } ;
-
+```
+struct employee{
+    int empno;
+    char name[30];
+    int basic,grade;
+};
+```
 Every employee has a unique **empno** and there are supposed to be no gaps between employee numbers. Records are entered into the data file in ascending order of employee number. It is intended to check whether there are missing employee numbers. Write a program to read the data file records sequentially and display the list of missing employee numbers.
 
 (p) Write a program to carry out the following operations:
