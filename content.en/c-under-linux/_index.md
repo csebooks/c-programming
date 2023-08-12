@@ -66,9 +66,11 @@ The Kernel (core) of the OS assigns each process running in memory a unique ID t
 
 Here **getpid( )** is a library function which returns the process ID of the calling process. When the execution of the program comes to an end, the process stands terminated. Every time we run the program a new process is created. Hence the kernel assigns a new ID to the process each time. This can be verified by executing the program several times— each time it would produce a different output.
 
-**Parent and Child Processes** As we know, our running program is a process. From this process we can create another process. There is a parent-child relationship between the two processes. The way to achieve this is by using a library function called **fork( )**. This function splits the running process into two processes, the existing one is known as parent and the new process is known as child. Here is a program that demonstrates this…
+## Parent and Child Processes As we know, our running program is a process. From this process we can create another process. There is a parent-child relationship between the two processes. The way to achieve this is by using a library function called **fork( )**. This function splits the running process into two processes, the existing one is known as parent and the new process is known as child. Here is a program that demonstrates this…
 
-\# include <stdio.h> # include <unistd.h> /\* for prototype of fork( ) \*/ int main( ) { printf ( "Before Forking\\n" ) ; fork( ) ; printf ( "After Forking\\n" ) ; return 0 ; }
+```c
+#include <stdio.h> # include <unistd.h> /\* for prototype of fork( ) \*/ int main( ) { printf ( "Before Forking\\n" ) ; fork( ) ; printf ( "After Forking\\n" ) ; return 0 ; }
+```
 
 Here is the output of the program…
 
