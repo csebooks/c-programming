@@ -2,4 +2,3 @@
 ```sh
 hugo server --themesDir ../
 ```
-"text"
