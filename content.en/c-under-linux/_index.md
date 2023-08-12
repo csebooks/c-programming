@@ -3,27 +3,32 @@ title: 'C Under Linux'
 weight: 23
 ---
 
-Today the programming world is divided into two major camps—the Windows world and the Linux world. Since its humble beginning
+Today the programming world is divided into two major camps—the Windows world and the Linux world. Since its humble beginning about two decades ago, Linux has steadily drawn the attention of programmers across the globe and has successfully created a community of its own. So as a C programmer you must know how to do C programming under Linux environment. Without any further discussions let us now set out on the Linux voyage. I hope you find the journey interesting and exciting.
 
-about two decades ago, Linux has steadily drawn the attention of programmers across the globe and has successfully created a community of its own. So as a C programmer you must know how to do C programming under Linux environment. Without any further discussions let us now set out on the Linux voyage. I hope you find the journey interesting and exciting.
-
-**What is Linux?** Linux is a clone of the UNIX operating system. Its kernel was written from scratch by Linus Trovalds with assistance from a loosely-knit team of programmers across the world on the Internet. It has all the features you would expect in a modern OS. Moreover, unlike Windows or UNIX, Linux is available completely free of cost. The kernel of Linux is available in source code form. Anybody is free to change it to suit his/her requirement, with a precondition that the changed kernel can be distributed only in the source code form. Several programs, frameworks, utilities have been built around the Linux kernel. A common user may not want the headaches of downloading the kernel, going through the complicated compilation process, then downloading the frameworks, programs and utilities. Hence many organizations have come forward to make this job easy. They distribute the precompiled kernel, programs, utilities and frameworks on a common media. Moreover, they also provide installation scripts for easy installations of the Linux OS and applications. Some of the popular distributions are RedHat, SUSE, Caldera, Debian, Mandrake, Slackware, etc. Each of them contain the same kernel but may contain different application programs, libraries, frameworks, installation scripts, utilities, etc. Which one is better than the other is only a matter of taste.
+# What is Linux? 
+Linux is a clone of the UNIX operating system. Its kernel was written from scratch by Linus Trovalds with assistance from a loosely-knit team of programmers across the world on the Internet. It has all the features you would expect in a modern OS. Moreover, unlike Windows or UNIX, Linux is available completely free of cost. The kernel of Linux is available in source code form. Anybody is free to change it to suit his/her requirement, with a precondition that the changed kernel can be distributed only in the source code form. Several programs, frameworks, utilities have been built around the Linux kernel. A common user may not want the headaches of downloading the kernel, going through the complicated compilation process, then downloading the frameworks, programs and utilities. Hence many organizations have come forward to make this job easy. They distribute the precompiled kernel, programs, utilities and frameworks on a common media. Moreover, they also provide installation scripts for easy installations of the Linux OS and applications. Some of the popular distributions are RedHat, SUSE, Caldera, Debian, Mandrake, Slackware, etc. Each of them contain the same kernel but may contain different application programs, libraries, frameworks, installation scripts, utilities, etc. Which one is better than the other is only a matter of taste.
 
 Linux was first developed for x86-based PCs (386 or higher). These days it also runs on Compaq Alpha AXP, Sun SPARC, Motorola 68000 machines (like Atari ST and Amiga), MIPS, PowerPC, ARM, Intel Itanium, SuperH, etc. Thus Linux works on literally every conceivable microprocessor architecture.
 
 Under Linux one is faced with simply too many choices of Linux distributions, graphical shells and managers, editors, compilers, linkers, debuggers, etc. For simplicity (in my opinion), I have chosen the following combination for the programs in this chapter:
 
-### T
-
 Linux Distribution – Ubuntu Linux 11.10 Development Environment – NetBeans 8.0.2 Ubuntu Linux can be downloaded from www.ubuntu.com and Netbeans can be downloaded from www.netbeans.org
 
-**C Programming Under Linux** Is C under Linux any different than C under DOS or C under Windows? Well, it is same as well as different. It is same to the extent of using language elements like data types, control instructions and the overall syntax. The usage of standard library functions is also same even though the implementation of each might be different under different OS. For example, a **printf( )** would work under all OSs, but the way it is defined is likely to be different for different OSs. However, the programmer doesn’t suffer because of this, since, he/she can continue to call **printf( )** the same way, no matter how it is implemented.
+# C Programming Under Linux
+Is C under Linux any different than C under DOS or C under Windows? Well, it is same as well as different. It is same to the extent of using language elements like data types, control instructions and the overall syntax. The usage of standard library functions is also same even though the implementation of each might be different under different OS. For example, a **printf( )** would work under all OSs, but the way it is defined is likely to be different for different OSs. However, the programmer doesn’t suffer because of this, since, he/she can continue to call **printf( )** the same way, no matter how it is implemented.
 
 But there the similarity ends. If we are to build programs that utilize the features offered by the OS then things are bound to be different across OSs. For example, if we are to write a C program that would create a Window and display a message “hello” at the point where the user clicks the left mouse button. The architecture of this program would be very closely tied with the OS under which it is being built. This is because the mechanisms for creating a window, reporting a mouse click, handling a mouse click, displaying the message, closing the window, etc., are very closely tied with the OS for which the program is being built. In short, the programming architecture (better known as programming model) for each OS is different. Hence, naturally, the program that achieves the same task under different OS would have to be different.
 
-**The ‘Hello Linux’ Program** As with any new platform, we would begin our journey in the Linux world by creating a simple ‘hello world’ program. Here is the source code....
+## The ‘Hello Linux’ Program 
+As with any new platform, we would begin our journey in the Linux world by creating a simple ‘hello world’ program. Here is the source code....
 
-\# include <stdio.h> int main( ) { printf ( "Hello Linux\\n" ) ; return 0 ; }
+```c
+#include <stdio.h> 
+int main( ) { 
+    printf ( "Hello Linux\\n" ) ; 
+    return 0 ; 
+}
+```
 
 The program is exactly same as compared to a console program under DOS/Windows. It begins with **main( )** and uses **printf( )** standard library function to produce its output. So what is the difference? The difference is in the way programs are typed, compiled and executed. For this you should ideally use NetBeans as it offers an integrated development environment. Alternately, you can type the program using editor like ‘vi’ or ‘vim’ and compile and link it using ‘gcc’.
 
@@ -32,24 +37,26 @@ If you are using NetBeans then create a new C/C++ project in it, type the above 
 If you are using vi – gcc combination then carry out the following steps:
 
 - Type the program and save it under the name ‘hello.c’.
-
 - At the command prompt switch to the directory containing ‘hello.c’ using the **cd** command.
-
 - Now compile the program using the **gcc** compiler as shown below:
 
-$ gcc hello.c
+```sh
+gcc hello.c
+```
 
 - On successful compilation, **gcc** produces a file named ‘a.out’. This file contains the machine code of the program which can now be executed.
 
 - Execute the program using the following command:
 
-$ ./a.out
-
+```sh
+./a.out
+```
 - Now you should be able to see the output ‘Hello Linux’ on the screen.
-
+- 
 Having created a Hello Linux program and gone through the edit- compile-execute cycle once, let us now turn our attention to Linux specific programming. We will begin with processes.
 
-**Processes** Gone are the days when only one processor in the PC/Laptop executed only one job (task) in memory at any time. Today, the modern OSs like Windows and Linux exploit the capabilities of Dual-core and Quad-core processors and execute several tasks simultaneously. In Linux each running task is known as a ‘process’.
+## Processes
+Gone are the days when only one processor in the PC/Laptop executed only one job (task) in memory at any time. Today, the modern OSs like Windows and Linux exploit the capabilities of Dual-core and Quad-core processors and execute several tasks simultaneously. In Linux each running task is known as a ‘process’.
 
 The scheduling of different processes on multiple processors is done by a program called ‘Scheduler’ which is a vital component of the Linux OS.
 
@@ -59,9 +66,11 @@ The Kernel (core) of the OS assigns each process running in memory a unique ID t
 
 Here **getpid( )** is a library function which returns the process ID of the calling process. When the execution of the program comes to an end, the process stands terminated. Every time we run the program a new process is created. Hence the kernel assigns a new ID to the process each time. This can be verified by executing the program several times— each time it would produce a different output.
 
-**Parent and Child Processes** As we know, our running program is a process. From this process we can create another process. There is a parent-child relationship between the two processes. The way to achieve this is by using a library function called **fork( )**. This function splits the running process into two processes, the existing one is known as parent and the new process is known as child. Here is a program that demonstrates this…
+## Parent and Child Processes As we know, our running program is a process. From this process we can create another process. There is a parent-child relationship between the two processes. The way to achieve this is by using a library function called **fork( )**. This function splits the running process into two processes, the existing one is known as parent and the new process is known as child. Here is a program that demonstrates this…
 
-\# include <stdio.h> # include <unistd.h> /\* for prototype of fork( ) \*/ int main( ) { printf ( "Before Forking\\n" ) ; fork( ) ; printf ( "After Forking\\n" ) ; return 0 ; }
+```c
+#include <stdio.h> # include <unistd.h> /\* for prototype of fork( ) \*/ int main( ) { printf ( "Before Forking\\n" ) ; fork( ) ; printf ( "After Forking\\n" ) ; return 0 ; }
+```
 
 Here is the output of the program…
 
