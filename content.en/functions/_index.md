@@ -14,10 +14,10 @@ to fix up your bike, hire a gardener to mow your lawn, or rely on a store to sup
 Suppose you have a task that is always performed exactly in the same way—say a bimonthly servicing of your motorbike. When you want it to be done, you go to the service station and say, “It’s time, do it now”. You don’t need to give instructions, because the mechanic knows his job. You don’t need to be told how the job is done. You assume the bike would be serviced in the usual way, the mechanic does it and that’s that.
 
 Let us now look at a simple C function that operates in much the same way as the mechanic. Actually, we will be looking at two things—a function that calls or activates the function and the function itself.
-
-\# include <stdio.h> void message( ) ; /\* function prototype declaration \*/ int main( ) { message( ) ; /\* function call \*/ printf ( "Cry, and you stop the monotony!\\n" ) ; return 0 ; } void message( ) /\* function definition \*/ { printf ( "Smile, and the world smiles with you...\\n" ) ; }
-
-### M
+```
+#include <stdio.h>
+void message(); \* function prototype declaration \*/ int main( ) { message() ; /\* function call \*/ printf ( "Cry, and you stop the monotony!\\n" ) ; return 0 ; } void message( ) /\* function definition \*/ { printf ( "Smile, and the world smiles with you...\\n"); }
+```
 
 And here’s the output...
 
