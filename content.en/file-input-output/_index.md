@@ -324,7 +324,7 @@ the first line of the poem and a “\n” using two calls to **fputs()**, what g
 ```
 Shining and bright, they are forever,\r\n
 ```
-When the same line is read back into the array **s[ ]** using **fgets()**, the array contains
+When the same line is read back into the array **s[]** using **fgets()**, the array contains
 ```
 Shining and bright, they are forever,\n\0
 ```

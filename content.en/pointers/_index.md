@@ -95,11 +95,11 @@ As you can see, **i**’s value is 3 and **j**’s value is **i**’s address.
 
 But wait, we can’t use **j** in a program without declaring it. And since **j** is a variable that contains the address of **i**, it is declared as,
 ```
-**int *j;**
+**int *j;
 ```
 This declaration tells the compiler that **j** will be used to store the address of an integer value. In other words, **j** points to an integer. How do we justify the usage of ***** in the declaration,
 ```
-**int *j;**
+**int *j;
 ```
 Let us go by the meaning of *****. It stands for ‘value at address’. Thus, **int *j** would mean, the value at the address contained in **j** is an **int**.
 
@@ -136,8 +136,9 @@ Value of i = 3
 Work through the above program carefully, taking help of the memory locations of **i** and **j** shown earlier. This program summarizes everything that we have discussed so far. If you don’t understand the program’s output, or the meanings of **&i**, **&j**, ***j** and ***(&i)**, re-read the last few pages. Everything we say about pointers from here onwards will depend on your understanding these expressions thoroughly.
 
 Look at the following declarations:
-
+```
 int *alpha; char *ch; float *s;
+```
 
 Here, **alpha, ch** and **s** are declared as pointer variables, i.e., variables capable of holding addresses. Remember that, addresses (location nos.) are always going to be whole numbers, therefore pointers always contain whole numbers. Now we can put these two facts together and say—pointers are variables that contain addresses, and since addresses are always whole numbers, pointers would always contain whole numbers.
 
