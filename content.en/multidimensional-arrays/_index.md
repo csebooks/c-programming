@@ -8,8 +8,23 @@ In the last chapter we he we have explored arrays with only one dimension. It is
 dimensions. This chapter describes how multidimensional arrays can be created and manipulated in C.
 
 **Two-Dimensional Arrays** The two-dimensional array is also called a matrix. Let us see how to create this array and work with it. Here is a sample program that stores roll number and marks obtained by a student side-by-side in a matrix.
+```
+# include <stdio.h> 
+int main( ) 
+{ 
+    int stud[ 4 ][ 2 ] ; 
+    int i, j ; 
+    for ( i = 0 ; i <= 3 ; i++ ) 
+    { 
+        printf ( "Enter roll no. and marks" ) ; 
+        scanf ( "%d %d", &stud[ i ][ 0 ], &stud[ i ][ 1 ] ) ;
+    } 
+    for ( i = 0 ; i <= 3 ; i++ ) 
+    printf ( "%d %d\n", stud[ i ][ 0 ], stud[ i ][ 1 ] ) ; 
+    return 0 ; 
+}
 
-\# include <stdio.h> int main( ) { int stud\[ 4 \]\[ 2 \] ; int i, j ; for ( i = 0 ; i <= 3 ; i++ ) { printf ( "Enter roll no. and marks" ) ; scanf ( "%d %d", &stud\[ i \]\[ 0 \], &stud\[ i \]\[ 1 \] ) ; } for ( i = 0 ; i <= 3 ; i++ ) printf ( "%d %d\\n", stud\[ i \]\[ 0 \], stud\[ i \]\[ 1 \] ) ; return 0 ; }
+```
 
 There are two parts to the program—in the first part, through a **for** loop, we read in the values of roll no. and marks, whereas, in the second part through another **for** loop, we print out these values.
 
@@ -114,12 +129,24 @@ Thus, the declaration,
 int s\[ 5 \]\[ 2 \] ;
 
 can be thought of as setting up an array of 5 elements, each of which is a one-dimensional array containing 2 integers. We refer to an element of a one-dimensional array using a single subscript. Similarly, if we can imagine **s** to be a one-dimensional array, then we can refer to its zeroth element as **s\[ 0 \]**, the next element as **s\[ 1 \]** and so on. More specifically, **s\[ 0 \]** gives the address of the zeroth one-dimensional array, **s\[ 1 \]** gives the address of the first one-dimensional array and so on. This fact can be demonstrated by the following program:
+```
+/* Demo: 2-D array is an array of arrays */ 
+# include <stdio.h> 
+int main( ) 
+{ 
+    int s[ 4 ][ 2 ] = { { 1234, 56 }, { 1212, 33 }, { 1434, 80 }, { 1312, 78 } } ; 
+    int i ; 
+    for ( i = 0 ; i <= 3 ; i++ ) 
+    printf ( "Address of %d th 1-D array = %u\n", i, s[ i ] ) ; 
+    return 0 ; 
+}
 
-/\* Demo: 2-D array is an array of arrays \*/ # include <stdio.h> int main( ) { int s\[ 4 \]\[ 2 \] = { { 1234, 56 }, { 1212, 33 }, { 1434, 80 }, { 1312, 78 } } ; int i ; for ( i = 0 ; i <= 3 ; i++ ) printf ( "Address of %d th 1-D array = %u\\n", i, s\[ i \] ) ; return 0 ; }
+```
 
 And here is the output...
-
+```
 Address of 0 th 1-D array = 65508 Address of 1 th 1-D array = 65516 Address of 2 th 1-D array = 65524 Address of 3 th 1-D array = 65532
+```
 
 Let’s figure out how the program works. The compiler knows that **s** is an array containing 4 one-dimensional arrays, each containing 2 integers. Each one-dimensional array occupies 4 bytes (two bytes for each integer). These one-dimensional arrays are placed linearly (zeroth 1-D array followed by first 1-D array, etc.). Hence, each one-dimensional array starts 4 bytes further along than the last one, as can be seen in the memory map of the array shown in Figure 14.3.
 
