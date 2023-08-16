@@ -8,7 +8,7 @@ In the last chapter we he we have explored arrays with only one dimension. It is
 dimensions. This chapter describes how multidimensional arrays can be created and manipulated in C.
 
 **Two-Dimensional Arrays** The two-dimensional array is also called a matrix. Let us see how to create this array and work with it. Here is a sample program that stores roll number and marks obtained by a student side-by-side in a matrix.
-```
+```c
 # include <stdio.h> 
 int main( ) 
 { 
@@ -334,7 +334,7 @@ int q[ ][ 4 ] ;
 This is same as **int ( \*q )[ 4 ]**, where **q** is pointer to an array of 4 integers. The only advantage is that, we can now use the more familiar expression **q[ i ][ j ]** to access array elements. We could have used the same expression in **show( )** as well.
 
 **Array of Pointers** The way there can be an array of **int**s or an array of **float**s, similarly, there can be an array of pointers. Since a pointer variable always contains an address, an array of pointers would be nothing but a collection of addresses. The addresses present in the array of pointers can be addresses of isolated variables or addresses of array elements or any other addresses. All rules that apply to an ordinary array apply to the array of pointers as well. I think a program would clarify the concept.
-```
+```c
 # include <stdio.h> 
 int main( ) 
 {
@@ -394,7 +394,7 @@ arr[1] arr[2] arr[3]
 Figure 14.5
 
 An array of pointers can even contain the addresses of other arrays. The following program would justify this:
-```
+```c
 # include <stdio.h> 
 int main( ) 
 { 
@@ -478,7 +478,7 @@ arr[ 2 ][ 3 ][ 1 ] *( *( *( arr + 2 ) + 3 ) + 1 )
 ### Exercise
 
 **\[A\]** What will be the output of the following programs:
-```
+```c
 # include <stdio.h> 
 int main( ) 
 { 
@@ -499,7 +499,7 @@ int main( )
 }
 
 ```
-```
+```c
 # include <stdio.h> 
 int main( )
 { 
@@ -555,7 +555,7 @@ Figure 14.8
 As you can see there is a blank at bottom right corner. Implement the following procedure through a program:
 
 Draw the boxes as shown above. Display the numbers in the above order. Allow the user to hit any of the arrow keys (up, down, left, or right). If you are using Turbo C/C++, use the library function **gotoxy( )** to position the cursor on the screen while drawing the boxes. If you are using Visual Studio then use the following function to position the cursor:
-```
+```c
 #include <windows.h> 
 void gotoxy ( short col, short row ) 
 { 
@@ -575,7 +575,7 @@ Keep track of the number of moves in which the user manages to arrange the numbe
 How do we tackle the arrow keys? We cannot receive them using **scanf( )** function. Arrow keys are special keys which are identified by their ‘scan codes’. Use the following function in your program. It would return the scan code of the arrow key being hit. The scan codes for the arrow keys are:
 
 up arrow key – 72 down arrow key – 80 left arrow key – 75 right arrow key – 77
-```
+```c
 # include <conio.h> 
 int getkey( ) 
 { 

@@ -192,7 +192,7 @@ Decimal 2 is same as binary 00000010
 One’s complement of 2 is 11111101
 Decimal 3 is same as binary 00000011 
 One’s complement of 3 is 11111100
-```
+```c
 # Right Shift Operator 
 The right shift operator is represented by >>. It needs two operands. It shifts each bit in its left operand to the right. The number of places the bits are shifted depends on the number following the operator (i.e., its right operand). Thus, **ch >> 3** would shift all bits in **ch** three places to the right. Similarly, **ch >> 5** would shift all bits 5 places to the right.
 
@@ -250,7 +250,7 @@ but,
 
 27 >> 1 is 13 
 49 >> 1 is 24 .
-```
+```c
 ## A Word of Caution
 
 In the expression **a >> b** if **b** is negative the result is unpredictable. If **a** is negative then its left most bit (sign bit) would be 1. On right shifting **a** it would result in extending the sign bit. For example, if **a** contains -1, its binary representation would be 11111111. If we right shift it by 4 then the result would still be 11111111. Similarly, if **a** contains -5, then its binary equivalent would be 11111011. On right shifting it by 1 we would get 11111101, which is equal to -3. Thus on right shifting 11111011 the right-most bit, i.e. 1, would be lost; other bits would be shifted one position to the right and the sign which was negative (1) will be extended, i.e., it would be preserved as 1. The following program, would help you get a clear picture of this:
@@ -291,7 +291,7 @@ Decimal -5 is same as binary 11111011
 -5 right shift 1 gives 11111101 
 -5 right shift 2 gives 11111110 
 -5 right shift 3 gives 11111111
-```
+```c
 # Left Shift Operator 
 The left shift operator (<<) is similar to the right shift operator (>>), the only difference being that the bits are shifted to the left, and for each bit shifted, a 0 is added to the right of the number. The following program should clarify this point:
 ```c
@@ -332,7 +332,7 @@ Decimal 225 is same as binary 11100001
 225 left shift 1 gives 11000010 
 225 left shift 2 gives 10000100 
 225 left shift 3 gives 00001000
-```
+```c
 ## Utility of Left Shift Operator
 
 The left shift operator is often used to create a number with a particular bit in it set to 1. For example, we can create a number with its 3rd bit set to 1. The following program shows how this can be achieved:
@@ -521,7 +521,7 @@ Let us consider the bit pattern 11000011. If we want to put ON bit number 3, the
 unsigned 
 char num = 0xC3 ; 
 num = num | _BV( 3 ) ;
-```
+```c
 # Bitwise XOR Operator 
 The XOR operator is represented as **^** and is also called an Exclusive OR Operator. The OR operator returns 1, when any one of the two bits or both the bits are 1, whereas XOR returns 1 only if one of the two bits is 1. The Truth Table for the XOR operator is shown in Figure 21.10.
 

@@ -22,7 +22,7 @@ where, PR1.C is the source filename and PR2.C is the target filename.
 The first improvement is simple. In Visual Studio the executable file(the one which can be executed at command prompt and has an extension .EXE) can be created by using F7 to compile the program. In Turbo C/C++ the same can be done using F9. In UNIX this is not required since in UNIX, every time we compile a program, we always get an executable file.
 
 The second improvement is possible by passing the source filename and target filename to the function **main()**. This is illustrated in the program given below.
-```
+```c
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -114,7 +114,7 @@ Note that in each one of them, the following three methods for opening a file ar
 **Detecting Errors in Reading/Writing** Not at all times when we perform a read or write operation on a file, are we successful in doing so. Naturally there must be a provision to test whether our attempt to read/write was successful or not.
 
 The standard library function **ferror()** reports any error that might have occurred during a read/write operation on a file. It returns a zero if the read/write is successful and a non-zero value in case of a failure. The following program illustrates the usage of **ferror()**:
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -269,7 +269,7 @@ Redirection can be a powerful tool for developing utility programs to examine or
 - Create a new file and add some text to it.
 
 - Display the contents of an existing file.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -288,7 +288,7 @@ int main()
 3\. The zeroth element of the **argv** array is always the name of the executable file.
 
 - Point out the errors, if any, in the following program:
-```
+```c
 # include<stdio.h>
 int main(int ac, char(*)av)
 {

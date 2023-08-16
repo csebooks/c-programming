@@ -41,7 +41,7 @@ Figure 9.1
 We see that the computer has selected memory location 65524 as the place to store the value 3. The location number 65524 is not a number to be relied upon, because some other time the computer may choose a different location for storing the value 3. The important point is, **i**’s address in memory is a number.
 
 We can print this address number through the following program:
-```
+```c
 #include <stdio.h>
  int main()
  {
@@ -63,7 +63,7 @@ Look at the first **printf()** statement carefully. ‘&’ used in this stateme
 The other pointer operator available in C is ‘***’**, called ‘value at address’ operator. It gives the value stored at a particular address. The ‘value at address’ operator is also called ‘indirection’ operator.
 
 Observe carefully the output of the following program:
-```
+```c
 #include <stdio.h>
 
 int main()
@@ -104,7 +104,7 @@ This declaration tells the compiler that **j** will be used to store the address
 Let us go by the meaning of *****. It stands for ‘value at address’. Thus, **int *j** would mean, the value at the address contained in **j** is an **int**.
 
 Here is a program that demonstrates the relationships we have been discussing.
-```
+```c
 #include <stdio.h>
 int main()
 {
@@ -147,7 +147,7 @@ The declaration **float *s** does not mean that **s** is going to contain a floa
 The concept of pointers can be further extended. Pointer, we know is a variable that contains address of another variable. Now this variable
 
 itself might be another pointer. Thus, we now have a pointer that contains another pointer’s address. The following example should make this point clear:
-```
+```c
 #include <stdio.h>
 
 int main()
@@ -206,7 +206,7 @@ Here, **i** is an ordinary **int**, **j** is a pointer to an **int** (often call
 In the first method, the ‘value’ of each of the actual arguments in the calling function is copied into corresponding formal arguments of the
 
 called function. With this method, the changes made to the formal arguments in the called function have no effect on the values of actual arguments in the calling function. The following program illustrates the ‘Call by Value’:
-```
+```c
 #include <stdio.h>
 void swapv(int x, int y);
 int main()
@@ -233,7 +233,7 @@ Note that values of **a** and **b** remain unchanged even after exchanging the v
 
 In the second method (call by reference), the addresses of actual arguments in the calling function are copied into the formal arguments of the called function. This means that, using these addresses, we would have an access to the actual arguments and hence we would be able to manipulate them. The following program illustrates this fact:
 
-```
+```c
 #include <stdio.h>
 void swapr (int *, int *);
 int main()
@@ -261,7 +261,7 @@ Usually, in C programming, we make a call by value. This means that, in general,
 
 Using a call by reference intelligently, we can make a function return more than one value at a time, which is not possible ordinarily. This is shown in the program given below.
 
-```
+```c
 #include <stdio.h>
 void areaperi(int, float, float);
 int main()
@@ -318,7 +318,7 @@ Thus, we have been able to indirectly return two values from a called function, 
 ### Exercise
 
 **A** What will be the output of the following programs:
-```
+```c
 #include <stdio.h>
 void fun (int, int);
 int main()
@@ -334,7 +334,7 @@ void fun (int i, int j)
     j = j * j;
 }
 ```
-```
+```c
 #include <stdio.h>
 void fun (int *, int *);
 int main()
@@ -351,7 +351,7 @@ void fun(int *i, int *j)
 }
 ```
 
-```
+```c
 #include <stdio.h>
 int main()
 {
@@ -383,7 +383,7 @@ int c;
     return (c);
 }
 ```
-```
+```c
 # include <stdio.h>
 void jiaayjo(int , int)
 int main()
@@ -399,7 +399,7 @@ void jiaayjo(int q, int g)
     g = g + g;
 }
 ```
-```
+```c
 #include<stdio.h>
 void check (int);
 int main()
@@ -418,7 +418,7 @@ void check (m)
     return (0);
 }
 ```
-```
+```c
 #include<stdio.h>
 void function(int);
 int main()

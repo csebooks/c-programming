@@ -141,7 +141,7 @@ Truly speaking, the range of an Integer constant depends upon the compiler. For 
 
 ```
 Ex.:  426 +782 -8000 -7605
-```
+```c
 ## Rules for Constructing Real Constants
 
 Real constants are often called Floating Point constants. The real constants could be written in two forms—Fractional form and Exponential form.
@@ -179,7 +179,7 @@ Ex.:  +3.2e-5
 
 ```
 Ex.:  'A' 'I' '5' '='
-```
+```c
 ## Types of C Variables
 
 A particular type of variable can hold only the same type of constant. For example, an integer variable can hold only an integer constant, a real variable can hold only a real constant and a character variable can hold only a character constant. The rules for constructing different types of constants are different. However, for constructing variable names of all types, the same set of rules applies. These rules are given below.
@@ -201,7 +201,7 @@ The rules for creating variable names remain same for all the types of primary a
 
 ```
 Ex.:  int si, m\_hra ; float bassal ; char code ;
-```
+```c
 ## C Keywords
 
 Keywords are the words whose meaning has already been explained to the C compiler (or in a broad sense to the computer). There are only 32 keywords available in C. Figure 1.5 gives a list of these keywords for your ready reference. A detailed discussion of each of these keywords would be taken up in later chapters wherever their use is relevant.

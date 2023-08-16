@@ -88,7 +88,7 @@ There is a possibility that when we try to open a file using the function **fope
 this may happen because the file being opened may not be present on the disk at all. And you obviously cannot read a file that doesn’t exist. Similarly, while opening the file for writing, **fopen()** may fail due to a number of reasons, like, disk space may be insufficient to create a new file, or the disk may be write protected or the disk is damaged and so on.
 
 Crux of the matter is that it is important for any program that accesses disk files to check whether a file has been opened successfully before trying to read or write to the file. If the file opening fails due to any of the several reasons mentioned above, the **fopen()** function returns a value NULL (defined in “stdio.h” as **#define NULL 0**). Here is how this can be handled in a program...
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
@@ -166,7 +166,7 @@ In this program too, we have opened the file for reading and then read it charac
 
 **A File-Copy Program** We have already used the function **fgetc()** which reads characters from a file. Its counterpart is a function called **fputc()** which writes characters to a file. As a practical use of these character I/O functions, we can copy the contents of one file into another, as demonstrated in the following program. This program takes the contents of a file and copies them into another file, character-by-character.
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
@@ -423,7 +423,7 @@ Rahul 34 1400.500000
 As against this, a binary file is merely a collection of bytes. This collection might be a compiled version of a C program (say PR1.EXE), or music data stored in a MP3 file or a picture stored in a JPG file. A very easy way to find out whether a file is a text file or a binary file is to open that file in Notepad. If on opening the file you can make out what is displayed then it is a text file, otherwise it is a binary file.
 
 As mentioned while explaining the file-copy program, the program cannot copy binary files successfully. We can improve the same program to make it capable of copying text as well as binary files as shown below.
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int main()
@@ -909,7 +909,7 @@ Though under Windows, console I/O functions are not used, still functions like *
 ### Exercise
 
 **[A]** Point out the errors, if any, in the following programs:
-```
+```c
 #include <stdio.h>
 void openfile(char *, FILE **);
 
@@ -926,7 +926,7 @@ void openfile(char *fn, FILE **f)
     *f = fopen (fn, "r");
 }
 ```
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -946,7 +946,7 @@ int main()
     return 0;
 }
 ```
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -962,7 +962,7 @@ int main() {
     return 0;
 }
 ```
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -978,7 +978,7 @@ int main() {
     return 0;
 }
 ```
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -995,7 +995,7 @@ int main() {
 }
 
 ```
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -1016,7 +1016,7 @@ int main() {
 }
 
 ```
-```
+```c
 #include <stdio.h>
 
 int main()
@@ -1037,7 +1037,7 @@ int main()
     return 0;
 }
 ```
-```
+```c
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -1060,7 +1060,7 @@ int main()
 }
 
 ```
-```
+```c
 #include <stdio.h>
 
 int main()

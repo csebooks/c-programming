@@ -606,7 +606,7 @@ int main( )
 Here, **#pragma pack ( 1 )** lets each structure element to begin on a 1-byte boundary as justified by the **output** of the program given below.
 ```c
 1245044 1245048 1245049
-```
+```c
 # Uses of Structures 
 
 **Where are structures useful?** \

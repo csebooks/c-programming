@@ -60,7 +60,7 @@ Klinsman
 
 
 No big deal. We have initialized a character array, and then printed out the elements of this array within a **while** loop. Can we write the **while** loop without using the final value 7? We can; because we know that each character array always ends with a ’\\0’. Following program illustrates this:
-```
+```c
 # include <stdio.h> 
 int main( ) 
 { 
@@ -84,7 +84,7 @@ Klinsman
 
 
 This program doesn’t rely on the length of the string (number of characters in it) to print out its contents and hence is definitely more general than the earlier one. Here is another version of the same program; this one uses a pointer to access the array elements.
-```
+```c
 # include <stdio.h> 
 int main( ) 
 { 
@@ -117,7 +117,7 @@ In fact, the character array elements can be accessed exactly in the same way as
 name\[ i \] \*( name + i ) \*( i + name ) i\[ name \]
 
 Even though there are so many ways (as shown above) to refer to the elements of a character array, rarely is any one of them used. This is because **printf( )** function has got a sweet and simple way of doing it, as shown below. Note that **printf( )** doesn’t print the ’\\0’.
-```
+```c
 # include <stdio.h> 
 int main( ) 
 { 
@@ -126,7 +126,7 @@ int main( )
 }
 ```
 The **%s** used in **printf( )** is a format specification for printing out a string. The same specification can be used to receive a string from the keyboard, as shown below.
-```
+```c
 # include <stdio.h> 
 int main( ) 
 { 
@@ -148,7 +148,7 @@ While entering the string using **scanf( )**, we must be cautious about two thin
 - The length of the string should not exceed the dimension of the character array. This is because the C compiler doesn’t perform bounds checking on character arrays. Hence, if you carelessly exceed the bounds, there is always a danger of overwriting something important, and in that event, you would have nobody to blame but yourselves.
 
 - **scanf( )** is not capable of receiving multi-word strings. Therefore, names such as ‘Debashish Roy’ would be unacceptable. The way to get around this limitation is by using the function **gets( )**. The usage of functions **gets( )** and its counterpart **puts( )** is shown below.
-```
+```c
 # include <stdio.h> 
 int main( ) 
 { 
@@ -180,7 +180,7 @@ char str[] = "Hello" ;
 char *p = "Hello" ;
 
 There is a subtle difference in usage of these two forms. For example, we cannot assign a string to another, whereas, we can assign a **char** pointer to another **char** pointer. This is shown in the following program:
-```
+```c
 #include<stdio.h>
 int main( ) 
 { 
@@ -294,7 +294,7 @@ From the list given in Figure 15.2, we shall discuss functions **strlen( )**, **
 ### strlen( )
 
 This function counts the number of characters present in a string. Its usage is illustrated in the following program:
-```
+```c
 # include <stdio.h> 
 # include <string.h> 
 int main( ) 
@@ -364,7 +364,7 @@ The function **xstrlen( )** is fairly simple. All that it does is to keep counti
 
 This function copies the contents of one string into another. The base addresses of the source and target strings should be supplied to this function. Here is an example of **strcpy( )** in action...
 
-```
+```c
 # include <stdio.h> 
 # include <string.h> 
 int main( ) 
@@ -385,7 +385,7 @@ target string = Sayonara
 
 
 On supplying the base addresses, **strcpy( )** goes on copying the characters in source string into the target string till it encounters the end of source string (’\\0’). It is our responsibility to see to it that the target string’s dimension is big enough to hold the string being copied into it. Thus, a string gets copied into another, piece-meal, character-by- character. There is no short-cut for this. Let us now attempt to mimic **strcpy( )**, via our own string copy function, which we will call **xstrcpy( )**.
-```
+```c
 # include <stdio.h> 
 void xstrcpy ( char *, char * ) ; 
 int main( ) 
