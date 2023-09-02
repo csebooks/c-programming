@@ -315,9 +315,9 @@ In the **display( )** function, we have collected the base address of the 2-D ar
 
 Figure 14.4
 
-The expression **\* ( q + i \* col + j )** becomes **\* ( 65502 + 2 \* 4 + 3)**. This turns out to be **\* (65502 + 11 ).** Since **65502** is the address of an integer, **\* ( 65502 + 11 )** turns out to be \* (**65546)**. Value at this address is 6. This is indeed same as **a[ 2 ][ 3 ]**. A more general formula for accessing each array element would be:
+The expression *** ( q + i * col + j )** becomes *** ( 65502 + 2 * 4 + 3)**. This turns out to be *** (65502 + 11 ).** Since **65502** is the address of an integer, *** ( 65502 + 11 )** turns out to be * (**65546)**. Value at this address is 6. This is indeed same as **a[ 2 ][ 3 ]**. A more general formula for accessing each array element would be:
 
-\* ( base address + row no. \* no. of columns + column no. )
+* ( base address + row no. * no. of columns + column no. )
 
 In the **show( )** function, we have defined **q** to be a pointer to an array of 4 integers through the declaration:
 ```
@@ -331,7 +331,7 @@ int q[ ][ 4 ] ;
 ```
 
 
-This is same as **int ( \*q )[ 4 ]**, where **q** is pointer to an array of 4 integers. The only advantage is that, we can now use the more familiar expression **q[ i ][ j ]** to access array elements. We could have used the same expression in **show( )** as well.
+This is same as **int ( *q )[ 4 ]**, where **q** is pointer to an array of 4 integers. The only advantage is that, we can now use the more familiar expression **q[ i ][ j ]** to access array elements. We could have used the same expression in **show( )** as well.
 
 **Array of Pointers** The way there can be an array of **int**s or an array of **float**s, similarly, there can be an array of pointers. Since a pointer variable always contains an address, an array of pointers would be nothing but a collection of addresses. The addresses present in the array of pointers can be addresses of isolated variables or addresses of array elements or any other addresses. All rules that apply to an ordinary array apply to the array of pointers as well. I think a program would clarify the concept.
 ```c
@@ -507,7 +507,7 @@ int main( )
     int i, j ; 
     for ( i = 0 ; i <= 2 ; i++ ) 
     for ( j = 0 ; j <= 2 ; j++ ) 
-    printf ( "%d %d\n", n[ i ][ j ], \*( \*( n + i ) + j ) ) ; 
+    printf ( "%d %d\n", n[ i ][ j ], *( *( n + i ) + j ) ) ; 
     return 0 ;
  }
 ```
@@ -594,7 +594,7 @@ int getkey( )
 int i, j, = 25; 
 int *pi, *pj = & j; ……. ……. /* more lines of program */ ……. 
 *pj = j + 5; 
-j = \*pj + 5 ; 
+j = *pj + 5 ; 
 pj = pj ;
 *pi = i + j
 ```
@@ -633,16 +633,16 @@ k. 5 l. 10 m. 6
 - Match the following with reference to the following program segment:
 ```
 unsigned int arr[ 3 ][ 3 ] = { 2, 4, 6, 9, 1, 10, 16, 64, 5 } ; 
-1. \*\*arr a. 64 
-2. \*\*arr < \*( \*arr + 2 ) b. 18 
-3. \*( arr + 2 ) / ( \*( \*arr + 1 ) > \*\*arr ) c. 6 
-4. \*( arr\[ 1 \] + 1 ) | arr\[ 1 \]\[ 2 \] d. 3 
-5. \*( arr\[ 0 \] ) | \*( arr\[ 2 \] ) e. 0 
+1. **arr a. 64 
+2. **arr < *( *arr + 2 ) b. 18 
+3. *( arr + 2 ) / ( *( *arr + 1 ) > **arr ) c. 6 
+4. *( arr\[ 1 \] + 1 ) | arr\[ 1 \]\[ 2 \] d. 3 
+5. *( arr\[ 0 \] ) | *( arr\[ 2 \] ) e. 0 
 6. arr[ 1 ][ 1 ] < arr[ 0 ][ 1 ] f. 16 
 7. arr[ 2 ][ 1 ] & arr[ 2 ][ 0 ] g. 1 
 8. arr[ 2 ][ 2 ] | arr[ 0 ][ 1 ] h. 11 
 9. arr\[ 0 \][ 1 ] ^ arr[ 0 ][ 2 ] i. 20 
-10. ++\*\*arr + --arr\[ 1 \]\[ 1 \] j. 2
+10. ++**arr + --arr\[ 1 \]\[ 1 \] j. 2
 
 ```
 

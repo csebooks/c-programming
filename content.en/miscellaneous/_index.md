@@ -446,7 +446,7 @@ In **main( )**, we declare the function **display( )** as a function returning n
 void ( *func_ptr )( ) ;
 ```
 
-that comes in the next line? We are obviously declaring something that, like **display( )**, will return nothing, but what is it? And why is **\*func_ptr** enclosed in parentheses?
+that comes in the next line? We are obviously declaring something that, like **display( )**, will return nothing, but what is it? And why is ***func_ptr** enclosed in parentheses?
 
 If we glance down a few lines in our program, we see the statement,
 
@@ -720,7 +720,7 @@ Now, we can see why value of **key.ch\[ 0 \]** is printed as 0 and value of **ke
 
 One last thing. We can’t assign different values to the different union elements at the same time. That is, if we assign a value to **key.i**, it gets automatically assigned to **key.ch\[ 0 \]** and **key.ch\[ 1 \]**. Vice versa, if we assign a value to **key.ch\[ 0 \]** or **key.ch\[ 1 \]**, it is bound to get assigned to **key.i**. Here is a program that illustrates this fact.
 
-\# include <stdio.h> int main( ) { union a { short int i ; char ch\[ 2 \] ; } ; union a key ; key.i = 512 ; printf ( "key.i = %d\\n", key.i ) ; printf ( "key.ch\[ 0 \] = %d\\n", key.ch\[ 0 \] ) ; printf ( "key.ch\[ 1 \] = %d\\n", key.ch\[ 1 \] ) ; key.ch\[ 0 \] = 50 ; /\* assign a new value to key.ch\[ 0 \] \*/ printf ( "key.i = %d\\n", key.i ) ; printf ( "key.ch\[ 0 \] = %d\\n", key.ch\[ 0 \] ) ; printf ( "key.ch\[ 1 \] = %d\\n", key.ch\[ 1 \] ) ; return 0 ; }
+\# include <stdio.h> int main( ) { union a { short int i ; char ch\[ 2 \] ; } ; union a key ; key.i = 512 ; printf ( "key.i = %d\\n", key.i ) ; printf ( "key.ch\[ 0 \] = %d\\n", key.ch\[ 0 \] ) ; printf ( "key.ch\[ 1 \] = %d\\n", key.ch\[ 1 \] ) ; key.ch\[ 0 \] = 50 ; /* assign a new value to key.ch\[ 0 \] */ printf ( "key.i = %d\\n", key.i ) ; printf ( "key.ch\[ 0 \] = %d\\n", key.ch\[ 0 \] ) ; printf ( "key.ch\[ 1 \] = %d\\n", key.ch\[ 1 \] ) ; return 0 ; }
 
 And here is the output...
 

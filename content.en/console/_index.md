@@ -313,7 +313,7 @@ So far, for input we have consistently used the **scanf( )** function. However, 
 
 The prototypes of **getch( )** and **getche( )** are present in the header file **conio.h**. The macro **getchar( )** and the prototype of **fgetchar( )** are present in **stdio.h**. Here is a sample program that illustrates the use of these functions and macro.
 
-\# include <stdio.h> # include <conio.h> int main( ) { char ch ; printf ( "Press any key to continue" ) ; getch( ) ; /\* will not echo the character \*/ printf ( "\\nType any character" ) ; ch = getche( ) ; /\* will echo the character typed \*/ printf ( "\\nType any character" ) ; getchar( ) ; /\* will echo character, must be followed by enter key \*/ printf ( "\\nContinue Y/N" ) ; fgetchar( ) ; /\* will echo character, must be followed by enter key \*/
+\# include <stdio.h> # include <conio.h> int main( ) { char ch ; printf ( "Press any key to continue" ) ; getch( ) ; /* will not echo the character */ printf ( "\\nType any character" ) ; ch = getche( ) ; /* will echo the character typed */ printf ( "\\nType any character" ) ; getchar( ) ; /* will echo character, must be followed by enter key */ printf ( "\\nContinue Y/N" ) ; fgetchar( ) ; /* will echo character, must be followed by enter key */
 
 return 0 ; }
 
@@ -349,7 +349,7 @@ The **puts( )** function works exactly opposite to **gets( )** function. It outp
 
 Here is a program which illustrates the usage of these functions.
 
-\# include <stdio.h> int main( ) { char footballer\[ 40 \] ; puts ( "Enter name" ) ; gets ( footballer ) ; /\* sends base address of array \*/ puts ( "Happy footballing!" ) ; puts ( footballer ) ; return 0 ; }
+\# include <stdio.h> int main( ) { char footballer\[ 40 \] ; puts ( "Enter name" ) ; gets ( footballer ) ; /* sends base address of array */ puts ( "Happy footballing!" ) ; puts ( footballer ) ; return 0 ; }
 
 Following is the sample output:
 
@@ -397,7 +397,7 @@ int main( ) { int i = 0 ; while ( p\[ i \] != '\\0' ) { putch ( p\[ i \] ) ; i++
 
 { int i ; char a\[ \] = "Hello" ; while ( a != '\\0' ) {
 
-printf ( "%c", \*a ) ; a++ ; } return 0 ; }
+printf ( "%c", *a ) ; a++ ; } return 0 ; }
 
 - # include <stdio.h> int main( )
 
@@ -409,11 +409,11 @@ printf ( "%c", \*a ) ; a++ ; } return 0 ; }
 
 - # include <stdio.h> int main( )
 
-{ char \*mess\[ 5 \] ; int i ; for ( i = 0 ; i < 5 ; i++ ) scanf ( "%s", mess\[ i \] ) ; return 0 ; }
+{ char *mess\[ 5 \] ; int i ; for ( i = 0 ; i < 5 ; i++ ) scanf ( "%s", mess\[ i \] ) ; return 0 ; }
 
 - # include <stdio.h> int main( )
 
-{ int dd, mm, yy ; printf ( "Enter day, month and year\\n" ) ; scanf ( "%d%\*c%d%\*c%d", &dd, &mm, &yy ) ; printf ( "The date is: %d - %d - %d\\n", dd, mm, yy ) ; return 0 ; }
+{ int dd, mm, yy ; printf ( "Enter day, month and year\\n" ) ; scanf ( "%d%*c%d%*c%d", &dd, &mm, &yy ) ; printf ( "The date is: %d - %d - %d\\n", dd, mm, yy ) ; return 0 ; }
 
 - # include <stdio.h> int main( )
 

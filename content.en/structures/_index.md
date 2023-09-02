@@ -243,7 +243,7 @@ Note that before the dot, there must always be a structure variable and after th
 
 Whatever be the elements of a structure, they are always stored in contiguous memory locations. The following program would illustrate this:
 
-/\* **Memory map of structure elements** \*/
+/* **Memory map of structure elements** */
 ```c
 #include <stdio.h> 
 int main( ) 
@@ -284,7 +284,7 @@ Our sample program showing usage of structure is rather simple minded. All it do
 
 In our sample program, to store data of 100 books, we would be required to use 100 different structure variables from **b1** to **b100**, which is definitely not very convenient. A better approach would be to use an array of structures. Following program shows how to use an array of structures:
 
-/\* **Usage of an array of structures** \*/
+/* **Usage of an array of structures** */
 
 ```c
 #include <stdio.h> 
@@ -311,8 +311,8 @@ int main( )
 } 
 void linkfloat( ) 
 { 
-    float a = 0, \*b ; b = &a ; /\* **cause emulator to be linked** \*/ 
-    a = \*b ; /\* **suppress the warning - variable not used** \*/ 
+    float a = 0, *b ; b = &a ; /* **cause emulator to be linked** */ 
+    a = *b ; /* **suppress the warning - variable not used** */ 
 }
 ```
 
@@ -353,10 +353,10 @@ int main( )
         float salary ; 
     } ; 
     struct employee e1 = { "Sanjay", 30, 5500.50 } ; 
-    struct employee e2, e3 ; /\* **piece-meal copying** \*/ 
-    strcpy ( e2.name, e1.name ) ; /\* **e2.name = e1. name is wrong** \*/ 
+    struct employee e2, e3 ; /* **piece-meal copying** */ 
+    strcpy ( e2.name, e1.name ) ; /* **e2.name = e1. name is wrong** */ 
     e2.age = e1.age ; 
-    e2.salary = e1.salary ; /\* **copying all elements at one go** \*/ 
+    e2.salary = e1.salary ; /* **copying all elements at one go** */ 
     e3 = e2 ; 
     printf ( "%s %d %f\\n", e1.name, e1.age, e1.salary ) ; 
     printf ( "%s %d %f\\n", e2.name, e2.age, e2.salary ) ; 
@@ -416,11 +416,11 @@ This clearly signifies that we are referring to the quantity of large sized bolt
 
 - Like an ordinary variable, a structure variable can also be passed to a function. We may either pass individual structure elements or the entire structure variable at one shot. Let us examine both the approaches one-by-one using suitable programs.
 
-/\* **Passing individual structure elements** \*/ 
+/* **Passing individual structure elements** */ 
 
 ```c
 #include <stdio.h> 
-void display ( char \*, char \*, int ) ; 
+void display ( char *, char *, int ) ; 
 int main( ) 
 { 
     struct book 
@@ -433,7 +433,7 @@ int main( )
     display ( b1.name, b1.author, b1.callno ) ; 
     return 0 ; 
 } 
-void display ( char \*s, char \*t, int n ) 
+void display ( char *s, char *t, int n ) 
 {
     printf ( "%s %s %d\\n", s, t, n ) ; 
 }
@@ -500,7 +500,7 @@ int main( )
         int callno ; 
     } ; 
     struct book b1 = { "Let us C", "YPK", 101 } ; 
-    struct book \*ptr ; 
+    struct book *ptr ; 
     ptr = &b1 ; 
     printf ( "%s %s %d\\n", b1.name, b1.author, b1.callno ) ; 
     printf ( "%s %s %d\\n", ptr->name, ptr->author, ptr->callno ) ; 
@@ -526,7 +526,7 @@ ptr
 
 Can we not pass the address of a structure variable to a function? We can. The following program demonstrates this:
 
-/\* **Passing address of a structure variable** \*/ 
+/* **Passing address of a structure variable** */ 
 ```c
 #include <stdio.h> 
 struct book 
@@ -535,14 +535,14 @@ struct book
     char author\[ 25 \] ; 
     int callno ; 
 } ; 
-void display ( struct book \* ) ; 
+void display ( struct book * ) ; 
 int main( ) 
 { 
     struct book b1 = { "Let us C", "YPK", 101 } ; 
     display ( &b1 ) ;
     return 0 ; 
 } 
-void display ( struct book \*b ) 
+void display ( struct book *b ) 
 { 
     printf ( "%s %s %d\\n", b->name, b->author, b->callno ) ; 
 }
@@ -647,7 +647,7 @@ int main( )
     } m ; 
     m.num = 1 ; 
     strcpy ( m.mess1, "If all that you have is hammer" ) ; 
-    strcpy ( m.mess2, "Everything looks like a nail" ) ; /\* **assume that the strucure is located at address 1004** \*/ 
+    strcpy ( m.mess2, "Everything looks like a nail" ) ; /* **assume that the strucure is located at address 1004** */ 
     printf ( "%u %u %u\\n", &m.num, m.mess1, m.mess2 ) ; 
     return 0 ; 
 }
@@ -663,12 +663,12 @@ int main( )
         char partname\[ 50 \] ; 
         int partnumber ; 
     } ;
-        struct part p, \*ptrp ; 
+        struct part p, *ptrp ; 
         ptrp = &p ; 
         strcpy ( p.partname, "CrankShaft" ) ; 
         p.partnumber = 102133 ; 
         printf ( "%s %d\\n", p.partname, p.partnumber ) ; 
-        printf ( "%s %d\\n", (\*ptrp).partname, (\*ptrp).partnumber ) ; 
+        printf ( "%s %d\\n", (*ptrp).partname, (*ptrp).partnumber ) ; 
         printf ( "%s %d\\n", ptrp->partname, ptrp->partnumber ) ; 
         return 0 ; 
 }
@@ -754,7 +754,7 @@ struct s
     float a ; 
 } ; 
 void f ( struct s ) ; 
-void g ( struct s \* ) ; 
+void g ( struct s * ) ; 
 int main( ) 
 { 
     struct s var = { 'C', 100, 12.55 } ; 
@@ -766,7 +766,7 @@ void f ( struct s v )
 { 
     printf ( "%c %d %f\\n", v -> ch, v -> i, v -> a ) ; 
 } 
-void g ( struct s \*v ) 
+void g ( struct s *v ) 
 { 
     printf ( "%c %d %f\\n", v.ch, v.i, v.a ) ; 
 }
@@ -777,7 +777,7 @@ void g ( struct s \*v )
 struct s 
 { 
     int i ; 
-    struct s \*p ; 
+    struct s *p ; 
 } ; 
 int main( ) 
 { 
@@ -807,12 +807,12 @@ which of the following is True?
 
 3\. In an array of structures, not only are all structures stored in contiguous memory locations, but the elements of individual structures are also stored in contiguous locations.
 
-- struct time { int hours ; int minutes ; int seconds ; } t ; struct time \*pt ; pt = &t ;
+- struct time { int hours ; int minutes ; int seconds ; } t ; struct time *pt ; pt = &t ;
 
 With reference to the above declarations which of the following refers to **seconds** correctly:
 
 1\. pt.seconds \
-2. ( \*pt ).seconds \
+2. ( *pt ).seconds \
 3. time.seconds\
 4. pt -> seconds
 
@@ -822,17 +822,17 @@ struct
 ```c
 { int x, y ; } 
 s\[ \] = { 10, 20, 15, 25, 8, 75, 6, 2 } ; 
-int \*i ; i = s ;
+int *i ; i = s ;
 
-1\. \*( i + 3 ) a. 85 
+1\. *( i + 3 ) a. 85 
 2. s\[ i\[ 7 \] \].x b. 2 
 3. s\[ (s + 2)->y / 3\[ I \] \].y c. 6 
 4. i\[ i\[ 1 \]-i\[ 2 \] \] d. 7 
 5. i\[ s\[ 3 \].y \] e. 16 
 6. ( s + 1 )->x + 5 f. 15 
-7. \*( 1 +i )\*\*( i + 4 ) / \*i g. 25 
+7. *( 1 +i )**( i + 4 ) / *i g. 25 
 8. s\[ i\[ 0 \] – i\[ 4 \] \].y + 10 h. 8 
-9. ( \*(s + \*( i + 1) / \*i ) ).x + 2 i. 1 
+9. ( *(s + *( i + 1) / *i ) ).x + 2 i. 1 
 10. ++i\[ i\[ 6 \] \] j. 100
 k. 10 l. 20
 ```

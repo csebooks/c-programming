@@ -11,9 +11,9 @@ the most direct way of programming a complicated logic. This chapter explores re
 
 **Recursion** In C, it is possible for the functions to call themselves. A function is called ‘recursive’ if a statement within the body of a function calls the same function. Sometimes called ‘circular definition’, recursion is thus the process of defining something in terms of itself.
 
-Let us now see a simple example of recursion. Suppose we want to calculate the factorial value of an integer. As we know, the factorial of a number is the product of all the integers between 1 and that number. For example, 4 factorial is 4 \* 3 \* 2 \* 1. This can also be expressed as 4! = 4 \* 3! where ‘!’ stands for factorial. Thus factorial of a number can be expressed in the form of itself. Hence this can be programmed using recursion. However, before we try to write a recursive function for calculating factorial let us take a look at the non-recursive function for calculating the factorial value of an integer.
+Let us now see a simple example of recursion. Suppose we want to calculate the factorial value of an integer. As we know, the factorial of a number is the product of all the integers between 1 and that number. For example, 4 factorial is 4 * 3 * 2 * 1. This can also be expressed as 4! = 4 * 3! where ‘!’ stands for factorial. Thus factorial of a number can be expressed in the form of itself. Hence this can be programmed using recursion. However, before we try to write a recursive function for calculating factorial let us take a look at the non-recursive function for calculating the factorial value of an integer.
 
-\# include <stdio.h> int factorial ( int ) ; int main( ) { int a, fact ; printf ( "Enter any number " ) ; scanf ( "%d", &a ) ; fact = factorial ( a ) ; printf ( "Factorial value = %d\\n", fact ) ; return 0 ; } int factorial ( int x ) { int f = 1, i ; for ( i = x ; i >= 1 ; i-- ) f = f \* i ;
+\# include <stdio.h> int factorial ( int ) ; int main( ) { int a, fact ; printf ( "Enter any number " ) ; scanf ( "%d", &a ) ; fact = factorial ( a ) ; printf ( "Factorial value = %d\\n", fact ) ; return 0 ; } int factorial ( int x ) { int f = 1, i ; for ( i = x ; i >= 1 ; i-- ) f = f * i ;
 
 ### T
 
@@ -27,7 +27,7 @@ Work through the above program carefully, till you understand the logic of the p
 
 Following is the recursive version of the function to calculate the factorial value:
 
-\# include <stdio.h> int rec ( int ) ; int main( ) { int a, fact ; printf ( "Enter any number " ) ; scanf ( "%d", &a ) ; fact = rec ( a ) ; printf ( "Factorial value = %d\\n", fact ) ; return 0 ; } int rec ( int x ) { int f ; if ( x == 1 ) return ( 1 ) ; else f = x \* rec ( x - 1 ) ; return ( f ) ; }
+\# include <stdio.h> int rec ( int ) ; int main( ) { int a, fact ; printf ( "Enter any number " ) ; scanf ( "%d", &a ) ; fact = rec ( a ) ; printf ( "Factorial value = %d\\n", fact ) ; return 0 ; } int rec ( int x ) { int f ; if ( x == 1 ) return ( 1 ) ; else f = x * rec ( x - 1 ) ; return ( f ) ; }
 
 And here is the output for four runs of the program…
 
@@ -37,11 +37,11 @@ Let us understand this recursive factorial function thoroughly. In the first run
 
 When the number entered through **scanf( )** is 2, the **( x == 1 )** test fails, so we reach the statement,
 
-f = x \* rec ( x - 1 ) ;
+f = x * rec ( x - 1 ) ;
 
-And here is where we meet recursion. How do we handle the expression **x \* rec ( x - 1 )**? We multiply **x** by **rec ( x - 1 )**. Since the current value of **x** is 2, it is same as saying that we must calculate the value (2 \* rec ( 1 )). We know that the value returned by **rec ( 1 )** is 1, so the expression reduces to (2 \* 1), or simply 2. Thus the statement,
+And here is where we meet recursion. How do we handle the expression **x * rec ( x - 1 )**? We multiply **x** by **rec ( x - 1 )**. Since the current value of **x** is 2, it is same as saying that we must calculate the value (2 * rec ( 1 )). We know that the value returned by **rec ( 1 )** is 1, so the expression reduces to (2 * 1), or simply 2. Thus the statement,
 
-x \* rec ( x - 1 ) ;
+x * rec ( x - 1 ) ;
 
 evaluates to 2, which is stored in the variable **f**, and is returned to **main( )**, where it is duly printed as
 
@@ -69,7 +69,7 @@ int f ;
 
 if ( x == 1 ) return ( 1 ) ;
 
-else f = x \* rec ( x - 1 ) ;
+else f = x * rec ( x - 1 ) ;
 
 return ( f ) ; }
 
@@ -81,7 +81,7 @@ int f ;
 
 if ( x == 1 ) return ( 1 ) ;
 
-else f = x \* rec ( x - 1 ) ;
+else f = x * rec ( x - 1 ) ;
 
 return ( f ) ; }
 
@@ -91,7 +91,7 @@ int f ;
 
 if ( x == 1 ) return ( 1 ) ;
 
-else f = x \* rec ( x - 1 ) ;
+else f = x * rec ( x - 1 ) ;
 
 return ( f ) ; }
 

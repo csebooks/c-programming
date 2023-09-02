@@ -1,11 +1,16 @@
 ---
 title: "C Instructions"
 weight: 2
+references:
+    videos:
+        - youtube:ixaX9hbMQ-g
 ---
+
+# C Instructions
 
 A program is nothing but a set of instructions. The program behaves as per the instructions that we give in it. Different instructions help us achieve different tasks in a program. In the last chapter we saw how to write simple C programs. In these programs knowingly or unknowingly we have used instructions to achieve the intended purpose of the program. In this chapter we would explore the instructions that we have used in these programs.
 
-# Types of Instructions
+## Types of Instructions
 
 There are basically three types of instructions in C:
 
@@ -31,7 +36,7 @@ There are several subtle variations of the type declaration instruction. These a
 - While declaring the type of variable we can also initialize it as shown below.
   ```c
   int i = 10, j = 25 ;
-  float a = 1.5, b = 1.99 + 2.4 \* 1.44 ;
+  float a = 1.5, b = 1.99 + 2.4 * 1.44 ;
   ```
 - The order in which we define the variables is sometimes important sometimes not.
   For example,
@@ -53,18 +58,18 @@ There are several subtle variations of the type declaration instruction. These a
 
 ## Arithmetic Instruction
 
-An arithmetic instruction consists of a variable name on the left hand side of = and variable names and constants on the right hand side of =. The variables and constants appearing on the right hand side of = are connected by arithmetic operators like **+, -, \*,** and **/**.
+An arithmetic instruction consists of a variable name on the left hand side of = and variable names and constants on the right hand side of =. The variables and constants appearing on the right hand side of = are connected by arithmetic operators like **+, -, *,** and **/**.
 
 Ex.:
 ```c
 int ad ;
 float kot, deta, alpha, beta, gamma ; ad = 3200 ; kot = 0.0056 ;
-deta = alpha \* beta / gamma + 3.2 \* 2 / 5 ;
+deta = alpha * beta / gamma + 3.2 * 2 / 5 ;
 ```
 
 Here,
 
-**\*, /, -, +** are the arithmetic operators.
+***, /, -, +** are the arithmetic operators.
 
 **\=** is the assignment operator.
 
@@ -86,7 +91,7 @@ Ex.:
 ```c
 int i, king, issac, noteit ;
 i = i + 1 ;
-king = issac \* 234 + noteit - 7689 ;
+king = issac * 234 + noteit - 7689 ;
 ```
 
 - Real mode arithmetic statement – In this statement all operands are either real constants or real variables.
@@ -110,7 +115,7 @@ avg = ( a + b + c + num ) / 4 ;
 
 Though Arithmetic instructions look simple to use, one often commits mistakes in writing them. Let us take a closer look at these statements. Note the following points carefully:
 
-- C allows only one variable on left-hand side of **\=**. That is, **z = k \* l** is legal, whereas **k \* l = z** is illegal.
+- C allows only one variable on left-hand side of **\=**. That is, **z = k * l** is legal, whereas **k * l = z** is illegal.
 
 - In addition to the division operator C also provides a modular division operator. This operator returns the remainder on dividing one integer with another. Thus the expression 10 / 2 yields 5, whereas, 10 % 2 yields 0. Note that the modulus operator (**%**) cannot be applied on a float. Also note that on using % the sign of the remainder is always same as the sign of the numerator. Thus -5 % 2 yields –1, whereas, 5 % -2 yields 1.
 
@@ -141,7 +146,7 @@ are perfectly valid, since the addition is performed on the ASCII values of the 
 ```c
 a = c.d.b(xy)
 //usual arithmetic statement
-a = c \* d \* b \* ( x \* y ) //C statement
+a = c * d * b * ( x * y ) //C statement
 ```
 
 - There is no operator in C to perform exponentiation operation. Exponentiation has to be carried out as shown below:
@@ -231,13 +236,13 @@ In the first statement, since both 2 and 9 are integers, the result is an intege
 
 ## Hierarchy of Operations
 
-> While executing an arithmetic statement that has multiple operators, there might be some issues about their evaluation. For example, does the expression 2 \* x - 3 \* y correspond to (2x)-(3y) or to 2(x-3y)? Similarly, does A / B \* C correspond to A / (B \* C) or to (A / B) \* C? To answer these questions satisfactorily, one has to understand the ‘hierarchy’ of operations. The priority or precedence in which the
+> While executing an arithmetic statement that has multiple operators, there might be some issues about their evaluation. For example, does the expression 2 * x - 3 * y correspond to (2x)-(3y) or to 2(x-3y)? Similarly, does A / B * C correspond to A / (B * C) or to (A / B) * C? To answer these questions satisfactorily, one has to understand the ‘hierarchy’ of operations. The priority or precedence in which the
 
 operations in an arithmetic statement are performed is called the hierarchy of operations. The hierarchy of commonly used operators is shown in Figure 2.3.
 
 | Priority | Operators | Description                                |
 | :------- | :-------: | :----------------------------------------- |
-| 1st      |  \* / %   | Multiplication, Division, Modular division |
+| 1st      |  * / %   | Multiplication, Division, Modular division |
 | 2nd      |    + -    | Addition, Subtraction                      |
 | 3rd      |     =     | Assignment                                 |
 
@@ -256,15 +261,15 @@ A few examples would clarify the issue further.
 > Determine the hierarchy of operations and evaluate the following expression, assuming that **i** is an integer variable:
 
 ```c
-i = 2 \* 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8;
+i = 2 * 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8;
 ```
 
 Stepwise evaluation of this expression is shown below:
 
 |                                        |               |
 | :------------------------------------- | :-----------: |
-| i = 2 \* 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8 |               |
-| i = 6 / 4 + 4 / 4 + 8 - 2 + 5 / 8      | operation: \* |
+| i = 2 * 3 / 4 + 4 / 4 + 8 - 2 + 5 / 8 |               |
+| i = 6 / 4 + 4 / 4 + 8 - 2 + 5 / 8      | operation: * |
 | i = 1 + 4 / 4 + 8 - 2 + 5 / 8          | operation: /  |
 | i = 1 + 1+ 8 - 2 + 5 / 8               | operation: /  |
 | i = 1 + 1 + 8 - 2 + 0                  | operation: /  |
@@ -280,16 +285,16 @@ Stepwise evaluation of this expression is shown below:
 > Determine the hierarchy of operations and evaluate the following expression, assuming that **kk** is a float variable:
 
 ```c
-kk = 3 / 2 \* 4 + 3 / 8;
+kk = 3 / 2 * 4 + 3 / 8;
 ```
 
 Stepwise evaluation of this expression is shown below:
 
 |                         |               |
 | :---------------------- | :-----------: |
-| kk = 3 / 2 \* 4 + 3 / 8 |               |
-| kk = 1 \* 4 + 3 / 8     | operation: /  |
-| kk = 4 + 3 / 8          | operation: \* |
+| kk = 3 / 2 * 4 + 3 / 8 |               |
+| kk = 1 * 4 + 3 / 8     | operation: /  |
+| kk = 4 + 3 / 8          | operation: * |
 | kk = 4 + 0              | operation: /  |
 | kk = 4                  | operation: +  |
 
@@ -301,38 +306,6 @@ So far we have seen how arithmetic statements written in C are evaluated. But ou
 
 ### Algebraic Expression C Expression
 
-a x b - c x d ( m + n ) ( a + b ) 3x2 + 2x + 5
-
-a \* b - c \* d ( m + n ) \* ( a + b ) 3 \* x \* x + 2 \* x + 5 ( a + b + c ) / ( d + e )
-
-2 \* b \* y / ( d + 1 ) - x / 3 \* ( z + y ) _ed_
-
-_cba_
-
-
-
-
-
- 
-
-  
-
-
-
- 
-
- )(31
-
-2
-
-_yz_
-
-_x_
-
-_d_
-
-_BY_
-
 Figure 2.4
 
 ## Associativity of Operators
@@ -342,10 +315,10 @@ When an expression contains two operators of equal priority the tie between them
 Consider the expression
 
 ```c
-a = 3 / 2 \* 5 ;
+a = 3 / 2 * 5 ;
 ```
 
-Here there is a tie between operators of same priority, that is between / and \*. This tie is settled using the associativity of / and \*. Both enjoy Left to Right associativity. Therefore firstly / operation is done followed by \*.
+Here there is a tie between operators of same priority, that is between / and *. This tie is settled using the associativity of / and *. Both enjoy Left to Right associativity. Therefore firstly / operation is done followed by *.
 
 Consider one more expression.
 
@@ -358,10 +331,10 @@ Here both assignment operators have the same priority. So order of operations is
 Consider yet another expression.
 
 ```c
-z = a \* b + c / d ;
+z = a * b + c / d ;
 ```
 
-Here **\*** and **/** enjoys same priority and same associativity (Left to Right). Compiler is free to perform **\*** or **/** operation as per its convenience, since no matter which is performed earlier, the result would be same.
+Here ***** and **/** enjoys same priority and same associativity (Left to Right). Compiler is free to perform ***** or **/** operation as per its convenience, since no matter which is performed earlier, the result would be same.
 
 Appendix B gives the associativity of all the operators available in C. Note that the precedence and associativity of all operators is predetermined and we cannot change it.
 
@@ -395,23 +368,23 @@ The Sequence control instruction ensures that the instructions are executed in t
 
 ### Exercise
 
-**\[A\]** Point out the errors, if any, in the following C statements:
+**[A]** Point out the errors, if any, in the following C statements:
 
 - x = ( y + 3 ) ;
 
-- cir = 2 \* 3.141593 \* r ;
+- cir = 2 * 3.141593 * r ;
 
 - char = ‘3’ ;
 
-- 4 / 3 \* 3.14 \* r \* r \* r = vol_of_sphere ;
+- 4 / 3 * 3.14 * r * r * r = vol_of_sphere ;
 
 - volume = a3 ;
 
-- area = 1 / 2 \* base \* height ;
+- area = 1 / 2 * base * height ;
 
-- si = p \* r \* n / 100 ;
+- si = p * r * n / 100 ;
 
-- area of circle = 3.14 \* r \* r ;
+- area of circle = 3.14 * r * r ;
 
 - peri_of_tri = a + b + c ;
 
@@ -423,37 +396,37 @@ The Sequence control instruction ensures that the instructions are executed in t
 
 - char ch = '25 Apr 12' ;
 
-**\[B\]** Evaluate the following expressions and show their hierarchy.
+**[B]** Evaluate the following expressions and show their hierarchy.
 
-(a) ans = 5 \* b \* b \* x - 3 \* a \* y \* y - 8 \* b \* b \* x + 10 \* a \* y ;
+(a) ans = 5 * b * b * x - 3 * a * y * y - 8 * b * b * x + 10 * a * y ;
 
 (a = 3, b = 2, x = 5, y = 4 assume **ans** to be an int)
 
-(b) res = 4 \* a \* y / c - a \* y / c ;
+(b) res = 4 * a * y / c - a * y / c ;
 
 (a = 4, y = 1, c = 3, assume **res** to be an int)
 
-(c) s = c + a \* y \* y / b ;
+(c) s = c + a * y * y / b ;
 
 (a = 2.2, b = 0.0, c = 4.1, y = 3.0, assume **s** to be an float)
 
-(d) R = x \* x + 2 \* x + 1 / 2 \* x \* x + x + 1 ;
+(d) R = x * x + 2 * x + 1 / 2 * x * x + x + 1 ;
 
 (x = 3.5, assume **R** to be an float)
 
-**\[C\]** Indicate the order in which the following expressions would be
+**[C]** Indicate the order in which the following expressions would be
 
 evaluated:
 
 - g = 10 / 5 /2 / 1 ;
 
-- b = 3 / 2 + 5 \* 4 / 3 ;
+- b = 3 / 2 + 5 * 4 / 3 ;
 
 - a = b = c = 3 + 4 ;
 
-- x = 2 – 3 + 5 \* 2 / 8 % 3 ;
+- x = 2 – 3 + 5 * 2 / 8 % 3 ;
 
-- z = 5 % 3 / 8 \* 3 + 4
+- z = 5 % 3 / 8 * 3 + 4
 
 - y = z = -3 % -8 / 2 + 7 ;
 
@@ -467,10 +440,10 @@ evaluated:
    {
      int i = 2, j = 3, k, l ;
      float a, b ;
-     k = i / j \* j ;
-     l = j / i \* i ;
-     a = i / j \* j ;
-     b = j / i \* i ;
+     k = i / j * j ;
+     l = j / i * i ;
+     a = i / j * j ;
+     b = j / i * i ;
      printf ( "%d %d %f %f\\n", k, l, a, b ) ;
      return 0 ;
    }
@@ -535,7 +508,7 @@ evaluated:
 
 **\[E\]** State whether the following statements are True or False:
 
-- \* or /, + or – represents the correct hierarchy of arithmetic operators in C.
+- * or /, + or – represents the correct hierarchy of arithmetic operators in C.
 
 - \[ \] and { } can be used in Arithmetic instructions.
 
@@ -543,17 +516,17 @@ evaluated:
 
 - In C, Arithmetic instruction cannot contain constants on left side of =.
 
-- In C \*\* operator is used for exponentiation operation.
+- In C ** operator is used for exponentiation operation.
 
 - % operator cannot be used with floats.
 
 **\[F\]** Fill in the blanks:
 
-- In y = 10 \* x / 2 + z ; operation will be performed first.
+- In y = 10 * x / 2 + z ; operation will be performed first.
 
 - If **a** is an integer variable, a = 11 / 2 ; will store in **a**.
 
-- The expression, a = 22 / 7 \* 5 / 3 ; would evaluate to .
+- The expression, a = 22 / 7 * 5 / 3 ; would evaluate to .
 
 - The expression x = -7 % 2 - 8 would evaluate to .
 
@@ -573,11 +546,11 @@ Hint: r = sqrt ( x2 + y2 ) and tan-1 ( y / x )
 
 - Write a program to receive values of latitude (L1, L2) and longitude (G1, G2), in degrees, of two places on the earth and output the distance (D) between them in nautical miles. The formula for distance in nautical miles is:
 
-D = 3963 cos-1 ( sin L1 sin L2 + cos L1 cos L2 \* cos ( G2 – G1 ) )
+D = 3963 cos-1 ( sin L1 sin L2 + cos L1 cos L2 * cos ( G2 – G1 ) )
 
 - Wind chill factor is the felt air temperature on exposed skin due to wind. The wind chill temperature is always lower than the air temperature, and is calculated as per the following formula:
 
-wcf = 35.74 + 0.6215t + ( 0.4275t - 35.75 ) \* v0.16
+wcf = 35.74 + 0.6215t + ( 0.4275t - 35.75 ) * v0.16
 
 where t is the temperature and v is the wind velocity. Write a program to receive values of t and v and calculate wind chill factor (wcf).
 

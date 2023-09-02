@@ -90,7 +90,7 @@ These operators can operate on **int**s and **char**s but not on **float**s and 
 
 character value that it receives. Let us begin with a plain-jane example with **showbits( )** in action.
 
-/\* **Print binary equivalent of characters using showbits( ) function** \*/ 
+/* **Print binary equivalent of characters using showbits( ) function** */ 
 ```c
 # include <stdio.h> 
 void showbits ( unsigned char ) ; 
@@ -537,10 +537,10 @@ XOR operator is used to toggle (change) a bit ON or OFF. A number XORed with ano
 #include <stdio.h> 
 int main( ) 
 { 
-    unsigned char b = 0x32 ; \* Binary 00110010 \*
+    unsigned char b = 0x32 ; * Binary 00110010 *
     b = b ^ 0x0C ; 
-    printf ( "\\n%02x", b ) ; \* this will print 0x3E \* 
-    b = b ^ 0x0C ; printf ( "\\n%02x", b ) ; \* this will print 0x32 \* 
+    printf ( "\\n%02x", b ) ; * this will print 0x3E * 
+    b = b ^ 0x0C ; printf ( "\\n%02x", b ) ; * this will print 0x32 * 
     return 0 ; 
 }
 ```

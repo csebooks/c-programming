@@ -81,7 +81,7 @@ As we know, our running program is a process. From this process we can create an
 
 ```c
 #include <stdio.h> 
-#include <unistd.h> \* for prototype of fork( ) \* 
+#include <unistd.h> * for prototype of fork( ) * 
 int main( ) 
 { 
     printf ( "Before Forking\\n" ) ; 
@@ -112,11 +112,11 @@ int main( )
     pid = fork( ) ; 
     if ( pid == 0 ) 
     { 
-        printf ( "In child process\\n" ) ; \* code to play animated GIF file \* 
+        printf ( "In child process\\n" ) ; * code to play animated GIF file * 
     } 
     else 
     {
-        printf ( "In parent process\\n" ) ; \* code to copy file \*
+        printf ( "In parent process\\n" ) ; * code to copy file *
     } 
     return 0 ; 
 }
@@ -218,7 +218,7 @@ Thus, when a Zombie or an Orphan gets created the OS takes over and ensures that
 ```c
 #include <stdio.h> 
 #include <unistd.h> 
-#include <sys/wait.h> \* for waitpid( ) and WIFEXITED \* 
+#include <sys/wait.h> * for waitpid( ) and WIFEXITED * 
 int main( ) 
 { 
     unsigned int i = 0 ; 
@@ -396,9 +396,9 @@ After the loop, we have also used an infinite **while** loop to print the ‘**P
 ## Event Driven programming 
 Having understood the mechanism of signal processing let us now see how signaling is used by Linux-based libraries to create event driven GUI programs. As you know, in a GUI program events occur typically when we click on the window, type a character, close the window, repaint the window, etc. We have chosen the GTK library version 2.0 to create the GUI applications. Here, GTK stands for Gimp’s Tool Kit. Given below is the first program that uses this Tool Kit to create a window on the screen.
 ```c
-\* mywindow.c \* 
+* mywindow.c * 
 #include <gtk/gtk.h> 
-int main ( int argc, char \*argv\[ \] ) 
+int main ( int argc, char *argv\[ \] ) 
 { 
     GtkWidget p ; 
     gtk_init ( &argc, &argv ) ; 
@@ -439,7 +439,7 @@ The GTK library provides a large number of functions that makes it very easy for
 
 How about another program that draws a few shapes in the window? Here is the program…
 ```c
-\* myshapes.c \*
+* myshapes.c *
 #include <gtk/gtk.h> 
 int expose_event ( GtkWidget widget, GdkEventExpose event ) 
 { 
@@ -449,7 +449,7 @@ int expose_event ( GtkWidget widget, GdkEventExpose event )
     gdk_draw_line ( widget -> window, p, 10, 10, 200, 10 ) ; 
     gdk_draw_rectangle ( widget -> window, p, TRUE, 10, 20, 200, 100 ) ; 
     gdk_draw_arc ( widget -> window, p, TRUE, 200, 10, 200, 200, 315,64, 90,64 ) ; 
-    gdk_draw_polygon ( widget -> window, p, TRUE , arr, 5 ) ; \* True – fill */ 
+    gdk_draw_polygon ( widget -> window, p, TRUE , arr, 5 ) ; * True – fill */ 
     gdk_gc_unref ( p ) ;
     return TRUE ; 
 } 
@@ -578,7 +578,7 @@ You have now understood signal processing, the heart of programming under Linux.
 
 - What is the difference between a Zombie process and an Orphan process?
 
-- Write a program that prints the command-line arguments that it receives. What would be the output of the program if the command-line argument is \* ?
+- Write a program that prints the command-line arguments that it receives. What would be the output of the program if the command-line argument is * ?
 
 - What purpose do the functions **getpid( )** and **getppid( )** serve?
 

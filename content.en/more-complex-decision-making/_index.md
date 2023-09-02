@@ -25,7 +25,7 @@ Write a program to calculate the division obtained by the student.
 
 There are two ways in which we can write a program for this example. These methods are given below.
 
-/\* Method – I \*/
+/* Method – I */
 
 ```c
  # include <stdio.h>
@@ -34,7 +34,7 @@ There are two ways in which we can write a program for this example. These metho
      int m1, m2, m3, m4, m5, per ;
      printf ( "Enter marks in five subjects " ) ;
      scanf ( "%d %d %d %d %d", &m1, &m2, &m3, &m4, &m5 ) ;
-     per = ( m1 + m2 + m3 + m4 + m5 ) \* 100 / 500 ;
+     per = ( m1 + m2 + m3 + m4 + m5 ) * 100 / 500 ;
       if ( per >= 60 )
        printf ( "First division\\n" ) ;
       else
@@ -62,7 +62,7 @@ This is a straight-forward program. Observe that the program uses nested **if-el
 
 All these three problems can be eliminated by usage of ‘Logical Operators’. The following program illustrates this:
 
-/\* Method – II \*/
+/* Method – II */
 
 ```c
  # include <stdio.h>
@@ -71,7 +71,7 @@ All these three problems can be eliminated by usage of ‘Logical Operators’. 
     int m1, m2, m3, m4, m5, per ;
     printf ( "Enter marks in five subjects " ) ;
     scanf ( "%d %d %d %d %d", &m1, &m2, &m3, &m4, &m5 ) ;
-    per = ( m1 + m2 + m3 + m4 + m5 ) / 500 \* 100 ;
+    per = ( m1 + m2 + m3 + m4 + m5 ) / 500 * 100 ;
      if ( per >= 60 )
      {
       printf ( "First division\\n" ) ;
@@ -108,7 +108,7 @@ increase the time of execution of the program. This can be avoided using the **e
 
 There is one more way in which we can write program for Example 4.1. This involves usage of **else if** blocks as shown below.
 
-/\* else if ladder demo \*/
+/* else if ladder demo */
 ```c
 
 # include <stdio.h>
@@ -116,7 +116,7 @@ There is one more way in which we can write program for Example 4.1. This involv
 int main( )
 {
 int m1, m2, m3, m4, m5, per ;
-per = ( m1+ m2 + m3 + m4+ m5 ) / 500 \* 100 ;
+per = ( m1+ m2 + m3 + m4+ m5 ) / 500 * 100 ;
 if ( per >= 60 )
 printf ( "First division\\n" ) ;
 else if ( per >= 50 )
@@ -144,7 +144,7 @@ In all other cases, the driver is not insured. If the marital status, sex and ag
 
 Here after checking a complicated set of instructions the final output of the program would be one of the two—either the driver should be insured or the driver should not be insured. As mentioned above, since these are the only two outcomes this problem can be solved using logical operators. But before we do that, let us write a program that does not make use of logical operators.
 
-/\* Insurance of driver - without using logical operators \*/
+/* Insurance of driver - without using logical operators */
 
 ```c
  # include <stdio.h>
@@ -189,7 +189,7 @@ As mentioned above, in this example, we expect the answer to be either ‘Driver
 
 Since all these cases lead to the driver being insured, they can be combined together using **&&** and **||** as shown in the program below.
 
-/\* Insurance of driver - using logical operators \*/
+/* Insurance of driver - using logical operators */
 
 ```c
 # include <stdio.h>
@@ -362,7 +362,7 @@ The following figure summarizes the working of all the three logical operators.
 | Operators | Type |
 | :-------: | :--------------------: |
 | ! | Logical NOT |
-| \* / % | Arithmetic and modulus |
+| * / % | Arithmetic and modulus |
 | + - | Arithmetic |
 | <> <= >= | Relational |
 | == != | Relational |
@@ -520,7 +520,7 @@ int main( )
 int main( )
 {
      int i = -4, j, num ;
-      j = ( num < 0 ? 0 : num \* num ) ;
+      j = ( num < 0 ? 0 : num * num ) ;
       printf ( "%d\\n", j ) ;
       return 0 ;
 }

@@ -42,7 +42,7 @@ Yes
 
 No
 
-si = p \* n \* r / 100
+si = p * n * r / 100
 
 PRINT si
 
@@ -55,9 +55,9 @@ Figure 5.1
 
 Let us now write a program that implements the logic of this flowchart.
 
-/\* Calculation of simple interest for 3 sets of p, n and r \*/ 
+/* Calculation of simple interest for 3 sets of p, n and r */ 
 ```c
-#include <stdio.h> int main( ) { int p, n, count ; float r, si ; count = 1 ; while ( count <= 3 ) { printf ( "\\nEnter values of p, n and r " ) ; scanf ( "%d %d %f", &p, &n, &r ) ; si = p \* n \* r / 100 ; printf ( "Simple interest = Rs. %\\nf", si ) ; count = count + 1 ;
+#include <stdio.h> int main( ) { int p, n, count ; float r, si ; count = 1 ; while ( count <= 3 ) { printf ( "\\nEnter values of p, n and r " ) ; scanf ( "%d %d %f", &p, &n, &r ) ; si = p * n * r / 100 ; printf ( "Simple interest = Rs. %\\nf", si ) ; count = count + 1 ;
 
 } return 0 ; }
 ```
@@ -158,7 +158,7 @@ However, never use **n+++** to increment the value of **n** by 2, since there do
 
 - # include <stdio.h> int main( ) { int i = 1 ; while ( i <= 10 ) { printf ( "%d\\n", i ) ; i += 1 ; } return 0 ; }
 
-Note that **+=** is a compound assignment operator. It increments the value of **i** by 1. Similarly, **j = j + 10** can also be written as **j += 10**. Other compound assignment operators are **\-=, \*=, / =** and **%=**.
+Note that **+=** is a compound assignment operator. It increments the value of **i** by 1. Similarly, **j = j + 10** can also be written as **j += 10**. Other compound assignment operators are **\-=, *=, / =** and **%=**.
 
 - # include <stdio.h> int main( ) { int i = 0 ; while ( i++ < 10 ) printf ( "%d\\n", i ) ; return 0 ; }
 
@@ -212,7 +212,7 @@ printf ( "%f\\n", x ) ; x = x – 0.1 ; } return 0 ; }
 
 - Write a program to print all the ASCII values and their equivalent characters using a while loop. The ASCII values vary from 0 to 255.
 
-- Write a program to print out all Armstrong numbers between 1 and 500. If sum of cubes of each digit of the number is equal to the number itself, then the number is called an Armstrong number. For example, 153 = ( 1 \* 1 \* 1 ) + ( 5 \* 5 \* 5 ) + ( 3 \* 3 \* 3 ).
+- Write a program to print out all Armstrong numbers between 1 and 500. If sum of cubes of each digit of the number is equal to the number itself, then the number is called an Armstrong number. For example, 153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 ).
 
 - Write a program for a matchstick game being played between the computer and a user. Your program should ensure that the computer always wins. Rules for the game are as follows:
 

@@ -129,7 +129,7 @@ The advantage of **switch** over **if** is that it leads to a more structured pr
 
 - We can check the value of any expression in a **switch**. Thus, the following **switch** statements are legal:
 
-switch ( i + j \* k ) switch ( 23 + 45 % 4 \* k ) switch ( a < 4 && b > 7 )
+switch ( i + j * k ) switch ( 23 + 45 % 4 * k ) switch ( a < 4 && b > 7 )
 
 Expressions can also be used in cases provided they are constant expressions. Thus, **case 3 + 7** is correct, however, **case a + b** is incorrect.
 
@@ -157,7 +157,7 @@ In a difficult programming situation, it seems so easy to use a **goto** to take
 
 The big problem with **goto**s is that when we do use them we can never be sure how we got to a certain point in our code. They obscure the flow of control. So as far as possible skip them. You can always get the job done without them. Trust me, with good programming skills **goto** can always be avoided. This is the first and last time that we are going to use **goto** in this book. However, for sake of completeness of the book, the following program shows how to use **goto**:
 
-\# include <stdio.h> # include <stdlib.h> int main( ) { int goals ; printf ( "Enter the number of goals scored against India" ) ; scanf ( "%d", &goals ) ; if ( goals <= 5 ) goto sos ; else { printf ( "About time soccer players learnt C\\n" ) ; printf ( "and said goodbye! adieu! to soccer\\n" ) ; exit ( 1 ) ; /\* terminates program execution \*/ } sos : printf ( "To err is human!\\n" ) ; return 0 ; }
+\# include <stdio.h> # include <stdlib.h> int main( ) { int goals ; printf ( "Enter the number of goals scored against India" ) ; scanf ( "%d", &goals ) ; if ( goals <= 5 ) goto sos ; else { printf ( "About time soccer players learnt C\\n" ) ; printf ( "and said goodbye! adieu! to soccer\\n" ) ; exit ( 1 ) ; /* terminates program execution */ } sos : printf ( "To err is human!\\n" ) ; return 0 ; }
 
 And here are two sample runs of the program...
 

@@ -16,7 +16,7 @@ Suppose you have a task that is always performed exactly in the same way—say a
 Let us now look at a simple C function that operates in much the same way as the mechanic. Actually, we will be looking at two things—a function that calls or activates the function and the function itself.
 ```c
 #include <stdio.h>
-void message(); \* function prototype declaration \*/ int main( ) { message() ; /\* function call \*/ printf ( "Cry, and you stop the monotony!\\n" ) ; return 0 ; } void message( ) /\* function definition \*/ { printf ( "Smile, and the world smiles with you...\\n"); }
+void message(); * function prototype declaration */ int main( ) { message() ; /* function call */ printf ( "Cry, and you stop the monotony!\\n" ) ; return 0 ; } void message( ) /* function definition */ { printf ( "Smile, and the world smiles with you...\\n"); }
 ```
 
 And here’s the output...
@@ -135,7 +135,7 @@ Consider the following program. In this program, in **main( )** we receive the v
 
 values of **a**, **b** and **c** are received in **main( )**, then we must pass on these values to **calsum( )**, and once **calsum( )** calculates the sum, we must return it from **calsum( )** back to **main( )**.
 
-/\* Sending and receiving values between functions \*/ # include <stdio.h> int calsum ( int x, int y, int z ) ; int main( ) { int a, b, c, sum ; printf ( "Enter any three numbers " ) ; scanf ( "%d %d %d", &a, &b, &c ) ; sum = calsum ( a, b, c ) ; printf ( "Sum = %d\\n", sum ) ; return 0 ; } int calsum ( int x, int y, int z ) { int d ; d = x + y + z ; return ( d ) ; }
+/* Sending and receiving values between functions */ # include <stdio.h> int calsum ( int x, int y, int z ) ; int main( ) { int a, b, c, sum ; printf ( "Enter any three numbers " ) ; scanf ( "%d %d %d", &a, &b, &c ) ; sum = calsum ( a, b, c ) ; printf ( "Sum = %d\\n", sum ) ; return 0 ; } int calsum ( int x, int y, int z ) { int d ; d = x + y + z ; return ( d ) ; }
 
 And here is the output...
 
@@ -249,7 +249,7 @@ This program gets successfully compiled, even though there is a mismatch in the 
 
 \# include <stdio.h> float square ( float ) ; int main( ) { float a, b ; printf ( "Enter any number " ) ; scanf ( "%f", &a ) ; b = square ( a ) ; printf ( "Square of %f is %f\\n", a, b ) ; return 0 ;
 
-} float square ( float x ) { float y ; y = x \* x ; return ( y ) ; }
+} float square ( float x ) { float y ; y = x * x ; return ( y ) ; }
 
 And here are three sample runs of this program...
 
@@ -277,17 +277,17 @@ Since we are returning a **float** value from this function we have indicated th
 
 int main( ) { printf ( "Learn C\\n" ) ; display( ) ; return 0 ; } void display( ) { printf ( "Followed by C++, C# and Java!\\n" ) ; main( ) ; }
 
-- # include <stdio.h> int check ( int ) ; int main( ) { int i = 45, c ; c = check ( i ) ; printf ( "%d\\n", c ) ; return 0 ; } int check ( int ch ) { if ( ch >= 45 ) return ( 100 ) ; else return ( 10 \* 10 ) ; }
+- # include <stdio.h> int check ( int ) ; int main( ) { int i = 45, c ; c = check ( i ) ; printf ( "%d\\n", c ) ; return 0 ; } int check ( int ch ) { if ( ch >= 45 ) return ( 100 ) ; else return ( 10 * 10 ) ; }
 
 - # include <stdio.h> float circle ( int ) ; int main( ) { float area ; int radius = 1 ; area = circle ( radius ) ; printf ( "%f\\n", area ) ; return 0 ; } float circle ( int r ) { float a ;
 
-a = 3.14 \* r \* r ; return ( a ) ; }
+a = 3.14 * r * r ; return ( a ) ; }
 
 - #include <stdio.h> int main( ) { void slogan( ) ; int c = 5 ; c = slogan( ) ; printf ( "%d\\n", c ) ; return 0 ; } void slogan( ) { printf ( "Only He men use C!\\n" ) ; }
 
 **\[B\]** Point out the errors, if any, in the following programs:
 
-- # include <stdio.h> int addmult ( int, int ) int main( ) { int i = 3, j = 4, k, l ; k = addmult ( i, j ) ; l = addmult ( i, j ) ; printf ( "%d %d\\n", k, l ) ; return 0 ; } int addmult ( int ii, int jj ) { int kk, ll ; kk = ii + jj ; ll = ii \* jj ; return ( kk, ll ) ; }
+- # include <stdio.h> int addmult ( int, int ) int main( ) { int i = 3, j = 4, k, l ; k = addmult ( i, j ) ; l = addmult ( i, j ) ; printf ( "%d %d\\n", k, l ) ; return 0 ; } int addmult ( int ii, int jj ) { int kk, ll ; kk = ii + jj ; ll = ii * jj ; return ( kk, ll ) ; }
 
 - # include <stdio.h> void message( ) ; int main( ) { int a ;
 
@@ -307,7 +307,7 @@ a = message( ) ; return 0 ; } void message( ) { printf ( "Viruses are written in
 
 - Is this a correctly written function:
 
-int sqr ( int a ) ; { return ( a \* a ) ; }
+int sqr ( int a ) ; { return ( a * a ) ; }
 
 - State whether the following statements are True or False:
 

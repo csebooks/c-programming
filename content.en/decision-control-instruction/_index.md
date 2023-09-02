@@ -1,29 +1,28 @@
 ---
 title: " Decision Control Instruction"
-weight: 3.
+weight: 3
+references:
+    videos:
+        - youtube:hjoHjnAUs4s
 ---
 
 # Contents
 
-
-
-
 We all need to alter our actions in the face of changing circumstances. If the weather is fine, then I will go for a stroll. If the highway is busy, I would take a diversion. If the pitch takes spin, we would win the match. If you join our WhatsApp group, I would send you interesting videos. If you like this book, I would write the next edition. You can notice that all these decisions depend on some condition being met.
-
 
 C language too must be able to perform different sets of actions depending on the circumstances. In the programs written in Chapters 1 and 2, we used sequence control instruction in which the various statements are executed sequentially, i.e., in the same order in which they appear in the program. In many Programming situations, we want one set of instructions to be executed in one situation, and a different set in another situation. In C Programming, such situations are dealt with using a decision control instruction.
 
 ## The if - else Statement
 C uses the keywords if and else to implement the decision control instruction. The general form of this statement looks like this:
 
-~~~
+```c
 {
 if (this condition is true)
 statement1;
 else
 statement2;
 }
-~~~
+```
 
 The condition following the keyword if is always enclosed within a pair of parentheses. If the condition is true, then statement1 is executed. If the
 condition is not true, then statement2 is executed. The condition is expressed using ‘relational’ operators in C. These operators allow us to
@@ -48,11 +47,10 @@ item are input through the keyboard, write a program to calculate the total expe
 
 Given below is a program that implements this logic.
 
+```c
 /* Calculation of total expenses */
 
-**include**
-
-~~~
+#include <stdio.h>
 
 int main()
 {
@@ -68,7 +66,7 @@ tot = (qty * rate) - (qty * rate * dis / 100);
 printf (“Total expenses = Rs. %f\n”, tot);
 return 0;
 }
-~~~
+```
 
 Here is some sample interaction with the program.
 
@@ -99,11 +97,11 @@ If his basic salary is less than Rs. 1500, then HRA = 10% of basic salary and DA
 1500, then HRA = Rs. 500 and DA = 98% of basic salary. If the employee’s salary is input through the keyboard write a program to find his gross
 salary.
 The program that implements this logic is given below.
-
+```c
 /* Calculation of gross salary */
 
-**include**
-~~~
+#include <stdio.h>
+
 int main()
 {
 float bs, gs, da, hra;
@@ -123,7 +121,7 @@ gs = bs + hra + da;
 printf (“gross salary = Rs. %f\n”, gs);
 return 0;
 }
-~~~
+```
 Figure 3.2 would help you understand the flow of control in the program.
 
 
@@ -143,7 +141,7 @@ A few points worth noting about the program…
 
 It is perfectly alright if we write another if-else construct within either the if block or the else block. This is called ‘nesting’ and is shown in the following code fragment:
 
-~~~
+```c
 if (i == 1)
 printf (“You would go to heaven !\n”);
 else
@@ -153,7 +151,7 @@ printf (“Hell was created with you in mind\n”);
 else
 printf (“How about mother earth !\n”);
 }
-~~~
+```
 
 
 Note that the second if-else construct is nested in the first else block. If the condition in the first if is false, then the condition in the second if ischecked. If it is false as well, then the second else is executed.
@@ -168,14 +166,14 @@ if block’ as well. There is no limit on how deeply the if s and the else s can
 Though usually a condition is used in if statement, any valid expression will also do. Thus all the following if statements are valid.
 
 
-~~~
+```c
 if (3 + 2 % 5)
 printf (“This works”);
 if (a = 10)
 printf (“Even this works”);
 if (-5)
 printf (“Surprisingly even this works”);
-~~~
+```
 
 
 Note that in C a non-zero value is considered to be true, whereas a 0 is considered to be false. In the first if , the expression evaluates to 5 and since 5 is non-zero it is considered to be true. Hence the printf() gets executed.
@@ -186,15 +184,14 @@ In the third if , -5 is a non-zero number, hence true. So again printf() goes to
 
 Another common mistake while using the if statement is to write a semicolon ( ; ) after the condition, as shown below.
 
-~~~
+```c
 scanf (“%d”, &i);
 if (i == 5);
 printf (“You entered 5\n”);
 The; makes the compiler to interpret the statement as if you have written it in following manner:
-if (i == 5)
-;
+if (i == 5);
 printf (“You entered 5\n”);
-~~~
+```
 
 Here, if the condition evaluates to true, the; (null statement, which does nothing on execution) gets executed, following which the printf() gets executed. If the condition fails, then straightaway the printf() gets executed. So irrespective of whether the condition evaluates to true or false, printf() is bound to get executed. Remember that compiler would not point out this as an error, since as far as the syntax is concerned, nothing has gone wrong but the logic has certainly gone awry.
 
@@ -206,11 +203,11 @@ If cost price and selling price of an item is input through the keyboard, write 
 
 Program
 
+```c
 /* Calculate profit or loss */
 
+#include <stdio.h>
 
-**include**
-~~~
 int main()
 {
 float cp, sp, p, l;
@@ -226,7 +223,7 @@ if (p == 0)
 printf (“There is no loss, no profit\n”);
 return 0;
 }
-~~~
+```
 Output
 Enter cost price and selling price: 25 15
 
@@ -237,11 +234,11 @@ Problem 3.2
 Any integer is input through the keyboard. Write a program to find out whether it is an odd number or even number.
 
 Program
-
+```c
 /* Check whether a number is even or odd */
 
-***include***
-~~~
+#include <stdio.h>
+
 int main()
 {
 int n;
@@ -253,7 +250,7 @@ else
 printf (“The number is odd\n”);
 return 0;
 }
-~~~
+```
 Output
 
 Enter any number: 45
@@ -265,11 +262,11 @@ Problem 3.3
 Any year is input through the keyboard. Write a program to determine whether the year is a leap year or not.
 
 Program
-
+```c
 /* Check whether a year is leap or not */
 
-***include***
-~~~
+#include <stdio.h>
+
 int main()
 {
 int yr;
@@ -291,7 +288,7 @@ printf (“Not a leap year\n”);
 }
 return 0;
 }
-~~~
+```
 Output
 
 Enter a year: 2020
@@ -303,8 +300,8 @@ Leap year
 [A] What will be the output of the following programs:
 
 (a)
- ~~~
-# include
+ ```c
+#include <stdio.h>
 int main()
 {
 int a = 300, b, c;
@@ -313,10 +310,10 @@ b = 300; c = 200;
 printf (“%d %d\n”, b, c);
 return 0;
 }
-~~~
+```
 (b) 
-~~~
-# include
+```c
+#include <stdio.h>
 int main()
 {
 int x = 10, y = 20;
@@ -324,10 +321,10 @@ if (x == y);
 printf (“%d %d\n”, x, y);
 return 0;
 }
-~~~
+```
 (c) 
-~~~
-# include
+```c
+#include <stdio.h>
 int main()
 {
 int x = 3;
@@ -338,10 +335,10 @@ else
 printf (“x and y are not equal\n”);
 return 0;
 }
-~~~
+```
 (d) 
-~~~
-# include
+```c
+#include <stdio.h>
 int main()
 {
 int x = 3, y, z;
@@ -350,10 +347,10 @@ z = x < 10;
 printf (“x = %d y = %d z = %d\n”, x, y, z);
 return 0;
 }
-~~~
+```
 (e)
-~~~
-# include
+```c
+#include <stdio.h>
 int main()
 {
 int i = 65;
@@ -363,13 +360,13 @@ printf (“C is WOW\n”);
 else
 printf (“C is a headache\n”); return 0;
 }
-~~~
+```
 
 [B] Point out the errors, if any, in the following programs:
 
 (a) 
-~~~
-# include
+```c
+#include <stdio.h>
 int main()
 {
 float a = 12.25, b = 12.52;
@@ -377,10 +374,10 @@ if (a = b)
 printf (“a and b are equal\n”);
 return 0;
 }
-~~~
+```
 (b) 
-~~~
-# include
+```c
+#include <stdio.h>
 int main()
 {
 int j = 10, k = 12;
@@ -393,19 +390,19 @@ j = k;
 }
 return 0;
 }
-~~~
+```
 (c) 
-~~~
-# include
+```c
+#include <stdio.h>
 int main()
 {
 if (’X’ < ’x’)
 printf (“ascii value of X is smaller than that of x\n”);
 }
-~~~
+```
 (d)
-~~~
- # include
+```c
+#include <stdio.h>
 int main()
 {
 int x = 10;
@@ -413,20 +410,20 @@ if (x >= 2) then
 printf (“%d\n”, x);
 return 0;
 }
-~~~
+```
 (e) 
-~~~
-# include
+```c
+#include <stdio.h>
 int main()
 {
 int x = 10, y = 15;
 if (x % 2 = y % 3)
 printf (“Carpathians\n”);
 }
-~~~
+```
 (f) 
-~~~
-# include
+```c
+#include <stdio.h>
 int main()
 {
 int a, b;
@@ -437,7 +434,7 @@ else
 printf (“You have to play it\n”);
 return 0;
 }
-~~~
+```
 
 [C] State whether the following statements are True or False:
 
@@ -497,18 +494,4 @@ is the day on 1st January of this year.
 General forms of decision control instruction:
 The default scope of if and else statement is only the next statement. So, to execute multiple statements they must be written in a pair of braces.
 
-Condition is built using relation operators <, >, <=, >=, ==, !=
-
-An if need not always be associated with an else. However, an else must always be associated with an if
-
-An if-else statement can be nested inside another if-else statement
-
-a = b is assignment. a == b is comparison
-
-In if (a == b == c) result of a == b is compared with c
-
-If a condition is true it is replaced by 1, if it false it is replaced by 0
-
-Any non-zero number is true, 0 is false
-
-; is a null statement. It doesn't do anything on execution
+Condition is built using relation operators <, >, <=, >=, ==, != An if need not always be associated with an else. However, an else must always be associated with an if An if-else statement can be nested inside another if-else statement a = b is assignment. a == b is comparison In if (a == b == c) result of a == b is compared with c If a condition is true it is replaced by 1, if it false it is replaced by 0 Any non-zero number is true, 0 is false; is a null statement. It doesn't do anything on execution

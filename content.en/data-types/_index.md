@@ -105,9 +105,9 @@ You would see that most of the times in C programming, one is required to use ei
 
 Let us now write a program that puts to use all the data types that we have learnt in this chapter. Go through the following program carefully, which shows how to use these different data types. Note the format specifiers used to input and output these data types.
 
-\# include <stdio.h> int main( ) { char c ; unsigned char d ; int i ; unsigned int j ; short int k ; unsigned short int l ; long int m ; unsigned long int n ; float x ; double y ; long double z ; /\* char \*/ scanf ( "%c %c", &c, &d ) ; printf ( "%c %c\\n", c, d ) ; /\* int \*/ scanf ( "%d %u", &i, &j ) ; printf ( "%d %u\\n", i, j ) ;
+\# include <stdio.h> int main( ) { char c ; unsigned char d ; int i ; unsigned int j ; short int k ; unsigned short int l ; long int m ; unsigned long int n ; float x ; double y ; long double z ; /* char */ scanf ( "%c %c", &c, &d ) ; printf ( "%c %c\\n", c, d ) ; /* int */ scanf ( "%d %u", &i, &j ) ; printf ( "%d %u\\n", i, j ) ;
 
-/\* short int \*/ scanf ( "%d %u", &k, &l ) ; printf ( "%d %u\\n", k, l ) ; /\* long int \*/ scanf ( "%ld %lu", &m, &n ) ; printf ( "%ld %lu\\n", m, n ) ; /\* float, double, long double \*/ scanf ( "%f %lf %Lf", &x, &y, &z ) ; printf ( "%f %lf %Lf\\n", x, y, z ) ; }
+/* short int */ scanf ( "%d %u", &k, &l ) ; printf ( "%d %u\\n", k, l ) ; /* long int */ scanf ( "%ld %lu", &m, &n ) ; printf ( "%ld %lu\\n", m, n ) ; /* float, double, long double */ scanf ( "%f %lf %Lf", &x, &y, &z ) ; printf ( "%f %lf %Lf\\n", x, y, z ) ; }
 
 The essence of all the data types that we have learnt so far has been captured in Figure 11.2.
 
@@ -337,7 +337,7 @@ On the other hand, if **i** is **static**, it is initialized to 1 only once. It 
 
 Consider one more program.
 
-\# include <stdio.h> int \* fun( ) ; int main( ) { int \*j ; j = fun( ) ; printf ( "%d\\n", \*j ) ; return 0 ; } int \*fun( ) { int k = 35 ; return ( &k ) ; }
+\# include <stdio.h> int * fun( ) ; int main( ) { int *j ; j = fun( ) ; printf ( "%d\\n", *j ) ; return 0 ; } int *fun( ) { int k = 35 ; return ( &k ) ; }
 
 Here we are returning an address of **k** from **fun( )** and collecting it in **j**. Thus **j** becomes pointer to **k**. Then using this pointer we are printing the value of **k**. This correctly prints out 35. Now try calling any function (even **printf( )** ) immediately after the call to **fun( )**. This time **printf( )**
 
@@ -395,9 +395,9 @@ Let us now look at some subtle issues about storage classes.
 
 - If a variable is defined outside all functions, then not only is it available to all other functions in the file in which it is defined, but is also available to functions defined in other files. In the other files the variable should be declared as extern. This is shown in the following program:
 
-/\* PR1.C \*/ # include <stdio.h> # include <functions.c> int i = 35 ; int fun1( ) ; int fun2( ) ; int main( ) { printf ( "%d\\n", I ) ; fun1( ) ; fun2( ) ; return 0 ; }
+/* PR1.C */ # include <stdio.h> # include <functions.c> int i = 35 ; int fun1( ) ; int fun2( ) ; int main( ) { printf ( "%d\\n", I ) ; fun1( ) ; fun2( ) ; return 0 ; }
 
-/\* FUNCTIONS.C \*/ extern int i ; int fun1( ) { i++ ; printf ( "%d\\n", i ) ; return 0 ; } int fun2( ) { i-- ; printf ( "%d\\n", i ) ; return 0 ; }
+/* FUNCTIONS.C */ extern int i ; int fun1( ) { i++ ; printf ( "%d\\n", i ) ; return 0 ; } int fun2( ) { i-- ; printf ( "%d\\n", i ) ; return 0 ; }
 
 The output of the program would be
 
@@ -449,7 +449,7 @@ int main( ) { int i ; for ( i = 0 ; i <= 50000 ; i++ ) printf ( "%d\\n", i ) ; r
 
 i = 100 ; printf ( "val's i = %d\\n", i ) ; i++ ; }
 
-- # include <stdio.h> int f ( int ) ; int g ( int ) ; int main( ) { int x, y, s = 2 ; s \*= 3 ; y = f ( s ) ; x = g ( s ) ; printf ( "%d %d %d\\n", s, y, x ) ; return 0 ; } int t = 8 ; int f ( int a ) { a += -5 ; t -= 4 ; return ( a + t ) ; } int g ( int a ) { a = 1 ; t += a ; return ( a + t ) ; }
+- # include <stdio.h> int f ( int ) ; int g ( int ) ; int main( ) { int x, y, s = 2 ; s *= 3 ; y = f ( s ) ; x = g ( s ) ; printf ( "%d %d %d\\n", s, y, x ) ; return 0 ; } int t = 8 ; int f ( int a ) { a += -5 ; t -= 4 ; return ( a + t ) ; } int g ( int a ) { a = 1 ; t += a ; return ( a + t ) ; }
 
 - # include <stdio.h> int main( ) { static int count = 5 ; printf ( "count = %d\\n", count-- ) ; if ( count != 0 ) main( ) ;
 

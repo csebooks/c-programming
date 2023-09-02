@@ -36,7 +36,7 @@ Note that, in this declaration ’\\0’ is not necessary. C inserts the null ch
 **More about Strings** In what way are character arrays different from numeric arrays? Can elements in a character array be accessed in the same way as the elements of a numeric array? Do I need to take any special care of ’\\0’? Why numeric arrays don’t end with a ’\\0’? Declaring strings is okay, but how do I manipulate them? Questions galore!! Well, let us settle some of these issues right away with the help of sample programs.
 
 ```
-\* Program to demonstrate printing of a string \*
+* Program to demonstrate printing of a string *
  # include <stdio.h> 
  int main( ) 
  { 
@@ -91,10 +91,10 @@ int main( )
     char name\[ \] = "Klinsman" ; 
     char *ptr ; 
     ptr = name ; 
-    \* store base address of string \*
+    * store base address of string *
     while(*ptr != '\\0') 
     { 
-        printf ( "%c", \*ptr ) ; 
+        printf ( "%c", *ptr ) ; 
         ptr++ ; 
     } 
     printf ( "\\n" ) ; 
@@ -106,7 +106,7 @@ As with the integer array, by mentioning the name of the array, we get the base 
 
 ptr = name ;
 
-Once the base address is obtained in **ptr**, **\*ptr** would yield the value at this address, which gets printed promptly through,
+Once the base address is obtained in **ptr**, ***ptr** would yield the value at this address, which gets printed promptly through,
 
 printf ( "%c", *ptr ) ;
 
@@ -114,7 +114,7 @@ Then, **ptr** is incremented to point to the next character in the string. This 
 
 In fact, the character array elements can be accessed exactly in the same way as the elements of an integer array. Thus, all the following notations refer to the same element:
 
-name\[ i \] \*( name + i ) \*( i + name ) i\[ name \]
+name\[ i \] *( name + i ) *( i + name ) i\[ name \]
 
 Even though there are so many ways (as shown above) to refer to the elements of a character array, rarely is any one of them used. This is because **printf( )** function has got a sweet and simple way of doing it, as shown below. Note that **printf( )** doesn’t print the ’\\0’.
 ```c
@@ -188,7 +188,7 @@ int main( )
     char str2[10] ;
     char *s = "Good Morning" ;
     char *q ; 
-    str2 = str1 ; \* error \*
+    str2 = str1 ; * error *
     q = s ;      0/* works */ 
     return 0 ; 
 }
@@ -327,7 +327,7 @@ what gets passed to **strlen( )** is the address of the string and not the strin
 ```
 /* A look-alike of the function strlen( ) */ 
 # include <stdio.h> 
-int xstrlen ( char \* ) ; 
+int xstrlen ( char * ) ; 
 int main( ) 
 { 
     char arr[] = "Bamboozled" ; 
@@ -420,31 +420,31 @@ Note that having copied the entire source string into the target string, it is n
 
 If you look at the prototype of **strcpy( )** standard library function, it looks like this…
 
-strcpy ( char \*t, const char \*s ) ;
+strcpy ( char *t, const char *s ) ;
 
 We didn’t use the keyword const in our version of **xstrcpy( )** and still our function worked correctly. So what is the need of the **const** qualifier?
 
 What would happen if we add the following lines beyond the last statement of **xstrcpy( )**?
 
-s = s - 8 ; \*s = 'K' ;
+s = s - 8 ; *s = 'K' ;
 
 This would change the source string to “Kayonara”. Can we not ensure that the source string doesn’t change even accidentally in **xstrcpy( )**? We can, by changing the definition as follows:
 
-void xstrcpy ( char \*t, const char \*s ) { while ( \*s != '\\0' ) { \*t = \*s ; s++ ; t++ ; } \*t = '\\0' ; }
+void xstrcpy ( char *t, const char *s ) { while ( *s != '\\0' ) { *t = *s ; s++ ; t++ ; } *t = '\\0' ; }
 
-By declaring **char \*s** as **const**, we are declaring that the source string should remain constant (should not change). Thus the **const** qualifier ensures that your program does not inadvertently alter a variable that you intended to be a constant. It also reminds anybody reading the program listing that the variable is not intended to change.
+By declaring **char *s** as **const**, we are declaring that the source string should remain constant (should not change). Thus the **const** qualifier ensures that your program does not inadvertently alter a variable that you intended to be a constant. It also reminds anybody reading the program listing that the variable is not intended to change.
 
 Let us understand the difference between the following two statements:
 
-char str\[ \] = "Quest" ; char \*p = "Quest" ;
+char str\[ \] = "Quest" ; char *p = "Quest" ;
 
 Here **str** acts as a constant pointer to a string, whereas, **p** acts as a pointer to a constant string. As a result, observe which operations are permitted, and which are not:
 
-str++ ; /\* error, constant pointer cannot change \*/ \*str = 'Z' ; /\* works, because string is not constant \*/ p++ ; /\* works, because pointer is not constant \*/ \*p = 'M' ; /\* error, because string is constant \*/
+str++ ; /* error, constant pointer cannot change */ *str = 'Z' ; /* works, because string is not constant */ p++ ; /* works, because pointer is not constant */ *p = 'M' ; /* error, because string is constant */
 
 The keyword **const** can also be used in context of ordinary variables like **int**, **float**, etc. The following program shows how this can be done:
 
-\# include <stdio.h> int main( ) { float r, a ; const float pi = 3.14 ; printf ( "Enter radius of circle " ) ; scanf ( "%f", &r ) ; a = pi \* r \* r ; printf ( "Area of circle = %f\\n", a ) ; return 0 ; }
+\# include <stdio.h> int main( ) { float r, a ; const float pi = 3.14 ; printf ( "Enter radius of circle " ) ; scanf ( "%f", &r ) ; a = pi * r * r ; printf ( "Area of circle = %f\\n", a ) ; return 0 ; }
 
 ### strcat( )
 
@@ -494,9 +494,9 @@ The exact value of mismatch rarely concerns us. All that we usually want to know
 
 - # include <stdio.h> int main( ) { char s\[ \] = "No two viruses work similarly" ;
 
-int i = 0 ; while ( s\[ i \] != 0 ) { printf ( "%c %c\\n", s\[ i \], \*( s + i ) ) ; printf ( "%c %c\\n", i\[ s \], \*( i + s ) ) ; i++ ; } return 0 ; }
+int i = 0 ; while ( s\[ i \] != 0 ) { printf ( "%c %c\\n", s\[ i \], *( s + i ) ) ; printf ( "%c %c\\n", i\[ s \], *( i + s ) ) ; i++ ; } return 0 ; }
 
-- # include <stdio.h> int main( ) { char s\[ \] = "Churchgate: no church no gate" ; char t\[ 25 \] ; char \*ss, \*tt ; ss = s ; while ( \*ss != '\\0' ) \*tt++ = \*ss++ ; printf ( "%s\\n", t ) ; return 0 ; }
+- # include <stdio.h> int main( ) { char s\[ \] = "Churchgate: no church no gate" ; char t\[ 25 \] ; char *ss, *tt ; ss = s ; while ( *ss != '\\0' ) *tt++ = *ss++ ; printf ( "%s\\n", t ) ; return 0 ; }
 
 - # include <stdio.h> int main( ) { char str1\[ \] = { ’H’, ’e’, ’l’, ’l’, ’o’, 0 } ; char str2\[ \] = "Hello" ; printf ( "%s\\n", str1 ) ; printf ( "%s\\n", str2 ) ; return 0 ; }
 
@@ -510,11 +510,11 @@ printf ( "%c\\n", "abcdefgh"\[ 4 \] ) ; return 0 ; }
 
 **\[B\]** Point out the errors, if any, in the following programs:
 
-- # include <stdio.h> # include <string.h> int main( ) { char \*str1 = "United" ; char \*str2 = "Front" ; char \*str3 ; str3 = strcat ( str1, str2 ) ; printf ( "%s\\n", str3 ) ; return 0 ; }
+- # include <stdio.h> # include <string.h> int main( ) { char *str1 = "United" ; char *str2 = "Front" ; char *str3 ; str3 = strcat ( str1, str2 ) ; printf ( "%s\\n", str3 ) ; return 0 ; }
 
 - # include <stdio.h> int main( ) { int arr\[ \] = { ’A’, ’B’, ’C’, ’D’ } ; int i ; for ( i = 0 ; i <= 3 ; i++ ) printf ( "%d", arr\[ i \] ) ; printf ( "\\n" ) ; return 0 ; }
 
-- # include <stdio.h> int main( ) { char arr\[ 8 \] = "Rhombus" ; int i ; for ( i = 0 ; i <= 7 ; i++ ) printf ( "%d", \*arr ) ; arr++ ;
+- # include <stdio.h> int main( ) { char arr\[ 8 \] = "Rhombus" ; int i ; for ( i = 0 ; i <= 7 ; i++ ) printf ( "%d", *arr ) ; arr++ ;
 
 return 0 ; }
 

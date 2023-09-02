@@ -36,7 +36,7 @@ Yes
 
 No
 
-si = p \* n \* r / 100
+si = p * n * r / 100
 
 count = 1
 
@@ -50,7 +50,7 @@ PRINT si
 
 **Figure 6.1**
 
-/\* **Calculation of simple interest for 3 sets of p, n and r** \*/ 
+/* **Calculation of simple interest for 3 sets of p, n and r** */ 
 ```c
 #include <stdio.h> 
 int main( ) 
@@ -62,7 +62,7 @@ int main( )
     { 
         printf ( "Enter values of p, n, and r " ) ; 
         scanf ( "%d %d %f", &p, &n, &r ) ; 
-        si = p \* n \* r / 100 ; 
+        si = p * n * r / 100 ; 
         printf ( "Simple Interest = Rs.%f\\n", si ) ; 
     } 
         return 0 ; 
@@ -87,7 +87,7 @@ Let us now examine how the **for** statement gets executed:
 - When **count** reaches the value 4, the control exits from the loop and is transferred to the statement (if any) immediately after the body of **for**.
 
 **Figure 6.2** 
-/\*would help in further clarifying the concept of execution of the **for** loop.\*/
+/*would help in further clarifying the concept of execution of the **for** loop.*/
 
 START
 
@@ -206,15 +206,15 @@ Here again, both, the comparison and the incrementation are done through the sam
 
 The way **if** statements can be nested, similarly **while**s and **for**s can also be nested. To understand how nested loops work, look at the program given below.
 
-/\* **Demonstration of nested loops** \*/ 
+/* **Demonstration of nested loops** */ 
 ```c
 #include <stdio.h> 
 int main( ) 
 { 
     int r, c, sum ; 
-    for ( r = 1 ; r <= 3 ; r++ ) /\* outer loop \*/ 
+    for ( r = 1 ; r <= 3 ; r++ ) /* outer loop */ 
     { 
-        for ( c = 1 ; c <= 2 ; c++ ) /\* inner loop \*/ 
+        for ( c = 1 ; c <= 2 ; c++ ) /* inner loop */ 
         { 
             sum = r + c ; 
             printf ( "r = %d c = %d sum = %d\\n", r, c, sum ) ; 
@@ -398,7 +398,7 @@ In this program, the **printf( )** would be executed once, since first the body 
 ### The Odd Loop 
 The loops that we have used so far executed the statements within them a finite number of times. However, in real life programming, one comes across a situation when it is not known beforehand how many times the statements in the loop are to be executed. This situation can be programmed as shown below.
 
-/\* **Execution of a loop an unknown number of times** \*/ 
+/* **Execution of a loop an unknown number of times** */ 
 ```c
 #include <stdio.h> 
 int main( ) 
@@ -409,7 +409,7 @@ int main( )
     { 
         printf ( "Enter a number " ) ; 
         scanf ( "%d", &num ) ; 
-        printf ( "square of %d is %d\\n", num, num \* num ) ; 
+        printf ( "square of %d is %d\\n", num, num * num ) ; 
         printf ( "Want to enter another number y/n " ) ; 
         fflush ( stdin ) ; 
         scanf ( "%c", &another ) ; 
@@ -430,7 +430,7 @@ Perhaps you are wondering what for have we used the function **fflush( )**. The 
 
 Though it is simpler to program such a requirement using a **do-while** loop, the same functionality if required, can also be accomplished using **for** and **while** loops as shown below.
 
-/\* **odd loop using a for loop** \*/ 
+/* **odd loop using a for loop** */ 
 ```c
 #include <stdio.h> 
 int main( ) 
@@ -441,7 +441,7 @@ int main( )
     { 
         printf ( "Enter a number " ) ; 
         scanf ( "%d", &num ) ; 
-        printf ( "square of %d is %d\\n", num, num \* num ) ;
+        printf ( "square of %d is %d\\n", num, num * num ) ;
         printf ( "Want to enter another number y/n " ) ; 
         fflush ( stdin ) ; 
         scanf ( "%c", &another ) ; 
@@ -450,7 +450,7 @@ int main( )
 }
 ```
 
-/\* **odd loop using a while loop** \*/
+/* **odd loop using a while loop** */
 ```c
 #include <stdio.h> 
 int main( ) 
@@ -461,7 +461,7 @@ int main( )
     { 
         printf ( "Enter a number " ) ; 
         scanf ( "%d", &num ) ; 
-        printf ( "square of %d is %d\\n", num, num \* num ) ; 
+        printf ( "square of %d is %d\\n", num, num * num ) ; 
         printf ( "Want to enter another number y/n " ) ; 
         fflush ( stdin ) ; 
         scanf ( " %c", &another ) ; 
@@ -482,7 +482,7 @@ int main( )
 
 - A **do-while** loop is used to ensure that the statements within the loop are executed at least once.
 
-- The operators +=, -=, \*=, /=, %= are compound assignment operators. They modify the value of the operand to the left of them.
+- The operators +=, -=, *=, /=, %= are compound assignment operators. They modify the value of the operand to the left of them.
 
 ### Exercise
 
@@ -625,7 +625,7 @@ using a **for** loop:
 
 - Write a program to print the multiplication table of the number entered by the user. The table should get displayed in the following form:
 ```c
-29 \* 1 = 29 29 \* 2 = 58
+29 * 1 = 29 29 * 2 = 58
 ```
 …
 

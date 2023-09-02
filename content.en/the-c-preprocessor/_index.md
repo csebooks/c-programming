@@ -33,7 +33,7 @@ In this program, instead of writing 25 in the **for** loop we are writing it in 
 
 This statement is called ‘macro definition’ or more commonly, just a ‘macro’. What purpose does it serve? During preprocessing, the preprocessor replaces every occurrence of UPPER in the program with 25. Here is another example of macro definition.
 
-\# include <stdio.h> # define PI 3.1415 int main( ) { float r = 6.25 ; float area ; area = PI \* r \* r ; printf ( "Area of circle = %f\\n", area ) ;
+\# include <stdio.h> # define PI 3.1415 int main( ) { float r = 6.25 ; float area ; area = PI * r * r ; printf ( "Area of circle = %f\\n", area ) ;
 
 return 0 ; }
 
@@ -87,7 +87,7 @@ return 0 ; }
 
 The macros that we have used so far are called simple macros. Macros can have arguments, just as functions can. Here is an example that illustrates this fact.
 
-\# include <stdio.h> # define AREA(x) ( 3.14 \* x \* x ) int main( ) { float r1 = 6.25, r2 = 2.5, a ; a = AREA ( r1 ) ; printf ( "Area of circle = %f\\n", a ) ; a = AREA ( r2 ) ; printf ( "Area of circle = %f\\n", a ) ;
+\# include <stdio.h> # define AREA(x) ( 3.14 * x * x ) int main( ) { float r1 = 6.25, r2 = 2.5, a ; a = AREA ( r1 ) ; printf ( "Area of circle = %f\\n", a ) ; a = AREA ( r2 ) ; printf ( "Area of circle = %f\\n", a ) ;
 
 return 0 ; }
 
@@ -95,13 +95,13 @@ Here’s the output of the program...
 
 Area of circle = 122.656250 Area of circle = 19.625000
 
-In this program, wherever the preprocessor finds the phrase **AREA(x)** it expands it into the statement **( 3.14 \* x \* x )**. However, that’s not all that it does. The **x** in the macro template **AREA(x)** is an argument that matches the **x** in the macro expansion **( 3.14 \* x \* x )**. The statement **AREA(r1)** in the program causes the variable **r1** to be substituted for **x**. Thus the statement **AREA(r1)** is equivalent to:
+In this program, wherever the preprocessor finds the phrase **AREA(x)** it expands it into the statement **( 3.14 * x * x )**. However, that’s not all that it does. The **x** in the macro template **AREA(x)** is an argument that matches the **x** in the macro expansion **( 3.14 * x * x )**. The statement **AREA(r1)** in the program causes the variable **r1** to be substituted for **x**. Thus the statement **AREA(r1)** is equivalent to:
 
-( 3.14 \* r1 \* r1 )
+( 3.14 * r1 * r1 )
 
 After the above source code has passed through the preprocessor, what the compiler gets to work on will be this:
 
-\# include <stdio.h> int main( ) { float r1 = 6.25, r2 = 2.5, a ; a = 3.14 \* r1 \*r1 ; printf ( "Area of circle = %f\\n", a ) ; a = 3.14 \*r2 \* r2 ; printf ( "Area of circle = %f\\n", a ) ;
+\# include <stdio.h> int main( ) { float r1 = 6.25, r2 = 2.5, a ; a = 3.14 * r1 *r1 ; printf ( "Area of circle = %f\\n", a ) ; a = 3.14 *r2 * r2 ; printf ( "Area of circle = %f\\n", a ) ;
 
 return 0 ; }
 
@@ -115,17 +115,17 @@ Here are some important points to remember while writing macros with arguments:
 
 - Be careful not to leave a blank between the macro template and its argument while defining the macro. For example, there should be
 
-no blank between **AREA** and **(x)** in the definition, #define AREA(x) ( 3.14 \* x \* x )
+no blank between **AREA** and **(x)** in the definition, #define AREA(x) ( 3.14 * x * x )
 
 If we were to write **AREA (x)** instead of **AREA(x)**, the **(x)** would become a part of macro expansion, which we certainly don’t want. What would happen is, the template would be expanded to
 
-( r1 ) ( 3.14 \* r1 \* r1 )
+( r1 ) ( 3.14 * r1 * r1 )
 
 which won’t run. Not at all what we wanted.
 
 - The entire macro expansion should be enclosed within parentheses. Here is an example of what would happen if we fail to enclose the macro expansion within parentheses.
 
-\# include <stdio.h> # define SQUARE(n) n \* n int main( ) { int j ; j = 64 / SQUARE ( 4 ) ; printf ( "j = %d\\n", j ) ; return 0 ; }
+\# include <stdio.h> # define SQUARE(n) n * n int main( ) { int j ; j = 64 / SQUARE ( 4 ) ; printf ( "j = %d\\n", j ) ; return 0 ; }
 
 The output of the above program would be:
 
@@ -135,7 +135,7 @@ whereas, what we expected was j = 4.
 
 What went wrong? The macro was expanded into
 
-j = 64 / 4 \* 4 ;
+j = 64 / 4 * 4 ;
 
 which yielded 64.
 
@@ -143,7 +143,7 @@ which yielded 64.
 
 \# include <stdio.h>
 
-#include <windows.h> void gotoxy ( short int col, short int row ) ; # define HLINE for ( i = 0 ; i < 79 ; i++ ) \\ printf ( "%c", 196 ) ; # define VLINE( X, Y ) { \\ gotoxy ( X, Y ) ; \\ printf ( "%c", 179 ) ; \\ } int main( ) { int i, y ; /\* system( ) will work in Visual Studio. In Turbo C / C++ use clrscr( ) \*/ system ( "cls" ) ; /\* position cursor in row x and column y. Use this function in Visual Studio. If you are using Turbo C / C++ use standard library function gotoxy( ) declared in file conio.h \*/ gotoxy ( 1, 12 ) ; HLINE for ( y = 1 ; y < 25 ; y++ ) VLINE ( 39, y ) ; return 0 ; } void gotoxy ( short int col, short int row ) { HANDLE hStdout = GetStdHandle ( STD\_OUTPUT\_HANDLE ) ; COORD position = { col, row } ; SetConsoleCursorPosition ( hStdout, position ) ; }
+#include <windows.h> void gotoxy ( short int col, short int row ) ; # define HLINE for ( i = 0 ; i < 79 ; i++ ) \\ printf ( "%c", 196 ) ; # define VLINE( X, Y ) { \\ gotoxy ( X, Y ) ; \\ printf ( "%c", 179 ) ; \\ } int main( ) { int i, y ; /* system( ) will work in Visual Studio. In Turbo C / C++ use clrscr( ) */ system ( "cls" ) ; /* position cursor in row x and column y. Use this function in Visual Studio. If you are using Turbo C / C++ use standard library function gotoxy( ) declared in file conio.h */ gotoxy ( 1, 12 ) ; HLINE for ( y = 1 ; y < 25 ; y++ ) VLINE ( 39, y ) ; return 0 ; } void gotoxy ( short int col, short int row ) { HANDLE hStdout = GetStdHandle ( STD\_OUTPUT\_HANDLE ) ; COORD position = { col, row } ; SetConsoleCursorPosition ( hStdout, position ) ; }
 
 This program draws a vertical and a horizontal line in the center of the screen.
 
@@ -211,11 +211,11 @@ Where would **#ifdef** be useful? When would you like to compile only a part of 
 
 - To “comment out” obsolete lines of code. It often happens that a program is changed at the last minute to satisfy a client. This involves rewriting some part of source code to the client’s satisfaction and deleting the old code. But veteran programmers are familiar with the clients who change their mind and want the old code back again just the way it was. Now you would definitely not like to retype the deleted code again.
 
-One solution in such a situation is to put the old code within a pair of /\* - - - \*/ combination. But we might have already written a comment in the code that we are about to “comment out”. This would mean we end up with nested comments. Obviously, this solution won’t work since we can’t nest comments in C.
+One solution in such a situation is to put the old code within a pair of /* - - - */ combination. But we might have already written a comment in the code that we are about to “comment out”. This would mean we end up with nested comments. Obviously, this solution won’t work since we can’t nest comments in C.
 
 Therefore, the solution is to use conditional compilation as shown below.
 
-int main( ) { # ifdef OKAY statement 1 ; statement 2 ; /\* detects virus \*/ statement 3 ; statement 4 ; /\* specific to stone virus \*/ # endif
+int main( ) { # ifdef OKAY statement 1 ; statement 2 ; /* detects virus */ statement 3 ; statement 4 ; /* specific to stone virus */ # endif
 
 statement 5 ; statement 6 ; statement 7 ; }
 
@@ -239,7 +239,7 @@ int main( ) { # ifndef INTEL code suitable for a Motorola PC # else code suitabl
 
 - Suppose a function **myfunc( )** is defined in a file ‘myfile.h’ which is **#include**d in a file ‘myfile1.h’. Now in your program file, if you **#include** both ‘myfile.h’ and ‘myfile1.h’, the compiler flashes an error ‘Multiple declaration for **myfunc’**. This is because the same file ‘myfile.h’ gets included twice. To avoid this, we can write following code in the ‘myfile.h’ header file:
 
-/\* myfile.h \*/ # ifndef \_\_myfile\_h # define \_\_myfile\_h myfunc( ) { /\* some code \*/ }
+/* myfile.h */ # ifndef \_\_myfile\_h # define \_\_myfile\_h myfunc( ) { /* some code */ }
 
 \# endif
 
@@ -303,7 +303,7 @@ Note that the functions **fun1( )** and **fun2( )** should neither receive nor r
 
 The **#pragma warn** directive tells the compiler whether or not we want to suppress a specific warning. Usage of this pragma is shown below.
 
-\# include <stdio.h> # pragma warn –rvl /\* return value \*/ # pragma warn –par /\* parameter not used \*/ # pragma warn –rch /\* unreachable code \*/ int f1( ) { int a = 5 ; } void f2 ( int x ) { printf ( "Inside f2" ) ; } int f3( ) { int x = 6 ; return x ; x++ ; } int main( ) {
+\# include <stdio.h> # pragma warn –rvl /* return value */ # pragma warn –par /* parameter not used */ # pragma warn –rch /* unreachable code */ int f1( ) { int a = 5 ; } void f2 ( int x ) { printf ( "Inside f2" ) ; } int f3( ) { int x = 6 ; return x ; x++ ; } int main( ) {
 
 f1( ) ; f2 ( 7 ) ; f3( ) ; return 0 ; }
 
@@ -477,7 +477,7 @@ Figure 12.2
 
 - Which of the following are correctly formed **#define** statements:
 
-#define INCH PER FEET 12 #define SQR (X) ( X \* X ) #define SQR(X) X \* X #define SQR(X) ( X \* X )
+#define INCH PER FEET 12 #define SQR (X) ( X * X ) #define SQR(X) X * X #define SQR(X) ( X * X )
 
 - State True or False:
 
@@ -515,11 +515,11 @@ the macros are removed from the expanded source code. 4. Macros with arguments a
 
 **\[B\]** What will be the output of the following programs:
 
-- # include <stdio.h> int main( ) { int i = 2 ; # ifdef DEF i \*= i ; # else printf ( "%d\\n", i ) ; # endif return 0 ; }
+- # include <stdio.h> int main( ) { int i = 2 ; # ifdef DEF i *= i ; # else printf ( "%d\\n", i ) ; # endif return 0 ; }
 
-- # include <stdio.h> # define PRODUCT(x) ( x \* x ) int main( ) { int i = 3, j, k, l ; j = PRODUCT( i + 1 ) ; k = PRODUCT( i++ ) ; l = PRODUCT ( ++i ) ; printf ( "%d %d %d %d\\n", i, j, k, l ) ; return 0 ; }
+- # include <stdio.h> # define PRODUCT(x) ( x * x ) int main( ) { int i = 3, j, k, l ; j = PRODUCT( i + 1 ) ; k = PRODUCT( i++ ) ; l = PRODUCT ( ++i ) ; printf ( "%d %d %d %d\\n", i, j, k, l ) ; return 0 ; }
 
-- # include <stdio.h> # define PI 3.14 # define AREA( x, y, z ) ( PI \* x \* x + y \* z ) ;
+- # include <stdio.h> # define PI 3.14 # define AREA( x, y, z ) ( PI * x * x + y * z ) ;
 
 int main( ) { float a = AREA ( 1, 5, 8 ) ; float b = AREA ( AREA ( 1, 5, 8 ), 4, 5 ) ; printf ( " a = %f\\n", a ) ; printf ( " b = %f\\n", b ) ; return 0 ; }
 
