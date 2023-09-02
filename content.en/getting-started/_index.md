@@ -1,6 +1,9 @@
 ---
 title: 'Getting Started'
 weight: 1
+references:
+    videos:
+        - youtube:yxj5nnzhBMg
 ---
 
 Before we can begin to write serious programs in C, it would be interesting to find out what really is C, how it came into existence and how does it compare with other programming languages. In this chapter, we would briefly outline these issues.
