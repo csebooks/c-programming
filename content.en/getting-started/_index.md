@@ -4,6 +4,8 @@ weight: 1
 references:
     videos:
         - youtube:Zi_n_mE3pEM
+    links:
+        - https://www.w3schools.com/c/
 ---
 
 # Getting Started
