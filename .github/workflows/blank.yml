@@ -28,7 +28,7 @@ jobs:
           BOOK_PATH=$(git config --get remote.origin.url | cut -d. -f2 | cut -c 5-)
           for dir in content.*/; do mkdir -p temp/books/$BOOK_PATH && mv $dir/** temp/books/$BOOK_PATH && mv temp/** $dir/; done
           cp -rf content.* gurukulam/site/
-          export BUILD_PRODUCTION=Y
+          export BUILD_PRODUCTION=
 
       - name: Run Hugo
         working-directory: gurukulam/site
