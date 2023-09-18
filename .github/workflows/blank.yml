@@ -24,7 +24,8 @@ jobs:
       - name: Build Theme
         run: |
           git clone https://github.com/techatpark/gurukulam
-          rm -rf gurukulam/site/content.* && rm -rf gurukulam/site/static/ && rm -rf gurukulam/site/layouts/index.html
+          find gurukulam/site/content.*/** -maxdepth 1 -type d -not -name courses -not -name "books"  -exec rm -rf {} \;
+          rm -rf gurukulam/site/static/ && rm -rf gurukulam/site/layouts/index.html
           BOOK_PATH=$(git config --get remote.origin.url | cut -d. -f2 | cut -c 5-)
           for dir in content.*/; do mkdir -p temp/books/$BOOK_PATH && mv $dir/** temp/books/$BOOK_PATH && mv temp/** $dir/; done
           cp -rf content.* gurukulam/site/
