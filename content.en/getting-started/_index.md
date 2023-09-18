@@ -37,26 +37,8 @@ Communicating with a computer involves speaking the language the computer unders
 
 Learning C is similar and easier. Instead of straight-away learning how to write programs, we must first know what alphabets, numbers and special symbols are used in C, then how using them, constants, variables and keywords are constructed, and finally, how are these combined to form an instruction. A group of instructions would be combined later on to form a program. This is illustrated in the Figure 1.1.
 
-{{< diagram "w-50 h-75 d-inline-block float-start" "Steps in learning English Language" >}}
 
-```goat
-┌─────────┐
-│Alphabets│
-└────┬────┘
-  ┌──▽──┐  
-  │Words│  
-  └──┬──┘  
-┌────▽────┐
-│Sentences│
-└────┬────┘
-┌────▽────┐
-│Paragraph│
-└─────────┘
-
-```
-{{< /diagram >}}
-
-{{< diagram "w-50 vh-50" "Steps in learning C Language" >}}
+{{< diagram "Steps in learning C Language" "w-75" >}}
 ```goat
   ┌─────────────────┐ 
   │Alphabets,Digits,│ 
@@ -103,6 +85,7 @@ Now that we understand the constants and the variables, let us see what differen
 
 C constants can be divided into two major categories:
 
+{{< diagram "Types of C Constants" >}}
 ```goat
                                           +-------------+                                                          
                              +----------- |  Constants  |-------------+                                            
@@ -124,6 +107,7 @@ C constants can be divided into two major categories:
                                                                 +-------------+                                   -
                                                                                     
 ```
+{{< /diagram >}}
 
 At this stage, we would restrict our discussion to only Primary constants, namely, Integer, Real and Character constants. Let us see the details of each of these constants. For constructing these different types of constants, certain rules have been laid down. These rules are as under:
 
