@@ -37,7 +37,7 @@ jobs:
       - name: Build Slides
         run: |
           SLIDE_PATH=$(git config --get remote.origin.url | cut -d. -f2 | cut -c 5-)
-          for dir in slides/content.*/; do mkdir -p temp/courses/$SLIDE_PATH && mv $dir/** temp/courses/$SLIDE_PATH && mv temp/** $dir/; done
+          for dir in slides/content.*/; do mkdir -p temp/courses/books/$SLIDE_PATH && mv $dir/** temp/courses/books/$SLIDE_PATH && mv temp/** $dir/; done
           cp -rf slides/content.* gurukulam/site/
           export BUILD_PRODUCTION=Y
 
