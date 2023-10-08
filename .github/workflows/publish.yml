@@ -34,6 +34,13 @@ jobs:
           cp -rf content.* gurukulam/site/
           export BUILD_PRODUCTION=Y
 
+      - name: Build Slides
+        run: |
+          SLIDE_PATH=$(git config --get remote.origin.url | cut -d. -f2 | cut -c 5-)
+          for dir in slides/content.*/; do mkdir -p temp/courses/$SLIDE_PATH && mv $dir/** temp/courses/$SLIDE_PATH && mv temp/** $dir/; done
+          cp -rf slides/content.* gurukulam/site/
+          export BUILD_PRODUCTION=Y
+
       - name: Run Hugo
         working-directory: gurukulam/site
         run: env BUILD_PRODUCTION=Y hugo --themesDir ../..
