@@ -26,21 +26,19 @@ jobs:
           git clone https://github.com/techatpark/gurukulam
           find gurukulam/site/content.*/** -maxdepth 0 -type d -not -name courses -not -name "books"  -exec rm -rf {} \;
           rm -rf gurukulam/site/static/ && rm -rf gurukulam/site/layouts/index.html
+          export BUILD_PRODUCTION=Y
+          MATERIAL_PATH=$(git config --get remote.origin.url | cut -d. -f2 | cut -c 5-)
 
       - name: Build Books
         run: |
-          BOOK_PATH=$(git config --get remote.origin.url | cut -d. -f2 | cut -c 5-)
-          for dir in content.*/; do mkdir -p temp/books/$BOOK_PATH && mv $dir/** temp/books/$BOOK_PATH && mv temp/** $dir/; done
+          for dir in content.*/; do mkdir -p temp/books/$MATERIAL_PATH && mv $dir/** temp/books/$MATERIAL_PATH && mv temp/** $dir/; done
           cp -rf content.* gurukulam/site/
-          export BUILD_PRODUCTION=Y
 
       - name: Build Slides
         run: |
-          SLIDE_PATH=$(git config --get remote.origin.url | cut -d. -f2 | cut -c 5-)
-          for dir in slides/content.*/; do mkdir -p temp/courses/books/$SLIDE_PATH && mv $dir/** temp/courses/books/$SLIDE_PATH && mv temp/** $dir/; done
+          for dir in slides/content.*/; do mkdir -p temp/courses/books/$MATERIAL_PATH && mv $dir/** temp/courses/books/$MATERIAL_PATH && mv temp/** $dir/; done
           cp -rf slides/content.* gurukulam/site/
-          export BUILD_PRODUCTION=Y
-
+          
       - name: Run Hugo
         working-directory: gurukulam/site
         run: env BUILD_PRODUCTION=Y hugo --themesDir ../..
