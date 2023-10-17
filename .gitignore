@@ -3,6 +3,5 @@ public/
 resources/
 themes/
 *.backup
-config.toml
 
 .hugo_build.lock
