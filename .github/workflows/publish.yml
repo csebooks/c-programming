@@ -5,5 +5,11 @@ on:
     branches: [main]
 
 jobs:
-  call-workflow-in-another-repo:
-    uses: csebooks/java-programming/.github/workflows/main.yml@main
+  call-workflow-passing-data:
+    uses: techatpark/gurukulam/.github/workflows/material-deploy.yml@develop
+    secrets:
+      HOST: ${{ secrets.HOST }}
+      USERNAME: ${{ secrets.USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      TARGET_DIR: ${{ secrets.TARGET_DIR }}
+      QUESTIONS_DIR: ${{ secrets.QUESTIONS_DIR }}
