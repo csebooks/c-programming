@@ -4,23 +4,16 @@ weight: 1
 ---
 
 
-
-
-
-
 <div class="slides">
-    <!-- Slide 1 -->
     <section data-auto-animate data-transition="zoom">
         <h2  class="r-fit-text" style="white-space: nowrap; display: inline-block; font-size: 218.789px;">What is C?</h2>
     </section>
 
-    <!-- Slide 2 -->
     <section data-auto-animate data-transition="zoom">
         <h2>Definition</h2>
         <p>C is a general-purpose programming language originally developed at Bell Labs in the 1970s. It was designed by Dennis Ritchie for system programming, but it's widely used in various application domains.</p>
     </section>
 
-    <!-- Slide 3 -->
     <section data-auto-animate data-transition="zoom">
       <section>
         <h2>Key Features</h2>
@@ -39,7 +32,6 @@ weight: 1
       </section> 
     </section>
 
-    <!-- Slide 4 -->
     <section data-auto-animate data-transition="zoom">
         <h2>Applications</h2>
         <ul>
@@ -49,25 +41,71 @@ weight: 1
             <li>Compiler Development: C is often used to develop compilers and interpreters for other languages.</li>
         </ul>
     </section>
-
-    <!-- Slide 5 -->
     <section data-auto-animate data-transition="zoom">
-        <h2>Example: Hello World program in C</h2>
-        <pre><code class="language-c">
+      <h2>Example: Hello World program in C</h2>
+      <pre><code class="language-c">
 #include <stdio.h>
 
 int main() {
 printf("Hello, World!\n");
 return 0;
 }
-        </code></pre>
-    </section>
+      </code></pre>
+  </section>
 
-    <!-- Slide 6 -->
     <section data-auto-animate data-transition="zoom">
         <h2>Popularity</h2>
         <p>C has a strong legacy and is still widely used in industry and education due to its powerful features and low-level capabilities.</p>
     </section>
 </div>
+
+    <section data-auto-animate data-transition="zoom">
+        <h1>Getting Started with C</h1>
+    </section>
+
+    <section data-auto-animate data-transition="zoom">
+        <h2>The C Character Set</h2>
+        <p>C Character Set: C uses a character set that consists of letters, digits, and various special characters. It's essential to understand this character set when writing C code.</p>
+        <h3>Character Set Components:</h3>
+        <ul>
+            <li>Letters: Uppercase and lowercase letters are distinct in C.</li>
+            <li>Digits: C uses decimal digits (0-9).</li>
+            <li>Special Characters: Special characters like +, -, *, /, %, &, |, !, etc., are used for operations.</li>
+        </ul>
+    </section>
+
+    <section data-auto-animate data-transition="zoom">
+        <h2>Constants, Variables, and Keywords</h2>
+        <h3>Constants:</h3>
+        <p>Constants in C are values that do not change during program execution. They can be of different types, including integer constants (e.g., 42), floating-point constants (e.g., 3.14), and character constants (e.g., 'A').</p>
+        <h3>Variables:</h3>
+        <p>Variables are used to store data that can change during program execution. You must declare variables with a data type before using them.</p>
+        <h3>Data Types:</h3>
+        <p>C supports various data types, including:</p>
+        <ul>
+            <li>int: For integers.</li>
+            <li>float: For floating-point numbers.</li>
+            <li>char: For characters.</li>
+            <li>double: For double-precision floating-point numbers.</li>
+        </ul>
+        <h3>Keywords:</h3>
+        <p>Keywords are reserved words in C and cannot be used as identifiers (variable or function names). Examples include "int," "if," "while," "return," and "break."</p>
+    </section>
+
+    <section data-auto-animate data-transition="zoom">
+        <h2>Example:</h2>
+        <pre><code class="language-c">
+#include <stdio.h>
+
+int main() {
+    int age;  // Declaration of an integer variable
+    age = 30; // Assignment of a value to the variable
+     printf("My age is %d years.\n", age);
+  return 0;
+}
+        </code></pre>
+        <p>Note: C is case-sensitive, so "Age" and "age" would be treated as different variables.</p>
+    </section>
+
 
 
