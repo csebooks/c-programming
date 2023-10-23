@@ -6,13 +6,13 @@ weight: 8
 <div class="slides">
   <!-- Slide 1: Title -->
   <section data-auto-animate data-transition="zoom">
-    <h1>C Programming in the Linux Environment</h1>
+    <h2>C Programming in the Linux Environment</h2>
     <p>Subtitle: An Introduction</p>
 </section>
 
 <!-- Slide 2: Introduction -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Introduction</h1>
+    <h2>Introduction</h2>
     <p>Briefly introduce the topic.</p>
     <p>Mention the division of the programming world into Windows and Linux camps.</p>
     <p>Highlight the popularity and community around Linux.</p>
@@ -20,7 +20,7 @@ weight: 8
 
 <!-- Slide 3: What is Linux? -->
 <section data-auto-animate data-transition="zoom">
-    <h1>What is Linux?</h1>
+    <h2>What is Linux?</h2>
     <p>Explain Linux as a clone of the UNIX operating system.</p>
     <p>Mention Linus Torvalds and the open-source nature of Linux.</p>
     <p>Discuss the availability and flexibility of Linux.</p>
@@ -28,108 +28,108 @@ weight: 8
 
 <!-- Slide 4: Linux Distributions -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Linux Distributions</h1>
+    <h2>Linux Distributions</h2>
     <p>Introduce popular Linux distributions like Ubuntu, RedHat, SUSE, and more.</p>
     <p>Highlight that these distributions contain the Linux kernel and various application programs.</p>
 </section>
 
 <!-- Slide 5: C Programming Under Linux -->
 <section data-auto-animate data-transition="zoom">
-    <h1>C Programming Under Linux</h1>
+    <h2>C Programming Under Linux</h2>
     <p>Explain that C programming in Linux is similar but also different from other platforms.</p>
     <p>Mention that the usage of standard library functions remains consistent.</p>
 </section>
 
 <!-- Slide 6: "Hello Linux" Program -->
 <section data-auto-animate data-transition="zoom">
-    <h1>"Hello Linux" Program</h1>
+    <h2>"Hello Linux" Program</h2>
     <p>Present a simple "Hello World" C program for Linux.</p>
     <p>Explain how to compile and execute the program using NetBeans or GCC.</p>
 </section>
 
 <!-- Slide 7: Introduction to Processes -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Introduction to Processes</h1>
+    <h2>Introduction to Processes</h2>
     <p>Explain the concept of processes in Linux.</p>
     <p>Highlight that Linux can run multiple processes simultaneously.</p>
 </section>
 
 <!-- Slide 8: The "Hello Linux" Program - getpid() -->
 <section data-auto-animate data-transition="zoom">
-    <h1>The "Hello Linux" Program - getpid()</h1>
+    <h2>The "Hello Linux" Program - getpid()</h2>
     <p>Introduce the getpid() function.</p>
     <p>Show how getpid() is used to retrieve the process ID of a running program.</p>
 </section>
 
 <!-- Slide 9: Parent and Child Processes -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Parent and Child Processes</h1>
+    <h2>Parent and Child Processes</h2>
     <p>Describe the parent-child relationship between processes.</p>
     <p>Introduce the fork() function and show a sample program illustrating it.</p>
 </section>
 
 <!-- Slide 10: Child Process Output -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Child Process Output</h1>
+    <h2>Child Process Output</h2>
     <p>Show the output of the program demonstrating fork() and explain why it appears as it does.</p>
 </section>
 
 <!-- Slide 11: A Real-World Example - Copying Files -->
 <section data-auto-animate data-transition="zoom">
-    <h1>A Real-World Example - Copying Files</h1>
+    <h2>A Real-World Example - Copying Files</h2>
     <p>Explain the need for creating child processes.</p>
     <p>Describe a hypothetical scenario where child processes are useful for concurrent tasks.</p>
 </section>
 
 <!-- Slide 12: "Child and Parent Process IDs" Program -->
 <section data-auto-animate data-transition="zoom">
-    <h1>"Child and Parent Process IDs" Program</h1>
+    <h2>"Child and Parent Process IDs" Program</h2>
     <p>Present a program showing how to retrieve both child and parent process IDs.</p>
     <p>Explain the use of getpid() and getppid().</p>
 </section>
 
 <!-- Slide 13: Process Tree in Linux -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Process Tree in Linux</h1>
+    <h2>Process Tree in Linux</h2>
     <p>Describe the hierarchical structure of processes in Linux.</p>
     <p>Mention the "init" process as the root of the process tree.</p>
 </section>
 
 <!-- Slide 14: Executing Programs in Child Processes -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Executing Programs in Child Processes</h1>
+    <h2>Executing Programs in Child Processes</h2>
     <p>Introduce the exec() family of functions.</p>
     <p>Show how to execute a new program in a child process using execl().</p>
 </section>
 
 <!-- Slide 15: Exec Function Parameters -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Exec Function Parameters</h1>
+    <h2>Exec Function Parameters</h2>
     <p>Explain the parameters required by the exec() functions.</p>
     <p>Highlight the importance of using NULL as the end-of-arguments marker.</p>
 </section>
 
 <!-- Slide 16: Code Execution with exec() -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Code Execution with exec()</h1>
+    <h2>Code Execution with exec()</h2>
     <p>Describe how the code execution changes after calling an exec() function.</p>
     <p>Use an example with ls to illustrate the point.</p>
 </section>
 
 <!-- Slide 17: Combining fork() and exec() -->
 <section data-auto-animate data-transition="zoom">
-    <h1>Combining fork() and exec()</h1>
+    <h2>Combining fork() and exec()</h2>
     <p>Emphasize the typical use of fork() and exec() together to create child processes.</p>
 </section>
 <!-- Slide 1: Title -->
 <section>
-  <h1>Linux Programming Essentials</h1>
+  <h2>Linux Programming Essentials</h2>
   <p>Subtitle: Zombies, Orphans, and Event-Driven Programming</p>
 </section>
 
 <!-- Slide 2: Introduction to Process Table -->
 <section>
-  <h1>Introduction to Process Table</h1>
+  <h2>Introduction to Process Table</h2>
   <p>Linux maintains a 'Process Table' that contains information about running processes.</p>
   <p>This table includes an 'exit code' indicating the reason for termination.</p>
   <p>Parent processes query the exit code to remove entries in the table.</p>
@@ -137,7 +137,7 @@ weight: 8
 
 <!-- Slide 3: Child Terminates Earlier -->
 <section>
-  <h1>Child Terminates Earlier</h1>
+  <h2>Child Terminates Earlier</h2>
   <p>When a child process ends before the parent, its entry remains in the process table.</p>
   <p>Such processes are known as 'Zombies.'</p>
   <p>A parent should query immediately to prevent a Zombie.</p>
@@ -145,7 +145,7 @@ weight: 8
 
 <!-- Slide 4: Parent Terminates Earlier -->
 <section>
-  <h1>Parent Terminates Earlier</h1>
+  <h2>Parent Terminates Earlier</h2>
   <p>If the parent terminates without querying, the child becomes an 'Orphan.'</p>
   <p>The 'init' process adopts the Orphaned process, then queries the table.</p>
   <p>The child process does not become a Zombie.</p>
@@ -153,20 +153,20 @@ weight: 8
 
 <!-- Slide 5: Handling Child and Parent Termination -->
 <section>
-  <h1>Handling Child and Parent Termination</h1>
+  <h2>Handling Child and Parent Termination</h2>
   <p>Prevent Zombie and Orphan processes by querying exit codes in the parent.</p>
   <p>Cleanup is important for ensuring proper resource management.</p>
 </section>
 
 <!-- Slide 6: Code Example: Preventing Zombies -->
 <section>
-  <h1>Code Example: Preventing Zombies</h1>
+  <h2>Code Example: Preventing Zombies</h2>
   <p>Show the C code example with fork, waitpid, and signal handling.</p>
 </section>
 
 <!-- Slide 7: Signal Communication -->
 <section>
-  <h1>Signal Communication</h1>
+  <h2>Signal Communication</h2>
   <p>Communication with the OS is done using signals.</p>
   <p>Signals are sent from the OS to the program.</p>
   <p>Signals can be caught and handled by the program.</p>
@@ -174,21 +174,21 @@ weight: 8
 
 <!-- Slide 8: Handling SIGINT and SIGTERM -->
 <section>
-  <h1>Handling SIGINT and SIGTERM</h1>
+  <h2>Handling SIGINT and SIGTERM</h2>
   <p>SIGINT (Ctrl+C) and SIGTERM (kill command) can be handled in C programs.</p>
   <p>By registering signal handlers, programs can define custom behavior for these signals.</p>
 </section>
 
 <!-- Slide 9: Handling Multiple Signals -->
 <section>
-  <h1>Handling Multiple Signals</h1>
+  <h2>Handling Multiple Signals</h2>
   <p>Multiple signals can be handled using different signal handlers.</p>
   <p>Register each signal with its associated handler using g_signal_connect.</p>
 </section>
 
 <!-- Slide 10: Signal Blocking -->
 <section>
-  <h1>Signal Blocking</h1>
+  <h2>Signal Blocking</h2>
   <p>Signal blocking is used to defer signal delivery during critical code sections.</p>
   <p>Use sigprocmask to block and unblock signals.</p>
   <p>Blocked signals are delivered once unblocked.</p>
@@ -196,7 +196,7 @@ weight: 8
 
 <!-- Slide 11: Event-Driven Programming in Linux -->
 <section>
-  <h1>Event-Driven Programming in Linux</h1>
+  <h2>Event-Driven Programming in Linux</h2>
   <p>Event-driven programming is used for creating GUI programs.</p>
   <p>GTK library simplifies the creation of GUI applications.</p>
   <p>Events trigger specific functions within the program.</p>
@@ -204,21 +204,21 @@ weight: 8
 
 <!-- Slide 12: Creating a Simple Window with GTK -->
 <section>
-  <h1>Creating a Simple Window with GTK</h1>
+  <h2>Creating a Simple Window with GTK</h2>
   <p>Show a C code example for creating a basic window using GTK.</p>
   <p>Explain the steps: initialization, creating a window, setting title, and handling destroy signal.</p>
 </section>
 
 <!-- Slide 13: Drawing Shapes in a GTK Window -->
 <section>
-  <h1>Drawing Shapes in a GTK Window</h1>
+  <h2>Drawing Shapes in a GTK Window</h2>
   <p>Show another C code example for drawing shapes in a GTK window.</p>
   <p>Explain how to handle the expose_event signal and use the Gdk drawing functions.</p>
 </section>
 
 <!-- Slide 14: Conclusion -->
 <section>
-  <h1>Conclusion</h1>
+  <h2>Conclusion</h2>
   <p>You've explored Linux programming essentials.</p>
   <p>Signal handling, event-driven programming, and GTK usage are powerful tools.</p>
   <p>Now, you're ready to dive deeper into Linux development.</p>
@@ -226,6 +226,6 @@ weight: 8
 
 <!-- Slide 15: Questions and Discussion -->
 <section>
-  <h1>Questions and Answers</h1>
+  <h2>Questions and Answers</h2>
   <p>Open the Questions for questions and Answers.</p>
 </div>
