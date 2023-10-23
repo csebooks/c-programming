@@ -1,0 +1,14 @@
+{
+  "question" : "Which of the following is not a valid C variable name?",
+  "explanation" : "",
+  "choices" : [ {
+    "value" : "int number"
+  }, {
+    "value" : "float rate"
+  }, {
+    "value" : "int variable_count"
+  }, {
+    "value" : "int $main",
+    "answer" : true
+  } ]
+}

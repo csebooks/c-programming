@@ -1,6 +1,8 @@
 ---
 title: 'Foundation'
 weight: 1
+categories:
+    - foundation
 references:
     videos:
         - youtube:Zi_n_mE3pEM

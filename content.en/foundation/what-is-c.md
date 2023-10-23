@@ -2,7 +2,12 @@
 ---
 title: 'What is C'
 weight: 1
-
+references:
+    videos:
+        - youtube:Zi_n_mE3pEM
+        - youtube:CYvJPra7Ebk
+    links:
+        - https://www.w3schools.com/c/
 ---
 
 # What is C?
