@@ -1,0 +1,102 @@
+---
+title: 'Lets understand C'
+weight: 3
+
+---
+
+<div class="slides">
+
+  <!-- Slide 1: Title -->
+  <section data-auto-animate="" data-transition="zoom">
+    <h2>Compilation and Execution</h2>
+    <h2>in C</h2>
+  </section>
+
+  <!-- Slide 2: Introduction -->
+  <section data-auto-animate="" data-transition="zoom">
+    <h2>Introduction</h2>
+    <p>Once you have written the program, you need to type it and instruct the machine to execute it.</p>
+    <p>You need an Editor to type the C program, and a Compiler to convert it into machine language instructions.</p>
+    <p>Compiler vendors provide Integrated Development Environments (IDEs) with both an Editor and Compiler.</p>
+  </section>
+
+  <!-- Slide 3: IDEs and Setup -->
+  <section data-auto-animate="" data-transition="zoom">
+    <h2>IDEs and Setup</h2>
+    <p>IDEs are available for various operating systems and microprocessors.</p>
+    <p>Details on choosing and setting up the right IDE can be found in Appendix A.</p>
+    <p>Make sure to have the right IDE installed before proceeding.</p>
+  </section>
+
+  <!-- Slide 4: Compilation Steps -->
+  <section data-auto-animate="" data-transition="zoom">
+    <h2>Compilation Steps</h2>
+    <p>1. Write your C program using an Editor.</p>
+    <p>2. Compile the program using a Compiler to generate machine code.</p>
+    <p>3. Execute the machine code.</p>
+  </section>
+
+  <!-- Slide 5: Receiving Input -->
+  <section data-auto-animate="" data-transition="zoom">
+    <h2>Receiving Input</h2>
+    <p>Programs should be general enough to accept user input.</p>
+    <p>Use the `scanf()` function to receive values from the keyboard.</p>
+    <p>Always use the `&` (Address of) operator with `scanf()`.</p>
+  </section>
+
+  <!-- Slide 6: Code Example 1 -->
+  <section data-auto-animate="" data-transition="zoom">
+    <h2>Code Example 1</h2>
+    <pre><code>
+/* Calculation of simple interest */
+/* Author: gekay Date: 25/06/2016 */
+#include &lt;stdio.h&gt;
+int main() {
+int p, n;
+float r, si;
+printf("Enter values of p, n, r: ");
+scanf("%d %d %f", &p, &n, &r);
+si = p * n * r / 100;
+printf("%f\n", si);
+return 0;
+}
+    </code></pre>
+  </section>
+
+  <!-- Slide 7: Code Example 2 -->
+  <section data-auto-animate="" data-transition="zoom">
+    <h2>Code Example 2</h2>
+    <pre><code>
+/* Just for fun. Author: Bozo */
+#include &lt;stdio.h&gt;
+int main() {
+int num;
+printf("Enter a number: ");
+scanf("%d", &num);
+printf("Now I am letting you in on a secret...\n");
+printf("You have just entered the number %d\n", num);
+return 0;
+}
+    </code></pre>
+  </section>
+
+  <!-- Slide 8: Summary -->
+  <section data-auto-animate="" data-transition="zoom">
+    <h2>Summary</h2>
+    <ul>
+      <li>Constants and variables</li>
+      <li>Keywords</li>
+      <li>Rules for constants and variables</li>
+      <li>We should not use a keyword as a variable name</li>
+      <li>Comments can be single line or multi-line</li>
+      <li>Input/output with `scanf()` and `printf()`</li>
+    </ul>
+  </section>
+
+  <!-- Slide 9: Q&A -->
+  <section data-auto-animate="" data-transition="zoom">
+    <h2>Questions and Answers</h2>
+    <p>Open the floor for questions.</p>
+  </section>
+
+</div>
