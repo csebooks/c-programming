@@ -5,7 +5,7 @@ weight: 9
 
 which feature of C do beginners find most difficult to understand? The answer is easy: pointers. Other languages have pointers but few use them so frequently as C does. And why not? It is C’s clever use of pointers that makes it the excellent language it is. This chapter is devoted to pointers and their usage in function calls. Let us begin with the function calls.
 
-##Call by Value and Call by Reference
+## Call by Value and Call by Reference
  By now, we are well familiar with how to call functions. But, if you observe carefully, whenever we called a function and passed something to it we have always passed the ‘values’ of variables to the called function. Such function calls are called ‘calls by value’. By this what we mean is, on calling a function, we are passing values of variables to it. The examples of call by value are shown below:
 
 ```
@@ -19,8 +19,6 @@ We have also learnt that variables are stored somewhere in memory. So instead of
 The difficulty beginners have with pointers has much to do with C’s pointer terminology than the actual concept. For instance, when a C programmer says that a certain variable is a “pointer”, what does that mean? It is hard to see how a variable can point to something, or in a certain direction.
 
 It is hard to get a grip on pointers just by listening to programmer’s jargon. In our discussion of C pointers, therefore, we will try to avoid this difficulty by explaining pointers in terms of programming concepts we already understand. The first thing we want to do is to explain the rationale of C’s pointer notation.
-
-### W
 
 **Pointer Notation** Consider the declaration,
 ```

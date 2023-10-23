@@ -7,12 +7,8 @@ which mechanic is good enough who knows how to repair only one type of vehicle? 
 
 # Why use Structures?
 
-<<<<<<< HEAD
 wouldn’t have been so popular had it been able to handle only all **int**s, or all **float**s or all **char**s at a time. In fact, when we handle real world data, we don’t usually deal with little atoms of information by themselves—things like integers, characters and such. Instead, we deal with entities that are collections of things, each thing having its own attributes, just as the entity we call a ‘book’ is a collection of things, such as title, author, call number, publisher, number of pages, date of publication, etc. As you can see, all this data is dissimilar, like author is a string, whereas number of pages is an integer. For dealing with such collections, C provides a data type called ‘structure’. A structure gathers together, different atoms of information that comprise a given entity. And structure is the topic of this chapter.
 
-# Why use Structures?
-=======
->>>>>>> df8f6b455a97f3ec6259a2812573c6a0b4154256
 We have seen earlier how ordinary variables can hold one piece of information and how arrays can hold a number of pieces of information of the same data type. These two data types can handle a great variety of situations. But quite often we deal with entities that are collection of dissimilar data types.
 
 For **example**, suppose you want to store data about a book. You might want to store its name (a string), its price (a float) and number of pages in it (an int). If data about say 3 such books is to be stored, then we can follow two approaches:
@@ -23,34 +19,28 @@ For **example**, suppose you want to store data about a book. You might want to 
 
 Let us examine these two approaches one-by-one. For the sake of programming convenience, assume that the names of books would be single character long. Let us begin with a program that uses arrays.
 
-<<<<<<< HEAD
+
 ```c
 #include <stdio.h> 
-int main( ) 
-{ 
-    char name[ 3 ] ; 
-    float price[ 3 ] ; 
-    int pages[ 3 ], i ;
-    printf ( "Enter names, prices and no. of pages of 3 books\\n" ) ; 
-    for ( i = 0 ; i <= 2 ; i++ ) 
-    scanf ( "%c %f %d", &name[ i ], &price[ i ], &pages[ i ] ) ; 
-    printf ( "\\nAnd this is what you entered\\n" ) ; 
-    for ( i = 0 ; i <= 2 ; i++ ) 
-    printf ( "%c %f %d\\n", name[ i ], price[ i ], pages[ i ] ) ; 
-    return 0 ; 
-}
-```
-=======
-```c
-#include <stdio.h> 
-int main( ) { 
-char name[3] ; 
-float price[3];
-int pages[3], i ;
-printf ( "Enter names, prices and no. of pages of 3 books\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) scanf ( "%c %f %d", &name[ i ], &price[ i ], &pages[ i ] ) ; printf ( "\\nAnd this is what you entered\\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) printf ( "%c %f %d\\n", name[ i ], price[ i ], pages[ i ] ) ; return 0 ; }
+
+int main(){ 
+
+    char name[3] ; 
+    float price[3];
+    int pages[3], i ;
+    
+    printf("Enter names, prices and no. of pages of 3 books\n");
+    for(i = 0; i <= 2; i++ )
+        scanf ( "%c %f %d", &name[ i ], &price[ i ], &pages[ i ] );
+        printf( "\nAnd this is what you entered\n" );
+        
+        for(i = 0 ; i <= 2 ; i++)
+            printf ("%c %f %d\n", name[i], price[i], pages[i]);
+        
+        return 0;
+    }
 ```
 
->>>>>>> df8f6b455a97f3ec6259a2812573c6a0b4154256
 And here is the sample run...
 ```c
 Enter names, prices and no. of pages of 3 books 
@@ -66,8 +56,8 @@ This approach, no doubt, allows you to store names, prices and number of pages. 
 
 The program becomes more difficult to handle as the number of items relating to the book goes on increasing. For example, we would be required to use a number of arrays, if we also decide to store name of the publisher, date of purchase of book, etc. To solve this problem, C provides a special data type—the structure.
 
-<<<<<<< HEAD
-A structure contains a number of data types grouped together. These data types may or may not be of the same type. \
+A structure contains a number of data types grouped together. These data types may or may not be of the same type.
+
 The following example illustrates the use of this data type:
 ```c
 #include <stdio.h> 
@@ -103,26 +93,7 @@ C 256.500000 682
 F 233.700000 512
 ```
 =======
-A structure contains a number of data types grouped together. These data types may or may not be of the same type. The following example illustrates the use of this data type:
 
-```c
-#include <stdio.h> 
-
-int main( ) { 
-    struct book {
-        char name ; 
-        float price ; 
-        int pages ; 
-    }; 
-
-struct book b1, b2, b3 ; printf ( "Enter names, prices & no. of pages of 3 books\\n" ) ; scanf ( "%c %f %d", &b1.name, &b1.price, &b1.pages ) ; scanf ( "%c %f %d", &b2.name, &b2.price, &b2.pages ) ; scanf ( "%c %f %d", &b3.name, &b3.price, &b3.pages ) ; printf ( "And this is what you entered\\n" ) ; printf ( "%c %f %d\\n", b1.name, b1.price, b1.pages ) ; printf ( "%c %f %d\\n", b2.name, b2.price, b2.pages ) ; printf ( "%c %f %d\\n", b3.name, b3.price, b3.pages ) ; return 0 ; }
-```
-
-And here is the output...
-
-Enter names, prices and no. of pages of 3 books A 100.00 354 C 256.50 682 F 233.70 512 And this is what you entered A 100.000000 354 C 256.500000 682 F 233.700000 512
-
->>>>>>> df8f6b455a97f3ec6259a2812573c6a0b4154256
 This program demonstrates two fundamental aspects of structures:
 
 - Declaration of a structure (b) Accessing of structure elements
@@ -130,15 +101,6 @@ This program demonstrates two fundamental aspects of structures:
 Let us now look at these concepts one-by-one.
 
 ## Declaring a Structure
-<<<<<<< HEAD
-=======
-
-In our example program, the following statement declares the structure type:
-
-struct book {
-
-char name ; float price ; int pages ; } ;
->>>>>>> df8f6b455a97f3ec6259a2812573c6a0b4154256
 
 In our **example** program, the following statement declares the structure type:
 ```c

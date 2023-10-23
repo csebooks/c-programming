@@ -4,7 +4,128 @@ weight: 4
 ---
 
 <div class="slides">
-  <section data-auto-animate="" data-transition="zoom">
-    <h2 class="r-fit-text">Console in C</h2>
-  </section>
+<!-- Slide 1: Introduction -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Introduction</h1>
+  <p>Dennis Ritchie wanted C to remain compact.</p>
+  <p>C deliberately omitted I/O functionalities from its definition.</p>
+  <p>Explore how I/O is managed in C and how printf() and scanf() are used.</p>
+</section>
+
+<!-- Slide 2: Types of I/O -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Types of I/O</h1>
+  <p>Different operating systems have their I/O facilities.</p>
+  <p>System programmers link the C Compiler with OS-specific I/O facilities.</p>
+  <p>C Compilers come with standard I/O libraries.</p>
+</section>
+
+<!-- Slide 3: Console I/O Functions -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Console I/O Functions</h1>
+  <p>Two categories: Formatted and Unformatted</p>
+  <p>Formatted functions allow customization of input and output.</p>
+  <p>Example functions in each category.</p>
+</section>
+
+<!-- Slide 4: Formatted Console I/O Functions -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Formatted Console I/O Functions</h1>
+  <p>printf() and scanf() are formatted functions.</p>
+  <p>printf() format string and format specifiers.</p>
+  <p>Examples of format specifiers.</p>
+</section>
+
+<!-- Slide 5: Format Specifications -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Format Specifications</h1>
+  <p>Format specifiers for different data types.</p>
+  <p>Optional format specifiers for field width and precision.</p>
+  <p>Examples of using field width and precision.</p>
+</section>
+
+<!-- Slide 6: Escape Sequences -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Escape Sequences</h1>
+  <p>Escape sequences are special characters in format strings.</p>
+  <p>Examples of escape sequences like \n and \t.</p>
+</section>
+
+<!-- Slide 7: Usage of Escape Sequences -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Usage of Escape Sequences</h1>
+  <p>Demonstration of how escape sequences work.</p>
+  <p>Common escape sequences listed.</p>
+</section>
+
+<!-- Slide 8: Custom Format Specifiers -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Custom Format Specifiers</h1>
+  <p>printf() attempts to perform specified conversions.</p>
+  <p>Examples of conversions with sensible and weird results.</p>
+</section>
+
+<!-- Slide 9: scanf() Function -->
+<section data-auto-animate data-transition="zoom">
+  <h1>scanf() Function</h1>
+  <p>scanf() reads and formats data from the keyboard.</p>
+  <p>Format string and list of addresses of variables.</p>
+  <p>Address of variables is needed for storing input.</p>
+</section>
+
+<!-- Slide 10: sprintf() and sscanf() Functions -->
+<section data-auto-animate data-transition="zoom">
+  <h1>sprintf() and sscanf() Functions</h1>
+  <p>sprintf() stores output in a character array.</p>
+  <p>sscanf() reads characters from a string.</p>
+  <p>Useful for in-memory conversions.</p>
+</section>
+
+<!-- Slide 11: Unformatted Console I/O Functions -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Unformatted Console I/O Functions</h1>
+  <p>Functions for handling single characters.</p>
+  <p>getch(), getche(), getchar(), and fgetchar().</p>
+  <p>putch(), putchar(), and fputchar() for character output.</p>
+</section>
+
+<!-- Slide 12: Usage of getch(), getche(), and getchar() -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Usage of getch(), getche(), and getchar()</h1>
+  <p>getch() and getche() read characters without waiting for Enter.</p>
+  <p>putchar() echoes the typed character.</p>
+  <p>fgetchar() is a macro for reading characters.</p>
+</section>
+
+<!-- Slide 13: Usage of putch() and putchar() -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Usage of putch() and putchar()</h1>
+  <p>putch() and putchar() for character output.</p>
+  <p>They print one character at a time.</p>
+</section>
+
+<!-- Slide 14: gets() and puts() Functions -->
+<section data-auto-animate data-transition="zoom">
+  <h1>gets() and puts() Functions</h1>
+  <p>gets() reads a string from the keyboard.</p>
+  <p>Solves issues with scanf() for string input.</p>
+  <p>puts() outputs a string to the screen.</p>
+</section>
+
+<!-- Slide 15: Example of gets() and puts() -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Example of gets() and puts()</h1>
+  <p>Demonstration of using gets() and puts().</p>
+</section>
+
+<!-- Slide 16: Summary -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Summary</h1>
+  <p>No C keyword for I/O; use standard library functions.</p>
+  <p>Formatted and unformatted console I/O functions.</p>
+  <p>Formatted functions allow customization.</p>
+  <p>Format specifiers and escape sequences.</p>
+  <p>Unformatted functions work faster.</p>
+  <p>Example functions and their purposes.</p>
+</section>
 </div>

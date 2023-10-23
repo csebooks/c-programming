@@ -4,7 +4,118 @@ weight: 2
 ---
 
 <div class="slides">
-  <section data-auto-animate="" data-transition="zoom">
-    <h2 class="r-fit-text">Strings in C</h2>
-  </section>
+<!-- Slide 1: Introduction -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Introduction</h1>
+  <p>Strings in programming are similar to character arrays.</p>
+  <p>Strings are used for text manipulation.</p>
+  <p>A string is a one-dimensional array of characters terminated by a null character '\0'.</p>
+</section>
+
+<!-- Slide 2: String Initialization -->
+<section data-auto-animate data-transition="zoom">
+  <h1>String Initialization</h1>
+  <p>Strings can be initialized using character arrays.</p>
+  <p>Example: <code>char name[] = {'H', 'A', 'E', 'S', 'L', 'E', 'R', '\0'};</code></p>
+  <p>'\0' indicates the end of a string.</p>
+</section>
+
+<!-- Slide 3: String Initialization Shortcut -->
+<section data-auto-animate data-transition="zoom">
+  <h1>String Initialization Shortcut</h1>
+  <p>C provides a shortcut for string initialization.</p>
+  <p>Example: <code>char name[] = "HAESLER";</code></p>
+  <p>'\0' is automatically added by C.</p>
+</section>
+
+<!-- Slide 4: String Manipulation -->
+<section data-auto-animate data-transition="zoom">
+  <h1>String Manipulation</h1>
+  <p>You can access string elements like a character array.</p>
+  <p>Example: Print a string character by character using a loop.</p>
+</section>
+
+<!-- Slide 5: String Manipulation (Contd.) -->
+<section data-auto-animate data-transition="zoom">
+  <h1>String Manipulation (Contd.)</h1>
+  <p>You can use a pointer to access string elements.</p>
+  <p>Example: Use a pointer to iterate through the string.</p>
+</section>
+
+<!-- Slide 6: String Printing with printf -->
+<section data-auto-animate data-transition="zoom">
+  <h1>String Printing with printf</h1>
+  <p><code>printf()</code> can print entire strings.</p>
+  <p>Example: <code>printf("%s", name);</code></p>
+  <p><code>%s</code> is used for string formatting.</p>
+</section>
+
+<!-- Slide 7: Reading String from Input -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Reading String from Input</h1>
+  <p>You can use <code>scanf()</code> to read strings from input.</p>
+  <p>Example: <code>char name[25]; scanf("%s", name);</code></p>
+  <p>Make sure the string fits within the array bounds.</p>
+</section>
+
+<!-- Slide 8: Reading Multi-Word Strings -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Reading Multi-Word Strings</h1>
+  <p><code>scanf()</code> cannot read multi-word strings.</p>
+  <p>Use <code>gets()</code> to read multi-word strings.</p>
+  <p>Example: <code>char name[25]; gets(name);</code></p>
+</section>
+
+<!-- Slide 9: Standard Library String Functions -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Standard Library String Functions</h1>
+  <p>C provides various string handling library functions.</p>
+  <p>Functions like <code>strlen</code>, <code>strcpy</code>, <code>strcat</code>, and <code>strcmp</code>.</p>
+  <p>These functions simplify string manipulation.</p>
+</section>
+
+<!-- Slide 10: strlen() Function -->
+<section data-auto-animate data-transition="zoom">
+  <h1>strlen() Function</h1>
+  <p><code>strlen()</code> calculates the length of a string.</p>
+  <p>Example: <code>int len = strlen("Hello");</code></p>
+  <p>It does not count the '\0' character.</p>
+</section>
+
+<!-- Slide 11: strcpy() Function -->
+<section data-auto-animate data-transition="zoom">
+  <h1>strcpy() Function</h1>
+  <p><code>strcpy()</code> copies one string into another.</p>
+  <p>Example: <code>char dest[20]; strcpy(dest, "Source");</code></p>
+</section>
+
+<!-- Slide 12: strcat() Function -->
+<section data-auto-animate data-transition="zoom">
+  <h1>strcat() Function</h1>
+  <p><code>strcat()</code> concatenates one string to the end of another.</p>
+  <p>Example: <code>char dest[30] = "Hello"; strcat(dest, " World");</code></p>
+</section>
+
+<!-- Slide 13: strcmp() Function -->
+<section data-auto-animate data-transition="zoom">
+  <h1>strcmp() Function</h1>
+  <p><code>strcmp()</code> compares two strings.</p>
+  <p>Returns 0 if strings are identical.</p>
+  <p>Example: <code>int result = strcmp("Jerry", "Ferry");</code></p>
+</section>
+
+<!-- Slide 14: Custom strcmp() Function -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Custom strcmp() Function</h1>
+  <p>Implement a custom version of <code>strcmp()</code> for string comparison.</p>
+  <p>Compare strings and return a result based on alphabetical order.</p>
+</section>
+
+<!-- Slide 15: Conclusion -->
+<section data-auto-animate data-transition="zoom">
+  <h1>Conclusion</h1>
+  <p>Strings in C are character arrays with a null character '\0'.</p>
+  <p>Standard library functions simplify string manipulation.</p>
+  <p>Custom functions can be created for more specific needs.</p>
+</section>
 </div>

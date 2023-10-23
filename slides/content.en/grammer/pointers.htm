@@ -5,261 +5,87 @@ weight: 8
 
 
 <div class="slides">
-  
-  <!-- slide 1 content -->
-  <section class="center" data-auto-animate data-transition="convex">
-      <img src="https://www.itsbeyondsimple.com/wp-content/uploads/2017/10/1.-Pointers-Birds.png">
-  </section>
-
-  <!-- slide 2 content -->
   <section data-auto-animate data-transition="zoom">
-      <h3>Introduction to Pointers</h3>
-  </section>
+    <h1>Understanding Pointers in C</h1>
+    <p>Briefly introduce the topic and its importance for C programming.</p>
+    <p>Mention that this chapter focuses on pointers and their usage in function calls.</p>
+</section>
 
-  <!-- slide 3 content -->
-  <section data-auto-animate data-transition="zoom">
-      <ul>
-          <li>In C, Pointers are very easy to learn and the concept of pointers is one of the most powerful
-              fundamentals of C language.
-          <li>Some C programming Tasks are performed more easily with Pointers & other tasks such as dynamic
-              memory location cannot performed without using Pointer.</li>
-          <li>So it becomes necessary to learn Pointers to become a perfect C programmer.</li>
-          <li>Actually, pointers are very interesting & easy to learn. And It is widely used in C & C++
-              programming.</li>
-      </ul>
-  </section>
+<!-- Slide 2: Call by Value and Call by Reference -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Call by Value and Call by Reference</h1>
+    <p>Explain the concepts of "call by value" and "call by reference" in function calls.</p>
+    <p>Show code examples illustrating the two concepts.</p>
+</section>
 
-  <!-- slide 22 content -->
-  <section data-auto-animate data-transition="zoom">
-      <h3>What are Pointers...?</h3>
-  </section>
+<!-- Slide 3: An Introduction to Pointers -->
+<section data-auto-animate data-transition="zoom">
+    <h1>An Introduction to Pointers</h1>
+    <p>Introduce the basics of pointers, highlighting the importance of understanding pointers.</p>
+    <p>Explain C's "address of" and "value at address" operators using code examples.</p>
+</section>
 
-  <!-- slide 22 content -->
-  <section data-auto-animate data-transition="zoom">
-      <ul>
-          <li>A pointer is a variable whose value is the address of another variable i.e. direct address of the
-              memory location.</li>
-          <li>Like any variable or constant, we must declare a pointer before using it to store any variable
-              address.</li>
-          <li>Pointer is a striking and most powerful feature of C programming. As the name itself suggests a
-              pointer is something that points something.</li>
-          <li>It can also be described as a variable that points to an ordinary variable of any type by holding
-              the address of that variable.</li>
-      </ul>
-  </section>
+<!-- Slide 4: Pointer Notation -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Pointer Notation</h1>
+    <p>Describe how C's pointer notation works, using an example with a variable declaration.</p>
+    <p>Explain how memory addresses and values are related to pointers.</p>
+</section>
 
-  <!-- slide  content -->
-  <section data-auto-animate data-transition="zoom">
-      <ul>
-          <p><b><u> Consider following declaration:</b></p>
-          <li> int x = 1;</li>
-          <li>Above declaration reserves a memory block with name x and its value 1.</li>
-          <li>Assume that x is located at address 7000.</li>
-          <li>Therefore: &x = address of x = 7000</li>
-          <li>Then, the Pointer is represented with * symbol., as *x.</li>
-      </ul>
-  </section>
+<!-- Slide 5: Using Address-of Operator (&) -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Using the Address-of Operator (&)</h1>
+    <p>Explain how to use the '&' operator to retrieve the memory address of a variable.</p>
+    <p>Show a code example that prints the address of a variable.</p>
+</section>
 
-  <!-- slide  content -->
-  <section data-auto-animate data-transition="zoom">
-      <h3>Pointer Declaration</h3>
-  </section>
+<!-- Slide 6: Using Value at Address Operator (*) -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Using the Value at Address Operator (*)</h1>
+    <p>Explain how the '*' operator allows you to access the value stored at a specific memory address.</p>
+    <p>Provide a code example illustrating this concept.</p>
+</section>
 
-  <!-- slide  content -->
-  <section data-auto-animate data-transition="zoom">
-      <ul>
-          <p><u>The general form of pointer variables declaration is:</p>
-          <li><b>type *var-name;</b></li>
-          <li>In this, the type is pointer base type.</li>
-          <li>It must be a valid C data type & var-name is the name of the pointer variable.</li>
-          <li>And in this statement the asterisk (*) is used to designate a variable is a pointer.</li>
-          <li>Just take a look at some of the valid pointer declarations:</li>
-          <ul>
-              <li><b>int *a, float *fp, char *ch;</b></li>
-          </ul>
-      </ul>
-  </section>
+<!-- Slide 7: Declaring Pointer Variables -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Declaring Pointer Variables</h1>
+    <p>Explain how to declare pointer variables, including int, char, and float pointers.</p>
+    <p>Highlight that pointer variables store memory addresses.</p>
+</section>
 
-  <!-- slide  content -->
-  <section data-auto-animate data-transition="zoom">
-      <p>There are two ways to initialize the pointer:</p>
-      <ul>
-          <li><u><b>During Declaration</b></li>
-          <ul>
-              <li>float f=7.5;</li>
-              <li>float *p=&amp;f; // pointer initialized during its declaration</li>
-          </ul>
+<!-- Slide 8: Pointer to a Pointer -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Pointer to a Pointer</h1>
+    <p>Introduce the concept of a pointer that contains the address of another pointer.</p>
+    <p>Provide a code example with int, int pointer, and int pointer-to-pointer declarations.</p>
+</section>
 
-          <li><b><u>After Declaration</b></li>
-          <ul>
-              <li>float f=7.5;</li>
-              <li>float *p; // pointer declared</li>
-              <li>p=&amp;f; // pointer initialized after declaration</li>
-          </ul>
-      </ul>
-  </section>
+<!-- Slide 9: Practical Example of Pointers -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Practical Example of Pointers</h1>
+    <p>Show a code example that demonstrates the relationships between variables with different pointer levels.</p>
+    <p>Illustrate the usage of pointer-to-pointer and the relationships between them.</p>
+</section>
 
-  <!-- slide  content -->
-  <section data-auto-animate data-transition="zoom">
-      <h3>How to use Pointers..?</h3>
-  </section>
+<!-- Slide 10: Function Calls - Call by Value and Call by Reference -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Function Calls - Call by Value and Call by Reference</h1>
+    <p>Explain how function calls can be made using "call by value" and "call by reference."</p>
+    <p>Present code examples that show the difference between these two approaches.</p>
+</section>
 
-  <!-- slide  content -->
-  <section data-auto-animate data-transition="zoom">
-      <ul>
-          <li>There are Three steps to use the Pointers.They are:-</li>
-          <ul>
-              <li>Define a pointer variable.</li>
-              <li>Assign the address of a variable to a pointer.</li>
-              <li>Access the value at the address variable in the pointer variable.</li>
-          </ul>
-      </ul>
-  </section>
+<!-- Slide 11: Using Call by Reference to Return Multiple Values -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Using Call by Reference to Return Multiple Values</h1>
+    <p>Demonstrate how call by reference allows a function to return multiple values simultaneously.</p>
+    <p>Present a code example where a function returns area and perimeter values using call by reference.</p>
+</section>
 
-  <!-- slide 22 content -->
-  <section data-auto-animate data-transition="zoom">
-      <h3>Types of Function call</h3>
-  </section>
-
-
-  <!-- slide 23 content -->
-  <section data-auto-animate data-transition="zoom">
-      <p><u>Types of Function Calling</p>
-      <ul>
-          <li>There are two ways that a function can be called from a program. They are,
-              <ul>
-                  <li>Call by Value</li>
-                  <li>Call by Reference</li>
-
-              </ul>
-          </li>
-      </ul>
-  </section>
-
-  <!-- slide 24 content -->
-  <section data-auto-animate data-transition="zoom">
-      <h3>Call By Value</h3>
-  </section>
-
-  <!-- slide 25 content -->
-  <section data-auto-animate data-transition="zoom">
-      <p><u>Call By Value</p>
-      <ul>
-          <li>In call by value method, the value of the variable is passed to the function as parameter.</li>
-          <li>The value of the actual parameter can not be modified by formal parameter.</li>
-          <li>Different Memory is allocated for both actual and formal parameters.</li>
-          <li>Because, value of actual parameter is copied to formal parameter.</li>
-
-      </ul>
-  </section>
-
-  <!-- slide 26 content -->
-  <section data-auto-animate data-transition="zoom">
-      <ul>
-          <li>There are two types of Function Parameters in call by value method.</li>
-          <li>They are:-</li>
-          <ul>
-              <li>Actual parameter – This is the argument which is used in function call.</li>
-              <li>Formal parameter – This is the argument which is used in function definition.</li>
-
-          </ul>
-  </section>
-
-  <!-- slide 27 content -->
-  <section data-auto-animate data-transition="zoom">
-      <p><u>Program to explain Call-By-Value</p>
-      <pre>
-<code data-trim data-noescape>
-#include&lt;stdio.h&gt;
-// function prototype, also called function declaration
-void swap(int a, int b);          
-int main()
-{
-int r = 37, s = 73;
-// calling swap function by value
-printf(" values before swap \n R = %d and S = %d", r, s); 
-swap(r, s);                         
-}
-
-void swap(int a, int b)
-{ 
-int tmp;
-tmp = a;
-a = b;
-b = tmp;
-printf(" \n values after swap \n R = %d and S = %d", a, b);
-}
-</code>
-</pre>
-  </section>
-
-  <!-- slide 28 content -->
-  <section data-auto-animate data-transition="zoom">
-      <p><u>The Explanation of the above program is given below.,</p>
-      <ul>
-          <li>In this program, the values of the variables “R” and “S” are passed to the function “swap”.</li>
-          <li>These values are copied to formal parameters “a” and “b” in swap function and used.</li>
-      </ul>
-  </section>
-
-  <!-- slide 29 content -->
-  <section data-auto-animate data-transition="zoom">
-      <h3>Call By Reference</h3>
-  </section>
-
-  <!-- slide 30 content -->
-  <section data-auto-animate data-transition="zoom">
-      <p><u>Call By Reference</p>
-      <ul>
-          <li>In call by reference method, the address of the variable is passed to the function as parameter.
-          </li>
-          <li>The value of the actual parameter can be modified by formal parameter.</li>
-          <li>Same memory is used for both actual and formal parameters since only address is used by both
-              parameters.</li>
-      </ul>
-  </section>
-
-  <!-- slide 31 content -->
-  <section data-auto-animate data-transition="zoom">
-      <p><u>Program to explain Call-By-Reference</p>
-      <pre>
-<code data-trim data-noescape>                
-#include &lt;stdio.h&gt;
-void swap(int *a, int *b);
-int main()
-{
-int r = 37, s = 73;
-//  calling swap function by reference
-printf("Values Before Swap \n R = %d and S = %d", r, s);
-swap(&r, &s);
-}
-
-void swap(int *a, int *b)
-{
-int tmp;
-tmp = *a;
-*a = *b;
-*b = tmp;
-printf("\n Values After Swap \n  a = %d and b = %d \n", *a, *b);
-}
-</code>
-</pre>
-  </section>
-
-  <!-- slide 32 content -->
-  <section data-auto-animate data-transition="zoom">
-      <ul>
-          <li>In this program, the address of the variables “R” and “S” are passed to the function “swap”.</li>
-          <li>These values are not copied to formal parameters “a” and “b” in swap function.</li>
-          <li>Because, they are just holding the address of those variables.</li>
-          <li>This address is used to access and change the values of the variables.</li>
-      </ul>
-  </section>
-
-  <!-- slide 32 content -->
-  <section data-auto-animate data-transition="zoom">
-      <img
-          src="https://i2.wp.com/www.wishesquotesimages.com/wp-content/uploads/2019/01/thank-you-images-hd.jpg?resize=768%2C432">
-  </section>
+<!-- Slide 12: Conclusions and Key Takeaways -->
+<section data-auto-animate data-transition="zoom">
+    <h1>Conclusions and Key Takeaways</h1>
+    <p>Summarize the key points discussed in the presentation.</p>
+    <p>Reiterate the importance of understanding pointers in C programming.</p>
+</section>
 
 </div>
