@@ -25,5 +25,3 @@ This module will highlight the myriad of opportunities that mastering the C lang
 
 Development Environment:
 Students will learn to set up and navigate a C programming environment. This section covers topics like choosing an Integrated Development Environment (IDE), configuring compilers, and understanding the debugging tools essential for efficient programming.
-
-Version 2.0
