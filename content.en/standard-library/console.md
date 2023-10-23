@@ -193,7 +193,7 @@ Note that the specifier **%10.1f** specifies that a float be printed left- align
 
 The format specifiers can be used even while displaying a string of characters. The following program would clarify this point:
 
-\# include <stdio.h> int main( ) { char firstname1\[ \] = "Sandy" ; char surname1\[ \] = "Malya" ; char firstname2\[ \] = "AjayKumar" ; char surname2\[ \] = "Gurubaxani" ; printf ( "%20s%20s\\n", firstname1, surname1 ) ; printf ( "%20s%20s\\n", firstname2, surname2 ) ; return 0 ; }
+\# include <stdio.h> int main( ) { char firstname1[ ] = "Sandy" ; char surname1[ ] = "Malya" ; char firstname2[ ] = "AjayKumar" ; char surname2[ ] = "Gurubaxani" ; printf ( "%20s%20s\\n", firstname1, surname1 ) ; printf ( "%20s%20s\\n", firstname2, surname2 ) ; return 0 ; }
 
 And here’s the output...
 
@@ -271,7 +271,7 @@ So far we have been describing **printf( )’**s specification as if we are forc
 
 The following program shows a few of these conversions, some sensible, some weird:
 
-\# include <stdio.h> int main( ) { char ch = 'z' ; int i = 125 ; float a = 12.55 ; char s\[ \] = "hello there !" ; printf ( "%c %d %f\\n", ch, ch, ch ) ; printf ( "%s %d %f\\n", s, s, s ) ; printf ( "%c %d %f\\n",i ,i, i ) ; printf ( "%f %d\\n", a, a ) ; return 0 ; }
+\# include <stdio.h> int main( ) { char ch = 'z' ; int i = 125 ; float a = 12.55 ; char s[ ] = "hello there !" ; printf ( "%c %d %f\\n", ch, ch, ch ) ; printf ( "%s %d %f\\n", s, s, s ) ; printf ( "%c %d %f\\n",i ,i, i ) ; printf ( "%f %d\\n", a, a ) ; return 0 ; }
 
 And here’s the output ...
 
@@ -299,7 +299,7 @@ All the format specifications that we learnt in **printf( )** function are appli
 
 The **sprintf( )** function works similar to the **printf( )** function except for one small difference. Instead of sending the output to the screen as **printf( )** does, this function writes the output to an array of characters. The following program illustrates this:
 
-\# include <stdio.h> int main( ) { int i = 10 ; char ch = 'A' ; float a = 3.14 ; char str\[ 20 \] ; printf ( "%d %c %f\\n", i, ch, a ) ; sprintf ( str, "%d %c %f", i, ch, a ) ; printf ( "%s\\n", str ) ; return 0 ; }
+\# include <stdio.h> int main( ) { int i = 10 ; char ch = 'A' ; float a = 3.14 ; char str[ 20 ] ; printf ( "%d %c %f\\n", i, ch, a ) ; sprintf ( str, "%d %c %f", i, ch, a ) ; printf ( "%s\\n", str ) ; return 0 ; }
 
 In this program, the **printf( )** prints out the values of **i**, **ch** and **a** on the screen, whereas **sprintf( )** stores these values in the character array **str**. Since the string **str** is present in memory, what is written into **str** using **sprintf( )** doesn’t get displayed on the screen. Once **str** has been built, its contents can be displayed on the screen. In our program this was achieved by the second **printf( )** statement.
 
@@ -337,19 +337,19 @@ The limitation of **putch( ),** **putchar( )** and **fputchar( )** is that they 
 
 \# include <stdio.h>
 
-int main( ) { char name\[ 50 \] ; printf ( "Enter name " ) ; scanf ( "%s", name ) ; printf ( "%s\\n", name ) ; return 0 ; }
+int main( ) { char name[ 50 ] ; printf ( "Enter name " ) ; scanf ( "%s", name ) ; printf ( "%s\\n", name ) ; return 0 ; }
 
 And here is the output...
 
 Enter name Jonty Rhodes Jonty
 
-Surprised? Where did “Rhodes” go? It never got stored in the array **name\[ \],** because the moment the blank was typed after “Jonty”, **scanf( )** assumed that the name being entered has ended. The result is that there is no way (at least not without a lot of trouble on the programmer’s part) to enter a multi-word string into a single variable (**name** in this case) using **scanf( ).** The solution to this problem is to use **gets( )** function. As said earlier, it gets a string from the keyboard. It is terminated when an Enter key is hit. Thus, spaces and tabs are perfectly acceptable as part of the input string. More exactly, **gets( )** function gets a newline (**\\n**) terminated string of characters from the keyboard and replaces the **\\n** with a **\\0**.
+Surprised? Where did “Rhodes” go? It never got stored in the array **name[ ],** because the moment the blank was typed after “Jonty”, **scanf( )** assumed that the name being entered has ended. The result is that there is no way (at least not without a lot of trouble on the programmer’s part) to enter a multi-word string into a single variable (**name** in this case) using **scanf( ).** The solution to this problem is to use **gets( )** function. As said earlier, it gets a string from the keyboard. It is terminated when an Enter key is hit. Thus, spaces and tabs are perfectly acceptable as part of the input string. More exactly, **gets( )** function gets a newline (**\\n**) terminated string of characters from the keyboard and replaces the **\\n** with a **\\0**.
 
 The **puts( )** function works exactly opposite to **gets( )** function. It outputs a string to the screen.
 
 Here is a program which illustrates the usage of these functions.
 
-\# include <stdio.h> int main( ) { char footballer\[ 40 \] ; puts ( "Enter name" ) ; gets ( footballer ) ; /* sends base address of array */ puts ( "Happy footballing!" ) ; puts ( footballer ) ; return 0 ; }
+\# include <stdio.h> int main( ) { char footballer[ 40 ] ; puts ( "Enter name" ) ; gets ( footballer ) ; /* sends base address of array */ puts ( "Happy footballing!" ) ; puts ( footballer ) ; return 0 ; }
 
 Following is the sample output:
 
@@ -373,7 +373,7 @@ Why did we use two **puts( )** functions to print “Happy footballing!” and �
 
 ### Exercise
 
-**\[A\]** What will be the output of the following programs:
+**[A]** What will be the output of the following programs:
 
 - # include <stdio.h> # include <ctype.h> int main( ) { char ch ; ch = getchar( ) ; if ( islower ( ch ) ) putchar ( toupper ( ch ) ) ; else putchar ( tolower ( ch ) ) ;
 
@@ -381,21 +381,21 @@ return 0 ; }
 
 - # include <stdio.h> int main( )
 
-{ int i = 2 ; float f = 2.5367 ; char str\[ \] = "Life is like that" ; printf ( "%4d\\t%3.3f\\t%4s\\n", i, f, str ) ; return 0 ; }
+{ int i = 2 ; float f = 2.5367 ; char str[ ] = "Life is like that" ; printf ( "%4d\\t%3.3f\\t%4s\\n", i, f, str ) ; return 0 ; }
 
 - # include <stdio.h> int main( )
 
 { printf ( "More often than \\b\\b not \\rthe person who \\ wins is the one who thinks he can!\\n" ) ; return 0 ; }
 
-- # include <conio.h> char p\[ \] = "The sixth sick sheikh's sixth ship is sick" ;
+- # include <conio.h> char p[ ] = "The sixth sick sheikh's sixth ship is sick" ;
 
-int main( ) { int i = 0 ; while ( p\[ i \] != '\\0' ) { putch ( p\[ i \] ) ; i++ ; } return 0 ; }
+int main( ) { int i = 0 ; while ( p[ i ] != '\\0' ) { putch ( p[ i ] ) ; i++ ; } return 0 ; }
 
-**\[B\]** Point out the errors, if any, in the following programs:
+**[B]** Point out the errors, if any, in the following programs:
 
 - # include <stdio.h> int main( )
 
-{ int i ; char a\[ \] = "Hello" ; while ( a != '\\0' ) {
+{ int i ; char a[ ] = "Hello" ; while ( a != '\\0' ) {
 
 printf ( "%c", *a ) ; a++ ; } return 0 ; }
 
@@ -409,7 +409,7 @@ printf ( "%c", *a ) ; a++ ; } return 0 ; }
 
 - # include <stdio.h> int main( )
 
-{ char *mess\[ 5 \] ; int i ; for ( i = 0 ; i < 5 ; i++ ) scanf ( "%s", mess\[ i \] ) ; return 0 ; }
+{ char *mess[ 5 ] ; int i ; for ( i = 0 ; i < 5 ; i++ ) scanf ( "%s", mess[ i ] ) ; return 0 ; }
 
 - # include <stdio.h> int main( )
 
@@ -421,11 +421,11 @@ printf ( "%c", *a ) ; a++ ; } return 0 ; }
 
 - # include <stdio.h> int main( )
 
-{ char buffer\[ 50 \] ; int no = 97; double val = 2.34174 ; char name\[ 10 \] = "Shweta" ; sprintf ( buffer, "%d %lf %s", no, val, name ) ; printf ( "%s\\n", buffer ) ; sscanf ( buffer, "%4d %2.2lf %s", &no, &val, name ) ; printf ( "%s\\n", buffer ) ; printf ( "%d %lf %s\\n", no, val, name ) ; return 0 ; }
+{ char buffer[ 50 ] ; int no = 97; double val = 2.34174 ; char name[ 10 ] = "Shweta" ; sprintf ( buffer, "%d %lf %s", no, val, name ) ; printf ( "%s\\n", buffer ) ; sscanf ( buffer, "%4d %2.2lf %s", &no, &val, name ) ; printf ( "%s\\n", buffer ) ; printf ( "%d %lf %s\\n", no, val, name ) ; return 0 ; }
 
-**\[C\]** Answer the following:
+**[C]** Answer the following:
 
-- To receive the string "We have got the guts, you get the glory!!" in an array **char str\[ 100 \]** which of the following functions would you use?
+- To receive the string "We have got the guts, you get the glory!!" in an array **char str[ 100 ]** which of the following functions would you use?
 
 1\. scanf ( "%s", str ) ; 2. gets ( str ) ; 3. getche ( str ) ; 4. fgetchar ( str ) ;
 
@@ -447,7 +447,7 @@ printf ( "%c", *a ) ; a++ ; } return 0 ; }
 
 1\. Control the margins of the program listing 2. Specify the maximum value of a number 3. Control the size of font used to print numbers 4. Specify how many columns would be used to print the number
 
-**\[D\]** Answer the following:
+**[D]** Answer the following:
 
 - Define two functions **xgets( )** and **xputs( )** which work similar to the standard library functions **gets( )** and **puts( )**.
 

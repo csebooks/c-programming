@@ -28,15 +28,15 @@ Let us examine these two approaches one-by-one. For the sake of programming conv
 #include <stdio.h> 
 int main( ) 
 { 
-    char name\[ 3 \] ; 
-    float price\[ 3 \] ; 
-    int pages\[ 3 \], i ;
+    char name[ 3 ] ; 
+    float price[ 3 ] ; 
+    int pages[ 3 ], i ;
     printf ( "Enter names, prices and no. of pages of 3 books\\n" ) ; 
     for ( i = 0 ; i <= 2 ; i++ ) 
-    scanf ( "%c %f %d", &name\[ i \], &price\[ i \], &pages\[ i \] ) ; 
+    scanf ( "%c %f %d", &name[ i ], &price[ i ], &pages[ i ] ) ; 
     printf ( "\\nAnd this is what you entered\\n" ) ; 
     for ( i = 0 ; i <= 2 ; i++ ) 
-    printf ( "%c %f %d\\n", name\[ i \], price\[ i \], pages\[ i \] ) ; 
+    printf ( "%c %f %d\\n", name[ i ], price[ i ], pages[ i ] ) ; 
     return 0 ; 
 }
 ```
@@ -47,7 +47,7 @@ int main( ) {
 char name[3] ; 
 float price[3];
 int pages[3], i ;
-printf ( "Enter names, prices and no. of pages of 3 books\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) scanf ( "%c %f %d", &name\[ i \], &price\[ i \], &pages\[ i \] ) ; printf ( "\\nAnd this is what you entered\\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) printf ( "%c %f %d\\n", name\[ i \], price\[ i \], pages\[ i \] ) ; return 0 ; }
+printf ( "Enter names, prices and no. of pages of 3 books\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) scanf ( "%c %f %d", &name[ i ], &price[ i ], &pages[ i ] ) ; printf ( "\\nAnd this is what you entered\\n" ) ; for ( i = 0 ; i <= 2 ; i++ ) printf ( "%c %f %d\\n", name[ i ], price[ i ], pages[ i ] ) ; return 0 ; }
 ```
 
 >>>>>>> df8f6b455a97f3ec6259a2812573c6a0b4154256
@@ -204,7 +204,7 @@ Like primary variables and arrays, structure variables can also be initialized w
 ```c
 struct book 
 { 
-    char name\[ 10 \] ; 
+    char name[ 10 ] ; 
     float price ; 
     int pages ; 
 } ; 
@@ -297,16 +297,16 @@ int main( )
         float price ; 
         int pages ; 
     } ; 
-    struct book b\[ 100 \] ; 
+    struct book b[ 100 ] ; 
     int i ; 
     for ( i = 0 ; i <= 99 ; i++ ) 
     {
          printf ( "Enter name, price and pages " ) ; 
          fflush ( stdin ) ; 
-         scanf ( "%c %f %d", &b\[ i \].name, &b\[ i \].price, &b\[ i \].pages ) ; 
+         scanf ( "%c %f %d", &b[ i ].name, &b[ i ].price, &b[ i ].pages ) ; 
     } 
     for ( i = 0 ; i <= 99 ; i++ ) 
-    printf ( "%c %f %d\\n", b\[ i \].name, b\[ i \].price, b\[ i \].pages ) ; 
+    printf ( "%c %f %d\\n", b[ i ].name, b[ i ].price, b[ i ].pages ) ; 
     return 0 ; 
 } 
 void linkfloat( ) 
@@ -320,15 +320,15 @@ Now a few comments about the program:
 
 - Notice how the array of structures is declared...
 
-struct book b\[ 100 \] ;
+struct book b[ 100 ] ;
 
 This provides space in memory for 100 structures of the type **struct** **book**.
 
-- The syntax we use to reference each element of the array **b** is similar to the syntax used for arrays of **int**s and **char**s. For example, we refer to zeroth book’s price as **b\[ 0 \].price**. Similarly, we refer first book’s pages as **b\[ 1 \].pages**.
+- The syntax we use to reference each element of the array **b** is similar to the syntax used for arrays of **int**s and **char**s. For example, we refer to zeroth book’s price as **b[ 0 ].price**. Similarly, we refer first book’s pages as **b[ 1 ].pages**.
 
 - It should be appreciated what careful thought Dennis Ritchie has put into C language. He first defined array as a collection of similar elements; then realized that dissimilar data types that are often found in real life cannot be handled using arrays, therefore created a new data type called structure. But even using structures, programming convenience could not be achieved, because a lot of variables (**b1** to **b100** for storing data about hundred books) needed to be handled. Therefore, he allowed us to create an array of structures; an array of similar data types which themselves are a collection of dissimilar data types. Hats off to the genius!
 
-- In an array of structures, all elements of the array are stored in adjacent memory locations. Since each element of this array is a structure, and since all structure elements are always stored in adjacent locations, you can very well visualize the arrangement of array of structures in memory. In our example, **b\[ 0 \]**’s **name**, **price** and **pages** in memory would be immediately followed by **b\[ 1 \]**’s **name**, **price** and **pages**, and so on.
+- In an array of structures, all elements of the array are stored in adjacent memory locations. Since each element of this array is a structure, and since all structure elements are always stored in adjacent locations, you can very well visualize the arrangement of array of structures in memory. In our example, **b[ 0 ]**’s **name**, **price** and **pages** in memory would be immediately followed by **b[ 1 ]**’s **name**, **price** and **pages**, and so on.
 
 - What is the function **linkfloat( )** doing here? If you don’t define it, you are likely to get an error "Floating-Point Formats Not Linked" with many C Compilers. What causes this error to occur? When parsing our source file, if the compiler encounters a reference to the address of a float, it sets a flag to have the linker link in the floating-point emulator. A floating-point emulator is used to manipulate floating-point numbers in functions like **scanf( )** and **atof( )**. There are some cases in which the reference to the **float** is a bit obscure and the compiler does not detect the need for the emulator. The most common is using **scanf( )** to read a **float** in an array of structures as shown in our program.
 
@@ -348,7 +348,7 @@ int main( )
 { 
     struct employee 
     { 
-        char name\[ 10 \] ; 
+        char name[ 10 ] ; 
         int age ; 
         float salary ; 
     } ; 
@@ -384,13 +384,13 @@ int main( )
 { 
     struct address 
     { 
-        char phone\[ 15 \] ; 
-        char city\[ 25 \] ; 
+        char phone[ 15 ] ; 
+        char city[ 25 ] ; 
         int pin ; 
     } ; 
     struct emp
     { 
-        char name\[ 25 \] ; 
+        char name[ 25 ] ; 
         struct address a ; 
     } ; 
     struct emp e = { "jeru", "531046", "nagpur", 10 }; 
@@ -425,8 +425,8 @@ int main( )
 { 
     struct book 
     { 
-        char name\[ 25 \] ; 
-        char author\[ 25 \] ;
+        char name[ 25 ] ; 
+        char author[ 25 ] ;
         int callno ; 
     } ; 
     struct book b1 = { "Let us C", "YPK", 101 } ; 
@@ -454,8 +454,8 @@ It can be immediately realized that to pass individual elements would become mor
 #include <stdio.h> 
 struct book 
 { 
-    char name\[ 25 \] ; 
-    char author\[ 25 \] ; 
+    char name[ 25 ] ; 
+    char author[ 25 ] ; 
     int callno ; 
 } ; 
 void display ( struct book ) ; 
@@ -495,8 +495,8 @@ int main( )
 { 
     struct book 
     { 
-        char name\[ 25 \] ; 
-        char author\[ 25 \] ; 
+        char name[ 25 ] ; 
+        char author[ 25 ] ; 
         int callno ; 
     } ; 
     struct book b1 = { "Let us C", "YPK", 101 } ; 
@@ -531,8 +531,8 @@ Can we not pass the address of a structure variable to a function? We can. The f
 #include <stdio.h> 
 struct book 
 { 
-    char name\[ 25 \] ; 
-    char author\[ 25 \] ; 
+    char name[ 25 ] ; 
+    char author[ 25 ] ; 
     int callno ; 
 } ; 
 void display ( struct book * ) ; 
@@ -632,7 +632,7 @@ And that is certainly a very impressive list! At least impressive enough to make
 
 ### Exercise
 
-**\[A\]** What will be the output of the following programs:
+**[A]** What will be the output of the following programs:
 
 ```c
 #include <stdio.h> 
@@ -642,8 +642,8 @@ int main( )
     struct gospel 
     { 
         int num ; 
-        char mess1\[ 50 \] ; 
-        char mess2\[ 50 \] ; 
+        char mess1[ 50 ] ; 
+        char mess2[ 50 ] ; 
     } m ; 
     m.num = 1 ; 
     strcpy ( m.mess1, "If all that you have is hammer" ) ; 
@@ -660,7 +660,7 @@ int main( )
 { 
     struct part 
     { 
-        char partname\[ 50 \] ; 
+        char partname[ 50 ] ; 
         int partnumber ; 
     } ;
         struct part p, *ptrp ; 
@@ -679,8 +679,8 @@ int main( )
 struct gospel 
 { 
     int num ; 
-    char mess1\[ 50 \] ; 
-    char mess2\[ 50 \] ; 
+    char mess1[ 50 ] ; 
+    char mess2[ 50 ] ; 
 } 
 m1 = { 2, "If you are driven by success", "make sure that it is a quality drive" } ;
 int main( ) 
@@ -691,7 +691,7 @@ int main( )
 }
 ```
 
-**\[B\]** Point out the errors, if any, in the following programs:
+**[B]** Point out the errors, if any, in the following programs:
 ```c
 #include <stdio.h> 
 #include <string.h> 
@@ -699,7 +699,7 @@ int main( )
 { 
     struct employee 
     { 
-        char name\[ 25 \] ; 
+        char name[ 25 ] ; 
         int age ; 
         float salary ; 
     } ;
@@ -718,7 +718,7 @@ int main( )
 { 
     struct 
     { 
-        char bookname\[ 25 \] ; 
+        char bookname[ 25 ] ; 
         float price ; 
     } ; 
         struct book b = { "Go Embedded!", 240.00 } ; 
@@ -731,11 +731,11 @@ int main( )
 #include <stdio.h> 
 struct virus 
 { 
-    char signature\[ 25 \] ; 
-    char status\[ 20 \] ; 
+    char signature[ 25 ] ; 
+    char status[ 20 ] ; 
     int size ; 
 } 
-v\[ 2 \] = { "Yankee Doodle", "Deadly", 1813, "Dark Avenger", "Killer", 1795 } ; 
+v[ 2 ] = { "Yankee Doodle", "Deadly", 1813, "Dark Avenger", "Killer", 1795 } ; 
 int main( ) 
 { 
     int i ; 
@@ -787,7 +787,7 @@ int main( )
 }
 ```
 
-**\[C\]** Answer the following:
+**[C]** Answer the following:
 
 - Ten floats are to be stored in memory. What would you prefer, an array or a structure?
 
@@ -821,22 +821,22 @@ With reference to the above declarations which of the following refers to **seco
 struct
 ```c
 { int x, y ; } 
-s\[ \] = { 10, 20, 15, 25, 8, 75, 6, 2 } ; 
+s[ ] = { 10, 20, 15, 25, 8, 75, 6, 2 } ; 
 int *i ; i = s ;
 
 1\. *( i + 3 ) a. 85 
-2. s\[ i\[ 7 \] \].x b. 2 
-3. s\[ (s + 2)->y / 3\[ I \] \].y c. 6 
-4. i\[ i\[ 1 \]-i\[ 2 \] \] d. 7 
-5. i\[ s\[ 3 \].y \] e. 16 
+2. s[ i[ 7 ] ].x b. 2 
+3. s[ (s + 2)->y / 3[ I ] ].y c. 6 
+4. i[ i[ 1 ]-i[ 2 ] ] d. 7 
+5. i[ s[ 3 ].y ] e. 16 
 6. ( s + 1 )->x + 5 f. 15 
 7. *( 1 +i )**( i + 4 ) / *i g. 25 
-8. s\[ i\[ 0 \] – i\[ 4 \] \].y + 10 h. 8 
+8. s[ i[ 0 ] – i[ 4 ] ].y + 10 h. 8 
 9. ( *(s + *( i + 1) / *i ) ).x + 2 i. 1 
-10. ++i\[ i\[ 6 \] \] j. 100
+10. ++i[ i[ 6 ] ] j. 100
 k. 10 l. 20
 ```
-**\[D\]** Attempt the following:
+**[D]** Attempt the following:
 
 - Create a structure to specify data on students given below:
 

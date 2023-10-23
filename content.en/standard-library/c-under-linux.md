@@ -398,7 +398,7 @@ Having understood the mechanism of signal processing let us now see how signalin
 ```c
 * mywindow.c * 
 #include <gtk/gtk.h> 
-int main ( int argc, char *argv\[ \] ) 
+int main ( int argc, char *argv[ ] ) 
 { 
     GtkWidget p ; 
     gtk_init ( &argc, &argv ) ; 
@@ -532,7 +532,7 @@ You have now understood signal processing, the heart of programming under Linux.
 
 # Exercise
 
-**\[A\]** State True or False:
+**[A]** State True or False:
 
 - We can modify the kernel of Linux OS.
 
@@ -572,7 +572,7 @@ You have now understood signal processing, the heart of programming under Linux.
 
 (s) The **sigprocmask( )** function can block as well as unblock signals.
 
-**\[B\]** Answer the following:
+**[B]** Answer the following:
 
 - If a program contains four calls to **fork( )** one after the other, how many total processes would get created?
 

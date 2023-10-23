@@ -467,7 +467,7 @@ Figure 12.2
 
 ### Exercise
 
-**\[A\]** Answer the following:
+**[A]** Answer the following:
 
 - A preprocessor directive is:
 
@@ -513,7 +513,7 @@ the macros are removed from the expanded source code. 4. Macros with arguments a
 
 1\. Before compilation 2. After Compilation 3. During execution 4. None of the above
 
-**\[B\]** What will be the output of the following programs:
+**[B]** What will be the output of the following programs:
 
 - # include <stdio.h> int main( ) { int i = 2 ; # ifdef DEF i *= i ; # else printf ( "%d\\n", i ) ; # endif return 0 ; }
 
@@ -523,7 +523,7 @@ the macros are removed from the expanded source code. 4. Macros with arguments a
 
 int main( ) { float a = AREA ( 1, 5, 8 ) ; float b = AREA ( AREA ( 1, 5, 8 ), 4, 5 ) ; printf ( " a = %f\\n", a ) ; printf ( " b = %f\\n", b ) ; return 0 ; }
 
-**\[C\]** Attempt the following:
+**[C]** Attempt the following:
 
 - If a macro is not getting expanded as per your expectation, how will you find out how is it being expanded by the preprocessor.
 

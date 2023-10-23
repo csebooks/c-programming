@@ -207,7 +207,7 @@ Go through the program carefully and find out how it works. Also write a program
 
 ### Exercise
 
-**\[A\]** What will be the output of the following programs:
+**[A]** What will be the output of the following programs:
 
 - # include <stdio.h> int main( ) { char suite = 3 ; switch ( suite ) { case 1 :
 
@@ -227,7 +227,7 @@ printf ( "Diamond\\n" ) ; case 2 : printf ( "Spade\\n" ) ; default : printf ( "H
 
 case -1 : printf ( "Feeding fish\\n" ) ; case 0 : printf ( "Weeding grass\\n" ) ; case 1 : printf ( "Mending roof\\n" ) ; default : printf ( "Just to survive\\n" ) ; } return 0 ; }
 
-**\[B\]** Point out the errors, if any, in the following programs:
+**[B]** Point out the errors, if any, in the following programs:
 
 - # include <stdio.h> int main( ) { int suite = 1 ; switch ( suite ) ; { case 0 ; printf ( "Club\\n" ) ; case 1 ; printf ( "Diamond\\n" ) ; } return 0 ; }
 
@@ -241,7 +241,7 @@ case -1 : printf ( "Feeding fish\\n" ) ; case 0 : printf ( "Weeding grass\\n" ) 
 
 { int a = 3, b = 4, c ; c = b – a ; switch ( c ) { case 1 || 2 : printf ( "God give me a chance to change things\\n" ) ; break ; case a || b : printf ( "God give me a chance to run my show\\n" ) ; break ; } return 0 ; }
 
-**\[C\]** Write a menu driven program which has following options:
+**[C]** Write a menu driven program which has following options:
 
 1\. Factorial of a number
 
@@ -251,7 +251,7 @@ Once a menu item is selected the appropriate action should be taken and once thi
 
 Hint: Make use of an infinite **while** and a **switch** statement.
 
-**\[D\]** Write a program to find the grace marks for a student using **switch**. The user should enter the class obtained by the student and the number of subjects he has failed in. Use the following logic:
+**[D]** Write a program to find the grace marks for a student using **switch**. The user should enter the class obtained by the student and the number of subjects he has failed in. Use the following logic:
 
 - If the student gets first class and the number of subjects he failed in is greater than 3, then he does not get any grace. Otherwise the grace is of 5 marks per subject.
 

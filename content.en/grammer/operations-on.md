@@ -619,7 +619,7 @@ The operators **<<=**, **\>>=**, **|=**, **&=** and **^=** are called bitwise co
 
 # Exercise
 
-**\[A\]** Answer the following:
+**[A]** Answer the following:
 
 - The information about colors is to be stored in bits of a **char** variable called **color**. The bit number 0 to 6, each represent 7 colors of a rainbow, i.e., bit 0 represents violet, 1 represents indigo, and so on. Write a program that asks the user to enter a number and based on this number it reports which colors in the rainbow do the number represents.
 
@@ -674,7 +674,7 @@ int main( )
     return 0 ; 
 }
 ```
-**\[B\]** Answer the following:
+**[B]** Answer the following:
 
 - What is hexadecimal equivalent of the following binary numbers:
 ```sh

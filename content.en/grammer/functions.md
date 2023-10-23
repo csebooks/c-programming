@@ -271,7 +271,7 @@ Since we are returning a **float** value from this function we have indicated th
 
 ### Exercise
 
-**\[A\]** What will be the output of the following programs:
+**[A]** What will be the output of the following programs:
 
 - # include <stdio.h> void display( ) ;
 
@@ -285,7 +285,7 @@ a = 3.14 * r * r ; return ( a ) ; }
 
 - #include <stdio.h> int main( ) { void slogan( ) ; int c = 5 ; c = slogan( ) ; printf ( "%d\\n", c ) ; return 0 ; } void slogan( ) { printf ( "Only He men use C!\\n" ) ; }
 
-**\[B\]** Point out the errors, if any, in the following programs:
+**[B]** Point out the errors, if any, in the following programs:
 
 - # include <stdio.h> int addmult ( int, int ) int main( ) { int i = 3, j = 4, k, l ; k = addmult ( i, j ) ; l = addmult ( i, j ) ; printf ( "%d %d\\n", k, l ) ; return 0 ; } int addmult ( int ii, int jj ) { int kk, ll ; kk = ii + jj ; ll = ii * jj ; return ( kk, ll ) ; }
 
@@ -303,7 +303,7 @@ a = message( ) ; return 0 ; } void message( ) { printf ( "Viruses are written in
 
 - # include <stdio.h> void message( ) ; int main( ) { message ( message( ) ) ; return 0 ; } void message( ) { printf ( "It’s a small world after all…\\n" ) ; }
 
-**\[C\]** Answer the following:
+**[C]** Answer the following:
 
 - Is this a correctly written function:
 
@@ -331,7 +331,7 @@ int sqr ( int a ) ; { return ( a * a ) ; }
 
 10\. It is necessary for a function to return some value.
 
-**\[D\]** Answer the following:
+**[D]** Answer the following:
 
 - Write a function to calculate the factorial value of any integer entered through the keyboard.
 

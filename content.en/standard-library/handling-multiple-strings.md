@@ -17,15 +17,15 @@ In Chapter 14 we saw several examples of two-dimensional integer arrays. Let’s
 # define NOTFOUND 0 
 int main( ) 
 { 
-     char masterlist\[ 6 \]\[ 10 \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ;
+     char masterlist[ 6 ][ 10 ] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ;
      int i, flag, a ; 
-     char yourname\[ 10 \] ; 
+     char yourname[ 10 ] ; 
      printf ( "Enter your name " ) ; 
      scanf ( "%s", yourname ) ; 
      flag = NOTFOUND ; 
      for ( i = 0 ; i <= 5 ; i++ ) 
      { 
-        a = strcmp ( &masterlist\[ i \]\[ 0 \], yourname ) ; 
+        a = strcmp ( &masterlist[ i ][ 0 ], yourname ) ; 
         if ( a == 0 ) 
         { 
             printf ( "Welcome, you can enter the palace\\n" ) ; 
@@ -52,12 +52,12 @@ Instead of initializing names, had these names been supplied from the keyboard, 
 
 ```c
 for ( i = 0 ; i <= 5 ; i++ ) 
-scanf ( "%s", &masterlist\[ i \]\[ 0 \] ) ;
+scanf ( "%s", &masterlist[ i ][ 0 ] ) ;
 ```
 
 While comparing the strings through **strcmp( )**, note that the addresses of the strings are being passed to **strcmp( )**. As seen in the last section, if the two strings match, **strcmp( )** would return a value 0, otherwise it would return a non-zero value.
 
-The variable **flag** is used to keep a record of whether the control did reach inside the if or not. To begin with, we set **flag** to NOTFOUND. Later through the loop, if the names match, **flag** is set to FOUND. When the control reaches beyond the **for** loop, if **flag** is still set to NOTFOUND, it means none of the names in the **masterlist\[ \]\[ \]** matched with the one supplied from the keyboard.
+The variable **flag** is used to keep a record of whether the control did reach inside the if or not. To begin with, we set **flag** to NOTFOUND. Later through the loop, if the names match, **flag** is set to FOUND. When the control reaches beyond the **for** loop, if **flag** is still set to NOTFOUND, it means none of the names in the **masterlist[ ][ ]** matched with the one supplied from the keyboard.
 
 The names would be stored in the memory as shown in Figure 16.1. Note that each string ends with a ’\\0’. The arrangement, as you can appreciate, is similar to that of a two-dimensional numeric array.
 
@@ -77,10 +77,10 @@ Here, 65454, 65464, 65474, etc., are the base addresses of successive names. As 
  As we know, a pointer variable always contains an address. Therefore, if we construct an array of pointers, it would contain a number of addresses. Let us see how the names in the earlier example can be stored in the array of pointers.
 
 ```c
-char *names\[ \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ;
+char *names[ ] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ;
 ```
 
-In this declaration, **names\[ \]** is an array of pointers. It contains base addresses of respective names. That is, base address of “akshay” is stored in **names\[ 0 \]**, base address of “parag” is stored in **names\[ 1 \]** and so on. This is depicted in Figure 16.2.
+In this declaration, **names[ ]** is an array of pointers. It contains base addresses of respective names. That is, base address of “akshay” is stored in **names[ 0 ]**, base address of “parag” is stored in **names[ 1 ]** and so on. This is depicted in Figure 16.2.
 
 akshay\\0 raman\\0 srinivas\\0
 
@@ -94,7 +94,7 @@ gopal\\0 rajesh\\0 parag\\0
 
 65514 65518 65522 65526 65530 65534
 
-names\[ \]
+names[ ]
 
 **Figure 16.2** :
 
@@ -108,17 +108,17 @@ Another reason to use an array of pointers to store strings is to obtain greater
 #include <stdio.h> 
 int main( ) 
 { 
-    char names\[ \]\[ 10 \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; 
+    char names[ ][ 10 ] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; 
     int i ; 
     char t ;
-    printf ( "Original: %s %s\\n", &names\[ 2 \]\[ 0 \], &names\[ 3 \]\[ 0 \] ) ; 
+    printf ( "Original: %s %s\\n", &names[ 2 ][ 0 ], &names[ 3 ][ 0 ] ) ; 
     for ( i = 0 ; i <= 9 ; i++ ) 
     { 
-        t = names\[ 2 \]\[ i \] ; 
-        names\[ 2 \]\[ i \] = names\[ 3 \]\[ i \] ;
-        names\[ 3 \]\[ i \] = t ; 
+        t = names[ 2 ][ i ] ; 
+        names[ 2 ][ i ] = names[ 3 ][ i ] ;
+        names[ 3 ][ i ] = t ; 
     } 
-    printf ( "New: %s %s\\n", &names\[ 2 \]\[ 0 \], &names\[ 3 \]\[ 0 \] ) ;
+    printf ( "New: %s %s\\n", &names[ 2 ][ 0 ], &names[ 3 ][ 0 ] ) ;
      return 0 ; 
 }
 ```
@@ -138,12 +138,12 @@ Let us see, if the number of exchanges can be reduced by using an array of point
 #include <stdio.h> 
 int main( ) 
 { 
-    char *names\[ \] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; 
-    char *temp ; printf ( "Original: %s %s\\n", names\[ 2 \], names\[ 3 \] ) ; 
-    temp = names\[ 2 \] ; 
-    names\[ 2 \] = names\[ 3 \] ; 
-    names\[ 3 \] = temp ; 
-    printf ( "New: %s %s\\n", names\[ 2 \], names\[ 3 \] ) ; 
+    char *names[ ] = { "akshay", "parag", "raman", "srinivas", "gopal", "rajesh" } ; 
+    char *temp ; printf ( "Original: %s %s\\n", names[ 2 ], names[ 3 ] ) ; 
+    temp = names[ 2 ] ; 
+    names[ 2 ] = names[ 3 ] ; 
+    names[ 3 ] = temp ; 
+    printf ( "New: %s %s\\n", names[ 2 ], names[ 3 ] ) ; 
     return 0 ;
 }
 ```
@@ -165,12 +165,12 @@ When we are using a two-dimensional array of characters, we are at liberty to ei
 #include <stdio.h>
 int main( ) 
 { 
-    char *names\[ 6 \] ; 
+    char *names[ 6 ] ; 
     int i ; 
     for ( i = 0 ; i <= 5 ; i++ ) 
     {
          printf ( "Enter name " ) ; 
-         scanf ( "%s", names\[ i \] ) ; 
+         scanf ( "%s", names[ i ] ) ; 
     } return 0 ; 
 }
 ```
@@ -185,8 +185,8 @@ The program doesn’t work because; when we are declaring the array, it is conta
 #include <string.h> 
 int main( ) 
 {
-     char *names\[ 6 \] ; 
-     char n\[ 50 \] ; 
+     char *names[ 6 ] ; 
+     char n[ 50 ] ; 
      int len, i ; 
      char *p ; 
      for ( i = 0 ; i <= 5 ; i++ ) 
@@ -196,21 +196,21 @@ int main( )
         len = strlen ( n ) ; 
         p = ( char * ) malloc ( len + 1 ) ; /* +1 for accommodating \\0 */ 
         strcpy ( p, n ) ; 
-        names\[ i \] = p ;
+        names[ i ] = p ;
      }
           for ( i = 0 ; i <= 5 ; i++ ) 
-          printf ( "%s\\n", names\[ i \] ) ;
+          printf ( "%s\\n", names[ i ] ) ;
           return 0 ; 
 }
 ```
 
-Here we have first received a name using **scanf( )** in a string **n\[ \]**. Then we have found out its length using **strlen( )** and allocated space for making a copy of this name. This memory allocation has been done using a standard library function called **malloc( )**. This function requires the number of bytes to be allocated and returns the base address of the chunk of memory that it allocates. The address returned by this function is always of the type **void ***. This is because **malloc( )** doesn’t know what for did we allocate the memory. A **void *** means a pointer which is a
+Here we have first received a name using **scanf( )** in a string **n[ ]**. Then we have found out its length using **strlen( )** and allocated space for making a copy of this name. This memory allocation has been done using a standard library function called **malloc( )**. This function requires the number of bytes to be allocated and returns the base address of the chunk of memory that it allocates. The address returned by this function is always of the type **void ***. This is because **malloc( )** doesn’t know what for did we allocate the memory. A **void *** means a pointer which is a
 
 legal address but it is not address of a **char**, or address of an **int**, or address of any other datatype. Hence it has been converted into **char *** using a C language feature called typecasting. Typecasting will be discussed in detail in Chapter 22. The prototype of this function has been declared in the header file ‘stdlib.h’. Hence we have **#include**d this file.
 
 But why did we not use array to allocate memory? This is because, with arrays, we have to commit to the size of the array at the time of writing the program. Moreover, there is no way to increase or decrease the array size during execution of the program. In other words, when we use arrays, static memory allocation takes place. Unlike this, using **malloc( )**, we can allocate memory dynamically, during execution. The argument that we pass to **malloc( )** can be a variable whose value can change during execution.
 
-Once we have allocated the memory using **malloc( )**, we have copied the name received through the keyboard into this allocated space and finally stored the address of the allocated chunk in the appropriate element of **names\[ \]**, the array of pointers to strings.
+Once we have allocated the memory using **malloc( )**, we have copied the name received through the keyboard into this allocated space and finally stored the address of the allocated chunk in the appropriate element of **names[ ]**, the array of pointers to strings.
 
 This solution suffers in performance because we need to allocate memory and then do the copying of string for each name received through the keyboard.
 
@@ -222,22 +222,22 @@ This solution suffers in performance because we need to allocate memory and then
 
 ### Exercise
 
-**\[A\]** Answer the following:
+**[A]** Answer the following:
 
 - How many bytes in memory would be occupied by the following array of pointers to strings? How many bytes would be required to store the same strings, if they are stored in a two-dimensional character array?
 
 ```c
-char *mess\[ \] = { "Hammer and tongs", "Tooth and nail", "Spit and polish", "You and C" } ;\
+char *mess[ ] = { "Hammer and tongs", "Tooth and nail", "Spit and polish", "You and C" } ;\
 ```
 
 - Can an array of pointers to strings be used to collect strings from the keyboard? If yes, how? If not, why not?
 
-**\[B\]** Attempt the following:
+**[B]** Attempt the following:
 
-- Write a program that uses an array of pointers to strings **str\[ \]**. Receive two strings **str1** and **str2** and check if **str1** is embedded in any of the strings in **str\[ \]**. If **str1** is found, then replace it with **str2**.
+- Write a program that uses an array of pointers to strings **str[ ]**. Receive two strings **str1** and **str2** and check if **str1** is embedded in any of the strings in **str[ ]**. If **str1** is found, then replace it with **str2**.
 
 ```c
-char *str\[ \] = { "We will teach you how to...", "Move a mountain", "Level a building", "Erase the past", "Make a million", "...all through C!" } ;
+char *str[ ] = { "We will teach you how to...", "Move a mountain", "Level a building", "Erase the past", "Make a million", "...all through C!" } ;
 ```
 
 For **example** if **str1** contains "mountain" and **str2** contains "car", then the second string in **str** should get changed to "Move a car".
@@ -247,7 +247,7 @@ For **example** if **str1** contains "mountain" and **str2** contains "car", the
 - Write a program to reverse the strings stored in the following array of pointers to strings:
 
 ```c
-char *s\[ \] = { "To err is human...", "But to really mess things up...", "One needs to know C!!" } ;
+char *s[ ] = { "To err is human...", "But to really mess things up...", "One needs to know C!!" } ;
 ```
 
 - Develop a program that receives the month and year from the keyboard as integers and prints the calendar in the following format.
@@ -288,7 +288,7 @@ Left arrow key : Same year, previous month
 
 If the Escape (Esc) key is hit then the procedure should stop.
 
-Hint: Use the **getkey( )** function discussed in Chapter 14, problem number \[C\](d).
+Hint: Use the **getkey( )** function discussed in Chapter 14, problem number [C](d).
 
 - Write a program to delete all vowels from a sentence. Assume that the sentence is not more than 80 characters long.
 

@@ -469,7 +469,7 @@ address = 65512 element = 24 24 24 24 address = 65516 element = 34 34 34 34 addr
 
 ### Exercise
 
-**\[A]** What will be the output of the following programs:
+**[A]** What will be the output of the following programs:
 
 - #include <stdio.h> int main() { int num[26], temp; num[0] = 100; num[25] = 200; temp = num[25]; num[25] = num[0]; num[0] = temp; printf("%d %d\n", num[0], num[25]); return 0; }
 
@@ -477,7 +477,7 @@ address = 65512 element = 24 24 24 24 address = 65516 element = 34 34 34 34 addr
 
 - #include <stdio.h> int main() { int sub[50], i; for(i = 0; i <= 48; i++); { sub[i] = i; printf("%d\n", sub[i]); } return 0; }
 
-**\[B]** Point out the errors, if any, in the following program segments:
+**[B]** Point out the errors, if any, in the following program segments:
 
 - /* mixed has some char and some int values */
 
@@ -487,7 +487,7 @@ address = 65512 element = 24 24 24 24 address = 65516 element = 34 34 34 34 addr
 
 - #include <stdio.h> int main() { int i, a = 2, b = 3; int arr[2 + 3]; for(i = 0; i < a+b; i++) { scanf("%d", &arr[i]); printf("%d\n", arr[i]); } return 0; }
 
-**\[C]** Answer the following:
+**[C]** Answer the following:
 
 - An array is a collection of:
 
@@ -515,7 +515,7 @@ array. 3. It is necessary to initialize the array at the time of declaration. 4.
 
 in the array.
 
-**\[D]** Attempt the following:
+**[D]** Attempt the following:
 
 - Twenty-five numbers are entered from the keyboard into an array. The number to be searched is entered through the keyboard by the user. Write a program to find if the number to be searched is present in the array and if it is present, display the number of times it appears in the array.
 
@@ -1011,7 +1011,7 @@ Step 5 At the conclusion of Step 4, all the non-zero entries left in the array w
 
 - Write a program that interchanges the odd and even elements of an array.
 
-**\[E]** What will be the output of the following programs:
+**[E]** What will be the output of the following programs:
 
 - #include <stdio.h> int main()
 
@@ -1027,7 +1027,7 @@ Step 5 At the conclusion of Step 4, all the non-zero entries left in the array w
 
 - #include <stdio.h> int main() { int a[5] = { 5, 1, 15, 20, 25 }; int i, j, k = 1, m; i = ++a[1]; j = a[1]++; m = a[i++]; printf("%d %d %d\n", i, j, m); }
 
-**\[F]** Point out the errors, if any, in the following programs:
+**[F]** Point out the errors, if any, in the following programs:
 
 - #include <stdio.h> int main() { int array[6] = { 1, 2, 3, 4, 5, 6 }; int i; for(i = 0; i <= 25; i++) printf("%d\n", array[i]); return 0; }
 
@@ -1041,7 +1041,7 @@ int main() { int a[] = { 10, 20, 30, 40, 50 }; int j; j = a; /* store the addres
 
 - #include <stdio.h> int main() { int max = 5; float arr[max]; for(i = 0; i < max; i++) scanf("%f", &arr[i]); return 0; }
 
-**\[G]** Answer the following:
+**[G]** Answer the following:
 
 - What will happen if you try to put so many values into an array when you initialize it that the size of the array is exceeded?
 
@@ -1069,7 +1069,7 @@ int main() { int a[] = { 10, 20, 30, 40, 50 }; int j; j = a; /* store the addres
 
 1\. 0 2. an undetermined value 3. a floating point number 4. the character constant '\0'
 
-**\[H]** State True or False:
+**[H]** State True or False:
 
 - Address of a floating-point variable is always a whole number.
 
@@ -1087,7 +1087,7 @@ int main() { int a[] = { 10, 20, 30, 40, 50 }; int j; j = a; /* store the addres
 
 1\. *(s + 2) 2. *(s + 3) 3. s + 3 4. s + 2
 
-**\[I]** Attempt the following:
+**[I]** Attempt the following:
 
 - Write a program to copy the contents of one array into another in the reverse order.
 

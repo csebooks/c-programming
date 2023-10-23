@@ -430,7 +430,7 @@ evaluated:
 
 - y = z = -3 % -8 / 2 + 7 ;
 
-**\[D\]** What will be the output of the following programs:
+**[D]** What will be the output of the following programs:
 
 -(a)
 
@@ -506,11 +506,11 @@ evaluated:
   }
 ```
 
-**\[E\]** State whether the following statements are True or False:
+**[E]** State whether the following statements are True or False:
 
 - * or /, + or – represents the correct hierarchy of arithmetic operators in C.
 
-- \[ \] and { } can be used in Arithmetic instructions.
+- [ ] and { } can be used in Arithmetic instructions.
 
 - Hierarchy decides which operator is used first.
 
@@ -520,7 +520,7 @@ evaluated:
 
 - % operator cannot be used with floats.
 
-**\[F\]** Fill in the blanks:
+**[F]** Fill in the blanks:
 
 - In y = 10 * x / 2 + z ; operation will be performed first.
 
@@ -532,7 +532,7 @@ evaluated:
 
 - If **d** is a **float** the operation d = 2 / 7.0 would store in **d**.
 
-**\[G\]** Attempt the following:
+**[G]** Attempt the following:
 
 - If a five-digit number is input through the keyboard, write a program to calculate the sum of its digits. (Hint: Use the modulus operator ‘%’)
 

@@ -486,7 +486,7 @@ int main( )
 
 ### Exercise
 
-**\[A\]** What will be the output of the following programs:
+**[A]** What will be the output of the following programs:
 
 **1.** 
 ```c
@@ -529,7 +529,7 @@ int main( )
     } 
 }
 ```
-**\[B\]** Answer the following:
+**[B]** Answer the following:
 
 - The three parts of the loop expression in the **for** loop are:
 
@@ -609,7 +609,7 @@ using a **while** loop.
 executed at least once. 
 5. **for** loop works faster than a **do-while** loop.
 
-**\[C\]** Attempt the following:
+**[C]** Attempt the following:
 
 - Write a program to print all prime numbers from 1 to 300. (Hint: Use nested loops, **break** and **continue**)
 

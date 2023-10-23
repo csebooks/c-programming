@@ -185,7 +185,7 @@ run-time error indicating that the stack has become full. This is a very common 
 
 ### Exercise
 
-**\[A\]** What will be the output of the following programs:
+**[A]** What will be the output of the following programs:
 
 - # include <stdio.h> int main( ) { printf ( "C to it that C survives\\n" ) ; main( ) ; return 0 ; }
 
@@ -193,7 +193,7 @@ run-time error indicating that the stack has become full. This is a very common 
 
 }
 
-**\[B\]** Attempt the following:
+**[B]** Attempt the following:
 
 - A 5-digit positive integer is entered through the keyboard, write a recursive and a non-recursive function to calculate sum of digits of the 5-digit number.
 

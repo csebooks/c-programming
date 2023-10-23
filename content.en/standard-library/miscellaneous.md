@@ -662,35 +662,35 @@ key.ch[ 1 ] = 2
 
 As you can see, first we declared a data type of the type **union a**, and then a variable **key** to be of the type **union a**. This is similar to the way we first declare the structure type and then the structure variables. Also, the union elements are accessed exactly the same way in which the structure elements are accessed, using a ‘**.’** operator. However, the similarity ends here. To illustrate this let us compare the following data types:
 
-struct a { short int i ; char ch\[ 2 \] ; } ; struct a key ;
+struct a { short int i ; char ch[ 2 ] ; } ; struct a key ;
 
-This data type would occupy 4 bytes in memory, 2 for **key.i** and 1 each for **key.ch\[ 0 \]** and **key.ch\[ 1 \]**, as shown in Figure 22.1.
+This data type would occupy 4 bytes in memory, 2 for **key.i** and 1 each for **key.ch[ 0 ]** and **key.ch[ 1 ]**, as shown in Figure 22.1.
 
 1002 1003 1004 1005
 
-key.i key.ch\[0\] key.ch\[1\]
+key.i key.ch[0] key.ch[1]
 
 Figure 22.1
 
 Now we declare a similar data type, but instead of using a structure we use a union.
 
-union a { short int i ; char ch\[ 2 \] ; } ; union a key ;
+union a { short int i ; char ch[ 2 ] ; } ; union a key ;
 
 Representation of this data type in memory is shown in Figure 22.2.
 
 key.i
 
-key.ch\[0\] key.ch\[1\]
+key.ch[0] key.ch[1]
 
 Figure 22.2
 
-As shown in Figure 22.2, the union occupies only 2 bytes in memory. Note that the same memory locations that are used for **key.i** are also being used by **key.ch\[ 0 \]** and **key.ch\[ 1 \]**. It means that the memory locations used by **key.i** can also be accessed using **key.ch\[ 0 \]** and **key.ch\[ 1 \]**. What purpose does this serve? Well, now we can access the 2 bytes simultaneously (by using **key.i**) or the same 2 bytes individually (using **key.ch\[ 0 \]** and **key.ch\[ 1 \]**).
+As shown in Figure 22.2, the union occupies only 2 bytes in memory. Note that the same memory locations that are used for **key.i** are also being used by **key.ch[ 0 ]** and **key.ch[ 1 ]**. It means that the memory locations used by **key.i** can also be accessed using **key.ch[ 0 ]** and **key.ch[ 1 ]**. What purpose does this serve? Well, now we can access the 2 bytes simultaneously (by using **key.i**) or the same 2 bytes individually (using **key.ch[ 0 ]** and **key.ch[ 1 ]**).
 
 This is a frequent requirement while interacting with the hardware, i.e., sometimes we are required to access 2 bytes simultaneously and sometimes each byte individually. Faced with such a situation, using union is the answer, usually.
 
 Perhaps you would be able to understand the union data type more thoroughly if we take a fresh look at the output of the above program. Here it is...
 
-key.i = 512 key.ch\[ 0 \] = 0 key.ch\[ 1 \] = 2
+key.i = 512 key.ch[ 0 ] = 0 key.ch[ 1 ] = 2
 
 Let us understand this output in detail. 512 is an integer, a 2 byte number. Its binary equivalent will be 0000 0010 0000 0000. We would expect that this binary number when stored in memory would look as shown in Figure 22.3.
 
@@ -700,11 +700,11 @@ key.i
 
 high byte low byte
 
-key.ch\[0\] key.ch\[1\]
+key.ch[0] key.ch[1]
 
 Figure 22.3
 
-If the number is stored in this manner, then the output of **key.ch\[ 0 \]** and **key.ch\[ 1 \]** should have been 2 and 0, respectively. But, if you look at the output of the program written above, it is exactly the opposite. Why is it so? Because, in CPUs that follow little-endian architecture (Intel CPUs, for example), when a 2-byte number is stored in memory, the low byte is stored before the high byte. It means, actually 512 would be stored in memory as shown in Figure 22.4. In CPUs with big-endian architecture this reversal of bytes does not happen.
+If the number is stored in this manner, then the output of **key.ch[ 0 ]** and **key.ch[ 1 ]** should have been 2 and 0, respectively. But, if you look at the output of the program written above, it is exactly the opposite. Why is it so? Because, in CPUs that follow little-endian architecture (Intel CPUs, for example), when a 2-byte number is stored in memory, the low byte is stored before the high byte. It means, actually 512 would be stored in memory as shown in Figure 22.4. In CPUs with big-endian architecture this reversal of bytes does not happen.
 
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
 
@@ -712,27 +712,27 @@ key.i
 
 low byte high byte
 
-key.ch\[0\] key.ch\[1\]
+key.ch[0] key.ch[1]
 
 Figure 22.4
 
-Now, we can see why value of **key.ch\[ 0 \]** is printed as 0 and value of **key.ch\[ 1 \]** is printed as 2.
+Now, we can see why value of **key.ch[ 0 ]** is printed as 0 and value of **key.ch[ 1 ]** is printed as 2.
 
-One last thing. We can’t assign different values to the different union elements at the same time. That is, if we assign a value to **key.i**, it gets automatically assigned to **key.ch\[ 0 \]** and **key.ch\[ 1 \]**. Vice versa, if we assign a value to **key.ch\[ 0 \]** or **key.ch\[ 1 \]**, it is bound to get assigned to **key.i**. Here is a program that illustrates this fact.
+One last thing. We can’t assign different values to the different union elements at the same time. That is, if we assign a value to **key.i**, it gets automatically assigned to **key.ch[ 0 ]** and **key.ch[ 1 ]**. Vice versa, if we assign a value to **key.ch[ 0 ]** or **key.ch[ 1 ]**, it is bound to get assigned to **key.i**. Here is a program that illustrates this fact.
 
-\# include <stdio.h> int main( ) { union a { short int i ; char ch\[ 2 \] ; } ; union a key ; key.i = 512 ; printf ( "key.i = %d\\n", key.i ) ; printf ( "key.ch\[ 0 \] = %d\\n", key.ch\[ 0 \] ) ; printf ( "key.ch\[ 1 \] = %d\\n", key.ch\[ 1 \] ) ; key.ch\[ 0 \] = 50 ; /* assign a new value to key.ch\[ 0 \] */ printf ( "key.i = %d\\n", key.i ) ; printf ( "key.ch\[ 0 \] = %d\\n", key.ch\[ 0 \] ) ; printf ( "key.ch\[ 1 \] = %d\\n", key.ch\[ 1 \] ) ; return 0 ; }
+\# include <stdio.h> int main( ) { union a { short int i ; char ch[ 2 ] ; } ; union a key ; key.i = 512 ; printf ( "key.i = %d\\n", key.i ) ; printf ( "key.ch[ 0 ] = %d\\n", key.ch[ 0 ] ) ; printf ( "key.ch[ 1 ] = %d\\n", key.ch[ 1 ] ) ; key.ch[ 0 ] = 50 ; /* assign a new value to key.ch[ 0 ] */ printf ( "key.i = %d\\n", key.i ) ; printf ( "key.ch[ 0 ] = %d\\n", key.ch[ 0 ] ) ; printf ( "key.ch[ 1 ] = %d\\n", key.ch[ 1 ] ) ; return 0 ; }
 
 And here is the output...
 
-key.i = 512 key.ch\[ 0 \] = 0 key.ch\[ 1 \] = 2 key.i= 562 key.ch\[ 0 \] = 50 key.ch\[ 1 \] = 2
+key.i = 512 key.ch[ 0 ] = 0 key.ch[ 1 ] = 2 key.i= 562 key.ch[ 0 ] = 50 key.ch[ 1 ] = 2
 
 Before we move on to the next section, let us reiterate that a union provides a way to look at the same data in several different ways. For example, there can exist a union as shown below.
 
-union b { double d ; float f\[ 2 \] ; short int i\[ 4 \] ; char ch\[ 8 \] ;
+union b { double d ; float f[ 2 ] ; short int i[ 4 ] ; char ch[ 8 ] ;
 
 } ; union b data ;
 
-In what different ways can the data be accessed from it? Sometimes, as a complete set of 8 bytes (**data.d**), sometimes as two sets of 4 bytes each (**data.f\[ 0 \]** and **data.f\[ 1 \]**), sometimes as four sets of 2 bytes each (**data.i\[ 0 \]**, **data.i\[ 1 \]**, **data.i\[ 2 \]** and **data.\[ 3 \]**) and sometimes as 8 individual bytes (**data.ch\[ 0 \]**, **data.ch\[ 1 \]... data.ch\[ 7 \]**).
+In what different ways can the data be accessed from it? Sometimes, as a complete set of 8 bytes (**data.d**), sometimes as two sets of 4 bytes each (**data.f[ 0 ]** and **data.f[ 1 ]**), sometimes as four sets of 2 bytes each (**data.i[ 0 ]**, **data.i[ 1 ]**, **data.i[ 2 ]** and **data.[ 3 ]**) and sometimes as 8 individual bytes (**data.ch[ 0 ]**, **data.ch[ 1 ]... data.ch[ 7 ]**).
 
 Also note that there can exist a union, each of whose elements is of different size. In such a case, the size of the union variable will be equal to the size of the longest element in the union.
 

@@ -59,7 +59,7 @@ A character denotes any alphabet, digit or special symbol used to represent info
 | ----------- | ----------- |
 | Alphabets          | A, B, ….., Y, Z a, b, ….., y, z |
 | Digits             | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9    |
-| Special symbols    | ~ ‘ ! @ # % ^ & * ( ) \_ - + = | \\ { } \[ \] : ; " ' < > , . ? / $ |
+| Special symbols    | ~ ‘ ! @ # % ^ & * ( ) \_ - + = | \\ { } [ ] : ; " ' < > , . ? / $ |
 
 ## Constants, Variables and Keywords
 

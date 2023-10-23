@@ -439,7 +439,7 @@ The rules are as under:
 
 ### Exercise
 
-**\[A\]** What will be the output of the following programs: (a) # include <stdio.h>
+**[A]** What will be the output of the following programs: (a) # include <stdio.h>
 
 int main( ) { int i ; for ( i = 0 ; i <= 50000 ; i++ ) printf ( "%d\\n", i ) ; return 0 ; }
 
@@ -463,7 +463,7 @@ return 0 ; }
 
 int main( ) { int x = 20 ; { int x = 30 ; printf ( "%d\\n", x ) ; } printf ( "%d\\n", x ) ; return 0 ; }
 
-**\[B\]** Point out the errors, if any, in the following programs:
+**[B]** Point out the errors, if any, in the following programs:
 
 - # include <stdio.h> int main( ) { long num ; num = 2 ; printf ( "%d\\n", num ) ; return 0 ; }
 
@@ -477,7 +477,7 @@ long float a = 25.345e454 ; unsigned double b = 25 ; printf ( "%lf %d\\n", a, b 
 
 - # include <stdio.h> static int y ; int main( ) { static int z ; printf ( "%d %d\\n", y, z ) ; return 0 ; }
 
-**\[C\]** State whether the following statements are True or False:
+**[C]** State whether the following statements are True or False:
 
 - Storage for a register storage class variable is allocated each time the control reaches the block in which it is present.
 

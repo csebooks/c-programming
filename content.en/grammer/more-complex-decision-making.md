@@ -446,7 +446,7 @@ The limitation of the conditional operators is that after the **?** or after the
 
 ### Exercise
 
-**\[A\]** If a = 10, b = 12, c = 0, find the values of the expressions in the following table:
+**[A]** If a = 10, b = 12, c = 0, find the values of the expressions in the following table:
 
 ### Expression
 
@@ -454,7 +454,7 @@ The limitation of the conditional operators is that after the **?** or after the
 a != 6 && b > 5 a == 9 || b < 3 ! ( a < 10 ) ! ( a > 5 && c ) 5 && c != 8 || !c
 ```
 
-**\[B\]** What will be the output of the following programs:
+**[B]** What will be the output of the following programs:
 -(1)
 
 ```c
@@ -539,7 +539,7 @@ int main( )
 }
 ```
 
-**\[C\]** Point out the errors, if any, in the following programs:
+**[C]** Point out the errors, if any, in the following programs:
 
 -(1)
 
@@ -669,7 +669,7 @@ int main( )
 }
 ```
 
-**\[D\]** Attempt the following:
+**[D]** Attempt the following:
 
 - Any year is entered through the keyboard, write a program to determine whether the year is leap or not. Use the logical operators **&&** and **||**.
 
@@ -773,7 +773,7 @@ Starvation Anorexic Underweight Ideal Overweight Obese Morbidly Obese
 
 < 15 15.1 to 17.5 17.6 to 18.5 18.6 to 24.9 25 to 25.9 30 to 30.9 >= 40
 
-**\[E\]** Attempt the following:
+**[E]** Attempt the following:
 
 - Using conditional operators determine:
 
