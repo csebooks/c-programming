@@ -1,0 +1,16 @@
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "content.en/.*",
+                "isAsync": true,
+                "cmd": "mkdir -p ../gurukulam/site/content.en/books/csebooks/c-programming && cp -rf content.en/** ../gurukulam/site/content.en/books/csebooks/c-programming/"
+            },
+            {
+                "match": "content.ta/.*",
+                "isAsync": true,
+                "cmd": "mkdir -p ../gurukulam/site/content.ta/books/csebooks/c-programming && cp -rf content.ta/** ../gurukulam/site/content.ta/books/csebooks/c-programming/"
+            }
+        ]
+    }
+}
