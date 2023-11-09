@@ -1,6 +1,8 @@
 ---
 title: 'Standard Library'
 weight: 3
+categories:
+    - std-library
 ---
 The Standard Library unit focuses on essential libraries in C, enabling students to leverage pre-built functions and modules to simplify their programming tasks.
 
