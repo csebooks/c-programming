@@ -12,7 +12,8 @@ Once armed with the knowledge of variables, constants & keywords, the next logic
 ```c
 /* Calculation of simple interest */
 /* Author: gekay Date: 25/06/2016 */
-#include <stdio.h>
+ 
+ #include <stdio.h>
 
 int main() {
     int p, n;
