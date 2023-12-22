@@ -2,7 +2,17 @@
 ---
 title: 'Lets understand C'
 weight: 3
-
+references:
+    videos:
+        - youtube:wKoGImLA2KA
+        - youtube:Zi_n_mE3pEM
+    links:
+        - https://www.w3schools.com/c/
+        - https://www.programiz.com/c-programming
+    books:
+        - b1:
+            title: Let Us C By Kanetkar Yashavant 
+            url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
 # Compilation and Execution
