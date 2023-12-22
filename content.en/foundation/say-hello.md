@@ -5,7 +5,7 @@ weight: 2
 references:
     videos:
         - youtube:WXY-r9s0_Rg
-        - youtube:KoGImLA2KA
+        - youtube:o8XEzZBjQTs
     links:
         - https://www.w3schools.com/c/
         - https://www.programiz.com/c-programming
