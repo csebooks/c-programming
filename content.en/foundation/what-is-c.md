@@ -12,7 +12,11 @@ references:
     books:
         - b1:
             title: Let Us C By Kanetkar Yashavant 
-            url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
+            url: https://amzn.eu/d/eSCD5xQ
+        - b2:
+            title: FUNDAMENTALS OF COMPUTERS
+            url: https://amzn.eu/d/1TvSMhb 
+
 ---
 
 # What is C?
