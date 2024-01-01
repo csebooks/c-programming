@@ -1,6 +1,17 @@
 ---
 title: "More Complex Decision Making"
 weight: 4
+references:
+    videos:
+        - youtube:
+        - youtube:
+    links:
+        - https://www.w3schools.com/c/
+        - https://www.programiz.com/c-programming
+    books:
+        - b1:
+            title: Let Us C By Kanetkar Yashavant 
+            url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
 We all face situations in real-life where the action that we carry out is based on multiple conditions. For example, I will join a

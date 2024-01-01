@@ -1,6 +1,17 @@
 ---
 title: 'Multidimensional arrays'
 weight: 14
+references:
+    videos:
+        - youtube:
+        - youtube:
+    links:
+        - https://www.w3schools.com/c/
+        - https://www.programiz.com/c-programming
+    books:
+        - b1:
+            title: Let Us C By Kanetkar Yashavant 
+            url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
 In the last chapter we he we have explored arrays with only one dimension. It is also possible for arrays to have two or more

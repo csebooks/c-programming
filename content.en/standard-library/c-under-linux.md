@@ -1,6 +1,17 @@
 ---
 title: 'C Under Linux'
 weight: 23
+references:
+    videos:
+        - youtube:
+        - youtube:
+    links:
+        - https://www.w3schools.com/c/
+        - https://www.programiz.com/c-programming
+    books:
+        - b1:
+            title: Let Us C By Kanetkar Yashavant 
+            url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
 Today the programming world is divided into two major camps—the Windows world and the Linux world. Since its humble beginning about two decades ago, Linux has steadily drawn the attention of programmers across the globe and has successfully created a community of its own. So as a C programmer you must know how to do C programming under Linux environment. Without any further discussions let us now set out on the Linux voyage. I hope you find the journey interesting and exciting.

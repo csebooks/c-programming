@@ -1,6 +1,17 @@
 ---
 title: 'Arrays'
 weight: 13
+references:
+    videos:
+        - youtube:
+        - youtube:
+    links:
+        - https://www.w3schools.com/c/
+        - https://www.programiz.com/c-programming
+    books:
+        - b1:
+            title: Let Us C By Kanetkar Yashavant 
+            url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
 The C language provides a capability that enables the user to design a set of similar data types, called array. This chapter describes how arrays can be created and manipulated in C.

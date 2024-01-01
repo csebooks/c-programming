@@ -1,6 +1,17 @@
 ---
 title: 'Handling Multiple Strings'
 weight: 16
+references:
+    videos:
+        - youtube:
+        - youtube:
+    links:
+        - https://www.w3schools.com/c/
+        - https://www.programiz.com/c-programming
+    books:
+        - b1:
+            title: Let Us C By Kanetkar Yashavant 
+            url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
 In the last chapter, you learnt how to deal with individual strings. But often we are required to deal with a set of strings rather an isolated

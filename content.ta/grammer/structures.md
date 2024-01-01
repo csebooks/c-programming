@@ -1,6 +1,17 @@
 ---
 title: 'Structures'
 weight: 17
+references:
+    videos:
+        - youtube:
+        - youtube:
+    links:
+        - https://www.w3schools.com/c/
+        - https://www.programiz.com/c-programming
+    books:
+        - b1:
+            title: Let Us C By Kanetkar Yashavant 
+            url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
 which mechanic is good enough who knows how to repair only one type of vehicle? None. Same thing is true about C language. It wouldn’t have been so popular had it been able to handle only all **int**s, or all **float**s or all **char**s at a time. In fact, when we handle real world data, we don’t usually deal with little atoms of information by themselves—things like integers, characters and such. Instead, we deal with entities that are collections of things, each thing having its own attributes, just as the entity we call a ‘book’ is a collection of things, such as title, author, call number, publisher, number of pages, date of publication, etc. As you can see, all this data is dissimilar, like author is a string, whereas number of pages is an integer. For dealing with such collections, C provides a data type called ‘structure’. A structure gathers together, different atoms of information that comprise a given entity. And structure is the topic of this chapter.
