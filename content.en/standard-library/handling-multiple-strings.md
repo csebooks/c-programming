@@ -2,9 +2,7 @@
 title: 'Handling Multiple Strings'
 weight: 16
 references:
-    videos:
-        - youtube:
-        - youtube:
+
     links:
         - https://www.w3schools.com/c/
         - https://www.programiz.com/c-programming

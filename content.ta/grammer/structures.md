@@ -2,9 +2,7 @@
 title: 'Structures'
 weight: 17
 references:
-    videos:
-        - youtube:
-        - youtube:
+
     links:
         - https://www.w3schools.com/c/
         - https://www.programiz.com/c-programming

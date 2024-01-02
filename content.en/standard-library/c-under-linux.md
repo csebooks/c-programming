@@ -2,9 +2,7 @@
 title: 'C Under Linux'
 weight: 23
 references:
-    videos:
-        - youtube:
-        - youtube:
+
     links:
         - https://www.w3schools.com/c/
         - https://www.programiz.com/c-programming
