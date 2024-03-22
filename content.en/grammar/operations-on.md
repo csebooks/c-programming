@@ -573,7 +573,7 @@ void showbits ( unsigned char n )
 ```
 All that is being done in this function is, using an AND operator and a variable **andmask**, we are checking the status of individual bits of **n**. If the bit is OFF we print a 0, otherwise we print a 1.
 
-First time through the loop, the variable **andmask** will contain the value 10000000, which is obtained by left-shifting 1, seven places. If the variable **n’**s most significant bit (leftmost bit) is 0, then **k** would contain a value 0, otherwise it would contain a non-zero value. If **k** contains 0, then **printf( )** will print out 0, otherwise it will print out 1.
+First time through the loop, the variable **andmask** will contain the value 10000000, which is obtained by left-shifting 1, seven places. If the variable **n**'s most significant bit (leftmost bit) is 0, then **k** would contain a value 0, otherwise it would contain a non-zero value. If **k** contains 0, then **printf( )** will print out 0, otherwise it will print out 1.
 
 In the second go-around of the loop, the value of **i** is decremented and hence the value of **andmask** changes, which will now be 01000000. This checks whether the next most significant bit is 1 or 0, and prints it out accordingly. The same operation is repeated for all bits in the number.
 
