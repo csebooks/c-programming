@@ -12,9 +12,7 @@ references:
             url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
-In the last chapter we he we have explored arrays with only one dimension. It is also possible for arrays to have two or more
-
-dimensions. This chapter describes how multidimensional arrays can be created and manipulated in C.
+In the last chapter we he we have explored arrays with only one dimension. It is also possible for arrays to have two or more dimensions. This chapter describes how multidimensional arrays can be created and manipulated in C.
 
 **Two-Dimensional Arrays** The two-dimensional array is also called a matrix. Let us see how to create this array and work with it. Here is a sample program that stores roll number and marks obtained by a student side-by-side in a matrix.
 ```c
@@ -42,34 +40,14 @@ Look at the **scanf( )** statement used in the first **for** loop:
 scanf ( "%d %d", &stud[ i ][ 0 ], &stud[ i ][ 1 ] ) ;
 
 In **stud[ i ][ 0 ]** and **stud[ i ][ 1 ]**, the first subscript of the variable **stud**, is row number which changes for every student. The second subscript tells which of the two columns are we talking about—the zeroth column which contains the roll no. or the first column which contains the marks. Remember the counting of rows and columns begin with zero. The complete array arrangement is shown in Figure 14.1.
+```
+          column no. 0 column no. 1
+row no. 0|   1234    |    56     |
+row no. 1|   1212    |    33     |
+row no. 2|   1434    |    80     |
+row no. 3|   1312    |    78     |
 
-### I
-
-1234
-
-1212
-
-1434
-
-1312
-
-56
-
-33
-
-80
-
-78
-
-column no. 0 column no. 1
-
-row no. 0
-
-row no. 1
-
-row no. 2
-
-row no. 3
+```
 
 Figure 14.1
 
@@ -80,13 +58,13 @@ In our sample program, the array elements have been stored row-wise and accessed
 ### Initializing a Two-Dimensional Array
 
 How do we initialize a two-dimensional array? As simple as this...
-```
+```c
 int stud[ 4 ][ 2 ] = { { 1234, 56 }, { 1212, 33 }, { 1434, 80 }, { 1312, 78 } } ;
 
 ```
 
 or even this would work...
-```
+```c
 int stud[ 4 ][ 2 ] = { 1234, 56, 1212, 33, 1434, 80, 1312, 78 } ;
 
 ```
@@ -96,7 +74,7 @@ of course, with a corresponding loss in readability.
 It is important to remember that, while initializing a 2-D array, it is necessary to mention the second (column) dimension, whereas the first dimension (row) is optional.
 
 Thus the declarations,
-```
+```c
 int arr[ 2 ][ 3 ] = { 12, 34, 23, 45, 56, 45 } ; 
 int arr[ ][ 3 ] = { 12, 34, 23, 45, 56, 45 } ;
 
@@ -105,7 +83,7 @@ int arr[ ][ 3 ] = { 12, 34, 23, 45, 56, 45 } ;
 are perfectly acceptable,
 
 whereas,
-```
+```c
 int arr[ 2 ][ ] = { 12, 34, 23, 45, 56, 45 } ; int arr[ ][ ] = { 12, 34, 23, 45, 56, 45 } ;
 
 ```
@@ -135,9 +113,9 @@ s[0][0] s[0][1] s[1][0] s[1][1] s[2][0] s[2][1] s[3][0] s[3][1]
 Figure 14.2
 
 We can easily refer to the marks obtained by the third student using the subscript notation as shown below.
-
+```c
 printf ( "Marks of third student = %d", stud[ 2 ][ 1 ] ) ;
-
+```
 Can we not refer to the same element using pointer notation, the way we did in one-dimensional arrays? Answer is yes. Only the procedure is slightly difficult to understand. So, read on...
 
 ### Pointers and Two-Dimensional Arrays
@@ -145,11 +123,11 @@ Can we not refer to the same element using pointer notation, the way we did in o
 The C language embodies an unusual but powerful capability—it can treat parts of arrays as arrays. More specifically, each row of a two- dimensional array can be thought of as a one-dimensional array. This is a very important fact if we wish to access array elements of a two- dimensional array using pointers.
 
 Thus, the declaration,
-
+```c
 int s[ 5 ][ 2 ] ;
-
-can be thought of as setting up an array of 5 elements, each of which is a one-dimensional array containing 2 integers. We refer to an element of a one-dimensional array using a single subscript. Similarly, if we can imagine **s** to be a one-dimensional array, then we can refer to its zeroth element as **s[ 0 ]**, the next element as **s[ 1 ]** and so on. More specifically, **s[ 0 ]** gives the address of the zeroth one-dimensional array, **s[ 1 ]** gives the address of the first one-dimensional array and so on. This fact can be demonstrated by the following program:
 ```
+can be thought of as setting up an array of 5 elements, each of which is a one-dimensional array containing 2 integers. We refer to an element of a one-dimensional array using a single subscript. Similarly, if we can imagine **s** to be a one-dimensional array, then we can refer to its zeroth element as **s[ 0 ]**, the next element as **s[ 1 ]** and so on. More specifically, **s[ 0 ]** gives the address of the zeroth one-dimensional array, **s[ 1 ]** gives the address of the first one-dimensional array and so on. This fact can be demonstrated by the following program:
+```c
 /* Demo: 2-D array is an array of arrays */ 
 # include <stdio.h> 
 int main( ) 
@@ -169,7 +147,7 @@ Address of 0 th 1-D array = 65508 Address of 1 th 1-D array = 65516 Address of 2
 ```
 
 Let’s figure out how the program works. The compiler knows that **s** is an array containing 4 one-dimensional arrays, each containing 2 integers. Each one-dimensional array occupies 4 bytes (two bytes for each integer). These one-dimensional arrays are placed linearly (zeroth 1-D array followed by first 1-D array, etc.). Hence, each one-dimensional array starts 4 bytes further along than the last one, as can be seen in the memory map of the array shown in Figure 14.3.
-```
+```c
 65508 65520 65524 65528
 
 1234 56 1212 33 1434 80
@@ -189,13 +167,13 @@ Figure 14.3
 We know that the expressions **s[ 0 ]** and **s[ 1 ]** would yield the addresses of the zeroth and first one-dimensional array respectively. From Figure 14.3 these addresses turn out to be 65508 and 65516.
 
 Now, we have been able to reach each one-dimensional array. What remains is to be able to refer to individual elements of a one- dimensional array. Suppose we want to refer to the element **s[ 2 ][ 1 ]** using pointers. We know (from the above program) that **s[ 2 ]** would give the address 65524, the address of the second one-dimensional array. Obviously ( 65524 + 1 ) would give the address 65528. Or **( s[ 2 ] + 1 )** would give the address 65528. And the value at this address can be obtained by using the value at address operator, saying ***( s[ 2 ] + 1 )**. But, we have already studied while learning one-dimensional arrays that **num[ i ]** is same as ***( num + i )**. Similarly, ***( s[ 2 ] + 1 )** is same as, ***( *( s + 2 ) + 1 )**. Thus, all the following expressions refer to the same element:
-```
+```c
 s[ 2 ][ 1 ] * ( s[ 2 ] + 1 ) * ( * ( s + 2 ) + 1 )
 
 ```
 
 Using these concepts, the following program prints out each element of a two-dimensional array using pointer notation:
-```
+```c
 /* Pointer notation to access 2-D array elements */ 
 # include <stdio.h> 
 int main( ) 
@@ -213,7 +191,7 @@ int main( )
 ```
 
 And here is the output...
-```
+```c
 1234 56 1212 33 1434 80 1312 78
 ```
 
@@ -221,7 +199,7 @@ And here is the output...
 ### Pointer to an Array
 
 If we can have a pointer to an integer, a pointer to a float, a pointer to a char, then can we not have a pointer to an array? We certainly can. The following program shows how to build and use it:
-```
+```c
 /* Usage of pointer to an array */ 
 # include <stdio.h> 
 int main( ) 
@@ -243,7 +221,7 @@ int main( )
 ```
 
 And here is the output...
-```
+```c
 1234 56 1212 33 1434 80 1312 78
 ```
 
@@ -255,7 +233,7 @@ But why should we use a pointer to an array to print elements of a 2-D array. Is
 ### Passing 2-D Array to a Function
 
 There are three ways in which we can pass a 2-D array to a function. These are illustrated in the following program:
-```
+```c
 /* Three ways of accessing a 2-D array */ 
 # include <stdio.h> 
 void display ( int *q, int , int ) ; 
@@ -308,7 +286,7 @@ void display ( int *q, int row, int col )
 ```
 
 And here is the output…
-```
+```c
 1 2 3 4 5 6 7 8 9 0 1 6
 
 1 2 3 4 5 6 7 8 9 0 1 6
@@ -318,9 +296,9 @@ And here is the output…
 ```
 
 In the **display( )** function, we have collected the base address of the 2-D array being passed to it in an ordinary **int** pointer. Then, through the two **for** loops using the expression **( q + i * col + j )**, we have reached the appropriate element in the array. Suppose **i** is equal to 2 and **j** is equal to 3, then we wish to reach the element **a[ 2 ][ 3 ]**. Let us see whether the expression **( q + i * col + j )** does give this element or not. Refer Figure 14.4 to understand this.
-```
 
-```
+![alt text](image-2.png)
+
 
 Figure 14.4
 
@@ -329,13 +307,13 @@ The expression *** ( q + i * col + j )** becomes *** ( 65502 + 2 * 4 + 3)**. Thi
 * ( base address + row no. * no. of columns + column no. )
 
 In the **show( )** function, we have defined **q** to be a pointer to an array of 4 integers through the declaration:
-```
+```c
 int(*q)[4] ;
 ```
 To begin with, **q** holds the base address of the zeroth 1-D array, i.e. 65502 (refer Figure 14.4). This address is then assigned to **p**, an **int** pointer, and then using this pointer, all elements of the zeroth 1-D array are accessed. Next time through the loop, when **i** takes a value 1, the expression **q + i** fetches the address of the first 1-D array. This is because, **q** is a pointer to zeroth 1-D array and adding 1 to it would give us the address of the next 1-D array. This address is once again assigned to **p**, and using it all elements of the next 1-D array are accessed.
 
 In the third function **print( )**, the declaration of **q** looks like this:
-```
+```c
 int q[ ][ 4 ] ;
 ```
 
@@ -361,44 +339,8 @@ int main( )
 ```
 
 Figure 14.5 shows the contents and the arrangement of the array of pointers in memory. As you can observe, **arr** contains addresses of isolated **int** variables **i**, **j**, **k** and **l**. The **for** loop in the program picks up the addresses present in **arr** and prints the values present at these addresses.
-```
-31
 
-i
-
-65514
-
-5
-
-j
-
-65510
-
-19
-
-k
-
-65506
-
-71
-
-l
-
-65502
-
-65514
-
-arr[0]
-
-65518
-
-65510 65506 65502
-
-65522 65526 65530
-
-arr[1] arr[2] arr[3]
-
-```
+![alt text](image-1.png)
 
 Figure 14.5
 
@@ -417,59 +359,25 @@ int main( )
 I would leave it for you to figure out the output of this program.
 
 **Three-Dimensional Array** We aren’t going to show a programming example that uses a three- dimensional array. This is because, in practice, one rarely uses this array. However, an example of initializing a three-dimensional array will consolidate your understanding of subscripts.
-```
+```c
 
 int arr[ 3 ][ 4 ][ 2 ] = { { { 2, 4 }, { 7, 8 }, { 3, 4 }, { 5, 6 } }, { { 7, 6 }, { 3, 4 }, { 5, 3 }, { 2, 3 } }, { { 8, 9 }, { 7, 2 }, { 3, 4 }, { 5, 1 }, } } ;
 ```
 
-A 3-D array can be thought of as an array of arrays of arrays. The outer array has three elements, each of which is a 2-D array of four 1-D arrays, each of which contains two integers. In other words, a 1-D array of two elements is constructed first. Then four such 1-D arrays are placed one below the other to give a 2-D array containing four rows. Then, three such 2-D arrays are placed one behind the other to yield a 3-D array containing three 2-D arrays. In the array declaration, note how the
+A 3-D array can be thought of as an array of arrays of arrays. The outer array has three elements, each of which is a 2-D array of four 1-D arrays, each of which contains two integers. In other words, a 1-D array of two elements is constructed first. Then four such 1-D arrays are placed one below the other to give a 2-D array containing four rows. Then, three such 2-D arrays are placed one behind the other to yield a 3-D array containing three 2-D arrays. In the array declaration, note how the commas have been given. Figure 14.6 would possibly help you in visualizing the situation better.
 
-commas have been given. Figure 14.6 would possibly help you in visualizing the situation better.
-```
-8 9
+![alt text](image.png)
 
-7 2
-
-3 4
-
-5 1
-
-7 6
-
-4
-
-3
-
-3
-
-0th 2-D Array
-
-1st 2-D Array
-
-2nd 2-D Array
-
-2 4
-
-7 8
-
-3 4
-
-5 6
-```
 Figure 14.6
 
 Again remember that the arrangement shown above is only conceptually true. In memory, the same array elements are stored linearly as shown in Figure 14.7.
-```
-65478 65510 65542
 
-0th 2-D Array 1st 2-D Array 2nd 2-D Array
+![alt text](image-3.png)
 
-2 4 7 8 3 4 5 6 7 6 3 4 5 3 2 3 8 9 7 2 3 4 5 1
-```
 Figure 14.7
 
 How would you refer to the array element 1 in the above array? The first subscript should be [ 2 ], since the element is in third two-dimensional array; the second subscript should be [ 3 ] since the element is in fourth row of the two-dimensional array; and the third subscript should be [ 1 ] since the element is in second position in the one-dimensional array. We can, therefore, say that the element 1 can be referred as **arr[ 2 ][ 3 ][ 1 ]**. It may be noted here that the counting of array elements even for a 3-D array begins with zero. Can we not refer to this element using pointer notation? Of course, yes. For example, the following two expressions refer to the same element in the 3-D array:
-```
+```c
 arr[ 2 ][ 3 ][ 1 ] *( *( *( arr + 2 ) + 3 ) + 1 )
 
 ```
@@ -522,7 +430,7 @@ int main( )
 ```
 
 **[B]** Point out the errors, if any, in the following programs:
-```
+```c
  # include <stdio.h> 
  int main( ) 
  { 
@@ -550,7 +458,7 @@ int main( )
 - Write a program to obtain transpose of a 4 x 4 matrix. The transpose of a matrix is obtained by exchanging the elements of each row with the elements of the corresponding column.
 
 - Very often in fairs we come across a puzzle that contains 15 numbered square pieces mounted on a frame. These pieces can be moved horizontally or vertically. A possible arrangement of these pieces is shown in Figure 14.8:
-```
+```c
 1 4 15 7
 
 8 10 2 11
@@ -599,7 +507,7 @@ int getkey( )
 }
 ```
 - Match the following with reference to the program segment given below:
-```
+```c
 int i, j, = 25; 
 int *pi, *pj = & j; ……. ……. /* more lines of program */ ……. 
 *pj = j + 5; 
@@ -623,7 +531,7 @@ Each integer quantity occupies 2 bytes of memory. The value assigned to **i** be
 k. FAO l. F9D
 
 - Match the following with reference to the following program segment:
-```
+```c
 int x[ 3 ][ 5 ] = { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } }, *n = &x ;
 
 1. *( *( x + 2 ) + 1) a. 9 
@@ -640,7 +548,7 @@ int x[ 3 ][ 5 ] = { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 
 k. 5 l. 10 m. 6
 
 - Match the following with reference to the following program segment:
-```
+```c
 unsigned int arr[ 3 ][ 3 ] = { 2, 4, 6, 9, 1, 10, 16, 64, 5 } ; 
 1. **arr a. 64 
 2. **arr < *( *arr + 2 ) b. 18 
