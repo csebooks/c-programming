@@ -12,12 +12,12 @@ references:
             url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
-which feature of C do beginners find most difficult to understand? The answer is easy: pointers. Other languages have pointers but few use them so frequently as C does. And why not? It is C’s clever use of pointers that makes it the excellent language it is. This chapter is devoted to pointers and their usage in function calls. Let us begin with the function calls.
+Which feature of C do beginners find most difficult to understand? The answer is easy: pointers. Other languages have pointers but few use them so frequently as C does. And why not? It is C’s clever use of pointers that makes it the excellent language it is. This chapter is devoted to pointers and their usage in function calls. Let us begin with the function calls.
 
-## Call by Value and Call by Reference
+### Call by Value and Call by Reference
  By now, we are well familiar with how to call functions. But, if you observe carefully, whenever we called a function and passed something to it we have always passed the ‘values’ of variables to the called function. Such function calls are called ‘calls by value’. By this what we mean is, on calling a function, we are passing values of variables to it. The examples of call by value are shown below:
 
-```
+```c
 sum = calsum (*a, b, c); 
 f = factr (a);
 ```
@@ -30,7 +30,7 @@ The difficulty beginners have with pointers has much to do with C’s pointer te
 It is hard to get a grip on pointers just by listening to programmer’s jargon. In our discussion of C pointers, therefore, we will try to avoid this difficulty by explaining pointers in terms of programming concepts we already understand. The first thing we want to do is to explain the rationale of C’s pointer notation.
 
 **Pointer Notation** Consider the declaration,
-```
+```c
 int i = 3;
 ```
 This declaration tells the C compiler to:
@@ -108,7 +108,7 @@ This declaration tells the compiler that **j** will be used to store the address
 ```
 **int *j;
 ```
-Let us go by the meaning of *****. It stands for ‘value at address’. Thus, **int *j** would mean, the value at the address contained in **j** is an **int**.
+Let us go by the meaning of ***** . It stands for ‘value at address’. Thus, **int *j** would mean, the value at the address contained in **j** is an **int**.
 
 Here is a program that demonstrates the relationships we have been discussing.
 ```c
@@ -143,7 +143,7 @@ Value of i = 3
 Work through the above program carefully, taking help of the memory locations of **i** and **j** shown earlier. This program summarizes everything that we have discussed so far. If you don’t understand the program’s output, or the meanings of **&i**, **&j**, ***j** and ***(&i)**, re-read the last few pages. Everything we say about pointers from here onwards will depend on your understanding these expressions thoroughly.
 
 Look at the following declarations:
-```
+```c
 int *alpha; char *ch; float *s;
 ```
 
@@ -151,9 +151,7 @@ Here, **alpha, ch** and **s** are declared as pointer variables, i.e., variables
 
 The declaration **float *s** does not mean that **s** is going to contain a floating-point value. What it means is, **s** is going to contain the address of a floating-point value. Similarly, **char *ch** means that **ch** is going to contain the address of a char value. Or in other words, the value at address stored in **ch** is going to be a **char**.
 
-The concept of pointers can be further extended. Pointer, we know is a variable that contains address of another variable. Now this variable
-
-itself might be another pointer. Thus, we now have a pointer that contains another pointer’s address. The following example should make this point clear:
+The concept of pointers can be further extended. Pointer, we know is a variable that contains address of another variable. Now this variable itself might be another pointer. Thus, we now have a pointer that contains another pointer’s address. The following example should make this point clear:
 ```c
 #include <stdio.h>
 
@@ -210,9 +208,7 @@ Here, **i** is an ordinary **int**, **j** is a pointer to an **int** (often call
 
 - sending the addresses of the arguments
 
-In the first method, the ‘value’ of each of the actual arguments in the calling function is copied into corresponding formal arguments of the
-
-called function. With this method, the changes made to the formal arguments in the called function have no effect on the values of actual arguments in the calling function. The following program illustrates the ‘Call by Value’:
+In the first method, the ‘value’ of each of the actual arguments in the calling function is copied into corresponding formal arguments of the called function. With this method, the changes made to the formal arguments in the called function have no effect on the values of actual arguments in the calling function. The following program illustrates the ‘Call by Value’:
 ```c
 #include <stdio.h>
 void swapv(int x, int y);
@@ -373,7 +369,7 @@ int main()
 ```
 **B** Point out the errors, if any, in the following programs:
 
-```
+```c
  #include <stdio.h>
  void pass (int, int);
  int main()
