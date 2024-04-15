@@ -5,6 +5,4 @@
 hugo server --themesDir ../
 ```
 
-
-Changes Made
-
+vj changed
