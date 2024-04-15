@@ -4,3 +4,7 @@
 ```sh
 hugo server --themesDir ../
 ```
+
+
+Changes Made
+
