@@ -4,5 +4,3 @@
 ```sh
 hugo server --themesDir ../
 ```
-
-vj changed
