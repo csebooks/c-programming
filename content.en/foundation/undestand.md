@@ -21,29 +21,22 @@ Once you have written the program you need to type it and instruct the machine t
 
 There are several IDEs available in the market targeted towards different operating systems and microprocessors. Details of which IDE to use, how to procure, install and use it are given in Appendix A. Please go through this appendix and install the right IDE on your machine before you try rest of the programs in this book.
 
-{{< diagram "Exucution of C program" "w-75" >}}
-```goat
-     
-  ┌─────────────────┐ 
-  │source code in c │  Preprocessing
-  └────────┬────────┘ 
-┌──────────▽─────────┐
-|Expanded Source code|  Compiling
-└──────────┬─────────┘
-    ┌──────▽───────┐    
-    │Assembly code │ Assembling    
-    └──────┬───────┘   
-    ┌──────▽─────┐    
-    │Object code │ Assembling    
-    └──────┬─────┘    
-    ┌──────▽────────┐      
-    │Exucutable file│ Linking     
-    └───────────────┘  
 
+{{< mermaid >}}
+stateDiagram-v2
+    state "Source code in C : Preprocessing" as Source
+    state "Expanded Source code : Compiling" as Expanded
+    state "Assembly code : Assembling" as Assembly
+    state "Object code : Assembling" as Object
+    state "Executable file : Linking" as Executable
 
-```
-{{< /diagram >}}
+    [*] --> Source 
+    Source --> Expanded 
+    Expanded --> Assembly
+    Assembly --> Object
+    Object --> Executable 
 
+{{< /mermaid >}}
 
 # Receiving Input
 In the program discussed above we assumed the values of **p**, **n** and **r** to be 1000, 3 and 8.5. Every time we run the program we would get the same value for simple interest. If we want to calculate simple interest for some other set of values then we are required to make the relevant changes in the program, and again compile and execute it. Thus the program is not general enough to calculate simple interest for any set of values without being required to make a change in the program. Moreover, if you distribute the EXE file of this program to somebody he would not even be able to make changes in the program. Hence it is a good practice to create a program that is general enough to work for any set of values.

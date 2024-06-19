@@ -29,7 +29,7 @@ An opinion that is often heard today is C has been already superseded by languag
 
 I seriously beg to differ with this opinion. There are several reasons for this. These are as follows:
 
-![Realworld Applications of C](applications-of-c.png)
+![Realworld Applications of C](applications-of-c.png "float-end w-25")
 
 
 - C++, C# or Java make use of a principle called Object Oriented Programming (OOP) to organize the program. This organizing principle has lots of advantages to offer. But even while using this organizing principle you would still need a good hold over the language elements of C and the basic programming skills. So it makes more sense to first learn C and then migrate to C++, C# and Java. Though this two-step learning process may take more time, but at the end of it you will definitely find it worth the trouble.
@@ -46,26 +46,22 @@ Communicating with a computer involves speaking the language the computer unders
 
 Learning C is similar and easier. Instead of straight-away learning how to write programs, we must first know what alphabets, numbers and special symbols are used in C, then how using them, constants, variables and keywords are constructed, and finally, how are these combined to form an instruction. A group of instructions would be combined later on to form a program. This is illustrated in the Figure 1.1.
 
+ 
 
-{{< diagram "Steps in learning C Language" "w-50" >}}
-```goat
-  ┌─────────────────┐ 
-  │Alphabets,Digits,│ 
-  │Special symbols  │ 
-  └────────┬────────┘ 
-┌──────────▽─────────┐
-│Constants,Variables,│
-│Keywords            │
-└──────────┬─────────┘
-    ┌──────▽─────┐    
-    │Instructions│    
-    └──────┬─────┘    
-       ┌───▽───┐      
-       │Program│      
-       └───────┘      
+{{< mermaid >}}
+stateDiagram-v2
+    state "Alphabets, Digits, Special symbols" as A
+    state "Constants, Variables, Keywords" as B
+    state "Instructions" as C
+    state "Program" as D
 
-```
-{{< /diagram >}}
+    A --> B
+    B --> C
+    C --> D
+    
+   
+{{< /mermaid >}}
+
 
 ## The C Character Set
 
@@ -94,29 +90,32 @@ Now that we understand the constants and the variables, let us see what differen
 
 C constants can be divided into two major categories:
 
-{{< diagram "Types of C Constants" >}}
-```goat
-                                          +-------------+                                                          
-                             +----------- |  Constants  |-------------+                                            
-                             |            +-------------+             |                                            
-                             |                                        |                                            
-                      +-------------+                          +-------------+                                     
-                      |  Primary    |                          |  Secondary  |                                     
-                      +-------------+                          +-------------+           
-                             |                                        |
-                             |                                        |                                            
-                             |                                        |                                            
-                             |                                        |                                            
-                      +-------------+                           +-------------+                                    
-                      |  Integer    |                           | Array       |                                    
-                      |  Charactor  |                           | Pointer     |                                    
-                      |  Real       |                           | Structure   |                                    
-                      +-------------+                           | Union,      |                                    
-                                                                | Enum etc    |                                    
-                                                                +-------------+                                   -
-                                                                                    
-```
-{{< /diagram >}}
+{{< mermaid >}}
+stateDiagram-v2
+    state "Constants" as A
+    state "Primary" as B
+    state "Secondary" as C
+    
+    A --> B
+    A --> C
+    
+
+    note right of B
+        - Integer
+        - Charactor
+        - Real
+    end note
+
+    note right of C
+    - Array
+    - Pointer
+    - Structure
+    - Union
+    - Enum etc
+    end note
+
+{{< /mermaid >}}
+
 
 At this stage, we would restrict our discussion to only Primary constants, namely, Integer, Real and Character constants. Let us see the details of each of these constants. For constructing these different types of constants, certain rules have been laid down. These rules are as under:
 
@@ -131,7 +130,8 @@ At this stage, we would restrict our discussion to only Primary constants, namel
 Truly speaking, the range of an Integer constant depends upon the compiler. For compilers like Visual Studio, gcc, it is -2147483648 to +214748364, whereas for compilers like Turbo C or Turbo C++ the range is -32768 to +32767.
 
 ```c
-Ex:  426
+Ex: 
+426
 +782
 -8000
 -7605
@@ -149,7 +149,8 @@ Following rules must be observed while constructing real constants expressed in 
 - No commas or blanks are allowed within a real constant.
 
 ```c
-Ex.:  +325.34
+Ex.:
++325.34
 426.0 
 -32.76
 -48.5792
@@ -177,7 +178,8 @@ Ex:
 - Both the inverted commas should point to the left. For example, ’A’ is a valid character constant whereas ‘A’ is not.
 
 ```c
-Ex.:  'A'
+Ex.:
+'A'
 'I'
 '5'
 '='
@@ -193,7 +195,8 @@ A particular type of variable can hold only the same type of constant. For examp
 - No special symbol other than an underscore (as in **gross_sal**) can be used in a variable name.
 
 ```c
-Ex.:  si_int 
+Ex.: 
+si_int 
 pop_e_89
 ```
 Since, the maximum allowable length of a variable name is 31 characters, an enormous number of variable names can be constructed using the above-mentioned rules. It is a good practice to exploit this abundant choice in naming variables by using meaningful variable names.
@@ -203,7 +206,8 @@ Thus, if we want to calculate simple interest, it is always advisable to constru
 The rules for creating variable names remain same for all the types of primary and secondary variables. Naturally, the question follows... how is C able to differentiate between these variables? This is a rather simple matter. C compiler is able to distinguish between the variable names by making it compulsory for you to declare the type of any variable name that you wish to use in a program. This type declaration is done at the beginning of the program. Examples of type declaration statements are given below.
 
 ```c
-Ex.:  int si, m_hra;
+Ex.: 
+int si, m_hra;
 float bassal;
 char code ;
 ```

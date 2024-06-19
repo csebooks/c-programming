@@ -77,7 +77,8 @@ statement, after the statement or within the statement as shown below.
 - The normal language rules do not apply to text written within **/* .. */**. Thus we can type this text in small case, capital or a combination. This is because the comments are solely given for the understanding of the programmer or the fellow programmers and are completely ignored by the compiler.
 - Comments cannot be nested. This means one comment cannot be written inside another comment. For example,
 ```c
-/* Cal of SI /* Author: gekay date: 25/06/2016 */*/
+/* Cal of SI /* Author: gekay date: 25/06/2016 */ */
+
 ```
 
 is invalid.
@@ -127,9 +128,8 @@ C does not contain any instruction to display output on the screen. All output t
 ```c
 printf ( "<format string>", <list of variables> ) ;
 
-<format string> can contain,
 ```
-**%f** for printing real values **%d** for printing integer values **%c** for printing character values
+<format string> can contain, **%f** for printing real values **%d** for printing integer values **%c** for printing character values
 
 In addition to format specifiers like **%f**, **%d** and **%c**, the format string may also contain any other characters. These characters are printed as they are when **printf( )** is executed.
 - Given below are some more examples of usage of **printf( )** function:
@@ -148,6 +148,6 @@ What is ‘\\n’ doing in this statement? It is called newline and it takes the
 can say is ‘\\n’ comes in handy when we want to format the output properly on separate lines.
 - **printf(** **)** can not only print values of variables, it can also print the result of an expression. An expression is nothing but a valid combination of constants, variables and operators. Thus, 3, 3 + 2, c and a + b * c – d all are valid expressions. The results of these expressions can be printed as shown below.
 ```c
-printf ( "%d %d %d %d", 3, 3 + 2, c, a + b * c – d ) ;
+printf ( "%d %d %d %d", 3, 3 + 2, c, a + b * c - d ) ;
 ```
 Note that **3** and **c** also represent valid expressions.
