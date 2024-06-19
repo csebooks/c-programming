@@ -1,6 +1,6 @@
 ---
 title: 'Miscellaneous'
-weight: 22
+weight: 7
 references:
 
     links:

@@ -1,6 +1,6 @@
 ---
 title: 'Arrays'
-weight: 13
+weight: 11
 references:
 
     links:
@@ -11,6 +11,8 @@ references:
             title: Let Us C By Kanetkar Yashavant 
             url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
+
+
 
 The C language provides a capability that enables the user to design a set of similar data types, called array. This chapter describes how arrays can be created and manipulated in C.
 
@@ -139,6 +141,8 @@ int arr[8];
 What happens in memory when we make this declaration? 32 bytes get immediately reserved in memory, 4 bytes each for the 8 integers(under TC/TC++ the array would occupy 16 bytes as each integer would occupy 2 bytes). And since the array is not being initialized, all eight values present in it would be garbage values. This so happens because the storage class of this array is assumed to be **auto**. If the storage class is declared to be **static**, then all the array elements would have a default
 
 initial value as zero. Whatever be the initial values, all the array elements would always be present in contiguous memory locations. This arrangement of array elements in memory is shown in Figure 13.1.
+
+![alt text](image-4.png)
 
 **Figure 13.1**
 
@@ -389,23 +393,41 @@ address = 65532
 Note that the array elements are stored in contiguous memory locations, each element occupying 2 bytes, since it is an integer array. When you run this program, you may get different addresses, but what is certain is that each subsequent address would be 4 bytes(2 bytes in Turbo C/C++) greater than its immediate predecessor.
 
 Our next two programs show ways in which we can access the elements of this array.
-
-#include <stdio.h> int main() { int num[] = { 24, 34, 12, 44, 56, 17 }; int i; for(i = 0; i <= 5; i++) { printf("address = %u", &num[i]); printf("element = %d\n", num[i]); } return 0; }
-
+```c
+#include <stdio.h> int main() 
+{ int num[] = { 24, 34, 12, 44, 56, 17 }; 
+int i; 
+for(i = 0; i <= 5; i++) 
+{ 
+    printf("address = %u", &num[i]); 
+    printf("element = %d\n", num[i]); 
+    } return 0; 
+    }
+```
 The output of this program would be:
-
+```c
 address = 65512 element = 24 address = 65516 element = 34 address = 65520 element = 12 address = 65524 element = 44 address = 65528 element = 56 address = 65532 element = 17
-
+```
 This method of accessing array elements by using subscripted variables is already known to us. This method has, in fact, been given here for easy comparison with the next method, which accesses the array elements using pointers.
 
-#include <stdio.h> int main() { int num[] = { 24, 34, 12, 44, 56, 17 }; int i, *j;
+```c
+#include <stdio.h> int main() 
+{ int num[] = { 24, 34, 12, 44, 56, 17 }; 
+int i, *j;
 
-j = &num[0]; /* assign address of zeroth element */ for(i = 0; i <= 5; i++) { printf("address = %u", j); printf("element = %d\n", *j); j++; /* increment pointer to point to next location */ } return 0; }
-
+j = &num[0]; /* assign address of zeroth element */ 
+for(i = 0; i <= 5; i++) 
+{ 
+    printf("address = %u", j); 
+    printf("element = %d\n", *j); 
+    j++; /* increment pointer to point to next location */ } 
+    return 0; 
+    }
+```
 The output of this program would be:
-
+```c
 address = 65512 element = 24 address = 65516 element = 34 address = 65520 element = 12 address = 65524 element = 44 address = 65528 element = 56 address = 65532 element = 17
-
+```
 In this program, to begin with, we have collected the base address of the array(address of the 0th element) in the variable **j** using the statement,
 
 j = &num[0]; /* assigns address 65512 to j */
@@ -425,9 +447,22 @@ Instead, it would be easier to access the elements using a subscript if there is
 ### Passing an Entire Array to a Function
 
 In the previous section, we saw two programs—one in which we passed individual elements of an array to a function, and another in which we passed addresses of individual elements to a function. Let us now see how to pass an entire array to a function rather than its individual elements. Consider the following example:
-
-/* Demonstration of passing an entire array to a function */ #include <stdio.h> void display(int *, int); int main() { int num[] = { 24, 34, 12, 44, 56, 17 }; dislpay(&num[0], 6); return 0; } void display(int *j, int n) { int i; for(i = 0; i <= n - 1; i++) { printf("element = %d\n", *j); j++; /* increment pointer to point to next element */ } }
-
+```c
+/* Demonstration of passing an entire array to a function */ #include <stdio.h> 
+void display(int *, int); 
+int main() 
+{ 
+    int num[] = { 24, 34, 12, 44, 56, 17 }; 
+    dislpay(&num[0], 6); 
+    return 0; 
+    } 
+    void display(int *j, int n) 
+    { 
+        int i; for(i = 0; i <= n - 1; i++) 
+        { 
+            printf("element = %d\n", *j); j++; /* increment pointer to point to next element */ } 
+            }
+```
 Here, the **display()** function is used to print out the array elements. Note that the address of the zeroth element is being passed to the **display()** function. The **for** loop is same as the one used in the earlier program to access the array elements using pointers. Thus, just passing the address of the zeroth element of the array to a function is as good as passing the entire array to the function. It is also necessary to pass the total number of elements in the array, otherwise the **display()** function
 
 would not know when to terminate the **for** loop. Note that the address of the zeroth element(many a time called the base address) can also be passed by just passing the name of the array. Thus, the following two function calls are same:
@@ -455,13 +490,22 @@ Similarly, by saying ***(num + 1)**, we can refer the first element of the array
 num[i] *(num + i) *(i + num) i[num]
 
 And here is a program to prove my point.
-
-/* Accessing array elements in different ways */ #include <stdio.h> int main() { int num[] = { 24, 34, 12, 44, 56, 17 }; int i; for(i = 0; i <= 5; i++) { printf("address = %u", &num[i]); printf("element = %d %d", num[i], *(num + i)); printf("%d %d\n", *(i + num), i[num]); } return 0; }
-
+```c
+/* Accessing array elements in different ways */ #include <stdio.h> int main() 
+{ 
+    int num[] = { 24, 34, 12, 44, 56, 17 }; 
+    int i; for(i = 0; i <= 5; i++) 
+    { 
+        printf("address = %u", &num[i]); 
+        printf("element = %d %d", num[i], *(num + i)); printf("%d %d\n", *(i + num), i[num]); 
+        } 
+        return 0; 
+        }
+```
 The output of this program would be:
-
+```c
 address = 65512 element = 24 24 24 24 address = 65516 element = 34 34 34 34 address = 65520 element = 12 12 12 12 address = 65524 element = 44 44 44 44 address = 65528 element = 56 56 56 56 address = 65532 element = 17 17 17 17
-
+```
 ### Summary
 
 - An array is similar to an ordinary variable except that it can store multiple elements of similar type.
@@ -479,15 +523,15 @@ address = 65512 element = 24 24 24 24 address = 65516 element = 34 34 34 34 addr
 ### Exercise
 
 **[A]** What will be the output of the following programs:
-
+```c
 - #include <stdio.h> int main() { int num[26], temp; num[0] = 100; num[25] = 200; temp = num[25]; num[25] = num[0]; num[0] = temp; printf("%d %d\n", num[0], num[25]); return 0; }
 
 - #include <stdio.h> int main() { int array[26], i; for(i = 0; i <= 25; i++) { array[i] = 'A' + i; printf("%d %c\n", array[i], array[i]); } return 0; }
 
 - #include <stdio.h> int main() { int sub[50], i; for(i = 0; i <= 48; i++); { sub[i] = i; printf("%d\n", sub[i]); } return 0; }
-
+```
 **[B]** Point out the errors, if any, in the following program segments:
-
+```c
 - /* mixed has some char and some int values */
 
 #include <stdio.h> int char mixed[100]; int main() { int a[10], i; for(i = 1; i <= 10; i++) { scanf("%d", a[i]); printf("%d\n", a[i]); } return 0; }
@@ -495,7 +539,7 @@ address = 65512 element = 24 24 24 24 address = 65516 element = 34 34 34 34 addr
 - #include <stdio.h> int main() { int size; scanf("%d", &size); int arr[size]; for(i = 1; i <= size; i++) { scanf("%d", &arr[i]); printf("%d\n", arr[i]); } return 0; }
 
 - #include <stdio.h> int main() { int i, a = 2, b = 3; int arr[2 + 3]; for(i = 0; i < a+b; i++) { scanf("%d", &arr[i]); printf("%d\n", arr[i]); } return 0; }
-
+```
 **[C]** Answer the following:
 
 - An array is a collection of:
@@ -530,477 +574,6 @@ in the array.
 
 - Implement the Selection Sort, Bubble Sort and Insertion sort algorithms on a set of 25 numbers.(Refer Figures 13.4(a), 13.4(b), 13.4(c) for the logic of the algorithms)
 
-- Selection sort
-
-- Bubble Sort
-
-- Insertion Sort
-
-0
-
-1
-
-2
-
-3
-
-4
-
-Iteration 1 Iteration 2
-
-Iteration 3 Iteration 4
-
-### Selection Sort
-
-44
-
-33
-
-55
-
-22
-
-11
-
-33
-
-44
-
-55
-
-22
-
-11
-
-33
-
-44
-
-55
-
-22
-
-11
-
-22
-
-44
-
-55
-
-33
-
-11
-
-0
-
-1
-
-2
-
-3
-
-4
-
-11
-
-44
-
-55
-
-33
-
-22
-
-11
-
-44
-
-55
-
-33
-
-22
-
-11
-
-33
-
-55
-
-44
-
-22
-
-0
-
-1
-
-2
-
-3
-
-4
-
-0
-
-1
-
-2
-
-3
-
-4
-
-11
-
-22
-
-55
-
-44
-
-33
-
-11
-
-22
-
-44
-
-55
-
-33
-
-0
-
-1
-
-2
-
-3
-
-4
-
-0
-
-1
-
-2
-
-3
-
-4
-
-11
-
-22
-
-33
-
-55
-
-44
-
-11
-
-22
-
-33
-
-44
-
-55
-
-0
-
-1
-
-2
-
-3
-
-4
-
-0
-
-1
-
-2
-
-3
-
-4
-
-Result
-
-Figure 13.4(a)
-
-0
-
-1
-
-2
-
-3
-
-4
-
-Iteration 1 Iteration 2
-
-Iteration 3 Iteration 4
-
-### Bubble Sort
-
-44
-
-33
-
-55
-
-22
-
-11
-
-33
-
-44
-
-55
-
-22
-
-11
-
-33
-
-44
-
-55
-
-22
-
-11
-
-33
-
-44
-
-22
-
-55
-
-11
-
-0
-
-1
-
-2
-
-3
-
-4
-
-33
-
-44
-
-22
-
-11
-
-55
-
-33
-
-44
-
-22
-
-11
-
-55
-
-33
-
-22
-
-44
-
-11
-
-55
-
-0
-
-1
-
-2
-
-3
-
-4
-
-0
-
-1
-
-2
-
-3
-
-4
-
-33
-
-22
-
-11
-
-44
-
-55
-
-22
-
-33
-
-11
-
-44
-
-55
-
-0
-
-1
-
-2
-
-3
-
-4
-
-0
-
-1
-
-2
-
-3
-
-4
-
-22
-
-11
-
-33
-
-44
-
-55
-
-11
-
-22
-
-33
-
-44
-
-55
-
-0
-
-1
-
-2
-
-3
-
-4
-
-0
-
-1
-
-2
-
-3
-
-4
-
-Result
-
-Figure 13.4(b)
-
-Iteration 1 Iteration 2 Iteration 3 Iteration 4
-
-### Insertion Sort
-
-Result
-
-0
-
-1
-
-2
-
-3
-
-4
-
-44
-
-33
-
-55
-
-22
-
-11
-
-33
-
-44
-
-55
-
-22
-
-11
-
-33
-
-44
-
-55
-
-22
-
-11
-
-22
-
-33
-
-44
-
-55
-
-11
-
-11
-
-22
-
-33
-
-44
-
-55
 
 Figure 13.4(c)
 

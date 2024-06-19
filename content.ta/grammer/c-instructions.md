@@ -1,6 +1,6 @@
 ---
 title: "C Instructions"
-weight: 2
+weight: 1
 references:
     videos:
         - youtube:ixaX9hbMQ-g
@@ -14,7 +14,7 @@ A program is nothing but a set of instructions. The program behaves as per the i
 
 There are basically three types of instructions in C:
 
-- **Type Declaration Instruction** This instruction is used to declare the type of variables used in a C program.
+- **Type Declaration Instruction** This instruction is used to declare the type of variables used in a C program. 
 - **Arithmetic Instruction** This instruction is used to perform arithmetic operations on constants and variables.
 - **Control Instruction** This instruction is used to control the sequence of execution of various statements in a C program.
 

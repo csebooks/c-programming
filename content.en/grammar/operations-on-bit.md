@@ -1,6 +1,6 @@
 ---
 title: 'Operations On Bits'
-weight: 21
+weight: 14
 references:
 
     links:

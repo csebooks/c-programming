@@ -1,6 +1,6 @@
 ---
 title: "More Complex Decision Making"
-weight: 4
+weight: 3
 references:
 
     links:

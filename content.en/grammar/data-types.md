@@ -1,6 +1,6 @@
 ---
 title: 'Data Types'
-weight: 11
+weight: 10
 references:
 
     links:

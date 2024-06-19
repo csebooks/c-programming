@@ -1,6 +1,6 @@
 ---
 title: 'Structures'
-weight: 17
+weight: 13
 references:
 
     links:
@@ -12,15 +12,13 @@ references:
             url: https://www.google.co.in/books/edition/Let_Us_C/HrlIEAAAQBAJ?hl=en&gbpv=1
 ---
 
-which mechanic is good enough who knows how to repair only one type of vehicle? None. Same thing is true about C language. It wouldn’t have been so popular had it been able to handle only all **int**s, or all **float**s or all **char**s at a time. In fact, when we handle real world data, we don’t usually deal with little atoms of information by themselves—things like integers, characters and such. Instead, we deal with entities that are collections of things, each thing having its own attributes, just as the entity we call a ‘book’ is a collection of things, such as title, author, call number, publisher, number of pages, date of publication, etc. As you can see, all this data is dissimilar, like author is a string, whereas number of pages is an integer. For dealing with such collections, C provides a data type called ‘structure’. A structure gathers together, different atoms of information that comprise a given entity. And structure is the topic of this chapter.
+C language provides arrays and strings to let us handle similar data. But real world data is usually dissimilar. For example, a ‘book’ is a collection of items like title, author, publisher, number of pages, date of publication, etc. For dealing with such data C provides a data type called ‘structure’,which is the topic of this chapter.
+
 
 # Why use Structures?
 
-wouldn’t have been so popular had it been able to handle only all **int**s, or all **float**s or all **char**s at a time. In fact, when we handle real world data, we don’t usually deal with little atoms of information by themselves—things like integers, characters and such. Instead, we deal with entities that are collections of things, each thing having its own attributes, just as the entity we call a ‘book’ is a collection of things, such as title, author, call number, publisher, number of pages, date of publication, etc. As you can see, all this data is dissimilar, like author is a string, whereas number of pages is an integer. For dealing with such collections, C provides a data type called ‘structure’. A structure gathers together, different atoms of information that comprise a given entity. And structure is the topic of this chapter.
-
-We have seen earlier how ordinary variables can hold one piece of information and how arrays can hold a number of pieces of information of the same data type. These two data types can handle a great variety of situations. But quite often we deal with entities that are collection of dissimilar data types.
-
-For **example**, suppose you want to store data about a book. You might want to store its name (a string), its price (a float) and number of pages in it (an int). If data about say 3 such books is to be stored, then we can follow two approaches:
+Suppose we wish to store in memory name (a string), price (a float) and number of pages (an int) of 3 books. To do this we can take following
+approaches:
 
 - Construct individual arrays, one for storing names, another for storing prices and still another for storing number of pages.
 
@@ -101,11 +99,11 @@ A 100.000000 354
 C 256.500000 682 
 F 233.700000 512
 ```
-=======
 
 This program demonstrates two fundamental aspects of structures:
 
-- Declaration of a structure (b) Accessing of structure elements
+- Declaration of a structure 
+-  Accessing of structure elements
 
 Let us now look at these concepts one-by-one.
 
@@ -251,6 +249,7 @@ b1.name b1.price b1.pages
 **Figure 17.1**
 
 # Array of Structures 
+
 Our sample program showing usage of structure is rather simple minded. All it does is, it receives values into various structure elements and output these values. But that’s all we intended to do anyway... show how structure types are created, how structure variables are declared and how individual elements of a structure variable are referenced.
 
 In our sample program, to store data of 100 books, we would be required to use 100 different structure variables from **b1** to **b100**, which is definitely not very convenient. A better approach would be to use an array of structures. Following program shows how to use an array of structures:
@@ -306,6 +305,7 @@ This provides space in memory for 100 structures of the type **struct** **book**
 How can we force the formats to be linked? That’s where the **linkfloat( )** function comes in. It forces linking of the floating-point emulator into an application. There is no need to call this function, just define it anywhere in your program.
 
 ## Additional Features of Structures 
+
 Let us now explore the intricacies of structures with a view of programming convenience. We would highlight these intricacies with suitable examples.
 
 - The values of a structure variable can be assigned to another structure variable of the same type using the assignment operator.
@@ -342,9 +342,7 @@ Sanjay 30 5500.500000
 Sanjay 30 5500.500000 
 Sanjay 30 5500.500000
 ```
-Ability to copy the contents of all structure elements of one variable into the corresponding elements of another structure variable is rather surprising, since C does not allow assigning the contents of one array to another just by equating the two. As we saw earlier,
-
-for copying arrays, we have to copy the contents of the array element-by-element.
+Ability to copy the contents of all structure elements of one variable into the corresponding elements of another structure variable is rather surprising, since C does not allow assigning the contents of one array to another just by equating the two. As we saw earlier,for copying arrays, we have to copy the contents of the array element-by-element.
 
 This copying of all structure elements at one go has been possible only because the structure elements are stored in contiguous memory locations. Had this not been so, we would have been required to copy structure variables element by element. And who knows, had this been so, structures would not have become popular at all.
 
@@ -577,7 +575,7 @@ int main( )
 Here, **#pragma pack ( 1 )** lets each structure element to begin on a 1-byte boundary as justified by the **output** of the program given below.
 ```c
 1245044 1245048 1245049
-```c
+```
 # Uses of Structures 
 
 **Where are structures useful?** \

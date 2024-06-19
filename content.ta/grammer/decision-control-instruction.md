@@ -1,6 +1,6 @@
 ---
-title: " Decision Control Instruction"
-weight: 3
+title: "Decision Control Instruction"
+weight: 2
 references:
     videos:
         - youtube:hjoHjnAUs4s

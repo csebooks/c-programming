@@ -1,6 +1,6 @@
 ---
-title: 'Operations On'
-weight: 21
+title: 'Operations On Bits'
+weight: 14
 references:
 
     links:
@@ -14,24 +14,14 @@ references:
 
    
 
-o far we have dealt with characters, integers, floats and their variations. The smallest element in memory on which we are able to
-
-operate as yet is a byte; and we operated on it by making use of the data type **char**. However, we haven’t attempted to look within these data types to see how they are constructed out of individual bits, and how these bits can be manipulated. Being able to operate on a bit-level, can be very important in programming, especially when a program must interact directly with the hardware. This is because, the programming languages are byte-oriented, whereas hardware tends to be bit- oriented. Let us now delve inside the byte and see how it is constructed and how it can be manipulated effectively. So let us take apart the byte... bit-by-bit.
+So far we have dealt with characters, integers, floats and their variations. The smallest element in memory on which we are able to operate as yet is a byte; and we operated on it by making use of the data type **char**. However, we haven’t attempted to look within these data types to see how they are constructed out of individual bits, and how these bits can be manipulated. Being able to operate on a bit-level, can be very important in programming, especially when a program must interact directly with the hardware. This is because, the programming languages are byte-oriented, whereas hardware tends to be bit- oriented. Let us now delve inside the byte and see how it is constructed and how it can be manipulated effectively. 
 
 # Bit Numbering and Conversion 
+
 A bit (short for Binary Digit) is the most basic unit of information. It can take a value 0 or 1. 4 bits together form a nibble, 8 bits form a byte, 16 bits form a word and 32 bits form a double-word. Bits are numbered from zero onwards, increasing from right to left as shown in Figure 21.1.
 
-0123456789101112131415
+C language understands decimal, octal and hexadecimal numbering systems. It doesn’t understand binary numbering system. As against this,hardware understands only binary. Hence while programming a hardware we are often required to convert the binary numbers in to decimal or hexadecimal numbers. Let us see how this conversion can be done. Figure 21.1 shows how binary values 10110110 and 00111100 are converted to decimal numbers.
 
-16-bit Integer
-
-Character
-
-01234567
-
-Figure 21.1
-
-Suppose we wish to store binary values 10110110 and 00111100 in 2 bytes. If we are required to do this through a C program we won't be able to use these bit patterns directly. This is because C language doesn’t understand binary numbering system. So we need to convert these binary numbers into decimal numbers. This conversion is shown in Figure 21.2.
 
 ```
 1 0 1 1 0 1 1 0
@@ -46,9 +36,9 @@ Suppose we wish to store binary values 10110110 and 00111100 in 2 bytes. If we a
 = 4 + 8 + 16 + 32
 = 60
 ```
-Figure 21.2
+Figure 21.1
 
-As you can see from Figure 21.2 the binary to decimal conversion process involves remembering powers of 2. This is alright if the binary number is a 8-bit number, but if it is a 16-bit number then remembering powers like 215, 214, 213, etc., is difficult. A much easier method is to convert binary numbers to hexadecimal numbers. As you might be aware, in hexadecimal numbering system each number is built using a combination of digits 0 to 9 and A to F. Digits A to F are symbols used to represent value 10 to 15. Each hexadecimal digit can be represented using a 4-bit nibble as shown in Figure 21.3.
+As you can see from Figure 21.2 the binary to decimal conversion process involves remembering powers of 2. This is alright if the binary number is a 8-bit number, but if it is a 16-bit number then remembering powers like 215, 214, 213, etc., is difficult. A much easier method is to convert binary numbers to hexadecimal numbers. As you might be aware, in hexadecimal numbering system each number is built using a combination of digits 0 to 9 and A to F. Digits A to F are symbols used to represent value 10 to 15. Each hexadecimal digit can be represented using a 4-bit nibble as shown in Figure 21.2.
 
 **Hex Binary Hex Binary**
 
@@ -59,9 +49,9 @@ As you can see from Figure 21.2 the binary to decimal conversion process involve
 | 2 | 0010 | 6 | 0110 | A | 1010 | E | 1110 |
 | 3 | 0011 | 7 | 0111 | B | 1011 | F | 1111 |
 
-Figure 21.3
+Figure 21.2
 
-Using Figure 21.3, it is very easy to convert binary values into their equivalent hexadecimal values. This is shown in Figure 21.4.
+Using Figure 21.2, it is very easy to convert binary values into their equivalent hexadecimal values. This is shown in Figure 21.4.
 ```
 7 6 5 4 3 2 1 0       7 6 5 4 3 2 1 0
 1 0 1 1 0 1 1 0       0 0 1 1 1 1 0 0  
@@ -69,11 +59,9 @@ Using Figure 21.3, it is very easy to convert binary values into their equivalen
      0xB6                  0x3C
 ```
 
-Figure 21.4
+Figure 21.3
 
 You would agree this is an easier way to represent the binary number than to find its decimal equivalent. In this method, neither multiplication nor addition is needed. In fact, since there are only 16 hex digits, it’s fairly easy to memorize the binary equivalent of each one. Quick now, what’s binary 1100 in hex? That’s right—C. You are already getting the feel of it. With a little practice, it is easy to translate even long numbers into hex. Thus, 1100 0101 0011 1010 binary is C53A hex.
-
-As it happens with many unfamiliar subjects, learning hexadecimal numbers requires a little practice. Try your hand at converting some binary numbers and vice versa. Soon you will be talking hexadecimal as if you had known it all your life.
 
 # Bit Operations 
 Now that we have understood the bit numbering and the binary to hex conversion process it is time to access or manipulate bits. Here are some examples of operations that we may wish to perform on bits:
@@ -82,7 +70,7 @@ Now that we have understood the bit numbering and the binary to hex conversion p
 2. Set bit 5 to 1 
 3. Check whether bit 6 is 1 (on) or 0 (off)
 
-As you can see, in the first two examples we are manipulating (writing) a bit, whereas, in the third example we are accessing (reading) a bit. To be able to access or manipulate individual bits C language provides a powerful set of bit manipulation operators. These are shown in Figure 21.5.
+In (a) and (b) bits are being manipulated (a write operation), whereas, in (c) a bit is being accessed (a read operation). To be able to access or manipulate individual bits, C language provides a powerful set of operators. These are shown in Figure 21.4.
 
 | Operator | Meaning |
 | :---- | :---- |
@@ -93,7 +81,7 @@ As you can see, in the first two examples we are manipulating (writing) a bit, w
 ||| Bitwise OR |
 |^| Bitwise XOR(Exclusive OR) |
 
-Figure 21.5
+Figure 21.4
 
 These operators can operate on **int**s and **char**s but not on **float**s and **double**s. Before we examine each of these operators, let me introduce you to a function called **showbits( )**. Throughout this discussion about bitwise operators, we are going to use this function, but we are not going to discuss the details of this function immediately. The task of **showbits( )** is to display the binary representation of any integer or
 
@@ -192,6 +180,7 @@ void showbits ( unsigned char n )
 }
 ```
 And here is the **output** of the above program...
+
 ```js
 Decimal 0 is same as binary 00000000 
 One’s complement of 0 is 11111111 
@@ -201,13 +190,16 @@ Decimal 2 is same as binary 00000010
 One’s complement of 2 is 11111101
 Decimal 3 is same as binary 00000011 
 One’s complement of 3 is 11111100
-```c
+
+```
+
 # Right Shift Operator 
 The right shift operator is represented by >>. It needs two operands. It shifts each bit in its left operand to the right. The number of places the bits are shifted depends on the number following the operator (i.e., its right operand). Thus, **ch >> 3** would shift all bits in **ch** three places to the right. Similarly, **ch >> 5** would shift all bits 5 places to the right.
 
 If the variable **ch** contains the bit pattern 11010111, then, **ch >> 1** would give 01101011 and **ch >> 2** would give 00110101.
 
 Note that as the bits are shifted to the right, blanks are created on the left. These blanks must be filled somehow. They are always filled with zeros. The following program demonstrates the effect of right shift operator:
+
 ```c
 #include <stdio.h> 
 void showbits ( unsigned char ) ; 
@@ -250,7 +242,8 @@ Decimal 225 is same as binary 11100001
 5225 right shift 5 gives 00000111
 ```
 Note that if the operand is a multiple of 2, then shifting the operand 1 bit to right is same as dividing it by 2 and ignoring the remainder. Thus,
-```
+
+```c
 64 >> 1 gives 32 
 64 >> 2 gives 16 
 128 >> 2 gives 32
@@ -259,11 +252,14 @@ but,
 
 27 >> 1 is 13 
 49 >> 1 is 24 .
-```c
+
+```
+
 ## A Word of Caution
 
 In the expression **a >> b** if **b** is negative the result is unpredictable. If **a** is negative then its left most bit (sign bit) would be 1. On right shifting **a** it would result in extending the sign bit. For example, if **a** contains -1, its binary representation would be 11111111. If we right shift it by 4 then the result would still be 11111111. Similarly, if **a** contains -5, then its binary equivalent would be 11111011. On right shifting it by 1 we would get 11111101, which is equal to -3. Thus on right shifting 11111011 the right-most bit, i.e. 1, would be lost; other bits would be shifted one position to the right and the sign which was negative (1) will be extended, i.e., it would be preserved as 1. The following program, would help you get a clear picture of this:
-```c
+
+ ```c
 #include <stdio.h> 
 void showbits ( unsigned char ) ; 
 int main( ) 
@@ -293,6 +289,7 @@ void showbits ( unsigned char n )
         printf ( "1" ) ; 
     } 
 }
+
 ```
 The **output** of the above program would be...
 ```js
@@ -300,9 +297,12 @@ Decimal -5 is same as binary 11111011
 -5 right shift 1 gives 11111101 
 -5 right shift 2 gives 11111110 
 -5 right shift 3 gives 11111111
-```c
+
+```
+
 # Left Shift Operator 
 The left shift operator (<<) is similar to the right shift operator (>>), the only difference being that the bits are shifted to the left, and for each bit shifted, a 0 is added to the right of the number. The following program should clarify this point:
+
 ```c
 #include <stdio.h> 
 void showbits ( unsigned char ) ; 
@@ -341,7 +341,7 @@ Decimal 225 is same as binary 11100001
 225 left shift 1 gives 11000010 
 225 left shift 2 gives 10000100 
 225 left shift 3 gives 00001000
-```c
+```
 ## Utility of Left Shift Operator
 
 The left shift operator is often used to create a number with a particular bit in it set to 1. For example, we can create a number with its 3rd bit set to 1. The following program shows how this can be achieved:
@@ -356,6 +356,7 @@ int main( )
 }
 ```
 Binary value of 1 is 00000001. On left-shifting this by 3 we get 00001000. Thus we are able to create a value with its 3rd bit set to 1. Such operations are required quite often while writing programs that interact with hardware or while building embedded systems. Hence it is often done using a macro as shown below.
+
 ```c
 #define _BV(x) ( 1 << x ) 
 #include <stdio.h> 
@@ -530,7 +531,7 @@ Let us consider the bit pattern 11000011. If we want to put ON bit number 3, the
 unsigned 
 char num = 0xC3 ; 
 num = num | _BV( 3 ) ;
-```c
+```
 # Bitwise XOR Operator 
 The XOR operator is represented as **^** and is also called an Exclusive OR Operator. The OR operator returns 1, when any one of the two bits or both the bits are 1, whereas XOR returns 1 only if one of the two bits is 1. The Truth Table for the XOR operator is shown in Figure 21.10.
 
@@ -572,7 +573,7 @@ void showbits ( unsigned char n )
 ```
 All that is being done in this function is, using an AND operator and a variable **andmask**, we are checking the status of individual bits of **n**. If the bit is OFF we print a 0, otherwise we print a 1.
 
-First time through the loop, the variable **andmask** will contain the value 10000000, which is obtained by left-shifting 1, seven places. If the variable **n’**s most significant bit (leftmost bit) is 0, then **k** would contain a value 0, otherwise it would contain a non-zero value. If **k** contains 0, then **printf( )** will print out 0, otherwise it will print out 1.
+First time through the loop, the variable **andmask** will contain the value 10000000, which is obtained by left-shifting 1, seven places. If the variable **n**'s most significant bit (leftmost bit) is 0, then **k** would contain a value 0, otherwise it would contain a non-zero value. If **k** contains 0, then **printf( )** will print out 0, otherwise it will print out 1.
 
 In the second go-around of the loop, the value of **i** is decremented and hence the value of **andmask** changes, which will now be 01000000. This checks whether the next most significant bit is 1 or 0, and prints it out accordingly. The same operation is repeated for all bits in the number.
 

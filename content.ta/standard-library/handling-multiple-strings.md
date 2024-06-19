@@ -1,6 +1,6 @@
 ---
 title: 'Handling Multiple Strings'
-weight: 16
+weight: 3
 references:
 
     links:
@@ -297,7 +297,7 @@ Left arrow key : Same year, previous month
 
 If the Escape (Esc) key is hit then the procedure should stop.
 
-Hint: Use the **getkey( )** function discussed in Chapter 14, problem number [C](d).
+Hint: Use the **getkey( )** function discussed in Chapter 14, problem number (C)(d).
 
 - Write a program to delete all vowels from a sentence. Assume that the sentence is not more than 80 characters long.
 

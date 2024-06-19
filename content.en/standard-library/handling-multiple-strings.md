@@ -1,6 +1,6 @@
 ---
 title: 'Handling Multiple Strings'
-weight: 16
+weight: 3
 references:
 
     links:
@@ -50,9 +50,11 @@ int main( )
 And here is the **output** for two sample runs of this program...
 
 ```c
-Enter your name dinesh Sorry, 
-you are a trespasser Enter your name raman Welcome, 
-you can enter the palace
+Enter your name dinesh 
+Sorry, you are a trespasser
+
+Enter your name raman
+Welcome, you can enter the palace
 ```
 
 Notice how the two-dimensional character array has been initialized. The order of the subscripts in the array declaration is important. The first subscript gives the number of names in the array, while the second subscript gives the length of each item in the array.
@@ -297,7 +299,7 @@ Left arrow key : Same year, previous month
 
 If the Escape (Esc) key is hit then the procedure should stop.
 
-Hint: Use the **getkey( )** function discussed in Chapter 14, problem number [C](d).
+Hint: Use the **getkey( )** function discussed in Chapter 14, problem number  (c)(d).
 
 - Write a program to delete all vowels from a sentence. Assume that the sentence is not more than 80 characters long.
 

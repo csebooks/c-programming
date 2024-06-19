@@ -1,6 +1,6 @@
 ---
 title: "C Instructions"
-weight: 2
+weight: 1
 references:
     videos:
         - youtube:ixaX9hbMQ-g
