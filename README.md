@@ -1,4 +1,4 @@
-## C Programing
+## C Programming
 
 ## Dev
 ```sh
