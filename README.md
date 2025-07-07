@@ -1,6 +1,5 @@
 ## C Programming
-
-C Programing Concepts
+C Programing Conce
 
 ## Dev
 ```sh
