@@ -1,5 +1,5 @@
 ## C Programming
-C Programing Conce
+C Programing Material
 
 ## Dev
 ```sh
