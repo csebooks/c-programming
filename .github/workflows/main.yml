@@ -1,15 +1,18 @@
-name: Publish
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Deploy Hugo site to Pages
 
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches: [main]
+    branches: ["main"]
 
 jobs:
-  call-workflow-passing-data:
-    uses: gurukulams/gurukulam/.github/workflows/material-deploy.yml@develop
-    secrets:
-      HOST: ${{ secrets.HOST }}
-      USERNAME: ${{ secrets.USERNAME }}
-      KEY: ${{ secrets.KEY }}
-      TARGET_DIR: ${{ secrets.TARGET_DIR }}
-      QUESTIONS_DIR: ${{ secrets.QUESTIONS_DIR }}
+  call-workflow:
+    # You must add these permissions so the called workflow can deploy
+    permissions:
+      contents: read
+      id-token: write
+      packages: read
+      pages: write      # Required if deploying to GitHub Pages
+    uses: gurukulams/design-system/.github/workflows/material-deploy.yml@main
+    secrets: inherit # If the sub-workflow needs access to secrets

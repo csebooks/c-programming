@@ -3,5 +3,7 @@ C Programing Material
 
 ## Dev
 ```sh
-hugo server --themesDir ../
+git clone https://github.com/gurukulams/design-system ../design-system
+hugo server  --themesDir ../ --disableFastRender
 ```
+

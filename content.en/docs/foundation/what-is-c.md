@@ -48,19 +48,6 @@ Learning C is similar and easier. Instead of straight-away learning how to write
 
  
 
-{{< mermaid >}}
-stateDiagram-v2
-    state "Alphabets, Digits, Special symbols" as A
-    state "Constants, Variables, Keywords" as B
-    state "Instructions" as C
-    state "Program" as D
-
-    A --> B
-    B --> C
-    C --> D
-    
-   
-{{< /mermaid >}}
 
 
 ## The C Character Set
@@ -90,31 +77,6 @@ Now that we understand the constants and the variables, let us see what differen
 
 C constants can be divided into two major categories:
 
-{{< mermaid >}}
-stateDiagram-v2
-    state "Constants" as A
-    state "Primary" as B
-    state "Secondary" as C
-    
-    A --> B
-    A --> C
-    
-
-    note right of B
-        - Integer
-        - Charactor
-        - Real
-    end note
-
-    note right of C
-    - Array
-    - Pointer
-    - Structure
-    - Union
-    - Enum etc
-    end note
-
-{{< /mermaid >}}
 
 
 At this stage, we would restrict our discussion to only Primary constants, namely, Integer, Real and Character constants. Let us see the details of each of these constants. For constructing these different types of constants, certain rules have been laid down. These rules are as under:
